@@ -1,0 +1,28 @@
+{
+  "rssQueries": [
+    {
+      "name": "Crypto funding",
+      "url": "https://news.google.com/rss/search?q=(crypto%20OR%20web3%20OR%20blockchain)%20(project%20OR%20protocol%20OR%20startup)%20(funding%20OR%20raises%20OR%20raised%20OR%20backed)&hl=en-US&gl=US&ceid=US:en"
+    },
+    {
+      "name": "Compliance and licensing",
+      "url": "https://news.google.com/rss/search?q=(crypto%20OR%20web3)%20(compliance%20OR%20licensed%20OR%20regulated%20OR%20institutional)%20(project%20OR%20protocol%20OR%20startup)&hl=en-US&gl=US&ceid=US:en"
+    },
+    {
+      "name": "Hong Kong and Asia",
+      "url": "https://news.google.com/rss/search?q=(crypto%20OR%20web3)%20(Hong%20Kong%20OR%20Asia)%20(project%20OR%20exchange%20OR%20institutional)&hl=en-US&gl=US&ceid=US:en"
+    },
+    {
+      "name": "Token listing",
+      "url": "https://news.google.com/rss/search?q=(token%20OR%20protocol)%20(listing%20OR%20exchange%20listing%20OR%20liquidity)%20(crypto%20OR%20web3)&hl=en-US&gl=US&ceid=US:en"
+    },
+    {
+      "name": "RWA and stablecoin",
+      "url": "https://news.google.com/rss/search?q=(RWA%20OR%20stablecoin%20OR%20tokenized%20treasury)%20(crypto%20OR%20web3)%20(project%20OR%20protocol)&hl=en-US&gl=US&ceid=US:en"
+    },
+    {
+      "name": "Hiring signals",
+      "url": "https://news.google.com/rss/search?q=(crypto%20OR%20web3)%20(hiring%20OR%20hires%20OR%20recruiting)%20(compliance%20OR%20legal%20OR%20institutional)&hl=en-US&gl=US&ceid=US:en"
+    }
+  ]
+}

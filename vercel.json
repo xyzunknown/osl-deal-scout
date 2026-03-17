@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/osl",
+      "destination": "/api/index"
+    },
+    {
+      "source": "/osl/:path*",
+      "destination": "/api/index"
+    }
+  ]
+}

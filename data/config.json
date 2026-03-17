@@ -1,0 +1,43 @@
+{
+  "timezone": "Asia/Hong_Kong",
+  "digestHour": 10,
+  "digestMinute": 0,
+  "telegram": {
+    "botToken": "8104588525:AAHdiofuv4iJpnzbAsGkoDlxXLQDt5tk74g",
+    "chatId": "6524768740",
+    "openclawHandle": "@yysatoshi"
+  },
+  "apis": {
+    "team6551Token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiZ29vZ2xlXzEwNTEwMTc1MDk0NjQ5NTAyNjExNiIsIm5vbmNlIjoiMGEzMGRjODYtZDA0Yi00ZDIxLWJiZDUtZWJlNTUzMTZmNWNjIiwiaWF0IjoxNzczNjQ3MDM4LCJqdGkiOiI2ZmM2ZjZmMi00NmI3LTQ0YzItYjQwMi02OWZkNTM5NDRhZjMifQ.-L3NAKPSD2KWxe38GW9PlkAIQm86UGaLEXL4NTHWKig",
+    "coingeckoDemoKey": "CG-Vu7DjCMbDEwNW3nsqCXRaXvF",
+    "rootDataKey": "Ee1lYo9NAUvXklKq7sA4hOFnKTQJb49l",
+    "cryptoRankKey": "14f81fc442abcd0fd632e5d4a352076866a715da091c96872193b78bc135",
+    "cacheHours": {
+      "coingecko": 12,
+      "defillama": 12,
+      "website": 24,
+      "rootdata": 24,
+      "cryptorank": 24,
+      "opennews": 12,
+      "opentwitter": 12
+    }
+  },
+  "filters": {
+    "maxAgeDays": 21,
+    "minScore": 3,
+    "topProjects": 8
+  },
+  "weights": {
+    "funding": 3,
+    "compliance": 3,
+    "hongKong": 3,
+    "asia": 2,
+    "institutional": 2,
+    "listing": 3,
+    "exchange": 1,
+    "hiring": 2,
+    "rwa": 2,
+    "stablecoin": 2,
+    "custody": 2
+  }
+}

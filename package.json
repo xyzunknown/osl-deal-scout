@@ -1,0 +1,12 @@
+{
+  "name": "osl-deal-scout",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Compliance-focused project discovery and daily digest for exchange BD teams",
+  "scripts": {
+    "start": "node server.js",
+    "digest": "node run-digest.js",
+    "check": "node --check server.js && node --check run-digest.js && node --check lib/engine.js && node --check lib/store.js",
+    "test": "node tests/entity-classifier.test.js"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "version": "2026-03-15",
+  "summary": "OSL Global listing sourcing rules with compliance emphasis",
+  "entityClassifierPrompt": "Stage 1: classify entity_type as one of project, token, event, organization, exchange, person, address, topic, location, unknown. Only project or token may continue. Always reject event, organization, exchange, person, address, topic, location, unknown. Always reject default symbols BTC, ETH, USDT, ADA, LTC, Doge, XRP, SOL, BNB. Keywords consensus, summit, conference, expo, forum, week, foundation, capital, ventures, brokers should bias toward non-project classification. Stage 2: only for project/token, decide whether the candidate is a potential Hong Kong regulated exchange BD lead using OSL screening rules. If evidence is insufficient, reject. Output must be a concrete project name or token name only, never an address or long text span.",
+  "defaultRejectedSymbols": [
+    "BTC",
+    "ETH",
+    "USDT",
+    "ADA",
+    "LTC",
+    "Doge",
+    "XRP",
+    "SOL",
+    "BNB"
+  ],
+  "thresholds": {
+    "minTvlUsd": 5000000,
+    "minMarketCapUsd": 30000000,
+    "minDailyVolumeUsd": 500000,
+    "minDexLiquidityUsd": 1000000
+  },
+  "preferredSectors": [
+    "stablecoin infrastructure",
+    "DeFi protocols",
+    "RWA",
+    "liquid staking / restaking",
+    "institutional DeFi",
+    "cross-chain infrastructure",
+    "AI x crypto",
+    "yield-bearing assets"
+  ],
+  "complianceSignals": [
+    "compliant stablecoin",
+    "regulatory friendly",
+    "institutional grade",
+    "regulated markets",
+    "compliant DeFi",
+    "MiCA compliant",
+    "regulated custody partner"
+  ],
+  "strategicFit": [
+    "institutional OTC liquidity",
+    "regulated trading venue",
+    "access to Asian markets",
+    "custody partnerships",
+    "institutional investor onboarding"
+  ]
+}

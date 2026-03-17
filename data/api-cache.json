@@ -1,0 +1,1310 @@
+{
+  "updatedAt": "2026-03-17T12:35:27.398Z",
+  "coingecko": {
+    "ondo-finance": {
+      "fetchedAt": "2026-03-17T02:29:15.661Z",
+      "marketCapUsd": 1407373598,
+      "dailyVolumeUsd": 74002338,
+      "priceChange24h": 7.25671,
+      "symbol": "ondo",
+      "name": "Ondo",
+      "coingeckoId": "ondo-finance"
+    },
+    "ethena": {
+      "fetchedAt": "2026-03-17T02:29:15.661Z",
+      "marketCapUsd": 1005673775,
+      "dailyVolumeUsd": 142498341,
+      "priceChange24h": 6.79539,
+      "symbol": "ena",
+      "name": "Ethena",
+      "coingeckoId": "ethena"
+    },
+    "syrup": {
+      "fetchedAt": "2026-03-17T02:29:15.661Z",
+      "marketCapUsd": 315118447,
+      "dailyVolumeUsd": 12506736,
+      "priceChange24h": 4.71689,
+      "symbol": "syrup",
+      "name": "Maple Finance",
+      "coingeckoId": "syrup"
+    },
+    "plume": {
+      "fetchedAt": "2026-03-17T02:29:15.661Z",
+      "marketCapUsd": 68846741,
+      "dailyVolumeUsd": 15415671,
+      "priceChange24h": 9.24199,
+      "symbol": "plume",
+      "name": "Plume",
+      "coingeckoId": "plume"
+    }
+  },
+  "defillama": {
+    "__all": {
+      "fetchedAt": "2026-03-17T02:29:22.122Z",
+      "protocols": {
+        "ethena usde": {
+          "slug": "ethena-usde",
+          "name": "Ethena USDe",
+          "tvlUsd": 5921035871.364807,
+          "category": "Basis Trading",
+          "chains": [
+            "Ethereum"
+          ]
+        },
+        "ethena-usde": {
+          "slug": "ethena-usde",
+          "name": "Ethena USDe",
+          "tvlUsd": 5921035871.364807,
+          "category": "Basis Trading",
+          "chains": [
+            "Ethereum"
+          ]
+        },
+        "maple": {
+          "slug": "maple",
+          "name": "Maple",
+          "tvlUsd": 2387814939.960462,
+          "category": "Lending",
+          "chains": [
+            "Ethereum",
+            "Solana"
+          ]
+        }
+      }
+    }
+  },
+  "website": {
+    "ethena": {
+      "fetchedAt": "2026-03-17T12:29:16.349Z",
+      "title": "ethena",
+      "description": "",
+      "complianceHits": [],
+      "blogUrl": "https://www.ethena.com/blog"
+    },
+    "maple": {
+      "fetchedAt": "2026-03-17T12:29:20.874Z",
+      "title": "Maple Finance",
+      "description": "Maple is an onchain Asset Manager with decades of traditional finance and crypto experience. Maple combines deep capital markets expertise with DeFi innovation to offer digital asset lending and yield products.",
+      "complianceHits": [
+        "institutional",
+        "custody"
+      ],
+      "blogUrl": "https://www.maple.finance/blog"
+    },
+    "ondo-finance": {
+      "fetchedAt": "2026-03-17T12:29:23.949Z",
+      "title": "Ondo Finance",
+      "description": "Institutional-grade finance, delivered onchain — accessible to all. Explore tokenized real-world assets, including USDY, OUSG, and Ondo Global Markets.",
+      "complianceHits": [
+        "institutional",
+        "uae",
+        "custody",
+        "regulated",
+        "compliant",
+        "licensed"
+      ],
+      "blogUrl": "https://ondo.finance/blog"
+    },
+    "plume": {
+      "fetchedAt": "2026-03-17T12:29:25.328Z",
+      "title": "Plume | The public blockchain for scaling RWAs",
+      "description": "",
+      "complianceHits": [
+        "institutional",
+        "mica",
+        "custody",
+        "regulated",
+        "singapore",
+        "compliant"
+      ],
+      "blogUrl": "https://plume.org/blog"
+    }
+  },
+  "rootdata": {
+    "ethena": {
+      "fetchedAt": "2026-03-17T12:29:26.325Z",
+      "projectName": "",
+      "projectType": "",
+      "description": "",
+      "website": ""
+    },
+    "maple": {
+      "fetchedAt": "2026-03-17T12:29:27.026Z",
+      "projectName": "",
+      "projectType": "",
+      "description": "",
+      "website": ""
+    },
+    "ondo-finance": {
+      "fetchedAt": "2026-03-17T12:29:27.191Z",
+      "projectName": "",
+      "projectType": "",
+      "description": "",
+      "website": ""
+    },
+    "plume": {
+      "fetchedAt": "2026-03-17T12:29:27.441Z",
+      "projectName": "",
+      "projectType": "",
+      "description": "",
+      "website": ""
+    }
+  },
+  "cryptorank": {},
+  "opennews": {
+    "ethena": {
+      "fetchedAt": "2026-03-17T02:29:23.252Z",
+      "articles": [
+        {
+          "id": 1111127,
+          "text": "Marketing said \"ENA-ugh is ENA-ugh.\"<br/><br/>Intern said \"Ethe-NA, let's keep things rolling.\"<br/><br/>On that note, the following @ethena pools return to Pendle on @Plasma :<br/>💚 USDe (18 June 2026)<br/>💚 sUSDe (18 June 2026)<br/><br/>XPL rewards and Sats continue to flow so get in quick. https://t.co/yoHLwnDKfx",
+          "link": "https://twitter.com/pendle_fi/status/2033546449108279476",
+          "newsType": "Twitter",
+          "engineType": "news",
+          "coins": [
+            {
+              "symbol": "QUICK",
+              "market_type": "cex",
+              "match": [
+                "QUICK"
+              ]
+            },
+            {
+              "symbol": "ENA",
+              "market_type": "cex",
+              "match": [
+                "ENA",
+                "ETHENA"
+              ]
+            },
+            {
+              "symbol": "PENDLE",
+              "market_type": "cex",
+              "match": [
+                "PENDLE"
+              ]
+            },
+            {
+              "symbol": "XPL",
+              "market_type": "cex",
+              "match": [
+                "PLASMA",
+                "XPL"
+              ]
+            },
+            {
+              "symbol": "USDE",
+              "market_type": "cex",
+              "match": [
+                "USDE"
+              ]
+            },
+            {
+              "symbol": "SATS",
+              "market_type": "cex",
+              "match": [
+                "SATS"
+              ]
+            },
+            {
+              "symbol": "FLOW",
+              "market_type": "cex",
+              "match": [
+                "FLOW"
+              ]
+            }
+          ],
+          "aiRating": {
+            "enSummary": "The ENA-related USDe (June 18, 2026) and sUSDe (June 18, 2026) pools under @ethena will return to Pendle on @Plasma, with XPL rewards and Sats continuing to be distributed. We urge you to participate as soon as possible.",
+            "grade": "B",
+            "score": 55,
+            "signal": "neutral",
+            "status": "done",
+            "summary": "ENA相关的@ethena旗下USDe（2026年6月18日）和sUSDe（2026年6月18日）池将回归@Plasma上的Pendle，XPL奖励和Sats持续发放，呼吁尽快参与。"
+          },
+          "ts": "2026-03-16T14:10:31.083231Z"
+        },
+        {
+          "id": 1082244,
+          "text": "EarnUSD accepts USDC and USDT. <br/><br/>Users receive earnUSD, providing you with daily, auto-compounded USD rewards.<br/><br/>Effortless rewards on your stablecoins from the leading DeFi protocols including @aave, @ethena, @Morpho, @sparkdotfi, @maplefinance and more. https://t.co/T2JQWN2xJ0",
+          "link": "https://twitter.com/lidofinance/status/2032407932948607419",
+          "newsType": "Twitter",
+          "engineType": "news",
+          "coins": [
+            {
+              "symbol": "AAVE",
+              "market_type": "cex",
+              "match": [
+                "AAVE"
+              ]
+            },
+            {
+              "symbol": "ENA",
+              "market_type": "cex",
+              "match": [
+                "ETHENA"
+              ]
+            },
+            {
+              "symbol": "MORPHO",
+              "market_type": "cex",
+              "match": [
+                "MORPHO"
+              ]
+            }
+          ],
+          "aiRating": {
+            "enSummary": "EarnUSD accepts USDC and USDT. Users can earn daily USD rewards with automatic compounding after depositing, which come from mainstream DeFi protocols such as Aave and Ethena.",
+            "grade": "B",
+            "score": 60,
+            "signal": "neutral",
+            "status": "done",
+            "summary": "EarnUSD接受USDC和USDT，用户存入后可获得每日自动复利的USD奖励，该奖励来自Aave、Ethena等主流DeFi协议。"
+          },
+          "ts": "2026-03-13T10:46:27.316874Z"
+        },
+        {
+          "id": 1054200,
+          "text": "From three U.S.-listed ETFs to breakthrough DeFi primitives, February signaled a new era of scale on Sui. Main Takeaways Three Sui ETFs from Grayscale, Canary Capital, and 21shares listed on U.S. exchanges, bringing Sui access to capital markets. Sui expanded its financial primitives with DeepBook Margin, automated liquidity vaults, and a new yield pool integration, while new passkey and mobile-first wallet options lowered barriers for newcomers. A community guide covered building AI-native plugins on Sui, while Mysten Labs published research on Tidehunter, a purpose-built validator storage engine. Overview Welcome to the Sui recap: your definitive look at the momentum, launches, and milestones shaping the ecosystem. Throughout February, Sui’s trajectory sharpened both in the arrival of U.S.-listed ETFs and in its DeFi technical maturation. The two tracks aren’t unrelated. Ecosystems don’t attract traditional market-structured financial products by accident. The activity across Sui’s DeFi and infrastructure layer is part of what fuels the public market momentum. Here’s a look at what shipped in February. A Maturing DeFi Ecosystem The Sui Foundation launched the DeFi Moonshots Program, a selective initiative offering up to $500K in growth incentives, engineering collaboration, and audit credits to teams building category-defining financial products on Sui. Roughly ten teams will be selected annually on a rolling basis. The program signals a shift in how the Foundation is engaging with builders: less broad-based incentive, more concentrated support for protocols with credible paths to new markets. On the product side, eSui Dollar (suiUSDe), the first synthetic dollar integrated with DeepBook Margin, went live powered by Ethena. Shortly after, suiUSDe was added to the USDZ Pool, allowing users to deposit and earn. Full Sail introduced automated vaults, removing the need for manual liquidity positioning and rebalancing, with a video explanation that’s worth a watch. Astros Perps reached $100M in daily volume and $3B cumulative volume. For a perpetuals exchange still in its early stages, both numbers stand up well against a difficult market backdrop. Three ETFs in Six Days Between February 18 and February 24, three spot and staking Sui ETFs began trading on U.S. exchanges. Grayscale’s GSUI launched on NYSE Arca, followed by Canary Capital’s SUIS and 21shares’ TSUI on Nasdaq. Each product is structured differently, giving investors options depending on whether they’re seeking straightforward price exposure or want to capture staking yield alongside it. Together, they represent a meaningful expansion of institutional and public market access to Sui through regulated products on some of the world’s most established exchanges. Developer Tooling & Network Infrastructure Sui is now AI and LLM-ready, meaning AI coding tools and agents can read and reference Sui’s docs directly. For developers, this collapses the distance between intent and execution, ensuring their AI tools have the precision needed to build at the speed of the network. Check the community guide by @zero_x_j on building a Claude code plugin using the Sui Stack, giving developers a practical starting point for extending AI workflows onchain. ⤵️ On the infrastructure side, Mysten Labs published research on Tidehunter, a purpose-built storage engine designed to address the write amplification problems that general-purpose databases like RocksDB encounter under sustained blockchain load. Tidehunter is a candidate to become Sui's next validator database. It’s not yet in production, but reflects the team building ahead of where the bottlenecks will be. Walrus continued to scale, reaching 45% of its storage capacity, with 1,883 of 4,123 total terabytes in use. The network adds capacity as new storage nodes come online, so the figure tracks how fast the network is being used, not how close it is to running out of space. Wallets & Onboarding @nimoraapp launched a passkey wallet for Sui, replacing seed phrases with device-native authentication. @VeraApp_ released v1.1.0, adding perps tracking, deeper Ember Earn integration, and improved wallet safety to its mobile-first financial app on Sui. Both point in the same direction: onboarding friction continues to come down for retail users, no matter where they start from. SUI was listed on HashKey Exchange, with deposits, withdrawals, spot trading, and OTC access available for eligible users. HashKey also launched a learning campaign with a 200,000 HKD reward pool tied to the listing. Final Thoughts Institutional products don’t land in a vacuum. The ETFs were significant, but they’re a reflection of something bigger. Serious capital looks for ecosystems that are actually being used, built, and moving in a direction. February showed all of that at once. Beneath the ETF headlines, DeFi depth was growing, infrastructure research was being published, onboarding friction was coming down, and developer tooling was getting sharper. None of that is accidental, and none of it stops here. The momentum that attracted institutional attention in February isn’t slowing down. If anything, it’s just getting started!",
+          "link": "https://twitter.com/suinetwork/status/2031631316995682402",
+          "newsType": "Twitter",
+          "engineType": "news",
+          "coins": [
+            {
+              "symbol": "JST",
+              "market_type": "cex",
+              "match": [
+                "JUST"
+              ]
+            },
+            {
+              "symbol": "ERA",
+              "market_type": "cex",
+              "match": [
+                "ERA"
+              ]
+            },
+            {
+              "symbol": "SUI",
+              "market_type": "cex",
+              "match": [
+                "SUI"
+              ]
+            },
+            {
+              "symbol": "MMT",
+              "market_type": "cex",
+              "match": [
+                "MOMENTUM"
+              ]
+            },
+            {
+              "symbol": "LAYER",
+              "market_type": "cex",
+              "match": [
+                "LAYER"
+              ]
+            },
+            {
+              "symbol": "NASDAQ",
+              "market_type": "cex",
+              "match": [
+                "NASDAQ"
+              ]
+            },
+            {
+              "symbol": "STACK",
+              "market_type": "cex",
+              "match": [
+                "STACK"
+              ]
+            },
+            {
+              "symbol": "WAL",
+              "market_type": "cex",
+              "match": [
+                "WALRUS"
+              ]
+            },
+            {
+              "symbol": "ENA",
+              "market_type": "cex",
+              "match": [
+                "ETHENA"
+              ]
+            },
+            {
+              "symbol": "SIX",
+              "market_type": "cex",
+              "match": [
+                "SIX"
+              ]
+            }
+          ],
+          "aiRating": {
+            "enSummary": "February saw a significant expansion for the Sui ecosystem: three Sui ETFs from Grayscale, Canary Capital, and 21shares were listed in the US; DeFi launched features such as DeepBook Margin; developer tools and infrastructure were optimized; wallets lowered the barrier to entry for new users; and SUI was listed on the HashKey exchange.",
+            "grade": "A",
+            "score": 80,
+            "signal": "long",
+            "status": "done",
+            "summary": "2月Sui生态迎来新规模：Grayscale、Canary Capital、21shares的三只Sui ETF在美国上市；DeFi推出DeepBook Margin等功能，开发者工具和基础设施优化，钱包降低新用户门槛，SUI上线HashKey交易所。"
+          },
+          "ts": "2026-03-11T07:20:28.483651Z"
+        },
+        {
+          "id": 1054199,
+          "text": "The Sui Monthly: February 2026 From three U.S.-listed ETFs to breakthrough DeFi primitives, February signaled a new era of scale on Sui. Main Takeaways Three Sui ETFs from Grayscale, Canary Capital, and 21shares listed on U.S. exchanges, bringing Sui access to capital markets. Sui expanded its financial primitives with DeepBook Margin, automated liquidity vaults, and a new yield pool integration, while new passkey and mobile-first wallet options lowered barriers for newcomers. A community guide covered building AI-native plugins on Sui, while Mysten Labs published research on Tidehunter, a purpose-built validator storage engine. Overview Welcome to the Sui recap: your definitive look at the momentum, launches, and milestones shaping the ecosystem. Throughout February, Sui’s trajectory sharpened both in the arrival of U.S.-listed ETFs and in its DeFi technical maturation. The two tracks aren’t unrelated. Ecosystems don’t attract traditional market-structured financial products by accident. The activity across Sui’s DeFi and infrastructure layer is part of what fuels the public market momentum. Here’s a look at what shipped in February. A Maturing DeFi Ecosystem The Sui Foundation launched the DeFi Moonshots Program, a selective initiative offering up to $500K in growth incentives, engineering collaboration, and audit credits to teams building category-defining financial products on Sui. Roughly ten teams will be selected annually on a rolling basis. The program signals a shift in how the Foundation is engaging with builders: less broad-based incentive, more concentrated support for protocols with credible paths to new markets. On the product side, eSui Dollar (suiUSDe), the first synthetic dollar integrated with DeepBook Margin, went live powered by Ethena. Shortly after, suiUSDe was added to the USDZ Pool, allowing users to deposit and earn. Full Sail introduced automated vaults, removing the need for manual liquidity positioning and rebalancing, with a video explanation that’s worth a watch. Astros Perps reached $100M in daily volume and $3B cumulative volume. For a perpetuals exchange still in its early stages, both numbers stand up well against a difficult market backdrop. Three ETFs in Six Days Between February 18 and February 24, three spot and staking Sui ETFs began trading on U.S. exchanges. Grayscale’s GSUI launched on NYSE Arca, followed by Canary Capital’s SUIS and 21shares’ TSUI on Nasdaq. Each product is structured differently, giving investors options depending on whether they’re seeking straightforward price exposure or want to capture staking yield alongside it. Together, they represent a meaningful expansion of institutional and public market access to Sui through regulated products on some of the world’s most established exchanges. Developer Tooling & Network Infrastructure Sui is now AI and LLM-ready, meaning AI coding tools and agents can read and reference Sui’s docs directly. For developers, this collapses the distance between intent and execution, ensuring their AI tools have the precision needed to build at the speed of the network. Check the community guide by @zero_x_j on building a Claude code plugin using the Sui Stack, giving developers a practical starting point for extending AI workflows onchain. ⤵️ On the infrastructure side, Mysten Labs published research on Tidehunter, a purpose-built storage engine designed to address the write amplification problems that general-purpose databases like RocksDB encounter under sustained blockchain load. Tidehunter is a candidate to become Sui's next validator database. It’s not yet in production, but reflects the team building ahead of where the bottlenecks will be. Walrus continued to scale, reaching 45% of its storage capacity, with 1,883 of 4,123 total terabytes in use. The network adds capacity as new storage nodes come online, so the figure tracks how fast the network is being used, not how close it is to running out of space. Wallets & Onboarding @nimoraapp launched a passkey wallet for Sui, replacing seed phrases with device-native authentication. @VeraApp_ released v1.1.0, adding perps tracking, deeper Ember Earn integration, and improved wallet safety to its mobile-first financial app on Sui. Both point in the same direction: onboarding friction continues to come down for retail users, no matter where they start from. SUI was listed on HashKey Exchange, with deposits, withdrawals, spot trading, and OTC access available for eligible users. HashKey also launched a learning campaign with a 200,000 HKD reward pool tied to the listing. Final Thoughts Institutional products don’t land in a vacuum. The ETFs were significant, but they’re a reflection of something bigger. Serious capital looks for ecosystems that are actually being used, built, and moving in a direction. February showed all of that at once. Beneath the ETF headlines, DeFi depth was growing, infrastructure research was being published, onboarding friction was coming down, and developer tooling was getting sharper. None of that is accidental, and none of it stops here. The momentum that attracted institutional attention in February isn’t slowing down. If anything, it’s just getting started!",
+          "link": "https://twitter.com/SuiNetwork/status/2031631316995682402",
+          "newsType": "tree",
+          "engineType": "news",
+          "coins": [
+            {
+              "symbol": "SUI",
+              "market_type": "cex",
+              "match": [
+                "SUI"
+              ]
+            },
+            {
+              "symbol": "ERA",
+              "market_type": "cex",
+              "match": [
+                "ERA"
+              ]
+            },
+            {
+              "symbol": "LAYER",
+              "market_type": "cex",
+              "match": [
+                "LAYER"
+              ]
+            },
+            {
+              "symbol": "SIX",
+              "market_type": "cex",
+              "match": [
+                "SIX"
+              ]
+            },
+            {
+              "symbol": "NASDAQ",
+              "market_type": "cex",
+              "match": [
+                "NASDAQ"
+              ]
+            },
+            {
+              "symbol": "STACK",
+              "market_type": "cex",
+              "match": [
+                "STACK"
+              ]
+            },
+            {
+              "symbol": "WAL",
+              "market_type": "cex",
+              "match": [
+                "WALRUS"
+              ]
+            },
+            {
+              "symbol": "MMT",
+              "market_type": "cex",
+              "match": [
+                "MOMENTUM"
+              ]
+            },
+            {
+              "symbol": "ENA",
+              "market_type": "cex",
+              "match": [
+                "ETHENA"
+              ]
+            },
+            {
+              "symbol": "JST",
+              "market_type": "cex",
+              "match": [
+                "JUST"
+              ]
+            }
+          ],
+          "aiRating": {
+            "enSummary": "In February 2026, three Sui ETFs from Grayscale, Canary Capital, and 21shares were listed on US exchanges; Sui expanded its DeFi primitives and launched a mnemonic phrase-free wallet to lower the barrier to entry for users; Mysten Labs released research on the Tidehunter storage engine, and the ecosystem made progress in multiple dimensions.",
+            "grade": "A+",
+            "score": 95,
+            "signal": "long",
+            "status": "done",
+            "summary": "2026年2月，Grayscale、Canary Capital、21shares的三只Sui ETF在美国交易所上市；Sui扩展DeFi原语、推出免助记词钱包等降低用户门槛；Mysten Labs发布Tidehunter存储引擎研究，生态多维度取得进展。"
+          },
+          "ts": "2026-03-11T07:20:26.841Z"
+        },
+        {
+          "id": 1054161,
+          "text": "FINANCE FEEDS: Ethena Deployed Capital Hits Multi-Year Low as Market Reaches Historical Parity",
+          "link": "https://financefeeds.com/ethena-deployed-capital-hits-multi-year-low-as-market-reaches-historical-parity/",
+          "newsType": "News Websites",
+          "engineType": "news",
+          "coins": [
+            {
+              "symbol": "ENA",
+              "market_type": "cex",
+              "match": [
+                "ETHENA"
+              ]
+            }
+          ],
+          "aiRating": {
+            "enSummary": "Ethena&#39;s deployment capital has hit a multi-year low, while the market has reached historic parity.",
+            "grade": "B",
+            "score": 65,
+            "signal": "neutral",
+            "status": "done",
+            "summary": "Ethena的部署资本触及多年低点，同时市场达到历史平价水平。"
+          },
+          "ts": "2026-03-11T07:13:17.388236Z"
+        }
+      ]
+    },
+    "maple": {
+      "fetchedAt": "2026-03-17T02:29:23.807Z",
+      "articles": [
+        {
+          "id": 1046154,
+          "text": "syrupUSDT just hit $50M+ in inflows on BNB Chain across 4 vaults.<br/><br/>New ecosystem. Same Maple momentum. https://t.co/WvoITpRJ2k",
+          "link": "https://twitter.com/maplefinance/status/2031354490566357359",
+          "newsType": "Twitter",
+          "engineType": "news",
+          "coins": [
+            {
+              "symbol": "SYRUP",
+              "market_type": "cex",
+              "match": [
+                "SYRUPUSDT"
+              ]
+            },
+            {
+              "symbol": "JST",
+              "market_type": "cex",
+              "match": [
+                "JUST"
+              ]
+            },
+            {
+              "symbol": "BNB",
+              "market_type": "cex",
+              "match": [
+                "BNB"
+              ]
+            },
+            {
+              "symbol": "MMT",
+              "market_type": "cex",
+              "match": [
+                "MOMENTUM"
+              ]
+            }
+          ],
+          "aiRating": {
+            "enSummary": "More than $50 million of syrupUSDT has flowed into four vaults on the BNB Chain, continuing the momentum of the new ecosystem.",
+            "grade": "B+",
+            "score": 70,
+            "signal": "long",
+            "status": "done",
+            "summary": "syrupUSDT在BNB Chain的4个金库流入超5000万美元，新生态延续Maple momentum。"
+          },
+          "ts": "2026-03-10T13:00:26.295444Z"
+        },
+        {
+          "id": 981990,
+          "text": "syrupUSDT is live on Venus Flux by @VenusProtocol and @0xfluid<br/><br/>Maple expands to BNB Chain with another strategic d… https://t.co/V6YFXDhO7c",
+          "link": "https://twitter.com/maplefinance/status/2028832801521652054",
+          "newsType": "Twitter",
+          "engineType": "news",
+          "coins": [
+            {
+              "symbol": "SYRUP",
+              "market_type": "cex",
+              "match": [
+                "SYRUPUSDT"
+              ]
+            },
+            {
+              "symbol": "XVS",
+              "market_type": "cex",
+              "match": [
+                "VENUS"
+              ]
+            },
+            {
+              "symbol": "FLUX",
+              "market_type": "cex",
+              "match": [
+                "FLUX"
+              ]
+            },
+            {
+              "symbol": "BNB",
+              "market_type": "cex",
+              "match": [
+                "BNB"
+              ]
+            }
+          ],
+          "aiRating": {
+            "enSummary": "SyrupUSDT is listed on Venus Flux, launched by Venus Protocol and 0xfluid, while Maple expands to BNB Chain through another strategic deployment.",
+            "grade": "B",
+            "score": 50,
+            "signal": "neutral",
+            "status": "done",
+            "summary": "syrupUSDT在Venus Protocol和0xfluid推出的Venus Flux上线，Maple通过另一战略部署扩展至BNB Chain。"
+          },
+          "ts": "2026-03-03T14:00:12.245034Z"
+        },
+        {
+          "id": 974468,
+          "text": "Missed the latest Maple Token Holder Update?<br/><br/>Catch up on all the Q&amp;As, starting with the big one: What is the vision for SYRUP's long-term token utility?<br/><br/>Or watch the full recording here: https://x.com/i/broadcasts/1pKkOyOEAMZKj https://t.co/o6tnQvKG0F",
+          "link": "https://twitter.com/maplefinance/status/2028510737388466553",
+          "newsType": "Twitter",
+          "engineType": "news",
+          "coins": [
+            {
+              "symbol": "VSN",
+              "market_type": "cex",
+              "match": [
+                "VISION"
+              ]
+            },
+            {
+              "symbol": "SYRUP",
+              "market_type": "cex",
+              "match": [
+                "SYRUP"
+              ]
+            },
+            {
+              "symbol": "AMP",
+              "market_type": "cex",
+              "match": [
+                "AMP"
+              ]
+            }
+          ],
+          "aiRating": {
+            "enSummary": "The Maple Token Holder Update provides a Q&amp;A section, including a vision for the long-term utility of the SYRUP token, and the full transcript can be viewed via a designated link.",
+            "grade": "B",
+            "score": 55,
+            "signal": "neutral",
+            "status": "done",
+            "summary": "Maple Token Holder Update提供了问答内容，包括SYRUP长期代币效用愿景，并可通过指定链接观看完整记录"
+          },
+          "ts": "2026-03-02T16:40:22.892796Z"
+        },
+        {
+          "id": 789330,
+          "text": "Letter: A darker side to Canada’s maple syrup origin story",
+          "link": "https://www.ft.com/content/fa7a0a2d-a7b9-4075-9033-c0c02841e069",
+          "newsType": "FT",
+          "engineType": "news",
+          "coins": [
+            {
+              "symbol": "SYRUP",
+              "market_type": "cex",
+              "match": [
+                "SYRUP"
+              ]
+            },
+            {
+              "symbol": "IP",
+              "market_type": "cex",
+              "match": [
+                "STORY"
+              ]
+            }
+          ],
+          "aiRating": {
+            "enSummary": "",
+            "grade": "C",
+            "score": 0,
+            "signal": "neutral",
+            "status": "done",
+            "summary": "新闻提及加拿大枫糖浆起源故事存在不为人知的阴暗面，但未涉及加密货币相关内容"
+          },
+          "ts": "2026-02-14T00:09:17.522449Z"
+        },
+        {
+          "id": 783360,
+          "text": "Two Maple assets rank in the top 5 of @DefiLlama's yield-bearing dollar leaderboard.<br/><br/>syrupUSDC and syrupUSDT continue to scale. https://t.co/yNWqW1m96S",
+          "link": "https://twitter.com/maplefinance/status/2022321174592852395",
+          "newsType": "Twitter",
+          "engineType": "news",
+          "coins": [
+            {
+              "symbol": "SYRUP",
+              "market_type": "cex",
+              "match": [
+                "SYRUPUSDT"
+              ]
+            },
+            {
+              "symbol": "RANK",
+              "market_type": "cex",
+              "match": [
+                "RANK"
+              ]
+            }
+          ],
+          "aiRating": {
+            "enSummary": "",
+            "grade": "B",
+            "score": 60,
+            "signal": "long",
+            "status": "done",
+            "summary": "Maple的syrupUSDC和syrupUSDT两个资产在@DefiLlama的生息美元排行榜中进入前五，且持续扩大规模"
+          },
+          "ts": "2026-02-13T14:45:15.94219Z"
+        }
+      ]
+    },
+    "ondo-finance": {
+      "fetchedAt": "2026-03-17T02:29:24.461Z",
+      "articles": [
+        {
+          "id": 1113359,
+          "text": "Ondo Finance technology will power 24/7 oil perps. https://x.com/OndoPerps/status/2033607376050298923",
+          "link": "https://twitter.com/ondofinance/status/2033621643633786901",
+          "newsType": "Twitter",
+          "engineType": "news",
+          "coins": [
+            {
+              "symbol": "ONDO",
+              "market_type": "cex",
+              "match": [
+                "ONDO"
+              ]
+            },
+            {
+              "symbol": "SNT",
+              "market_type": "cex",
+              "match": [
+                "STATUS"
+              ]
+            },
+            {
+              "symbol": "CL",
+              "market_type": "cex",
+              "match": [
+                "(?i)\\b(?:oil|wti|Brent|CL)\\b"
+              ]
+            },
+            {
+              "symbol": "XYZ-CL",
+              "market_type": "cex",
+              "match": [
+                "(?i)\\b(?:oil|wti|Brent|CL)\\b"
+              ]
+            }
+          ],
+          "aiRating": {
+            "enSummary": "Ondo Finance&#39;s technology will support 24/7 oil perpetual contracts, according to a tweet from its X platform account, OndoPerps.",
+            "grade": "B+",
+            "score": 65,
+            "signal": "neutral",
+            "status": "done",
+            "summary": "Ondo Finance技术将支持全天候石油永续合约，相关信息来自其X平台账号OndoPerps发布的推文。"
+          },
+          "ts": "2026-03-16T19:09:17.809472Z"
+        },
+        {
+          "id": 1046570,
+          "text": "DIA Value: Intrinsic Valuation Oracle for Institutional DeFi When markets don't exist, market oracles fail. DIA launches fully onchain fair-value pricing for assets from tokenized treasuries to yield-bearing tokens The Tokenization Inflection Point In 2020, decentralized finance experienced its Cambrian explosion. Uniswap enabled permissionless trading. Aave enabled permissionless lending. Within three years, DeFi grew to $100 billion in total value locked, all built on a core pricing assumption: assets trade continuously on liquid markets. Then in 2024, Wall Street arrived. BlackRock tokenized U.S. treasuries, crossing $500 million in the BUIDL fund within months. Firms like Ondo Finance brought tokenized treasuries to Ethereum. By early 2025, over $50 billion in institutional capital had migrated onchain, with projections from McKinsey, BCG, and others estimating the tokenized asset market could reach $2–16 trillion by 2030. But these assets share a characteristic: they don't trade. Tokenized treasuries don't have order books. Fund NAV tokens don't establish price through supply and demand. Yield-bearing tokens have redemption mechanisms encoded in smart contracts, their value isn't what traders think, it's what the protocol guarantees you can redeem. And DeFi's pricing infrastructure wasn't designed to handle them. The oracle space converged on a single architecture: market observation. Aggregate prices across exchanges, decentralize the aggregation through node networks, publish the result onchain. For Bitcoin, Ethereum, and liquid tokens, this works well. But you cannot aggregate exchange prices when markets don't exist. You cannot decentralize market data when liquidity is thin or fragmented. And you cannot discover price through trading when trading doesn't happen. The infrastructure that unlocked DeFi's first $100 billion fundamentally cannot price its next trillion. When Market Observation Breaks Down Market-based oracles solved a real problem: bringing external price data onchain. For assets that trade continuously with deep liquidity, the approach is sound. Implementations vary in how they source data, what transparency they offer, and how they handle edge cases, but the core model works when its assumptions hold. Those assumptions are: continuous trading activity, deep enough liquidity to resist manipulation, and price discovery through supply and demand. For the new institutional asset classes entering DeFi, they collapse: When these conditions are absent, market-based oracles face three choices, none of them good: Aggregate thin, manipulable market data. If a tokenized asset has minimal secondary trading, aggregating those sparse data points creates vulnerability. Thin order books can be manipulated. Single-venue distortions propagate as truth. Stale prices from infrequent trades become risk management inputs. This isn't theoretical. On October 10, 2025, $19 billion in leveraged DeFi positions were liquidated in 24 hours. Bitcoin flash-crashed from $126,000 to $103,000, and the cascade was amplified by oracle infrastructure propagating distorted price data from stressed markets into automated liquidation triggers. Fall back to proprietary data providers. When market data doesn't exist, some oracle architectures allow protocols to pull from centralized APIs, effectively reintroducing the trust assumptions that decentralized infrastructure was supposed to eliminate. Paul Frambot, Co-Founder and CEO at Morpho, analyzing RWA pricing challenges, concluded that since tokenized assets \"don't have secondary markets,\" DeFi must rely on \"trusted price providers.\" He's right that this is where market-based architecture logically ends up when markets disappear. Simply don't support the asset. The most common outcome. If an asset doesn't fit the market-aggregation model, it doesn't get priced. Over $100 billion in tokenized treasuries, yield-bearing tokens, stablecoins, and other institutional-grade digital assets currently lack sufficient liquidity for reliable market-based pricing. This isn't a flaw in any particular implementation. It's a structural limitation: no market-based oracle, regardless of how sophisticated, can produce manipulation-resistant pricing from markets that are thin, stressed, or nonexistent. The architecture works for liquid assets. For assets whose value is defined by contracts, reserves, or portfolios rather than by trading, it's a mismatch. From Market Observation to Fundamental Valuation Traditional finance solved illiquid asset pricing decades ago through intrinsic valuation. When a mutual fund holds private equity or illiquid bonds, it calculates Net Asset Value: sum of all holdings marked at fair value, divided by shares outstanding. When banks value loan portfolios, they use mark-to-model: discounted cash flows and credit risk adjustments. When Circle proves USDC is worth $1.00, they provide reserve verification: auditable proof that $1 of reserves backs each token. These methods work because they compute value from verifiable inputs rather than observing market trades. Bringing this approach onchain was previously impractical. Traditional fair value methodologies relied on trusted intermediaries: fund administrators calculating NAV, auditors verifying reserves, risk models run by centralized entities. Blockchain changes this: smart contract states, reserve balances, exchange rates, redemption formulas, and yield accruals can now serve as direct inputs for fair value computation with a degree of transparency that traditional finance never had. DIA Value: Fundamental Valuation at Scale DIA Value is the infrastructure we built for this. It delivers intrinsic fair-value pricing for assets where market data is absent, unreliable, or exploitable. Rather than reporting trades that can be manipulated, Value computes fundamental value from the most direct, verifiable data sources available, applying the same valuation logic that traditional finance has relied on for decades. Value already powers fair value pricing across lending, stablecoins, and tokenized securities, including integrations with Euler, Morpho, Silo, Hydration, and others. DIA Value implements five fundamental valuation methodologies: 1. Net Asset Value (NAV): For tokenized funds holding portfolios of assets. Aggregates fair value of all underlying holdings, applies fees and liabilities, divides by token supply. 2. Proof of Reserves (PoR): For stablecoins and wrapped assets. Verifies reserves equal or exceed circulating supply. Value proven by backing, not trading. 3. Contract Exchange Rate (CER): For yield-bearing tokens (stETH, aTokens). Reads redemption rate directly from protocol smart contracts. Value is what the contract guarantees you can redeem. 4. Reserve-Backing Ratio (RBR): For algorithmic stablecoins and synthetic assets. Computes value based on ratio of collateral reserves to outstanding supply. 5. Redemption Value (RV): For assets with programmatic redemption mechanisms. Calculates the value you would receive by executing the redemption function. Each methodology is designed to maximize pricing independence by deriving value from the most direct source available, whether that's onchain smart contract state, reserve balances, or authoritative reference data for off-chain backing assets such as tokenized fund NAVs. In some cases, particularly for assets backed by off-chain reserves, the Value integrates these inputs transparently, so protocols and users can see exactly how each price is computed and what data sources it relies on. When a protocol queries Value for a tokenized treasury fund price, the system: Reads the fund's smart contract to enumerate holdings Prices each holding using the appropriate methodology Applies fees and liabilities encoded in the contract Returns per-share NAV with full calculation transparency A market-based oracle can't do this because it's looking for trades that don't exist. Value computes intrinsic value from verifiable facts. To be clear: this does not replace market oracles for liquid assets. DIA's own market-based oracle, Market, handles pricing for assets with observable trading activity, sourcing data directly from exchanges. Value complements that foundation for assets whose value is defined by contracts, reserves, or portfolios rather than by trading. What This Changes Market-based oracles answer: \"What did the last trade say?\" Fair value oracles answer: \"What is this asset fundamentally worth?\" This shift unlocks capabilities that market-based oracles structurally cannot provide: Institutional-grade collateral acceptance. Lending protocols can accept tokenized treasuries and fund shares as collateral based on auditable intrinsic value rather than manipulable secondary market prices. Euler's recent integration demonstrates this in practice. Regulatory-compliant fair value accounting. Fair value measurement standards (IFRS 13, ASC 820) explicitly require intrinsic valuation methods when markets are inactive. Value’s methodologies align with these frameworks. Manipulation resistance through architecture. October 10th demonstrated that market-based oracles remain vulnerable when underlying markets are stressed. Fair value computation sidesteps this: you cannot game NAV calculation by moving thin order books. Cross-chain pricing without fragmented liquidity. When an asset exists on multiple chains, market-based oracles face fragmented liquidity. Fair value oracles compute redemption value once from the canonical contract and publish everywhere. The value is the same because it's derived from fundamental backing, not chain-specific trading. What Value doesn't solve: We think it's worth being honest about the boundaries. Value solves fair value for assets with verifiable data sources. Remaining challenges are governance and trust boundary questions, not architecture failures: Off-chain reserves (e.g., Circle's bank accounts) still require attestation. Value makes attestation auditable, but trust in the attester remains. Cross-chain verification depends on bridge security. Disputed valuation formulas for complex derivatives may have competing fair value models. Value executes formulas transparently, but choosing the right formula requires governance. Smart contract risk: if the contract is wrong, the valuation is wrong. Value surfaces this transparently rather than obscuring it, but the risk exists. What Becomes Possible When pricing infrastructure no longer depends on market liquidity, new capabilities open up across DeFi. Lending protocols accept tokenized treasuries without oracle risk. Vault platforms can offer rates against tokenized fund shares based on auditable NAV, not whether someone traded yesterday. Stablecoins verify reserves across complex, multi-chain structures. Next-generation stablecoins hold diversified portfolios of yield-bearing tokens and cross-chain assets. Proof makes real-time reserve verification possible even when components are illiquid or fragmented. Asset managers tokenize funds with real-time NAV onchain. Traditional funds calculate NAV once daily. Onchain funds can compute real-time NAV continuously, but only if the pricing infrastructure handles illiquid holdings and cross-chain positions. Institutions meet regulatory fair value requirements without centralized intermediaries. The shift from centralized API providers to verifiable intrinsic computation is the difference between traditional finance with a blockchain wrapper and genuinely decentralized institutional infrastructure. Risk curators build sophisticated credit models without market dependency. Professional risk managers, from established firms to emerging specialists, need to model scenarios, stress-test collateral, and assess fundamental value independent of market panic. Fair value infrastructure gives them the primitives to do this properly. Our Thesis Fundamental pricing methodologies will drive the next wave of institutional capital being deployed onchain. it is a prerequisite that has been missing from DeFi's infrastructure stack, and its arrival expands the addressable market for oracle infrastructure significantly beyond price feeds. Market-based oracles gave DeFi the rails to price liquid markets. Value gives DeFi the foundation to price everything else. The shift from market observation to intrinsic computation expands what oracle infrastructure can do, specifically into the asset classes that institutional DeFi needs priced to grow. → Talk to us → Learn more about DIA Value",
+          "link": "https://twitter.com/DIAdata_org/status/2031363012628562241",
+          "newsType": "tree",
+          "engineType": "news",
+          "coins": [
+            {
+              "symbol": "DIA",
+              "market_type": "cex",
+              "match": [
+                "DIA"
+              ]
+            },
+            {
+              "symbol": "ONDO",
+              "market_type": "cex",
+              "match": [
+                "ONDO"
+              ]
+            },
+            {
+              "symbol": "NODE",
+              "market_type": "dex",
+              "chain": "bsc",
+              "contract_address": "0x2f714d7b9a035d4ce24af8d9b6091c07e37f43fb",
+              "pool": "0xd741e051815f4cd350ffd1f4bba800f1df62b828",
+              "match": [
+                "NODE"
+              ]
+            },
+            {
+              "symbol": "TRUTH",
+              "market_type": "cex",
+              "match": [
+                "TRUTH"
+              ]
+            },
+            {
+              "symbol": "STETH",
+              "market_type": "cex",
+              "match": [
+                "STETH"
+              ]
+            },
+            {
+              "symbol": "BANK",
+              "market_type": "cex",
+              "match": [
+                "BANK"
+              ]
+            },
+            {
+              "symbol": "BRIDGE",
+              "market_type": "cex",
+              "match": [
+                "BRIDGE"
+              ]
+            },
+            {
+              "symbol": "XYZ-ORCL",
+              "market_type": "cex",
+              "match": [
+                "ORACLE"
+              ]
+            },
+            {
+              "symbol": "AAVE",
+              "market_type": "cex",
+              "match": [
+                "AAVE"
+              ]
+            },
+            {
+              "symbol": "LIQUID",
+              "market_type": "cex",
+              "match": [
+                "LIQUID"
+              ]
+            },
+            {
+              "symbol": "BTC",
+              "market_type": "cex",
+              "match": [
+                "BITCOIN"
+              ]
+            },
+            {
+              "symbol": "EUL",
+              "market_type": "cex",
+              "match": [
+                "EULER"
+              ]
+            },
+            {
+              "symbol": "VAULT",
+              "market_type": "cex",
+              "match": [
+                "VAULT"
+              ]
+            },
+            {
+              "symbol": "STACK",
+              "market_type": "cex",
+              "match": [
+                "STACK"
+              ]
+            },
+            {
+              "symbol": "XYZ-CRCL",
+              "market_type": "cex",
+              "match": [
+                "(?i)\\b(?:CRCL|circle)\\b"
+              ]
+            },
+            {
+              "symbol": "UNI",
+              "market_type": "cex",
+              "match": [
+                "UNISWAP"
+              ]
+            },
+            {
+              "symbol": "CORE",
+              "market_type": "cex",
+              "match": [
+                "CORE"
+              ]
+            },
+            {
+              "symbol": "ETH",
+              "market_type": "cex",
+              "match": [
+                "ETHEREUM"
+              ]
+            },
+            {
+              "symbol": "ORDER",
+              "market_type": "cex",
+              "match": [
+                "ORDER"
+              ]
+            },
+            {
+              "symbol": "POR",
+              "market_type": "cex",
+              "match": [
+                "POR"
+              ]
+            },
+            {
+              "symbol": "G",
+              "market_type": "cex",
+              "match": [
+                "G"
+              ]
+            },
+            {
+              "symbol": "TRUST",
+              "market_type": "cex",
+              "match": [
+                "TRUST"
+              ]
+            },
+            {
+              "symbol": "MORPHO",
+              "market_type": "cex",
+              "match": [
+                "MORPHO"
+              ]
+            },
+            {
+              "symbol": "COMMON",
+              "market_type": "cex",
+              "match": [
+                "COMMON"
+              ]
+            },
+            {
+              "symbol": "CROSS",
+              "market_type": "cex",
+              "match": [
+                "CROSS"
+              ]
+            },
+            {
+              "symbol": "CRCL",
+              "market_type": "cex",
+              "match": [
+                "(?i)\\b(?:CRCL|circle)\\b"
+              ]
+            }
+          ],
+          "aiRating": {
+            "enSummary": "DIA launched DIA Value, which provides on-chain intrinsic fair value pricing for institutional DeFi, solving the pricing problem of non-trading assets (such as tokenized government bonds and interest-bearing tokens). It has been integrated with protocols such as Euler and Morpho.",
+            "grade": "A",
+            "score": 80,
+            "signal": "long",
+            "status": "done",
+            "summary": "DIA推出DIA Value，为机构DeFi提供链上内在公允价值定价，解决非交易性资产（如代币化国债、生息代币）的定价难题，已与Euler、Morpho等协议集成。"
+          },
+          "ts": "2026-03-10T13:34:18.45Z"
+        },
+        {
+          "id": 1045577,
+          "text": "RWA xyz data shows that the total on-chain value of tokenized stocks has surpassed $1 billion. Ondo Finance and Backed Finance's xStocks platform dominate the majority of tokenized stock issuance and trading market share, with Ondo Finance accounting for approximately 58% and xStocks around 24%, forming an early duopoly in the sector. https://app.rwa.xyz/stocks",
+          "link": "https://twitter.com/wublockchain/status/2031342025346355562",
+          "newsType": "Twitter",
+          "engineType": "news",
+          "coins": [
+            {
+              "symbol": "ONDO",
+              "market_type": "cex",
+              "match": [
+                "ONDO"
+              ]
+            }
+          ],
+          "aiRating": {
+            "enSummary": "RWA xyz data shows that the total value of on-chain tokenized stocks exceeds $1 billion, with Ondo Finance (approximately 58%) and Backed Finance&#39;s xStocks platform (approximately 24%) dominating the market share, forming an early duopoly.",
+            "grade": "B+",
+            "score": 65,
+            "signal": "long",
+            "status": "done",
+            "summary": "RWA xyz数据显示链上代币化股票总价值超10亿美元，Ondo Finance（约58%）和Backed Finance的xStocks平台（约24%）主导市场份额，形成早期双寡头格局。"
+          },
+          "ts": "2026-03-10T12:10:54.870659Z"
+        },
+        {
+          "id": 1045576,
+          "text": "RWA xyz data shows that the total on-chain value of tokenized stocks has surpassed $1 billion. Ondo Finance and Backed Finance's xStocks platform dominate the majority of tokenized stock issuance and trading market share, with Ondo Finance accounting for approximately 58% and xStocks around 24%, forming an early duopoly in the sector. https://app.rwa.xyz/stocks",
+          "link": "https://twitter.com/WuBlockchain/status/2031342025346355562",
+          "newsType": "tree",
+          "engineType": "news",
+          "coins": [
+            {
+              "symbol": "ONDO",
+              "market_type": "cex",
+              "match": [
+                "ONDO"
+              ]
+            }
+          ],
+          "aiRating": {
+            "enSummary": "RWA xyz data shows that the total value of on-chain tokenized stocks exceeds $1 billion. Ondo Finance and Backed Finance&#39;s xStocks platform dominate the market, accounting for approximately 58% and 24% respectively, forming an early duopoly.",
+            "grade": "B+",
+            "score": 65,
+            "signal": "neutral",
+            "status": "done",
+            "summary": "RWA xyz数据显示链上代币化股票总价值超10亿美元，Ondo Finance和Backed Finance的xStocks平台主导市场，分别占约58%和24%，形成早期双寡头格局"
+          },
+          "ts": "2026-03-10T12:10:54.533Z"
+        },
+        {
+          "id": 1045321,
+          "text": "RWA xyz data shows that the total on-chain value of tokenized stocks has surpassed $1 billion. Ondo Finance and Backed Finance's xStocks platform dominate the majority of tokenized stock issuance and trading market share, with Ondo Finance accounting for approximately 58% and xStocks around 24%, forming an early duopoly in the sector. https://app.rwa.xyz/stocks",
+          "link": "https://twitter.com/wublockchain/status/2031334921319624902",
+          "newsType": "Twitter",
+          "engineType": "news",
+          "coins": [
+            {
+              "symbol": "ONDO",
+              "market_type": "cex",
+              "match": [
+                "ONDO"
+              ]
+            }
+          ],
+          "aiRating": {
+            "enSummary": "RWA xyz data shows that the total value of on-chain tokenized stocks exceeds $1 billion, with Ondo Finance (approximately 58%) and xStocks (approximately 24%) dominating the market, forming an early duopoly.",
+            "grade": "B+",
+            "score": 70,
+            "signal": "long",
+            "status": "done",
+            "summary": "RWA xyz数据显示链上代币化股票总价值超10亿美元，Ondo Finance（约58%）和xStocks（约24%）主导市场，形成早期双寡头格局"
+          },
+          "ts": "2026-03-10T11:42:40.954404Z"
+        }
+      ]
+    },
+    "plume": {
+      "fetchedAt": "2026-03-17T02:29:25.010Z",
+      "articles": [
+        {
+          "id": 1111539,
+          "text": "NEW: Iran launches drone attack at Dubai International Airport, sending a massive plume of smoke into the sky after hitting a fuel tanker.<br/><br/>The repeated attacks by Iranian drones at Dubai International Airport forced the global travel hub to suspend all flights \"until further notice.\"",
+          "link": "https://twitter.com/foxnews/status/2033562441833955451",
+          "newsType": "Twitter",
+          "engineType": "news",
+          "coins": [
+            {
+              "symbol": "PLUME",
+              "market_type": "cex",
+              "match": [
+                "PLUME"
+              ]
+            },
+            {
+              "symbol": "FUEL",
+              "market_type": "cex",
+              "match": [
+                "FUEL"
+              ]
+            }
+          ],
+          "aiRating": {
+            "enSummary": "Iran launched a drone strike on Dubai International Airport, hitting a fuel tanker and sending plumes of smoke into the air. The global transportation hub has been forced to suspend all flights until further notice due to the repeated Iranian drone attacks.",
+            "grade": "A+",
+            "score": 95,
+            "signal": "neutral",
+            "status": "done",
+            "summary": "伊朗对迪拜国际机场发动无人机袭击，击中燃油罐车致浓烟升起，该全球交通枢纽因伊朗无人机的多次袭击被迫暂停所有航班，直至另行通知。"
+          },
+          "ts": "2026-03-16T15:14:03.798365Z"
+        },
+        {
+          "id": 1091374,
+          "text": "we are in the peak for inflated expectations for tokenization <br/><br/>the change is fundamental and real, but we are still a few clicks away from seeing it actually materialize<br/><br/>this is the internet in the early 2000s. lots of dead bodies from that time as everyone rushed to slap a .com onto their biz and hope for a pump. that kind of sloppy thinking gave us webvan, http://pets.com, etc. the ideas were right (now we have instacart, http://chewy.com), but it was too early. infra too expensive, not enough users, market too small. tokenization is exactly this today. reg & infra expensive/slow, with very few real users. if we are here, the trough of disillusionment follows<br/><br/>but also remember the early 00s gave us the greats of today. amazon, google, etc. companies that shaped and defined how the entire world works<br/><br/>tokenization is in the early 00s now. this is where the greats are born. plume was born in the fire and we will continue shipping day in and day out<br/><br/>rain or shine. hyped or down bad. jobs not done",
+          "link": "https://twitter.com/chriseyin/status/2032629956770226322",
+          "newsType": "Twitter",
+          "engineType": "news",
+          "coins": [
+            {
+              "symbol": "HOPE",
+              "market_type": "cex",
+              "match": [
+                "HOPE"
+              ]
+            },
+            {
+              "symbol": "PUMP",
+              "market_type": "cex",
+              "match": [
+                "PUMP"
+              ]
+            },
+            {
+              "symbol": "ETC",
+              "market_type": "cex",
+              "match": [
+                "ETC"
+              ]
+            },
+            {
+              "symbol": "PLUME",
+              "market_type": "cex",
+              "match": [
+                "PLUME"
+              ]
+            },
+            {
+              "symbol": "XYZ-AMZN",
+              "market_type": "cex",
+              "match": [
+                "AMAZON"
+              ]
+            },
+            {
+              "symbol": "XYZ-GOOGL",
+              "market_type": "cex",
+              "match": [
+                "(?i)\\b(?:google|gemini)\\b"
+              ]
+            }
+          ],
+          "aiRating": {
+            "enSummary": "Currently, tokenization is at the peak of inflated expectations; the transformation is real but not yet implemented, similar to the dot-com bubble of the early 2000s. While facing regulatory and infrastructure challenges, it may also give rise to giants. Plume will continue to advance related work.",
+            "grade": "B+",
+            "score": 70,
+            "signal": "neutral",
+            "status": "done",
+            "summary": "目前代币化处于期望膨胀峰值，变革真实但未落地，类似2000年代初互联网泡沫期，虽面临监管和基础设施问题，但也可能诞生巨头，Plume将持续推进相关工作"
+          },
+          "ts": "2026-03-14T01:28:41.709855Z"
+        },
+        {
+          "id": 1091371,
+          "text": "we are in the peak for inflated expectations for tokenization <br/><br/>the change is fundamental and real, but we are still a few clicks away from seeing it actually materialize<br/><br/>this is the internet in the early 2000s. lots of dead bodies from that time as everyone rushed to slap a .com onto their biz and hope for a pump. that kind of sloppy thinking gave us webvan, http://pets.com, etc. the ideas were right (now we have instacart, http://chewy.com), but it was too early. infra too expensive, not enough users, market too small. tokenization is exactly this today. reg & infra expensive/slow, with very few real users. if we are here, the trough of disillusionment follows<br/><br/>but also remember the early 00s gave us the greats of today. amazon, google, etc. companies that shaped and defined how the entire world works<br/><br/>tokenization is in the early 00s now. this is where the greats are born. plume was born in the fire and we are locked in",
+          "link": "https://twitter.com/chriseyin/status/2032629483132641343",
+          "newsType": "Twitter",
+          "engineType": "news",
+          "coins": [
+            {
+              "symbol": "PLUME",
+              "market_type": "cex",
+              "match": [
+                "PLUME"
+              ]
+            },
+            {
+              "symbol": "XYZ-AMZN",
+              "market_type": "cex",
+              "match": [
+                "AMAZON"
+              ]
+            },
+            {
+              "symbol": "XYZ-GOOGL",
+              "market_type": "cex",
+              "match": [
+                "(?i)\\b(?:google|gemini)\\b"
+              ]
+            },
+            {
+              "symbol": "HOPE",
+              "market_type": "cex",
+              "match": [
+                "HOPE"
+              ]
+            },
+            {
+              "symbol": "PUMP",
+              "market_type": "cex",
+              "match": [
+                "PUMP"
+              ]
+            },
+            {
+              "symbol": "ETC",
+              "market_type": "cex",
+              "match": [
+                "ETC"
+              ]
+            }
+          ],
+          "aiRating": {
+            "enSummary": "Currently, tokenization is at the peak of inflated expectations. Its transformative potential is real but has not yet materialized, similar to the dot-com bubble of the early 2000s. While facing regulatory and infrastructure challenges, it may also give rise to great projects.",
+            "grade": "B+",
+            "score": 65,
+            "signal": "neutral",
+            "status": "done",
+            "summary": "当前代币化处于期望膨胀峰值，其变革真实但尚未落地，类似2000年代初互联网泡沫期，虽面临监管和基础设施问题，但也可能诞生伟大项目。"
+          },
+          "ts": "2026-03-14T01:26:48.567309Z"
+        },
+        {
+          "id": 1086624,
+          "text": "Tune in now! @TripleVodkaSoda is talking all things Plume, real-world yield and what’s next for RWAs 🔈<br/><br/>https://x.com/i/spaces/1NxarazowaXKj",
+          "link": "https://twitter.com/plumenetwork/status/2032503829049258160",
+          "newsType": "Twitter",
+          "engineType": "news",
+          "coins": [
+            {
+              "symbol": "PLUME",
+              "market_type": "cex",
+              "match": [
+                "PLUME"
+              ]
+            }
+          ],
+          "aiRating": {
+            "enSummary": "@TripleVodkaSoda is having a discussion about Plume, real-world benefits, and the future of RWA. You can watch it via the link.",
+            "grade": "B",
+            "score": 50,
+            "signal": "neutral",
+            "status": "done",
+            "summary": "@TripleVodkaSoda正在进行关于Plume、现实世界收益及RWA未来发展的空间讨论，可通过链接观看。"
+          },
+          "ts": "2026-03-13T17:07:30.088453Z"
+        },
+        {
+          "id": 1075926,
+          "text": "Another airstrike just hit central Beirut, just a few blocks from where a wave of strikes hit the city about an hour earlier. In this video you can hear the sound of the warplanes overhead and then, in the left of the frame, a plume of smoke from the strike.",
+          "link": "https://www.nytimes.com/live/2026/03/12/world/iran-war-news-trump-oil-israel#7f0081cb-1e06-51b1-981b-9783ef90a458",
+          "newsType": "NYT",
+          "engineType": "news",
+          "coins": [
+            {
+              "symbol": "BTC",
+              "market_type": "cex",
+              "match": [
+                "(?i)\\b(?:strike|strikes|raid)\\b"
+              ]
+            },
+            {
+              "symbol": "ETH",
+              "market_type": "cex",
+              "match": [
+                "(?i)\\b(?:strike|strikes|raid)\\b"
+              ]
+            },
+            {
+              "symbol": "SOL",
+              "market_type": "cex",
+              "match": [
+                "(?i)\\b(?:strike|strikes|raid)\\b"
+              ]
+            },
+            {
+              "symbol": "JST",
+              "market_type": "cex",
+              "match": [
+                "JUST"
+              ]
+            },
+            {
+              "symbol": "PLUME",
+              "market_type": "cex",
+              "match": [
+                "PLUME"
+              ]
+            },
+            {
+              "symbol": "STRIKE",
+              "market_type": "dex",
+              "chain": "bsc",
+              "contract_address": "0x2aa89a0113bcbbcdc5812c6df794e2d9650fc1af",
+              "pool": "0xfb1c06dd94c9a65f2c6715397c31790e8f10bed2",
+              "match": [
+                "STRIKE"
+              ]
+            }
+          ],
+          "aiRating": null,
+          "ts": "2026-03-12T17:52:03.453593Z"
+        }
+      ]
+    }
+  },
+  "opentwitter": {
+    "ethena": {
+      "fetchedAt": "2026-03-17T02:29:25.252Z",
+      "username": "ethena_labs",
+      "tweets": [
+        {
+          "id": "2016196889754948017",
+          "text": "Ethena joined @cantinaxyz and industry leaders in developing Web3SOC. An institutional due diligence framework for DeFi that provides consistent evaluation standards across security, operations, and compliance. Learn more 👇 https://x.com/1622629804791955458/status/2016164022736105623",
+          "createdAt": "Tue Jan 27 17:09:32 +0000 2026",
+          "retweetCount": 0,
+          "favoriteCount": 0,
+          "replyCount": 0,
+          "hashtags": [],
+          "urls": []
+        },
+        {
+          "id": "2014345248621920712",
+          "text": "Caps have been raised for two Ethena PTs on @aave - February sUSDe PT cap on the Core instance has been raised by $240 million to a total cap of $720m - April sUSDe PT cap on the @Plasma instance has been raised by $400 million to a total cap of $1.2bn",
+          "createdAt": "Thu Jan 22 14:31:46 +0000 2026",
+          "retweetCount": 0,
+          "favoriteCount": 282,
+          "replyCount": 0,
+          "hashtags": [],
+          "urls": []
+        },
+        {
+          "id": "2014345248621920712",
+          "text": "Caps have been raised for two Ethena PTs on @aave - February sUSDe PT cap on the Core instance has been raised by $240 million to a total cap of $720m - April sUSDe PT cap on the @Plasma instance has been raised by $400 million to a total cap of $1.2bn",
+          "createdAt": "Thu Jan 22 14:31:46 +0000 2026",
+          "retweetCount": 0,
+          "favoriteCount": 0,
+          "replyCount": 0,
+          "hashtags": [],
+          "urls": []
+        },
+        {
+          "id": "2013655174288413053",
+          "text": "HyENA is now publicly available After a month of gated launch, crossing $600M+ in total volume, HyENA is ready to scale: → HyENA's trading fees have been cut by ~50% → Anyone can trade on HyENA without an invite link → 12% boosted collateral APR applies to both long and short positions → Referral links are open for all To get started, click \"Deposit\" on HyENA. https://t.co/N13l5932dM",
+          "createdAt": "Tue Jan 20 16:49:40 +0000 2026",
+          "retweetCount": 0,
+          "favoriteCount": 0,
+          "replyCount": 0,
+          "hashtags": [],
+          "urls": []
+        },
+        {
+          "id": "2009603284219408464",
+          "text": "Powered by Ethena Whitelabel. https://x.com/weremeow/status/2009584996840075308",
+          "createdAt": "Fri Jan 09 12:28:54 +0000 2026",
+          "retweetCount": 0,
+          "favoriteCount": 0,
+          "replyCount": 0,
+          "hashtags": [],
+          "urls": []
+        }
+      ]
+    },
+    "maple": {
+      "fetchedAt": "2026-03-17T12:35:26.722Z",
+      "username": "maplefinance",
+      "error": "HTTP 402 for https://ai.6551.io/open/twitter_user_tweets"
+    },
+    "ondo-finance": {
+      "fetchedAt": "2026-03-17T12:35:27.180Z",
+      "username": "OndoFinance",
+      "error": "HTTP 402 for https://ai.6551.io/open/twitter_user_tweets"
+    },
+    "plume": {
+      "fetchedAt": "2026-03-17T12:35:27.339Z",
+      "username": "plumenetwork",
+      "error": "HTTP 402 for https://ai.6551.io/open/twitter_user_tweets"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+OSL 项目情报日报
+时间: 17/3/2026 20:30:23
+目标接收: @yysatoshi
+
+1. Ondo Finance | RWA | Score 30 | Priority High | TRACKING
+理由: 近期有融资/资本市场信号；公开信息里出现合规或牌照相关表述；有亚洲扩张信号
+线索:
+- Ondo Finance technology will power 24/7 oil perps. https://x.com/OndoPerps/status/2033607376050298923 (Twitter) https://twitter.com/ondofinance/status/2033621643633786901
+- RWA xyz data shows that the total on-chain value of tokenized stocks has surpassed $1 billion. Ondo Finance and Backed Finance's xStocks platform dominate the majority of tokenized stock issuance and trading market share (Twitter) https://twitter.com/wublockchain/status/2031342025346355562
+
+2. Maple | Institutional | Score 30 | Priority Medium | TRACKING
+理由: 公开信息里出现合规或牌照相关表述；偏机构客户或托管/清算场景；存在二级流动性或上所相关语义
+线索:
+- syrupUSDT just hit $50M+ in inflows on BNB Chain across 4 vaults.<br/><br/>New ecosystem. Same Maple momentum. https://t.co/WvoITpRJ2k (Twitter) https://twitter.com/maplefinance/status/2031354490566357359
+- syrupUSDT is live on Venus Flux by @VenusProtocol and @0xfluid<br/><br/>Maple expands to BNB Chain with another strategic d… https://t.co/V6YFXDhO7c (Twitter) https://twitter.com/maplefinance/status/2028832801521652054
+
+3. Ethena | Stablecoin | Score 29 | Priority High | TRACKING
+理由: 近期有融资/资本市场信号；公开信息里出现合规或牌照相关表述；偏机构客户或托管/清算场景
+线索:
+- Marketing said "ENA-ugh is ENA-ugh."<br/><br/>Intern said "Ethe-NA, let's keep things rolling."<br/><br/>On that note, the following @ethena pools return to Pendle on @Plasma :<br/>💚 USDe (18 June 2026)<br/>💚 sUSDe (18 (Twitter) https://twitter.com/pendle_fi/status/2033546449108279476
+- FINANCE FEEDS: Ethena Deployed Capital Hits Multi-Year Low as Market Reaches Historical Parity (News Websites) https://financefeeds.com/ethena-deployed-capital-hits-multi-year-low-as-market-reaches-historical-parity/
+
+4. Plume | RWA | Score 26 | Priority Watch | TRACKING
+理由: 公开信息里出现合规或牌照相关表述；有亚洲扩张信号；偏机构客户或托管/清算场景
+线索:
+- Tune in now! @TripleVodkaSoda is talking all things Plume, real-world yield and what’s next for RWAs 🔈<br/><br/>https://x.com/i/spaces/1NxarazowaXKj (Twitter) https://twitter.com/plumenetwork/status/2032503829049258160
+- RWA News: Plume Acquiring Dinero to Expand Institutional Ethereum, Solana, Bitcoin Yield - CoinDesk (CoinDesk) https://news.google.com/rss/articles/CBMivgFBVV95cUxNWVpXZTlldnNwSWkxX1g5VXprMFZoUFRKXzFPVWRxd2xRN1kySmNQWHh5clAyWnY3Z1BNdXBCaWw3UmpCMWtlVTJHeFBoRWpLMHZFSnA1MFBMZkU2SGdMN1VTdzljcGY0YkZoSzJGdW5ScGJVMlQwNHpEUEFKTURGQ2FCMU5nR25GQmxZalVhY0xPaEtaUFpZdzZndTNDM3dsczdocXJJblVPQWR3VFg2OVRISURKMHRqVGJmaG53?oc=5
+
+建议动作:
+1. 优先核验是否已有 TGE / 已上其他主流交易所
+2. 查看官网或团队页面是否出现香港、合规、机构销售、法务相关表述
+3. 通过律师、做市商、托管或投资方网络找 warm intro

@@ -1,0 +1,16 @@
+{
+  "templates": [
+    {
+      "id": "cold_intro_cn",
+      "name": "首封触达 - 中文",
+      "subject": "关于香港合规交易渠道的一次简短交流",
+      "body": "你好，我这边关注到 {{project_name}} 最近在 {{signal_summary}} 方面动作比较明显。\n\n我有朋友在香港持牌合规交易平台 OSL 负责项目合作，最近也在看更适合进入香港及机构市场的项目。\n\n从公开信息看，{{project_name}} 在 {{fit_reason}} 这几个点上和香港合规渠道的诉求有一定匹配度，所以想先简单了解一下：你们近期是否有以下方向的计划？\n1. 扩展香港或亚洲市场\n2. 建立更合规的二级流动性渠道\n3. 接触机构投资者、托管或场外网络\n\n如果有兴趣，我们可以先安排一个 15 分钟的非正式交流。我这边也可以先整理一版香港合规交易平台通常会关注的准备项，供你们内部评估。\n\n祝好\n{{sender_name}}"
+    },
+    {
+      "id": "cold_intro_en",
+      "name": "First Outreach - English",
+      "subject": "Quick intro regarding Hong Kong compliant market access",
+      "body": "Hi {{contact_name}},\n\nWe noticed that {{project_name}} has recently shown clear momentum around {{signal_summary}}.\n\nA friend of mine works on project partnerships at OSL, a regulated exchange platform in Hong Kong, and is currently speaking with teams that may be exploring compliant market access and institutional-facing liquidity.\n\nBased on public information, {{project_name}} seems potentially relevant because of {{fit_reason}}.\n\nWould it be useful to have a brief 15-minute introductory chat to understand whether you are considering any of the following?\n- Hong Kong or broader Asia expansion\n- More compliant secondary market access\n- Institutional distribution, custody, or OTC connectivity\n\nHappy to share a short checklist of what Hong Kong compliant venues usually look for before any formal discussion.\n\nBest,\n{{sender_name}}"
+    }
+  ]
+}

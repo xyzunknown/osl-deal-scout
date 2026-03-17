@@ -1,0 +1,770 @@
+{
+  "runs": [
+    {
+      "ranAt": "2026-03-17T12:30:23.319Z",
+      "projects": [
+        {
+          "name": "Ondo Finance",
+          "score": 30
+        },
+        {
+          "name": "Maple",
+          "score": 30
+        },
+        {
+          "name": "Ethena",
+          "score": 29
+        },
+        {
+          "name": "Plume",
+          "score": 26
+        }
+      ],
+      "pushed": false,
+      "target": "@yysatoshi",
+      "skippedReason": ""
+    },
+    {
+      "ranAt": "2026-03-17T12:29:29.019Z",
+      "projects": [
+        {
+          "name": "Ondo Finance",
+          "score": 30
+        },
+        {
+          "name": "Maple",
+          "score": 30
+        },
+        {
+          "name": "Ethena",
+          "score": 29
+        },
+        {
+          "name": "Plume",
+          "score": 26
+        }
+      ],
+      "pushed": false,
+      "target": "@yysatoshi",
+      "skippedReason": ""
+    },
+    {
+      "ranAt": "2026-03-17T06:52:34.804Z",
+      "projects": [
+        {
+          "name": "Ethena",
+          "score": 23
+        },
+        {
+          "name": "Ondo Finance",
+          "score": 22
+        },
+        {
+          "name": "Plume",
+          "score": 22
+        },
+        {
+          "name": "Maple",
+          "score": 22
+        }
+      ],
+      "pushed": false,
+      "target": "@yysatoshi",
+      "skippedReason": ""
+    },
+    {
+      "ranAt": "2026-03-17T06:47:36.722Z",
+      "projects": [
+        {
+          "name": "Ethena",
+          "score": 23
+        },
+        {
+          "name": "Ondo Finance",
+          "score": 22
+        },
+        {
+          "name": "Plume",
+          "score": 22
+        },
+        {
+          "name": "Maple",
+          "score": 22
+        }
+      ],
+      "pushed": false,
+      "target": "@yysatoshi",
+      "skippedReason": ""
+    },
+    {
+      "ranAt": "2026-03-17T05:23:34.931Z",
+      "projects": [
+        {
+          "name": "Ethena",
+          "score": 23
+        },
+        {
+          "name": "Plume",
+          "score": 22
+        },
+        {
+          "name": "Maple",
+          "score": 22
+        },
+        {
+          "name": "Ondo Finance",
+          "score": 22
+        }
+      ],
+      "pushed": false,
+      "target": "@yysatoshi",
+      "skippedReason": ""
+    },
+    {
+      "ranAt": "2026-03-17T05:22:22.078Z",
+      "projects": [
+        {
+          "name": "Ethena",
+          "score": 23
+        },
+        {
+          "name": "Plume",
+          "score": 22
+        },
+        {
+          "name": "Maple",
+          "score": 22
+        },
+        {
+          "name": "Ondo Finance",
+          "score": 22
+        }
+      ],
+      "pushed": false,
+      "target": "@yysatoshi",
+      "skippedReason": ""
+    },
+    {
+      "ranAt": "2026-03-17T05:20:47.833Z",
+      "projects": [
+        {
+          "name": "Ethena",
+          "score": 23
+        },
+        {
+          "name": "Plume",
+          "score": 22
+        },
+        {
+          "name": "Maple",
+          "score": 22
+        },
+        {
+          "name": "Ondo Finance",
+          "score": 22
+        }
+      ],
+      "pushed": false,
+      "target": "@yysatoshi",
+      "skippedReason": ""
+    },
+    {
+      "ranAt": "2026-03-17T02:37:46.597Z",
+      "projects": [
+        {
+          "name": "Ethena",
+          "score": 23
+        },
+        {
+          "name": "Plume",
+          "score": 22
+        },
+        {
+          "name": "Maple",
+          "score": 22
+        },
+        {
+          "name": "Ondo Finance",
+          "score": 22
+        }
+      ],
+      "pushed": false,
+      "target": "@yysatoshi",
+      "skippedReason": ""
+    },
+    {
+      "ranAt": "2026-03-17T02:29:39.882Z",
+      "projects": [
+        {
+          "name": "Ethena",
+          "score": 23
+        },
+        {
+          "name": "Plume",
+          "score": 22
+        },
+        {
+          "name": "Maple",
+          "score": 22
+        },
+        {
+          "name": "Ondo Finance",
+          "score": 22
+        }
+      ],
+      "pushed": true,
+      "target": "6524768740"
+    },
+    {
+      "ranAt": "2026-03-16T15:31:14.399Z",
+      "projects": [
+        {
+          "name": "Maple",
+          "score": 19
+        },
+        {
+          "name": "Ethena",
+          "score": 19
+        },
+        {
+          "name": "Plume",
+          "score": 18
+        },
+        {
+          "name": "Ondo Finance",
+          "score": 18
+        }
+      ],
+      "pushed": false,
+      "target": "@yysatoshi",
+      "skippedReason": ""
+    },
+    {
+      "ranAt": "2026-03-16T15:05:31.071Z",
+      "projects": [
+        {
+          "name": "Maple",
+          "score": 22
+        },
+        {
+          "name": "Ethena",
+          "score": 22
+        },
+        {
+          "name": "Plume",
+          "score": 21
+        },
+        {
+          "name": "Ondo Finance",
+          "score": 21
+        }
+      ],
+      "pushed": false,
+      "target": "@yysatoshi"
+    },
+    {
+      "ranAt": "2026-03-16T14:30:00.194Z",
+      "projects": [
+        {
+          "name": "Maple",
+          "score": 22
+        },
+        {
+          "name": "Ethena",
+          "score": 22
+        },
+        {
+          "name": "Plume",
+          "score": 21
+        },
+        {
+          "name": "Ondo Finance",
+          "score": 21
+        }
+      ],
+      "pushed": false,
+      "target": "@yysatoshi"
+    },
+    {
+      "ranAt": "2026-03-16T14:24:06.228Z",
+      "projects": [
+        {
+          "name": "Maple",
+          "score": 22
+        },
+        {
+          "name": "Ethena",
+          "score": 22
+        },
+        {
+          "name": "Plume",
+          "score": 21
+        },
+        {
+          "name": "Ondo Finance",
+          "score": 21
+        }
+      ],
+      "pushed": false,
+      "target": "@yysatoshi"
+    },
+    {
+      "ranAt": "2026-03-16T14:22:47.085Z",
+      "projects": [
+        {
+          "name": "StanChart",
+          "score": 10
+        },
+        {
+          "name": "Maple",
+          "score": 22
+        },
+        {
+          "name": "Ethena",
+          "score": 22
+        },
+        {
+          "name": "Plume",
+          "score": 21
+        },
+        {
+          "name": "Ondo Finance",
+          "score": 21
+        }
+      ],
+      "pushed": false,
+      "target": "@yysatoshi"
+    },
+    {
+      "ranAt": "2026-03-16T13:40:48.847Z",
+      "projects": [
+        {
+          "name": "Maple",
+          "score": 22
+        },
+        {
+          "name": "Ethena",
+          "score": 22
+        },
+        {
+          "name": "Plume",
+          "score": 21
+        },
+        {
+          "name": "Ondo Finance",
+          "score": 21
+        }
+      ],
+      "pushed": false,
+      "target": "@yysatoshi"
+    },
+    {
+      "ranAt": "2026-03-16T12:01:28.681Z",
+      "projects": [
+        {
+          "name": "Maple",
+          "score": 22
+        },
+        {
+          "name": "Ethena",
+          "score": 22
+        },
+        {
+          "name": "Plume",
+          "score": 21
+        },
+        {
+          "name": "Ondo Finance",
+          "score": 21
+        }
+      ],
+      "pushed": false,
+      "target": "@yysatoshi"
+    },
+    {
+      "ranAt": "2026-03-16T11:58:37.346Z",
+      "projects": [
+        {
+          "name": "Maple",
+          "score": 22
+        },
+        {
+          "name": "Ethena",
+          "score": 22
+        },
+        {
+          "name": "Plume",
+          "score": 21
+        },
+        {
+          "name": "Ondo Finance",
+          "score": 21
+        }
+      ],
+      "pushed": false,
+      "target": "@yysatoshi"
+    },
+    {
+      "ranAt": "2026-03-16T11:52:05.940Z",
+      "projects": [
+        {
+          "name": "Maple",
+          "score": 19
+        },
+        {
+          "name": "Plume",
+          "score": 19
+        },
+        {
+          "name": "Ethena",
+          "score": 19
+        },
+        {
+          "name": "Ondo Finance",
+          "score": 19
+        }
+      ],
+      "pushed": false,
+      "target": "@yysatoshi"
+    },
+    {
+      "ranAt": "2026-03-16T10:52:06.834Z",
+      "projects": [
+        {
+          "name": "Ethena",
+          "score": 25
+        },
+        {
+          "name": "Ondo Finance",
+          "score": 25
+        },
+        {
+          "name": "Maple",
+          "score": 24
+        },
+        {
+          "name": "Plume",
+          "score": 24
+        }
+      ],
+      "pushed": false,
+      "target": "@yysatoshi"
+    },
+    {
+      "ranAt": "2026-03-16T10:50:42.644Z",
+      "projects": [
+        {
+          "name": "Maple",
+          "score": 24
+        },
+        {
+          "name": "Ethena",
+          "score": 25
+        },
+        {
+          "name": "Ondo Finance",
+          "score": 25
+        },
+        {
+          "name": "Plume",
+          "score": 24
+        }
+      ],
+      "pushed": false,
+      "target": "@yysatoshi"
+    },
+    {
+      "ranAt": "2026-03-16T08:02:34.345Z",
+      "projects": [
+        {
+          "name": "Ethena",
+          "score": 25
+        },
+        {
+          "name": "Ondo Finance",
+          "score": 25
+        },
+        {
+          "name": "Plume",
+          "score": 24
+        },
+        {
+          "name": "Maple",
+          "score": 23
+        }
+      ],
+      "pushed": true,
+      "target": "6524768740"
+    },
+    {
+      "ranAt": "2026-03-16T08:01:04.873Z",
+      "projects": [
+        {
+          "name": "Coinone ROBO Listing",
+          "score": 1
+        },
+        {
+          "name": "Celia Token March",
+          "score": 1
+        },
+        {
+          "name": "StanChart",
+          "score": 10
+        },
+        {
+          "name": "Next Crypto",
+          "score": 9
+        },
+        {
+          "name": "Consensus Hong Kong",
+          "score": 7
+        },
+        {
+          "name": "Interactive Brokers Launches",
+          "score": 6
+        },
+        {
+          "name": "CBMi3AJBVV95cUxNX0hQSEx6azRJU3RlLXd0QmlHbEE4cDBUVTJ4YVZxOTdaclg2TDV0LTRMQ09RYThlYTVYaURpM0dyclFiYlhYTDhkcVhxajdZN0NnTElySmx2NUlSaWNXRVhEUnp3X055TzhGTVpUVmRYU1F5SkR0Q2l3aE01dWJRNS11SHZZQ1JpS0hRSXlGOUE2R21uTzlBZndnYWlEb0I1V1BkNEhwMkxwRVltdXR4eXlvNEFxTzljX25rMkdCcUpKbUF4NE1yNHNlNEhaNGV0ZE9BaWlodlRKT0tUNU91OW9fb0s1VTVXQVZOOW01Wi1vSzE4cGVfODU2VnJsNktBNzdmQ09UbHQ3ZFpZSWRtUmlwdDF6czhRZDlJRUVnczJtQ0xLejhmQjVvclBtTEZQX1k0bWsyQ3JRT2NRN3FFVlBSSnhXbHY2SzhaM1Z2b29MUzR0Z2gzcUN0ckU",
+          "score": 6
+        },
+        {
+          "name": "155K",
+          "score": 4
+        }
+      ],
+      "pushed": true,
+      "target": "6524768740"
+    },
+    {
+      "ranAt": "2026-03-16T07:52:00.671Z",
+      "projects": [
+        {
+          "name": "Ondo Finance",
+          "score": 25
+        },
+        {
+          "name": "Plume",
+          "score": 24
+        },
+        {
+          "name": "Ethena",
+          "score": 25
+        },
+        {
+          "name": "Maple",
+          "score": 23
+        }
+      ],
+      "pushed": false,
+      "target": "@yysatoshi"
+    },
+    {
+      "ranAt": "2026-03-16T07:50:13.763Z",
+      "projects": [],
+      "pushed": false,
+      "target": "@yysatoshi"
+    },
+    {
+      "ranAt": "2026-03-16T07:34:37.909Z",
+      "projects": [
+        {
+          "name": "StanChart",
+          "score": 10
+        },
+        {
+          "name": "Next Crypto",
+          "score": 9
+        },
+        {
+          "name": "Consensus Hong Kong",
+          "score": 7
+        },
+        {
+          "name": "Interactive Brokers Launches",
+          "score": 6
+        },
+        {
+          "name": "CBMi3AJBVV95cUxNX0hQSEx6azRJU3RlLXd0QmlHbEE4cDBUVTJ4YVZxOTdaclg2TDV0LTRMQ09RYThlYTVYaURpM0dyclFiYlhYTDhkcVhxajdZN0NnTElySmx2NUlSaWNXRVhEUnp3X055TzhGTVpUVmRYU1F5SkR0Q2l3aE01dWJRNS11SHZZQ1JpS0hRSXlGOUE2R21uTzlBZndnYWlEb0I1V1BkNEhwMkxwRVltdXR4eXlvNEFxTzljX25rMkdCcUpKbUF4NE1yNHNlNEhaNGV0ZE9BaWlodlRKT0tUNU91OW9fb0s1VTVXQVZOOW01Wi1vSzE4cGVfODU2VnJsNktBNzdmQ09UbHQ3ZFpZSWRtUmlwdDF6czhRZDlJRUVnczJtQ0xLejhmQjVvclBtTEZQX1k0bWsyQ3JRT2NRN3FFVlBSSnhXbHY2SzhaM1Z2b29MUzR0Z2gzcUN0ckU",
+          "score": 6
+        },
+        {
+          "name": "155K",
+          "score": 4
+        },
+        {
+          "name": "Utexo",
+          "score": 4
+        },
+        {
+          "name": "Equity",
+          "score": 4
+        }
+      ],
+      "pushed": false,
+      "target": "@yysatoshi"
+    },
+    {
+      "ranAt": "2026-03-16T07:25:51.030Z",
+      "projects": [
+        {
+          "name": "When Will Coins",
+          "score": 2
+        },
+        {
+          "name": "StanChart",
+          "score": 10
+        },
+        {
+          "name": "Next Crypto",
+          "score": 9
+        },
+        {
+          "name": "Consensus Hong Kong",
+          "score": 7
+        },
+        {
+          "name": "Interactive Brokers Launches",
+          "score": 6
+        },
+        {
+          "name": "CBMi3AJBVV95cUxNX0hQSEx6azRJU3RlLXd0QmlHbEE4cDBUVTJ4YVZxOTdaclg2TDV0LTRMQ09RYThlYTVYaURpM0dyclFiYlhYTDhkcVhxajdZN0NnTElySmx2NUlSaWNXRVhEUnp3X055TzhGTVpUVmRYU1F5SkR0Q2l3aE01dWJRNS11SHZZQ1JpS0hRSXlGOUE2R21uTzlBZndnYWlEb0I1V1BkNEhwMkxwRVltdXR4eXlvNEFxTzljX25rMkdCcUpKbUF4NE1yNHNlNEhaNGV0ZE9BaWlodlRKT0tUNU91OW9fb0s1VTVXQVZOOW01Wi1vSzE4cGVfODU2VnJsNktBNzdmQ09UbHQ3ZFpZSWRtUmlwdDF6czhRZDlJRUVnczJtQ0xLejhmQjVvclBtTEZQX1k0bWsyQ3JRT2NRN3FFVlBSSnhXbHY2SzhaM1Z2b29MUzR0Z2gzcUN0ckU",
+          "score": 6
+        },
+        {
+          "name": "155K",
+          "score": 4
+        },
+        {
+          "name": "Utexo",
+          "score": 4
+        }
+      ],
+      "pushed": false,
+      "target": "@yysatoshi"
+    },
+    {
+      "ranAt": "2026-03-16T06:39:44.753Z",
+      "projects": [
+        {
+          "name": "CoinDCX Hype Builds",
+          "score": 1
+        },
+        {
+          "name": "MANTRA Price Soars",
+          "score": 1
+        },
+        {
+          "name": "Coinbase Announces Pivotal",
+          "score": 1
+        },
+        {
+          "name": "XRP",
+          "score": 1
+        },
+        {
+          "name": "Arichain Q1 Countdown",
+          "score": 1
+        },
+        {
+          "name": "StanChart",
+          "score": 10
+        },
+        {
+          "name": "Next Crypto",
+          "score": 9
+        },
+        {
+          "name": "Consensus Hong Kong",
+          "score": 7
+        }
+      ],
+      "pushed": false,
+      "target": "@yysatoshi"
+    },
+    {
+      "ranAt": "2026-03-16T06:38:43.046Z",
+      "projects": [
+        {
+          "name": "Next Crypto",
+          "score": 9
+        },
+        {
+          "name": "Interactive Brokers Launches",
+          "score": 6
+        },
+        {
+          "name": "CBMi3AJBVV95cUxNX0hQSEx6azRJU3RlLXd0QmlHbEE4cDBUVTJ4YVZxOTdaclg2TDV0LTRMQ09RYThlYTVYaURpM0dyclFiYlhYTDhkcVhxajdZN0NnTElySmx2NUlSaWNXRVhEUnp3X055TzhGTVpUVmRYU1F5SkR0Q2l3aE01dWJRNS11SHZZQ1JpS0hRSXlGOUE2R21uTzlBZndnYWlEb0I1V1BkNEhwMkxwRVltdXR4eXlvNEFxTzljX25rMkdCcUpKbUF4NE1yNHNlNEhaNGV0ZE9BaWlodlRKT0tUNU91OW9fb0s1VTVXQVZOOW01Wi1vSzE4cGVfODU2VnJsNktBNzdmQ09UbHQ3ZFpZSWRtUmlwdDF6czhRZDlJRUVnczJtQ0xLejhmQjVvclBtTEZQX1k0bWsyQ3JRT2NRN3FFVlBSSnhXbHY2SzhaM1Z2b29MUzR0Z2gzcUN0ckU",
+          "score": 6
+        },
+        {
+          "name": "155K",
+          "score": 4
+        },
+        {
+          "name": "Equity",
+          "score": 4
+        },
+        {
+          "name": "Estate Protocol CEO",
+          "score": 3
+        },
+        {
+          "name": "Pi",
+          "score": 1
+        },
+        {
+          "name": "Blum Crypto Launches",
+          "score": 1
+        }
+      ],
+      "pushed": false,
+      "target": "@yysatoshi"
+    },
+    {
+      "ranAt": "2026-03-16T06:37:30.657Z",
+      "projects": [
+        {
+          "name": "Ethena",
+          "score": 16
+        },
+        {
+          "name": "Maple",
+          "score": 16
+        },
+        {
+          "name": "Ondo Finance",
+          "score": 14
+        },
+        {
+          "name": "Plume",
+          "score": 13
+        }
+      ],
+      "pushed": false,
+      "target": "@yysatoshi"
+    },
+    {
+      "ranAt": "2026-03-16T06:37:00.056Z",
+      "projects": [
+        {
+          "name": "Ethena",
+          "score": 16
+        },
+        {
+          "name": "Maple",
+          "score": 16
+        },
+        {
+          "name": "Ondo Finance",
+          "score": 14
+        },
+        {
+          "name": "Plume",
+          "score": 13
+        }
+      ],
+      "pushed": false,
+      "target": "@yysatoshi"
+    }
+  ]
+}

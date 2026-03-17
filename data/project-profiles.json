@@ -1,0 +1,212 @@
+{
+  "profiles": [
+    {
+      "name": "Ethena",
+      "symbol": "ENA",
+      "slug": "ethena",
+      "coingeckoId": "ethena",
+      "defillamaSlug": "ethena-usde",
+      "website": "https://www.ethena.com/",
+      "blogUrl": "https://www.ethena.com/blog",
+      "twitter": "https://x.com/ethena_labs",
+      "contact": {
+        "label": "Official site contact",
+        "value": "Use the contact entry on ethena.com"
+      },
+      "region": "Global",
+      "stage": "Post-TGE",
+      "fitSummary": "稳定币与机构通道叙事明确，适合优先判断其是否有合规二级流动性扩展需求。",
+      "screening": {
+        "tvlUsd": 7312000000,
+        "marketCapUsd": 886260000,
+        "dailyVolumeUsd": 89630000,
+        "dexLiquidityUsd": 20460000,
+        "cexPresence": "CoinMarketCap rank #57 and large CEX/DEX volumes",
+        "institutionalSignals": [
+          "Uses Copper, Ceffu and Fireblocks for off-exchange settlement and custody",
+          "Added Kraken Custody as a new custodian",
+          "Public backing attestations for USDe"
+        ],
+        "complianceSignals": [
+          "Institutionally focused custody stack",
+          "Multiple custody attestations",
+          "Off-exchange settlement architecture"
+        ],
+        "strategicFit": [
+          "Stablecoin infrastructure",
+          "Institutional distribution",
+          "Potential regulated market access"
+        ],
+        "passes": true
+      },
+      "sourceNotes": [
+        "DefiLlama and CoinMarketCap metrics checked March 2026",
+        "Ethena docs/blog cite Copper, Ceffu, Fireblocks and Kraken Custody"
+      ],
+      "interpretation": [
+        "Ethena 的核心吸引力在于稳定币和机构场景叙事足够强，容易和香港市场的合规、托管、机构销售语境接上。",
+        "如果它正在补合规或 BD 能力，通常意味着它不只满足于链上原生扩张，可能开始在看更正式的分发渠道。",
+        "跟进时不建议上来就聊上所，更适合先聊亚洲市场、机构接入和合规分发可能性。 "
+      ],
+      "nextStep": "优先找做市商、机构经纪或合规顾问网络做 warm intro。"
+    },
+    {
+      "name": "Maple",
+      "symbol": "SYRUP",
+      "slug": "maple",
+      "coingeckoId": "syrup",
+      "defillamaSlug": "maple-finance",
+      "website": "https://www.maple.finance/",
+      "blogUrl": "https://www.maple.finance/blog",
+      "twitter": "https://twitter.com/maplefinance",
+      "contact": {
+        "label": "Email",
+        "value": "contact@maple.finance"
+      },
+      "region": "Global / Institutional",
+      "stage": "Growth",
+      "fitSummary": "机构信贷、托管和合规尽调的语境天然贴近持牌交易平台与机构市场入口。",
+      "screening": {
+        "tvlUsd": 2040000000,
+        "marketCapUsd": 295090000,
+        "dailyVolumeUsd": 10040000,
+        "dexLiquidityUsd": 2870000,
+        "cexPresence": "Token has spot market cap and 24h volume well above minimum threshold",
+        "institutionalSignals": [
+          "Bitwise made its first institutional DeFi allocation via Maple",
+          "Maple cites legal agreements, qualified custody and institutional loan sizes up to $250M",
+          "Maple and counterparties support SOC 2 Type I compliance"
+        ],
+        "complianceSignals": [
+          "Secure and compliant infrastructure for institutional allocators",
+          "Qualified custody",
+          "Legal agreements and enforceable rights"
+        ],
+        "strategicFit": [
+          "Institutional DeFi",
+          "OTC-style institutional liquidity",
+          "Professional investor onboarding"
+        ],
+        "passes": true
+      },
+      "sourceNotes": [
+        "DefiLlama and CoinMarketCap metrics checked March 2026",
+        "Maple official insights cite Bitwise, Cantor and licensed/qualified custody language"
+      ],
+      "interpretation": [
+        "Maple 的机构信贷定位让它不像普通 DeFi 项目，更接近金融基础设施或机构金融服务方。",
+        "这类项目如果要强化香港触点，往往不是为了纯散户流量，而是为了机构品牌背书和更正式的市场结构合作。",
+        "切入点可以围绕机构客户、分发伙伴、托管与市场接入，而不是单纯 listing pitch。"
+      ],
+      "nextStep": "先判断它在亚洲是否已有合作伙伴，再决定走品牌合作还是上币讨论。"
+    },
+    {
+      "name": "Ondo Finance",
+      "symbol": "ONDO",
+      "slug": "ondo-finance",
+      "coingeckoId": "ondo-finance",
+      "defillamaSlug": "ondo-finance",
+      "website": "https://ondo.finance/",
+      "blogUrl": "https://ondo.finance/blog",
+      "twitter": "https://x.com/OndoFinance",
+      "contact": {
+        "label": "Email",
+        "value": "contact@ondo.finance"
+      },
+      "secondaryContact": {
+        "label": "Global Markets",
+        "value": "globalmarkets@ondo.finance"
+      },
+      "region": "US / Global",
+      "stage": "Growth",
+      "fitSummary": "RWA 与机构级金融产品非常贴近香港合规市场叙事，是最像高价值目标的一类。",
+      "screening": {
+        "tvlUsd": 2577000000,
+        "marketCapUsd": 1230000000,
+        "dailyVolumeUsd": 37040000,
+        "dexLiquidityUsd": 4110000,
+        "cexPresence": "Large spot volume and broad CEX/DEX presence",
+        "institutionalSignals": [
+          "USDY LLC registered with FinCEN as a Money Services Business",
+          "Ondo works with institutional partners like BlackRock and Chainalysis",
+          "Global Markets Alliance focuses on investor protections and tokenized securities standards"
+        ],
+        "complianceSignals": [
+          "FinCEN registration",
+          "AML and KYC programs",
+          "Institutional-grade tokenized treasury products"
+        ],
+        "strategicFit": [
+          "RWA",
+          "Asian market access",
+          "Institutional trading and custody partnerships"
+        ],
+        "passes": true
+      },
+      "sourceNotes": [
+        "DefiLlama and CoinMarketCap metrics checked March 2026",
+        "Ondo official blog cites FinCEN registration and AML/KYC controls"
+      ],
+      "interpretation": [
+        "Ondo 的叙事不只是 DeFi，而是把传统金融产品搬到链上，这类项目在香港市场通常更容易被认真看待。",
+        "如果它在扩张亚洲或找新的分发合作，合规交易所可以被包装成机构触达与品牌认证的一部分。",
+        "适合重点研究其现有渠道和受众限制，再判断 OSL 能提供的是上币、机构分发还是联合市场教育。"
+      ],
+      "nextStep": "优先看其亚洲扩张动作和现有 CEX/机构分发格局，再决定是否发第一封邮件。"
+    },
+    {
+      "name": "Plume",
+      "symbol": "PLUME",
+      "slug": "plume",
+      "coingeckoId": "plume",
+      "defillamaSlug": "plume-network",
+      "website": "https://plume.org/",
+      "blogUrl": "https://plume.org/blog",
+      "twitter": "https://twitter.com/plumenetwork",
+      "contact": {
+        "label": "Telegram",
+        "value": "https://t.me/plumenetwork"
+      },
+      "secondaryContact": {
+        "label": "Community chat",
+        "value": "https://t.me/plumenetwork_community"
+      },
+      "region": "Global / Asia-active",
+      "stage": "Growth",
+      "fitSummary": "RWAfi 生态和亚洲活动密度高，适合优先判断其香港叙事是否正在成型。",
+      "screening": {
+        "tvlUsd": 645000000,
+        "marketCapUsd": 56780000,
+        "dailyVolumeUsd": 6530000,
+        "dexLiquidityUsd": 1000000,
+        "cexPresence": "Market cap and volume both above OSL minimum thresholds",
+        "institutionalSignals": [
+          "Plume says it serves 280,000+ RWA holders and $645M in RWAs",
+          "Partnerships with DigiFT, Securitize, BDACS and Circle/USDC",
+          "SEC-approved registered transfer agent and chain-level AML claims"
+        ],
+        "complianceSignals": [
+          "Compliant RWA ecosystem positioning",
+          "Regulated digital asset offerings via DigiFT",
+          "Institutional privacy/compliance stack and transfer-agent approval"
+        ],
+        "strategicFit": [
+          "RWA",
+          "Institutional DeFi",
+          "Asia and regulated distribution narrative"
+        ],
+        "passes": true
+      },
+      "sourceNotes": [
+        "CoinMarketCap metrics checked March 2026",
+        "Plume official blog cites 280K+ holders, $645M in RWAs, DigiFT partnership and SEC transfer-agent approval"
+      ],
+      "interpretation": [
+        "Plume 的价值不只是单一 token，而是它试图承接 RWA 生态项目和基础设施，这会让它更在意市场叙事与生态影响力。",
+        "如果它公开频繁提亚洲、合规、生态扩张，那往往意味着它开始需要更正式的渠道来承接下一阶段品牌和流动性。",
+        "更适合从 ecosystem partnership 或 Asia expansion 角度切入，而不是直接问要不要上所。"
+      ],
+      "nextStep": "先看是否有香港活动、合作方或法律结构更新，再发带洞察的短邮件。"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "whitelist": [
+    "Ondo Finance",
+    "Ethena",
+    "Maple",
+    "Plume",
+    "Securitize",
+    "Paxos"
+  ],
+  "blacklist": [
+    "Crypto News",
+    "XRP Price Prediction",
+    "Pi Network",
+    "Hackers",
+    "Largest Licensed Crypto",
+    "HashKey",
+    "10",
+    "20"
+  ],
+  "blockedNamePatterns": [
+    "^\\d+$",
+    "price prediction",
+    "news",
+    "licensed crypto exchange",
+    "listing math",
+    "bull run",
+    "sell-the-news",
+    "targets? \\$?\\d+"
+  ],
+  "blockedSourcePatterns": [
+    "businessinsider.com",
+    "globenewswire.com"
+  ],
+  "competitors": [
+    "HashKey",
+    "OKX",
+    "Bybit",
+    "Binance",
+    "Coinbase",
+    "Kraken",
+    "Gate.io",
+    "Bitget"
+  ]
+}

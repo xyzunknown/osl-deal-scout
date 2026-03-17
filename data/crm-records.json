@@ -1,0 +1,26 @@
+{
+  "records": [
+    {
+      "project_name": "Ondo Finance",
+      "status": "Researching",
+      "priority": "High",
+      "owner": "You",
+      "decision_maker": "",
+      "warm_intro_path": "Funds / institutional network",
+      "next_action": "核验香港和机构渠道诉求，找潜在 warm intro。",
+      "last_touch_at": "",
+      "next_follow_up_at": ""
+    },
+    {
+      "project_name": "Ethena",
+      "status": "Watchlist",
+      "priority": "Medium",
+      "owner": "You",
+      "decision_maker": "",
+      "warm_intro_path": "MM / liquidity partners",
+      "next_action": "判断是否有合规流动性扩展窗口。",
+      "last_touch_at": "",
+      "next_follow_up_at": ""
+    }
+  ]
+}

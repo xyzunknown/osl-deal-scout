@@ -1,0 +1,53 @@
+{
+  "checkedAt": "2026-03-15",
+  "assets": [
+    {
+      "name": "Bitcoin",
+      "symbol": "BTC",
+      "source": "https://www.osl.com/hk-en/press-release/OSL-Group-Launches-Global-Exchange-Services-Introducing-Zero-Slippage-Fiat-Gateway",
+      "note": "OSL Global launch page references BTC trading/rewards."
+    },
+    {
+      "name": "Ethereum",
+      "symbol": "ETH",
+      "source": "https://www.osl.com/hk-en/press-release/OSL-Group-Launches-Global-Exchange-Services-Introducing-Zero-Slippage-Fiat-Gateway",
+      "note": "OSL Global launch page references ETH trading/rewards."
+    },
+    {
+      "name": "Solana",
+      "symbol": "SOL",
+      "source": "https://group.osl.com/press-release/solana-sol-joins-osls-digital-asset-lineup-in-strategic-expansion/",
+      "note": "Public listing announcement dated September 11, 2024."
+    },
+    {
+      "name": "BNB",
+      "symbol": "BNB",
+      "source": "https://www.osl.com/en/announcement/perpetual-trading-competition-climb-the-leaderboard-to-share-big-prizes",
+      "note": "OSL Global derivatives announcement dated February 25, 2026."
+    },
+    {
+      "name": "Tether",
+      "symbol": "USDT",
+      "source": "https://www.osl.com/en/announcement/osl-stablehub-grand-launch-multi-stablecoin-and-usd-seamless-1-1-exchange",
+      "note": "StableHub announcement dated February 6, 2026."
+    },
+    {
+      "name": "USD Coin",
+      "symbol": "USDC",
+      "source": "https://www.osl.com/en/announcement/osl-stablehub-grand-launch-multi-stablecoin-and-usd-seamless-1-1-exchange",
+      "note": "StableHub announcement dated February 6, 2026."
+    },
+    {
+      "name": "Ripple USD",
+      "symbol": "RLUSD",
+      "source": "https://www.osl.com/en/announcement/new-listing-ripple-usd-rlusd-enjoy-zero-trading-and-withdrawal-fee",
+      "note": "OSL Global listing announcement dated December 31, 2025."
+    },
+    {
+      "name": "USDGO",
+      "symbol": "USDGO",
+      "source": "https://www.osl.com/en/announcement/new-listing-on-osl-usdgo-usdgo",
+      "note": "OSL Global listing announcement dated March 4, 2026."
+    }
+  ]
+}
