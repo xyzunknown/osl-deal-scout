@@ -67,6 +67,14 @@ function createHandler(rootDir, options = {}) {
         return send(res, 200, 'application/javascript; charset=utf-8', fs.readFileSync(path.join(publicDir, 'app.js')));
       }
 
+      if (pathname === '/favicon.svg') {
+        return send(res, 200, 'image/svg+xml; charset=utf-8', fs.readFileSync(path.join(publicDir, 'favicon.svg')));
+      }
+
+      if (pathname === '/logo-mark.svg') {
+        return send(res, 200, 'image/svg+xml; charset=utf-8', fs.readFileSync(path.join(publicDir, 'logo-mark.svg')));
+      }
+
       if (pathname === '/api/projects') {
         const data = readJson(resolveDataPath(rootDir, 'projects.json'), { generatedAt: '', projects: [] });
         return send(res, 200, 'application/json; charset=utf-8', JSON.stringify(data, null, 2));
