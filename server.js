@@ -75,6 +75,10 @@ function createHandler(rootDir, options = {}) {
         return send(res, 200, 'image/svg+xml; charset=utf-8', fs.readFileSync(path.join(publicDir, 'logo-mark.svg')));
       }
 
+      if (pathname === '/apple-touch-icon.png') {
+        return send(res, 200, 'image/png', fs.readFileSync(path.join(publicDir, 'apple-touch-icon.png')));
+      }
+
       if (pathname === '/api/projects') {
         const data = readJson(resolveDataPath(rootDir, 'projects.json'), { generatedAt: '', projects: [] });
         return send(res, 200, 'application/json; charset=utf-8', JSON.stringify(data, null, 2));
