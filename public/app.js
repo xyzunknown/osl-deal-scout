@@ -151,6 +151,7 @@ let filterPriority = '';
 let filterFreshness = '';
 let filterHongKong = '';
 let sortBy = 'score';
+let activePool = 'bd';
 
 function hasLiveSignals(project) {
   const live = project && project.liveSignals;
@@ -279,7 +280,7 @@ function freshnessChipClass(f) {
 
 // ===== FILTERING & SORTING =====
 function filteredProjects() {
-  let list = state.projects || [];
+  let list = currentPoolProjects();
 
   if (searchQuery) {
     const q = searchQuery.toLowerCase();
@@ -307,51 +308,123 @@ function filteredProjects() {
   return list;
 }
 
+function currentPoolProjects() {
+  if (activePool === 'watch') return [...(state.looseProjects || [])];
+  if (activePool === 'radar') {
+    return [
+      ...(state.fundraisingProjects || []),
+      ...(state.dexProjects || []),
+      ...(state.ecosystemProjects || [])
+    ];
+  }
+  return [...(state.strictProjects || state.projects || [])];
+}
+
+function currentPoolLabel() {
+  if (activePool === 'watch') return 'Watch Radar';
+  if (activePool === 'radar') return 'Radar Pools';
+  return 'BD Pools';
+}
+
+function currentPoolEmptyText() {
+  if (activePool === 'watch') return '暂无 Watch Radar 项目';
+  if (activePool === 'radar') return '暂无 Radar Pools 项目';
+  return '还没有数据，先点"刷新情报"';
+}
+
+function poolTagForProject(project) {
+  if (activePool === 'watch') return project.discoveryPath || 'watch';
+  if (activePool === 'radar') return project.radarBucket || project.discoveryPath || 'radar';
+  return '';
+}
+
+function renderPoolTabs() {
+  const root = byId('poolTabs');
+  if (!root) return;
+  root.querySelectorAll('.pool-tab').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.pool === activePool);
+    const pool = btn.dataset.pool || 'bd';
+    let count = 0;
+    if (pool === 'watch') count = (state.looseProjects || []).length;
+    else if (pool === 'radar') count = (state.fundraisingProjects || []).length + (state.dexProjects || []).length + (state.ecosystemProjects || []).length;
+    else count = (state.strictProjects || state.projects || []).length;
+    const baseLabel = pool === 'watch' ? 'Watch Radar' : pool === 'radar' ? 'Radar Pools' : 'BD Pools';
+    btn.textContent = `${baseLabel} (${count})`;
+  });
+}
+
+function createProjectRow(p) {
+  const row = el('div', 'project-row' + (p.slug === selectedSlug ? ' active' : ''));
+  row.dataset.slug = p.slug;
+
+  const info = el('div', 'project-row-info');
+  info.appendChild(el('div', 'project-row-name', p.name));
+  const meta = el('div', 'project-row-meta');
+  meta.appendChild(el('span', 'chip chip-sector', p.sector));
+  meta.appendChild(el('span', 'chip ' + priorityChipClass(p.priorityBand), p.priorityBand));
+  const poolTag = poolTagForProject(p);
+  if (poolTag) meta.appendChild(el('span', 'chip chip-watch', poolTag));
+  if (p.promotedFromRadar) meta.appendChild(el('span', 'chip chip-source', '已转正'));
+  if (p.freshness) meta.appendChild(el('span', 'chip ' + freshnessChipClass(p.freshness), freshnessLabel(p.freshness)));
+  if (p.hongKongFit) meta.appendChild(el('span', 'chip chip-hongkong', '香港'));
+  if (hasLiveSignals(p)) meta.appendChild(el('span', 'chip chip-source', '已补数'));
+  if (latestFundingRound(p)) meta.appendChild(el('span', 'chip chip-source', latestFundingRound(p).roundStage || 'Funding'));
+  if (p.workflow && p.workflow.status) meta.appendChild(el('span', 'chip chip-watch', p.workflow.status));
+  info.appendChild(meta);
+  row.appendChild(info);
+
+  const score = el('div', 'project-row-score ' + scoreClass(p.score), String(p.score));
+  row.appendChild(score);
+
+  row.addEventListener('click', () => {
+    selectedSlug = p.slug;
+    activeTab = 'overview';
+    setHash(p.slug, 'overview');
+    renderProjectList();
+    renderDetail();
+  });
+
+  return row;
+}
+
+function renderRadarGroupedList(root, list) {
+  const grouped = [
+    { key: 'fundraising', label: 'Fundraising', projects: list.filter(p => (p.radarBucket || p.discoveryPath) === 'fundraising') },
+    { key: 'dex', label: 'DEX', projects: list.filter(p => (p.radarBucket || p.discoveryPath) === 'dex') },
+    { key: 'ecosystem', label: 'Ecosystem', projects: list.filter(p => (p.radarBucket || p.discoveryPath) === 'ecosystem') }
+  ];
+
+  grouped.forEach(group => {
+    if (!group.projects.length) return;
+    const section = el('div', 'project-group');
+    const header = el('div', 'project-group-header');
+    header.appendChild(el('span', 'project-group-title', group.label));
+    header.appendChild(el('span', 'project-group-count', String(group.projects.length)));
+    section.appendChild(header);
+    group.projects.forEach(project => section.appendChild(createProjectRow(project)));
+    root.appendChild(section);
+  });
+}
+
 // ===== RENDER: PROJECT LIST (left column) =====
 function renderProjectList() {
   const root = byId('projectList');
   root.innerHTML = '';
   const list = filteredProjects();
 
-  byId('listCount').textContent = list.length + ' 个项目';
+  byId('listCount').textContent = `${currentPoolLabel()} · ${list.length} 个项目`;
 
   if (!list.length) {
-    root.appendChild(el('div', 'empty-state', searchQuery || filterSector || filterPriority || filterFreshness || filterHongKong ? '没有匹配的项目' : '还没有数据，先点"刷新情报"'));
+    root.appendChild(el('div', 'empty-state', searchQuery || filterSector || filterPriority || filterFreshness || filterHongKong ? '没有匹配的项目' : currentPoolEmptyText()));
     return;
   }
 
-  list.forEach(p => {
-    const row = el('div', 'project-row' + (p.slug === selectedSlug ? ' active' : ''));
-    row.dataset.slug = p.slug;
+  if (activePool === 'radar') {
+    renderRadarGroupedList(root, list);
+    return;
+  }
 
-    const info = el('div', 'project-row-info');
-    info.appendChild(el('div', 'project-row-name', p.name));
-    const meta = el('div', 'project-row-meta');
-    meta.appendChild(el('span', 'chip chip-sector', p.sector));
-    meta.appendChild(el('span', 'chip ' + priorityChipClass(p.priorityBand), p.priorityBand));
-    if (p.radarBucket) meta.appendChild(el('span', 'chip chip-watch', p.radarBucket));
-    if (p.promotedFromRadar) meta.appendChild(el('span', 'chip chip-source', '已转正'));
-    if (p.freshness) meta.appendChild(el('span', 'chip ' + freshnessChipClass(p.freshness), freshnessLabel(p.freshness)));
-    if (p.hongKongFit) meta.appendChild(el('span', 'chip chip-hongkong', '香港'));
-    if (hasLiveSignals(p)) meta.appendChild(el('span', 'chip chip-source', '已补数'));
-    if (latestFundingRound(p)) meta.appendChild(el('span', 'chip chip-source', latestFundingRound(p).roundStage || 'Funding'));
-    if (p.workflow && p.workflow.status) meta.appendChild(el('span', 'chip chip-watch', p.workflow.status));
-    info.appendChild(meta);
-    row.appendChild(info);
-
-    const score = el('div', 'project-row-score ' + scoreClass(p.score), String(p.score));
-    row.appendChild(score);
-
-    row.addEventListener('click', () => {
-      selectedSlug = p.slug;
-      activeTab = 'overview';
-      setHash(p.slug, 'overview');
-      renderProjectList();
-      renderDetail();
-    });
-
-    root.appendChild(row);
-  });
+  list.forEach(p => root.appendChild(createProjectRow(p)));
 }
 
 // ===== RENDER: DETAIL (center column) =====
@@ -429,15 +502,22 @@ function renderTabContent(key) {
 function renderOverviewTab(root, p) {
   const grid = el('div', 'info-grid');
   const live = p.liveSignals || {};
+  const fallbackWebsite = p.website || (live.website && live.website.siteUrl) || (live.rootdata && live.rootdata.website) || '';
+  const telegramLinks = Array.from(new Set([
+    ...(live.website && Array.isArray(live.website.telegramLinks) ? live.website.telegramLinks : []),
+    p.contact && /(?:t\.me|telegram\.me|telegram\.dog)\//i.test(p.contact.value || '') ? p.contact.value : '',
+    p.secondaryContact && /(?:t\.me|telegram\.me|telegram\.dog)\//i.test(p.secondaryContact.value || '') ? p.secondaryContact.value : ''
+  ].filter(Boolean)));
 
   // Contact card
   const contactCard = el('div', 'info-card');
   contactCard.appendChild(el('div', 'info-card-title', '联系入口'));
   const contactItems = [
-    p.website ? { label: '官网', value: p.website, href: p.website } : null,
+    fallbackWebsite ? { label: '官网', value: fallbackWebsite, href: fallbackWebsite } : null,
     p.twitter ? { label: '官推', value: p.twitter.replace(/^https?:\/\//, ''), href: p.twitter } : null,
     p.contact ? { label: p.contact.label || '联系方式', value: p.contact.value, href: p.contact.value.startsWith('http') ? p.contact.value : null } : null,
-    p.secondaryContact ? { label: p.secondaryContact.label || '备用联系', value: p.secondaryContact.value, href: p.secondaryContact.value.startsWith('http') ? p.secondaryContact.value : null } : null
+    p.secondaryContact ? { label: p.secondaryContact.label || '备用联系', value: p.secondaryContact.value, href: p.secondaryContact.value.startsWith('http') ? p.secondaryContact.value : null } : null,
+    ...telegramLinks.map((href, index) => ({ label: index === 0 ? 'Telegram' : `Telegram ${index + 1}`, value: href, href }))
   ].filter(Boolean);
   contactItems.forEach(item => {
     const row = el('div', 'info-row');
@@ -453,7 +533,7 @@ function renderOverviewTab(root, p) {
     }
     contactCard.appendChild(row);
   });
-  if (!contactItems.length) contactCard.appendChild(el('div', 'text-muted text-sm', '暂无联系信息'));
+  if (!contactItems.length) contactCard.appendChild(el('div', 'text-muted text-sm', '暂无已验证联系信息'));
   grid.appendChild(contactCard);
 
   // Screening card
@@ -767,23 +847,6 @@ function renderCrmTab(root, p) {
   const fieldMap = new Map(fields.map(field => [field.key, field]));
   const form = el('div', 'crm-form');
 
-  const infoCard = el('div', 'info-card');
-  infoCard.appendChild(el('div', 'info-card-title', '系统带出信息'));
-  [
-    { label: '项目', value: p.name },
-    { label: '赛道', value: p.sector || '—' },
-    { label: '优先级', value: p.priorityBand || '—' },
-    { label: '官网', value: p.website || '—' },
-    { label: 'X', value: p.twitter || '—' },
-    { label: '阶段', value: p.stage || '—' }
-  ].forEach(item => {
-    const row = el('div', 'info-row');
-    row.appendChild(el('span', 'info-row-label', item.label));
-    row.appendChild(el('span', 'info-row-value', item.value));
-    infoCard.appendChild(row);
-  });
-  form.appendChild(infoCard);
-
   const quickCard = el('div', 'info-card mt-16');
   quickCard.appendChild(el('div', 'info-card-title', 'BD 快速更新'));
 
@@ -972,8 +1035,6 @@ function renderMentionsTab(root, p) {
 function renderSidebar() {
   renderStats();
   renderBoard();
-  renderWatchRadar();
-  renderRadarPools();
   renderHistory();
   renderRules();
 }
@@ -989,88 +1050,6 @@ function renderStats() {
   byId('statHigh').textContent = highCount;
   byId('statCrm').textContent = crmCount;
   byId('statLastRun').textContent = lastTime;
-}
-
-function renderWatchRadar() {
-  const root = byId('watchRadar');
-  if (!root) return;
-  root.innerHTML = '';
-  const radar = state.looseProjects || [];
-  if (!radar.length) {
-    root.appendChild(el('div', 'text-muted text-sm', '暂无 Watch Radar'));
-    return;
-  }
-
-  radar.slice(0, 8).forEach(project => {
-    const item = el('div', 'board-item');
-    const head = el('div', 'board-item-head');
-    head.appendChild(el('span', 'board-item-name', project.name));
-    head.appendChild(el('span', 'chip ' + priorityChipClass(project.priorityBand), project.priorityBand));
-    item.appendChild(head);
-    item.appendChild(el('div', 'board-item-detail', `${project.sector || 'General'} / ${project.maturityPath === 'early' ? 'Early' : 'Mature'} / ${project.discoveryPath || 'loose'}`));
-    if (latestFundingRound(project)) {
-      item.appendChild(el('div', 'board-item-detail', fundingSummary(project)));
-    }
-    item.addEventListener('click', () => {
-      selectedSlug = project.slug;
-      activeTab = 'overview';
-      setHash(project.slug, 'overview');
-      renderProjectList();
-      renderDetail();
-    });
-    root.appendChild(item);
-  });
-}
-
-function renderRadarPoolGroup(root, title, projects) {
-  root.appendChild(el('div', 'board-group-title', `${title} (${projects.length})`));
-  if (!projects.length) {
-    root.appendChild(el('div', 'text-muted text-sm', '暂无项目'));
-    return;
-  }
-
-  projects.slice(0, 5).forEach(project => {
-    const item = el('div', 'board-item');
-    const head = el('div', 'board-item-head');
-    head.appendChild(el('span', 'board-item-name', project.name));
-    head.appendChild(el('span', 'chip ' + priorityChipClass(project.priorityBand), project.priorityBand));
-    item.appendChild(head);
-    item.appendChild(el('div', 'board-item-detail', `${project.sector || 'General'} / Score ${project.score}`));
-    if (latestFundingRound(project)) {
-      item.appendChild(el('div', 'board-item-detail', fundingSummary(project)));
-      const names = investorNames(latestFundingRound(project)).slice(0, 2);
-      if (names.length) item.appendChild(el('div', 'board-item-detail', names.join(' / ')));
-    } else if (project.reasonSummary) {
-      item.appendChild(el('div', 'board-item-detail', project.reasonSummary.slice(0, 72)));
-    }
-    item.addEventListener('click', () => {
-      selectedSlug = project.slug;
-      activeTab = 'overview';
-      setHash(project.slug, 'overview');
-      renderProjectList();
-      renderDetail();
-    });
-    root.appendChild(item);
-  });
-}
-
-function renderRadarPools() {
-  const root = byId('radarPools');
-  if (!root) return;
-  root.innerHTML = '';
-
-  const fundraising = state.fundraisingProjects || [];
-  const dex = state.dexProjects || [];
-  const ecosystem = state.ecosystemProjects || [];
-  const total = fundraising.length + dex.length + ecosystem.length;
-  if (!total) {
-    root.appendChild(el('div', 'text-muted text-sm', '暂无 Radar Pool 输出'));
-    return;
-  }
-
-  renderRadarPoolGroup(root, 'Fundraising', fundraising);
-  renderRadarPoolGroup(root, 'DEX', dex);
-  renderRadarPoolGroup(root, 'Ecosystem', ecosystem);
 }
 
 function renderBoard() {
@@ -1313,6 +1292,13 @@ byId('filterPriority').addEventListener('change', (e) => { filterPriority = e.ta
 byId('filterFreshness').addEventListener('change', (e) => { filterFreshness = e.target.value; renderProjectList(); });
 byId('filterHongKong').addEventListener('change', (e) => { filterHongKong = e.target.value; renderProjectList(); });
 byId('sortBy').addEventListener('change', (e) => { sortBy = e.target.value; renderProjectList(); });
+document.querySelectorAll('.pool-tab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    activePool = btn.dataset.pool || 'bd';
+    renderPoolTabs();
+    renderProjectList();
+  });
+});
 
 // Sidebar toggle (for ≤1280px)
 const sidebarToggle = byId('sidebarToggle');
@@ -1348,6 +1334,7 @@ window.addEventListener('hashchange', onHashChange);
   renderProjectList();
   renderDetail();
   renderSidebar();
+  renderPoolTabs();
 
   if (selectedSlug) setHash(selectedSlug, activeTab);
 })();

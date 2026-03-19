@@ -94,6 +94,12 @@
       "name": "Infrastructure integrations",
       "group": "ecosystem",
       "url": "https://news.google.com/rss/search?q=(oracle%20integration%20OR%20wallet%20integration%20OR%20cross-chain%20integration%20OR%20infrastructure%20partnership)%20(protocol%20OR%20network%20OR%20project)%20(crypto%20OR%20web3)&hl=en-US&gl=US&ceid=US:en"
+    },
+    {
+      "name": "Hashhodl X List RSS",
+      "kind": "x_list_rss",
+      "group": "strict",
+      "url": "https://rss.app/feeds/TRIfbSVtheCeTxxJ.xml"
     }
   ],
   "ecosystemDirectories": [

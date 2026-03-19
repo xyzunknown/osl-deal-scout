@@ -5,11 +5,14 @@ const {
   classifyLeadEntity,
   classifyMentionSource,
   extractOfficialEcosystemDirectoryItems,
+  extractProjectName,
   isDexBucketCandidate,
   isEcosystemBucketCandidate,
+  hasProjectIdentityAnchor,
   extractLooseCandidateName,
   extractWebsiteScanLinks,
   isFundraisingBucketCandidate,
+  isUsefulXListItem,
   isRelevantMentionForProject,
   parseCryptoRankFundingPage,
   sortProjectsForAction
@@ -107,6 +110,56 @@ assert.notStrictEqual(
   extractLooseCandidateName('How Sui Protocol and rcUSD Are Revolutionizing Blockchain with RWA-Backed Tokens - OKX', ''),
   'How Sui Protocol',
   'loose extractor should not preserve question-style title prefixes'
+);
+
+assert.strictEqual(
+  extractProjectName('Agents, meet Earn. The new okx-cex-earn Skill on Agent Trade Kit gives your agent access...', ''),
+  'Unknown Project',
+  'generic X marketing copy should not resolve to Agents'
+);
+
+assert.strictEqual(
+  isUsefulXListItem({
+    title: 'NEW: Evernorth Holdings files Form S-4 with SEC to list on Nasdaq under ticker $XRPN via SPAC merger.',
+    description: 'The billion-dollar XRP treasury vehicle will actively deploy capital to DeFi, lending, and validator participation.',
+    creator: '@CoinDesk'
+  }),
+  true,
+  'signal-rich X list items should pass feed filtering'
+);
+
+assert.strictEqual(
+  isUsefulXListItem({
+    title: 'Good morning. Today is going to be a great day. Let’s get after it relentlessly.',
+    description: '',
+    creator: '@APompliano'
+  }),
+  false,
+  'generic commentary should be filtered out from X list RSS'
+);
+
+assert.strictEqual(
+  hasProjectIdentityAnchor({
+    website: '',
+    twitter: '',
+    contact: null,
+    secondaryContact: null,
+    liveSignals: { website: { siteUrl: '', telegramLinks: [] }, rootdata: { website: '' } }
+  }),
+  false,
+  'projects without website/twitter/telegram identity anchors should be filtered out'
+);
+
+assert.strictEqual(
+  hasProjectIdentityAnchor({
+    website: '',
+    twitter: '',
+    contact: null,
+    secondaryContact: null,
+    liveSignals: { website: { siteUrl: '', telegramLinks: ['https://t.me/example'] }, rootdata: { website: '' } }
+  }),
+  true,
+  'telegram link should count as an identity anchor'
 );
 
 assert.strictEqual(
