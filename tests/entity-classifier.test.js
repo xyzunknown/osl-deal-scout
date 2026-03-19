@@ -4,6 +4,7 @@ const {
   buildRadarPromotionDecision,
   classifyLeadEntity,
   classifyMentionSource,
+  detectEntityType,
   extractOfficialEcosystemDirectoryItems,
   extractProjectName,
   isDexBucketCandidate,
@@ -95,6 +96,30 @@ const mantraAllow = runCase(
   'RWA protocol expands in Hong Kong with regulated institutional tokenized asset partnerships and compliance-first market access'
 );
 assert.strictEqual(mantraAllow.allow, true, 'MANTRA should allow if evidence is sufficient');
+
+assert.strictEqual(
+  detectEntityType(
+    'Perle Foundation',
+    {
+      title: 'Perle Foundation supports the development of sovereign, human-verified data infrastructure for AI',
+      description: 'The Perle Labs ecosystem is building developer infrastructure and verified data rails for blockchain use cases.'
+    }
+  ),
+  'project',
+  'foundation-branded crypto projects should not be auto-rejected as organizations when project context is clear'
+);
+
+assert.strictEqual(
+  detectEntityType(
+    'Pantera Capital',
+    {
+      title: 'Pantera Capital led the round',
+      description: 'The venture capital firm invested in the project.'
+    }
+  ),
+  'organization',
+  'investor organizations should still remain classified as organizations'
+);
 
 assert.strictEqual(
   extractLooseCandidateName("Mountain Protocol's USDM Quietly Becomes Largest Treasury-Backed Stablecoin", ''),
