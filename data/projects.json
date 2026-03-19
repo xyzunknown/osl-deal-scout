@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-19T12:57:49.314Z",
+  "generatedAt": "2026-03-19T13:48:15.851Z",
   "sourceMode": "fallback",
   "projects": [
     {
@@ -644,7 +644,7 @@
           "error": ""
         },
         "opentwitter": {
-          "fetchedAt": "2026-03-19T12:57:49.083Z",
+          "fetchedAt": "2026-03-19T13:48:15.614Z",
           "username": "OndoFinance",
           "tweets": [],
           "error": "fetch failed"
@@ -1280,7 +1280,7 @@
           "error": ""
         },
         "opentwitter": {
-          "fetchedAt": "2026-03-19T12:57:49.083Z",
+          "fetchedAt": "2026-03-19T13:48:15.614Z",
           "username": "plumenetwork",
           "tweets": [],
           "error": "fetch failed"
@@ -1819,7 +1819,7 @@
           "error": ""
         },
         "opentwitter": {
-          "fetchedAt": "2026-03-19T12:57:49.082Z",
+          "fetchedAt": "2026-03-19T13:48:15.613Z",
           "username": "maplefinance",
           "tweets": [],
           "error": "fetch failed"
@@ -3402,7 +3402,7 @@
           "error": ""
         },
         "opentwitter": {
-          "fetchedAt": "2026-03-19T12:57:49.083Z",
+          "fetchedAt": "2026-03-19T13:48:15.614Z",
           "username": "OndoFinance",
           "tweets": [],
           "error": "fetch failed"
@@ -4038,7 +4038,7 @@
           "error": ""
         },
         "opentwitter": {
-          "fetchedAt": "2026-03-19T12:57:49.083Z",
+          "fetchedAt": "2026-03-19T13:48:15.614Z",
           "username": "plumenetwork",
           "tweets": [],
           "error": "fetch failed"
@@ -4577,7 +4577,7 @@
           "error": ""
         },
         "opentwitter": {
-          "fetchedAt": "2026-03-19T12:57:49.082Z",
+          "fetchedAt": "2026-03-19T13:48:15.613Z",
           "username": "maplefinance",
           "tweets": [],
           "error": "fetch failed"
@@ -5517,8 +5517,2277 @@
       "freshness": "repeat"
     }
   ],
-  "looseProjects": [],
-  "fundraisingProjects": [],
-  "dexProjects": [],
-  "ecosystemProjects": []
+  "looseProjects": [
+    {
+      "name": "Quai Network",
+      "score": 18,
+      "signals": [
+        "funding"
+      ],
+      "sector": "Infra",
+      "reasons": [
+        "出现早期项目催化信号",
+        "CryptoRank 已收录（rank 742）"
+      ],
+      "mentions": [
+        {
+          "title": "Layer 1 Quai Network closes $5 million strategic round - The Block",
+          "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBmc2VqczRnRWRRZWRLd2dwcHFaN3czSS1CZnBkYXh4eXUtemVRZlJWYkJodVhZY0h4TG1PWHlPU0xOb2I3TGFNS1VmNktEUmFQZUFUcXVDQWtLYjZ3eGhpc1JwSWN0X2c?oc=5",
+          "source": "The Block",
+          "publishedAt": "Thu, 29 Aug 2024 07:00:00 GMT",
+          "sourceTier": "crypto_media",
+          "sourceWeight": 3,
+          "sourceLabel": "Crypto Media"
+        }
+      ],
+      "priorityBand": "Medium",
+      "internalFit": "early-radar",
+      "firstSeenAt": "Thu, 29 Aug 2024 07:00:00 GMT",
+      "latestSeenAt": "Thu, 29 Aug 2024 07:00:00 GMT",
+      "discoveryPath": "fundraising",
+      "maturityPath": "early",
+      "hongKongTier": "none",
+      "priorityMeta": {
+        "sourceStrength": 3,
+        "externalBoost": 1
+      },
+      "reasonSummary": "[Fundraising Radar] 出现早期项目催化信号；CryptoRank 已收录（rank 742）",
+      "radarBucket": "fundraising",
+      "slug": "quai-network",
+      "website": "",
+      "twitter": "",
+      "contact": {
+        "label": "Primary path",
+        "value": "Use official website or X for first contact"
+      },
+      "secondaryContact": null,
+      "region": "",
+      "stage": "",
+      "fitSummary": "[Fundraising Radar] 出现早期项目催化信号",
+      "interpretation": [
+        "近期融资或资本市场信号通常意味着团队有预算、节奏和更强的渠道扩张意愿。"
+      ],
+      "nextStep": "优先找 warm intro 再发首封触达。",
+      "sourceNotes": [
+        "CryptoRank cache: rank 742, Chain / $19.18M",
+        "CryptoRank funding: STRATEGIC on 2024-08-29 with 9 investors"
+      ],
+      "screening": {
+        "marketCapUsd": 19180893.85282288,
+        "dailyVolumeUsd": 532977
+      },
+      "liveSignals": {
+        "coingecko": null,
+        "defillama": null,
+        "cryptorank": {
+          "fetchedAt": "2026-03-18T15:18:37.541Z",
+          "id": 177810,
+          "name": "Quai Network",
+          "slug": "quai-network",
+          "symbol": "QUAI",
+          "rank": 742,
+          "category": "Chain",
+          "type": "token",
+          "marketCapUsd": 19180893.85282288,
+          "volume24hUsd": 532977,
+          "rounds": [
+            {
+              "announcedAt": "2024-08-29T00:00:00.000Z",
+              "roundStage": "STRATEGIC",
+              "raiseUsd": 5000000,
+              "valuationUsd": 0,
+              "investors": [
+                {
+                  "name": "MH Ventures",
+                  "slug": "mh-ventures",
+                  "category": "Venture",
+                  "tier": 2
+                },
+                {
+                  "name": "Marshland Capital",
+                  "slug": "marshland-capital",
+                  "category": "Venture",
+                  "tier": 3
+                },
+                {
+                  "name": "Ceras Ventures",
+                  "slug": "ceras-ventures",
+                  "category": "Venture",
+                  "tier": 3
+                },
+                {
+                  "name": "Cogitent Ventures",
+                  "slug": "cogitent-venture",
+                  "category": "Venture",
+                  "tier": 4
+                },
+                {
+                  "name": "TPC",
+                  "slug": "tpc-ventures",
+                  "category": "Venture",
+                  "tier": 4
+                },
+                {
+                  "name": "Black Edge Capital",
+                  "slug": "blackedge-capital",
+                  "category": "Venture",
+                  "tier": 4
+                },
+                {
+                  "name": "Giga Chad Ventures",
+                  "slug": "giga-chad-ventures",
+                  "category": "Venture",
+                  "tier": 4
+                },
+                {
+                  "name": "GTS Ventures",
+                  "slug": "gst-ventures",
+                  "category": "Venture",
+                  "tier": 5
+                },
+                {
+                  "name": "DexCheck AI",
+                  "slug": "dexcheck-ai",
+                  "category": "Corporation",
+                  "tier": 0
+                }
+              ],
+              "investorsCount": 9,
+              "linkToAnnouncement": "https://www.theblock.co/post/313387/quai-strategic-round",
+              "isHidden": false,
+              "isAuthProtected": false
+            },
+            {
+              "announcedAt": "2022-05-05T00:00:00.000Z",
+              "roundStage": "Undisclosed",
+              "raiseUsd": 2000000,
+              "valuationUsd": 0,
+              "investors": [
+                {
+                  "name": "Alumni Ventures",
+                  "slug": "alumni-ventures-group",
+                  "category": "Venture",
+                  "tier": 3
+                }
+              ],
+              "investorsCount": 1,
+              "linkToAnnouncement": "https://blog.qu.ai/quai-network-receives-2m-from-alumni-ventures-f64a21f711ac",
+              "isHidden": false,
+              "isAuthProtected": false
+            },
+            {
+              "announcedAt": "2022-03-24T00:00:00.000Z",
+              "roundStage": "Undisclosed",
+              "raiseUsd": 8000000,
+              "valuationUsd": 0,
+              "investors": [],
+              "investorsCount": 0,
+              "linkToAnnouncement": "",
+              "isHidden": true,
+              "isAuthProtected": true
+            }
+          ],
+          "latestRound": {
+            "announcedAt": "2024-08-29T00:00:00.000Z",
+            "roundStage": "STRATEGIC",
+            "raiseUsd": 5000000,
+            "valuationUsd": 0,
+            "investors": [
+              {
+                "name": "MH Ventures",
+                "slug": "mh-ventures",
+                "category": "Venture",
+                "tier": 2
+              },
+              {
+                "name": "Marshland Capital",
+                "slug": "marshland-capital",
+                "category": "Venture",
+                "tier": 3
+              },
+              {
+                "name": "Ceras Ventures",
+                "slug": "ceras-ventures",
+                "category": "Venture",
+                "tier": 3
+              },
+              {
+                "name": "Cogitent Ventures",
+                "slug": "cogitent-venture",
+                "category": "Venture",
+                "tier": 4
+              },
+              {
+                "name": "TPC",
+                "slug": "tpc-ventures",
+                "category": "Venture",
+                "tier": 4
+              },
+              {
+                "name": "Black Edge Capital",
+                "slug": "blackedge-capital",
+                "category": "Venture",
+                "tier": 4
+              },
+              {
+                "name": "Giga Chad Ventures",
+                "slug": "giga-chad-ventures",
+                "category": "Venture",
+                "tier": 4
+              },
+              {
+                "name": "GTS Ventures",
+                "slug": "gst-ventures",
+                "category": "Venture",
+                "tier": 5
+              },
+              {
+                "name": "DexCheck AI",
+                "slug": "dexcheck-ai",
+                "category": "Corporation",
+                "tier": 0
+              }
+            ],
+            "investorsCount": 9,
+            "linkToAnnouncement": "https://www.theblock.co/post/313387/quai-strategic-round",
+            "isHidden": false,
+            "isAuthProtected": false
+          },
+          "fundingFetchedAt": "2026-03-18T15:19:05.624Z",
+          "fundingError": ""
+        },
+        "website": null,
+        "rootdata": {
+          "fetchedAt": "2026-03-18T15:19:34.261Z",
+          "projectName": "",
+          "projectType": "",
+          "description": "",
+          "website": "",
+          "error": ""
+        },
+        "opennews": null,
+        "opentwitter": null
+      },
+      "fundraising": {
+        "source": "CryptoRank",
+        "latestRound": {
+          "announcedAt": "2024-08-29T00:00:00.000Z",
+          "roundStage": "STRATEGIC",
+          "raiseUsd": 5000000,
+          "valuationUsd": 0,
+          "investors": [
+            {
+              "name": "MH Ventures",
+              "slug": "mh-ventures",
+              "category": "Venture",
+              "tier": 2
+            },
+            {
+              "name": "Marshland Capital",
+              "slug": "marshland-capital",
+              "category": "Venture",
+              "tier": 3
+            },
+            {
+              "name": "Ceras Ventures",
+              "slug": "ceras-ventures",
+              "category": "Venture",
+              "tier": 3
+            },
+            {
+              "name": "Cogitent Ventures",
+              "slug": "cogitent-venture",
+              "category": "Venture",
+              "tier": 4
+            },
+            {
+              "name": "TPC",
+              "slug": "tpc-ventures",
+              "category": "Venture",
+              "tier": 4
+            },
+            {
+              "name": "Black Edge Capital",
+              "slug": "blackedge-capital",
+              "category": "Venture",
+              "tier": 4
+            },
+            {
+              "name": "Giga Chad Ventures",
+              "slug": "giga-chad-ventures",
+              "category": "Venture",
+              "tier": 4
+            },
+            {
+              "name": "GTS Ventures",
+              "slug": "gst-ventures",
+              "category": "Venture",
+              "tier": 5
+            },
+            {
+              "name": "DexCheck AI",
+              "slug": "dexcheck-ai",
+              "category": "Corporation",
+              "tier": 0
+            }
+          ],
+          "investorsCount": 9,
+          "linkToAnnouncement": "https://www.theblock.co/post/313387/quai-strategic-round",
+          "isHidden": false,
+          "isAuthProtected": false
+        },
+        "rounds": [
+          {
+            "announcedAt": "2024-08-29T00:00:00.000Z",
+            "roundStage": "STRATEGIC",
+            "raiseUsd": 5000000,
+            "valuationUsd": 0,
+            "investors": [
+              {
+                "name": "MH Ventures",
+                "slug": "mh-ventures",
+                "category": "Venture",
+                "tier": 2
+              },
+              {
+                "name": "Marshland Capital",
+                "slug": "marshland-capital",
+                "category": "Venture",
+                "tier": 3
+              },
+              {
+                "name": "Ceras Ventures",
+                "slug": "ceras-ventures",
+                "category": "Venture",
+                "tier": 3
+              },
+              {
+                "name": "Cogitent Ventures",
+                "slug": "cogitent-venture",
+                "category": "Venture",
+                "tier": 4
+              },
+              {
+                "name": "TPC",
+                "slug": "tpc-ventures",
+                "category": "Venture",
+                "tier": 4
+              },
+              {
+                "name": "Black Edge Capital",
+                "slug": "blackedge-capital",
+                "category": "Venture",
+                "tier": 4
+              },
+              {
+                "name": "Giga Chad Ventures",
+                "slug": "giga-chad-ventures",
+                "category": "Venture",
+                "tier": 4
+              },
+              {
+                "name": "GTS Ventures",
+                "slug": "gst-ventures",
+                "category": "Venture",
+                "tier": 5
+              },
+              {
+                "name": "DexCheck AI",
+                "slug": "dexcheck-ai",
+                "category": "Corporation",
+                "tier": 0
+              }
+            ],
+            "investorsCount": 9,
+            "linkToAnnouncement": "https://www.theblock.co/post/313387/quai-strategic-round",
+            "isHidden": false,
+            "isAuthProtected": false
+          },
+          {
+            "announcedAt": "2022-05-05T00:00:00.000Z",
+            "roundStage": "Undisclosed",
+            "raiseUsd": 2000000,
+            "valuationUsd": 0,
+            "investors": [
+              {
+                "name": "Alumni Ventures",
+                "slug": "alumni-ventures-group",
+                "category": "Venture",
+                "tier": 3
+              }
+            ],
+            "investorsCount": 1,
+            "linkToAnnouncement": "https://blog.qu.ai/quai-network-receives-2m-from-alumni-ventures-f64a21f711ac",
+            "isHidden": false,
+            "isAuthProtected": false
+          },
+          {
+            "announcedAt": "2022-03-24T00:00:00.000Z",
+            "roundStage": "Undisclosed",
+            "raiseUsd": 8000000,
+            "valuationUsd": 0,
+            "investors": [],
+            "investorsCount": 0,
+            "linkToAnnouncement": "",
+            "isHidden": true,
+            "isAuthProtected": true
+          }
+        ]
+      },
+      "hongKongFit": false
+    },
+    {
+      "name": "Vertex",
+      "score": 17,
+      "signals": [
+        "funding",
+        "infra"
+      ],
+      "sector": "DeFi",
+      "reasons": [
+        "出现早期项目催化信号"
+      ],
+      "mentions": [
+        {
+          "title": "Vertex to sunset VRTX token, migrate DEX to Kraken-backed Layer 2 Ink - The Block",
+          "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQaERVRXZDSkt2dkF3LXQyeVRPTi1uT1hZZ3Z3cGVkeF8wdndpcUdsM0oyX2F4QzZ2VkRpMk9YZ2xqd2ZWOGtwWWZ6Yk9CamhTbXB4V2UyRnF0Njh5U09DN1FHZ0ZDZ1pRR1h5ZXRickVJdmJYUG9aXzBuMFVIU3Z5U1IwdWtBM1l0NWI1XzNpcVQ2eUFRY3ljUDFQc3pvTkw1UlBlR19FeHV5UV9V?oc=5",
+          "source": "The Block",
+          "publishedAt": "Tue, 08 Jul 2025 07:00:00 GMT",
+          "sourceTier": "crypto_media",
+          "sourceWeight": 3,
+          "sourceLabel": "Crypto Media"
+        }
+      ],
+      "priorityBand": "Medium",
+      "internalFit": "early-radar",
+      "firstSeenAt": "Tue, 08 Jul 2025 07:00:00 GMT",
+      "latestSeenAt": "Tue, 08 Jul 2025 07:00:00 GMT",
+      "discoveryPath": "dex",
+      "maturityPath": "early",
+      "hongKongTier": "none",
+      "priorityMeta": {
+        "sourceStrength": 3,
+        "externalBoost": 0
+      },
+      "reasonSummary": "[DEX New Stars] 出现早期项目催化信号",
+      "radarBucket": "dex",
+      "slug": "vertex",
+      "website": "",
+      "twitter": "",
+      "contact": {
+        "label": "Primary path",
+        "value": "Use official website or X for first contact"
+      },
+      "secondaryContact": null,
+      "region": "",
+      "stage": "",
+      "fitSummary": "[DEX New Stars] 出现早期项目催化信号",
+      "interpretation": [
+        "近期融资或资本市场信号通常意味着团队有预算、节奏和更强的渠道扩张意愿。"
+      ],
+      "nextStep": "优先找 warm intro 再发首封触达。",
+      "sourceNotes": [],
+      "screening": {},
+      "liveSignals": {
+        "coingecko": null,
+        "defillama": null,
+        "cryptorank": null,
+        "website": null,
+        "rootdata": {
+          "fetchedAt": "2026-03-19T02:30:51.898Z",
+          "projectName": "",
+          "projectType": "",
+          "description": "",
+          "website": "",
+          "error": ""
+        },
+        "opennews": null,
+        "opentwitter": null
+      },
+      "fundraising": null,
+      "hongKongFit": false
+    },
+    {
+      "name": "Zero Network",
+      "score": 16,
+      "signals": [
+        "ecosystem"
+      ],
+      "sector": "General",
+      "reasons": [
+        "出现早期项目催化信号"
+      ],
+      "mentions": [
+        {
+          "title": "Zero Network joins ZKsync ecosystem",
+          "link": "https://zero.network/",
+          "source": "ZKsync Ecosystem Directory",
+          "publishedAt": "2026-03-19T02:44:44.548Z",
+          "sourceTier": "official",
+          "sourceWeight": 4,
+          "sourceLabel": "Official Ecosystem"
+        }
+      ],
+      "priorityBand": "Medium",
+      "internalFit": "early-radar",
+      "firstSeenAt": "2026-03-19T02:44:44.548Z",
+      "latestSeenAt": "2026-03-19T02:44:44.548Z",
+      "discoveryPath": "ecosystem",
+      "maturityPath": "early",
+      "hongKongTier": "none",
+      "priorityMeta": {
+        "sourceStrength": 4,
+        "externalBoost": 0
+      },
+      "reasonSummary": "[Ecosystem Watch] 出现早期项目催化信号",
+      "radarBucket": "ecosystem",
+      "slug": "zero-network",
+      "website": "",
+      "twitter": "",
+      "contact": {
+        "label": "Primary path",
+        "value": "Use official website or X for first contact"
+      },
+      "secondaryContact": null,
+      "region": "",
+      "stage": "",
+      "fitSummary": "[Ecosystem Watch] 出现早期项目催化信号",
+      "interpretation": [
+        "当前公开信号还偏早期，建议先做项目画像和组织结构判断，再决定是否触达。"
+      ],
+      "nextStep": "优先找 warm intro 再发首封触达。",
+      "sourceNotes": [],
+      "screening": {},
+      "liveSignals": {
+        "coingecko": null,
+        "defillama": null,
+        "cryptorank": null,
+        "website": null,
+        "rootdata": {
+          "fetchedAt": "2026-03-19T02:44:55.383Z",
+          "projectName": "",
+          "projectType": "",
+          "description": "",
+          "website": "",
+          "error": ""
+        },
+        "opennews": null,
+        "opentwitter": null
+      },
+      "fundraising": null,
+      "hongKongFit": false
+    },
+    {
+      "name": "Cambria",
+      "score": 16,
+      "signals": [
+        "funding"
+      ],
+      "sector": "General",
+      "reasons": [
+        "出现早期项目催化信号"
+      ],
+      "mentions": [
+        {
+          "title": "Blockchain Game Investment List - Cambria's token pre-sale raises $1 million - BlockchainGamerBiz",
+          "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPRFpmZWFSTHRQVVdqdXA2aHdBbUw4RDhLdjA5MmVmZi0wNWE5ZzI1QVkzTjhXMjA2aDQycmZObmN6QXo3QXVZR1VXVnFWdmd2NzJhSGlfU2ptSHVSN1dET1hEbnF2TVEtcU81MkxGWnFaX0hqSl9WR2dLQmVYRWhzRXkySjhsLW5SaXlGOVI0RkRYT0s4aTRzckdFMNIBoAFBVV95cUxPdFVpemtQSlo5YUJod1JTY3czYjVKbHRzazJjdjlmbUdFSmN2Yi0xMzBGY1V1LVRSQmJlTzZjRy01SlNIQ3Jfem5EOGU3WEFSVTQyZjR0N3JLMWNhMWlWdkRpcEk1Sm41RUM1V3QtS2xFWko3LXloNDlLbVJrY0RDVmRvWDJEZHNQVFRicFhxZFJpUXNNQlZjLXJFbWhkdG5Z?oc=5",
+          "source": "BlockchainGamerBiz",
+          "publishedAt": "Thu, 05 Mar 2026 08:00:00 GMT",
+          "sourceTier": "general_media",
+          "sourceWeight": 1,
+          "sourceLabel": "General Media"
+        },
+        {
+          "title": "Blockchain Game Investment List - Cambria's token pre-sale raises $1 million - BlockchainGamerBiz",
+          "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPRFpmZWFSTHRQVVdqdXA2aHdBbUw4RDhLdjA5MmVmZi0wNWE5ZzI1QVkzTjhXMjA2aDQycmZObmN6QXo3QXVZR1VXVnFWdmd2NzJhSGlfU2ptSHVSN1dET1hEbnF2TVEtcU81MkxGWnFaX0hqSl9WR2dLQmVYRWhzRXkySjhsLW5SaXlGOVI0RkRYT0s4aTRzckdFMNIBoAFBVV95cUxPdFVpemtQSlo5YUJod1JTY3czYjVKbHRzazJjdjlmbUdFSmN2Yi0xMzBGY1V1LVRSQmJlTzZjRy01SlNIQ3Jfem5EOGU3WEFSVTQyZjR0N3JLMWNhMWlWdkRpcEk1Sm41RUM1V3QtS2xFWko3LXloNDlLbVJrY0RDVmRvWDJEZHNQVFRicFhxZFJpUXNNQlZjLXJFbWhkdG5Z?oc=5",
+          "source": "BlockchainGamerBiz",
+          "publishedAt": "Thu, 05 Mar 2026 08:00:00 GMT",
+          "sourceTier": "general_media",
+          "sourceWeight": 1,
+          "sourceLabel": "General Media"
+        }
+      ],
+      "priorityBand": "Medium",
+      "internalFit": "early-radar",
+      "firstSeenAt": "Thu, 05 Mar 2026 08:00:00 GMT",
+      "latestSeenAt": "Thu, 05 Mar 2026 08:00:00 GMT",
+      "discoveryPath": "fundraising",
+      "maturityPath": "early",
+      "hongKongTier": "none",
+      "priorityMeta": {
+        "sourceStrength": 2,
+        "externalBoost": 0
+      },
+      "reasonSummary": "[Fundraising Radar] 出现早期项目催化信号",
+      "radarBucket": "fundraising",
+      "slug": "cambria",
+      "website": "",
+      "twitter": "",
+      "contact": {
+        "label": "Primary path",
+        "value": "Use official website or X for first contact"
+      },
+      "secondaryContact": null,
+      "region": "",
+      "stage": "",
+      "fitSummary": "[Fundraising Radar] 出现早期项目催化信号",
+      "interpretation": [
+        "近期融资或资本市场信号通常意味着团队有预算、节奏和更强的渠道扩张意愿。"
+      ],
+      "nextStep": "优先找 warm intro 再发首封触达。",
+      "sourceNotes": [],
+      "screening": {},
+      "liveSignals": {
+        "coingecko": null,
+        "defillama": null,
+        "cryptorank": null,
+        "website": null,
+        "rootdata": {
+          "fetchedAt": "2026-03-19T01:54:50.179Z",
+          "projectName": "",
+          "projectType": "",
+          "description": "",
+          "website": "",
+          "error": ""
+        },
+        "opennews": null,
+        "opentwitter": null
+      },
+      "fundraising": null,
+      "hongKongFit": false
+    },
+    {
+      "name": "Humanity Protocol",
+      "score": 14,
+      "signals": [
+        "funding"
+      ],
+      "sector": "General",
+      "reasons": [
+        "出现早期项目催化信号",
+        "CryptoRank 已收录（rank 200）"
+      ],
+      "mentions": [
+        {
+          "title": "Humanity Protocol (H) Funding Rounds, Token Sale Review & Tokenomics Analysis - CryptoRank",
+          "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBmNGZTcGwzeWZmVHQ2OFNNeE1OblQ5NG52WHBJcjlBZlNjaVdPd25fMjJLRjlYbE9nQWt4VVJnQzRQQ0tzRllNY3pVMk03Sy1qUmIwaGp3?oc=5",
+          "source": "CryptoRank",
+          "publishedAt": "Wed, 28 Feb 2024 10:03:49 GMT",
+          "sourceTier": "general_media",
+          "sourceWeight": 1,
+          "sourceLabel": "General Media"
+        }
+      ],
+      "priorityBand": "Medium",
+      "internalFit": "early-radar",
+      "firstSeenAt": "Wed, 28 Feb 2024 10:03:49 GMT",
+      "latestSeenAt": "Wed, 28 Feb 2024 10:03:49 GMT",
+      "discoveryPath": "fundraising",
+      "maturityPath": "early",
+      "hongKongTier": "none",
+      "priorityMeta": {
+        "sourceStrength": 1,
+        "externalBoost": 1
+      },
+      "reasonSummary": "[Fundraising Radar] 出现早期项目催化信号；CryptoRank 已收录（rank 200）",
+      "radarBucket": "fundraising",
+      "slug": "humanity-protocol",
+      "website": "",
+      "twitter": "",
+      "contact": {
+        "label": "Primary path",
+        "value": "Use official website or X for first contact"
+      },
+      "secondaryContact": null,
+      "region": "",
+      "stage": "",
+      "fitSummary": "[Fundraising Radar] 出现早期项目催化信号",
+      "interpretation": [
+        "近期融资或资本市场信号通常意味着团队有预算、节奏和更强的渠道扩张意愿。"
+      ],
+      "nextStep": "优先找 warm intro 再发首封触达。",
+      "sourceNotes": [
+        "CryptoRank cache: rank 200, Blockchain Infrastructure / $190.40M",
+        "CryptoRank funding: STRATEGIC on 2026-01-27 with 1 investors"
+      ],
+      "screening": {
+        "marketCapUsd": 190401083.56402498,
+        "dailyVolumeUsd": 16157790
+      },
+      "liveSignals": {
+        "coingecko": null,
+        "defillama": null,
+        "cryptorank": {
+          "fetchedAt": "2026-03-18T15:18:37.541Z",
+          "id": 188301,
+          "name": "Humanity Protocol",
+          "slug": "humanity-protocol",
+          "symbol": "H",
+          "rank": 200,
+          "category": "Blockchain Infrastructure",
+          "type": "token",
+          "marketCapUsd": 190401083.56402498,
+          "volume24hUsd": 16157790,
+          "rounds": [
+            {
+              "announcedAt": "2026-01-27T00:00:00.000Z",
+              "roundStage": "STRATEGIC",
+              "raiseUsd": 0,
+              "valuationUsd": 0,
+              "investors": [
+                {
+                  "name": "Hex Trust",
+                  "slug": "hex-trust",
+                  "category": "Venture",
+                  "tier": 4
+                }
+              ],
+              "investorsCount": 1,
+              "linkToAnnouncement": "https://www.humanity.org/blog/hex-trust-secures-strategic-position-in-humanity-protocol",
+              "isHidden": false,
+              "isAuthProtected": false
+            },
+            {
+              "announcedAt": "2025-01-27T00:00:00.000Z",
+              "roundStage": "STRATEGIC",
+              "raiseUsd": 20000000,
+              "valuationUsd": 1100000000,
+              "investors": [
+                {
+                  "name": "Pantera Capital",
+                  "slug": "pantera-capital",
+                  "category": "Venture",
+                  "tier": 1
+                },
+                {
+                  "name": "Jump Crypto",
+                  "slug": "jump-crypto",
+                  "category": "Venture",
+                  "tier": 2
+                }
+              ],
+              "investorsCount": 2,
+              "linkToAnnouncement": "https://www.humanity.org/blog/humanity-protocol-secures-strategic-funding-from-jump-crypto-and-pantera-capital-at-1-1b-fully-diluted-valuation",
+              "isHidden": false,
+              "isAuthProtected": false
+            },
+            {
+              "announcedAt": "2024-05-15T00:00:00.000Z",
+              "roundStage": "SEED",
+              "raiseUsd": 30000000,
+              "valuationUsd": 0,
+              "investors": [],
+              "investorsCount": 0,
+              "linkToAnnouncement": "",
+              "isHidden": true,
+              "isAuthProtected": true
+            },
+            {
+              "announcedAt": "2024-02-28T00:00:00.000Z",
+              "roundStage": "STRATEGIC",
+              "raiseUsd": 0,
+              "valuationUsd": 0,
+              "investors": [],
+              "investorsCount": 0,
+              "linkToAnnouncement": "",
+              "isHidden": true,
+              "isAuthProtected": true
+            }
+          ],
+          "latestRound": {
+            "announcedAt": "2026-01-27T00:00:00.000Z",
+            "roundStage": "STRATEGIC",
+            "raiseUsd": 0,
+            "valuationUsd": 0,
+            "investors": [
+              {
+                "name": "Hex Trust",
+                "slug": "hex-trust",
+                "category": "Venture",
+                "tier": 4
+              }
+            ],
+            "investorsCount": 1,
+            "linkToAnnouncement": "https://www.humanity.org/blog/hex-trust-secures-strategic-position-in-humanity-protocol",
+            "isHidden": false,
+            "isAuthProtected": false
+          },
+          "fundingFetchedAt": "2026-03-18T15:19:14.166Z",
+          "fundingError": ""
+        },
+        "website": null,
+        "rootdata": {
+          "fetchedAt": "2026-03-18T15:19:34.805Z",
+          "projectName": "",
+          "projectType": "",
+          "description": "",
+          "website": "",
+          "error": ""
+        },
+        "opennews": null,
+        "opentwitter": null
+      },
+      "fundraising": {
+        "source": "CryptoRank",
+        "latestRound": {
+          "announcedAt": "2026-01-27T00:00:00.000Z",
+          "roundStage": "STRATEGIC",
+          "raiseUsd": 0,
+          "valuationUsd": 0,
+          "investors": [
+            {
+              "name": "Hex Trust",
+              "slug": "hex-trust",
+              "category": "Venture",
+              "tier": 4
+            }
+          ],
+          "investorsCount": 1,
+          "linkToAnnouncement": "https://www.humanity.org/blog/hex-trust-secures-strategic-position-in-humanity-protocol",
+          "isHidden": false,
+          "isAuthProtected": false
+        },
+        "rounds": [
+          {
+            "announcedAt": "2026-01-27T00:00:00.000Z",
+            "roundStage": "STRATEGIC",
+            "raiseUsd": 0,
+            "valuationUsd": 0,
+            "investors": [
+              {
+                "name": "Hex Trust",
+                "slug": "hex-trust",
+                "category": "Venture",
+                "tier": 4
+              }
+            ],
+            "investorsCount": 1,
+            "linkToAnnouncement": "https://www.humanity.org/blog/hex-trust-secures-strategic-position-in-humanity-protocol",
+            "isHidden": false,
+            "isAuthProtected": false
+          },
+          {
+            "announcedAt": "2025-01-27T00:00:00.000Z",
+            "roundStage": "STRATEGIC",
+            "raiseUsd": 20000000,
+            "valuationUsd": 1100000000,
+            "investors": [
+              {
+                "name": "Pantera Capital",
+                "slug": "pantera-capital",
+                "category": "Venture",
+                "tier": 1
+              },
+              {
+                "name": "Jump Crypto",
+                "slug": "jump-crypto",
+                "category": "Venture",
+                "tier": 2
+              }
+            ],
+            "investorsCount": 2,
+            "linkToAnnouncement": "https://www.humanity.org/blog/humanity-protocol-secures-strategic-funding-from-jump-crypto-and-pantera-capital-at-1-1b-fully-diluted-valuation",
+            "isHidden": false,
+            "isAuthProtected": false
+          },
+          {
+            "announcedAt": "2024-05-15T00:00:00.000Z",
+            "roundStage": "SEED",
+            "raiseUsd": 30000000,
+            "valuationUsd": 0,
+            "investors": [],
+            "investorsCount": 0,
+            "linkToAnnouncement": "",
+            "isHidden": true,
+            "isAuthProtected": true
+          },
+          {
+            "announcedAt": "2024-02-28T00:00:00.000Z",
+            "roundStage": "STRATEGIC",
+            "raiseUsd": 0,
+            "valuationUsd": 0,
+            "investors": [],
+            "investorsCount": 0,
+            "linkToAnnouncement": "",
+            "isHidden": true,
+            "isAuthProtected": true
+          }
+        ]
+      },
+      "hongKongFit": false
+    },
+    {
+      "name": "Alongside",
+      "score": 13,
+      "signals": [
+        "funding"
+      ],
+      "sector": "General",
+      "reasons": [
+        "出现早期项目催化信号"
+      ],
+      "mentions": [
+        {
+          "title": "Alongside team secures $9 million 'strategic investment' from a16z, others in Universal token project - The Block",
+          "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQbnlCMC1ZOEZtZUphQWxlQ0RtcVFsZE5sbnFJYXhQb3hfOENQaHpVRzdBSll2bGhET1BuTUJKOTdZcm5BZkdXamNFWFR5Y3A2cXJNOGJmMDUyUTV2SG11a3pFREc4R3NHREN1Q1BoTWc3YVpRaV9LSUladWZyRGF6WGE1S1dSTVJKRGNYTGxGVlhjZUNkWDZwSWRfc0prY05FSXNMbklXaEswODdLU0VIc0ROSl9TMlNsc1pMV2tFYnpJaXdp?oc=5",
+          "source": "The Block",
+          "publishedAt": "Wed, 19 Feb 2025 08:00:00 GMT",
+          "sourceTier": "crypto_media",
+          "sourceWeight": 3,
+          "sourceLabel": "Crypto Media"
+        }
+      ],
+      "priorityBand": "Watch",
+      "internalFit": "early-radar",
+      "firstSeenAt": "Wed, 19 Feb 2025 08:00:00 GMT",
+      "latestSeenAt": "Wed, 19 Feb 2025 08:00:00 GMT",
+      "discoveryPath": "fundraising",
+      "maturityPath": "early",
+      "hongKongTier": "none",
+      "priorityMeta": {
+        "sourceStrength": 3,
+        "externalBoost": 0
+      },
+      "reasonSummary": "[Fundraising Radar] 出现早期项目催化信号",
+      "radarBucket": "fundraising",
+      "slug": "alongside",
+      "website": "",
+      "twitter": "",
+      "contact": {
+        "label": "Primary path",
+        "value": "Use official website or X for first contact"
+      },
+      "secondaryContact": null,
+      "region": "",
+      "stage": "",
+      "fitSummary": "[Fundraising Radar] 出现早期项目催化信号",
+      "interpretation": [
+        "近期融资或资本市场信号通常意味着团队有预算、节奏和更强的渠道扩张意愿。"
+      ],
+      "nextStep": "优先找 warm intro 再发首封触达。",
+      "sourceNotes": [],
+      "screening": {},
+      "liveSignals": {
+        "coingecko": null,
+        "defillama": null,
+        "cryptorank": null,
+        "website": null,
+        "rootdata": {
+          "fetchedAt": "2026-03-18T15:19:34.516Z",
+          "projectName": "",
+          "projectType": "",
+          "description": "",
+          "website": "",
+          "error": ""
+        },
+        "opennews": null,
+        "opentwitter": null
+      },
+      "fundraising": null,
+      "hongKongFit": false
+    },
+    {
+      "name": "Atleta Network",
+      "score": 11,
+      "signals": [
+        "launch",
+        "github"
+      ],
+      "sector": "General",
+      "reasons": [
+        "出现早期项目催化信号",
+        "CryptoRank 已收录（rank 175）"
+      ],
+      "mentions": [
+        {
+          "title": "Atleta Network Team Announces Testnet Launch - ForkLog",
+          "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBCakk4clNtdEJVZ0JVTktZSWhPSVM3Q3N1ajJPN2VXczI0NjN0a09kXzZudTM3RXVfM1VqcElOZm1iTVJkaEFnNURpSXdLdjhaZERyNmw3TzFraXR0NGYyWk83eHB3ZVh4Q3FCbVN1TnpSQXJ4ZE5v0gF8QVVfeXFMTXgzY1EyaVJBdEpFcC1CSFBjWlBKa05VeHFzVEhBczU3RFM3VTROSE84dWowa09jUzZEN0ZjVkw2ZG9UME10UHNJVlJEVi1fWXNlMlhNRzFHVW0tN09MXzlQX1VONXpoNDd6dThrNDQ3UXMzZlN4RFBIMVZ3Rg?oc=5",
+          "source": "ForkLog",
+          "publishedAt": "Tue, 14 May 2024 07:00:00 GMT",
+          "sourceTier": "general_media",
+          "sourceWeight": 1,
+          "sourceLabel": "General Media"
+        }
+      ],
+      "priorityBand": "Watch",
+      "internalFit": "early-radar",
+      "firstSeenAt": "Tue, 14 May 2024 07:00:00 GMT",
+      "latestSeenAt": "Tue, 14 May 2024 07:00:00 GMT",
+      "discoveryPath": "ecosystem",
+      "maturityPath": "early",
+      "hongKongTier": "none",
+      "priorityMeta": {
+        "sourceStrength": 1,
+        "externalBoost": 1
+      },
+      "reasonSummary": "[Ecosystem Watch] 出现早期项目催化信号；CryptoRank 已收录（rank 175）",
+      "radarBucket": "ecosystem",
+      "slug": "atleta-network",
+      "website": "",
+      "twitter": "",
+      "contact": {
+        "label": "Primary path",
+        "value": "Use official website or X for first contact"
+      },
+      "secondaryContact": null,
+      "region": "",
+      "stage": "",
+      "fitSummary": "[Ecosystem Watch] 出现早期项目催化信号",
+      "interpretation": [
+        "当前公开信号还偏早期，建议先做项目画像和组织结构判断，再决定是否触达。"
+      ],
+      "nextStep": "优先找 warm intro 再发首封触达。",
+      "sourceNotes": [
+        "CryptoRank cache: rank 175, Chain / $235.10M"
+      ],
+      "screening": {
+        "marketCapUsd": 235101768.49434957,
+        "dailyVolumeUsd": 15482603
+      },
+      "liveSignals": {
+        "coingecko": null,
+        "defillama": null,
+        "cryptorank": {
+          "fetchedAt": "2026-03-18T15:18:37.541Z",
+          "id": 189498,
+          "name": "Atleta Network",
+          "slug": "atleta-network",
+          "symbol": "ATLA",
+          "rank": 175,
+          "category": "Chain",
+          "type": "coin",
+          "marketCapUsd": 235101768.49434957,
+          "volume24hUsd": 15482603,
+          "rounds": [],
+          "latestRound": null,
+          "fundingFetchedAt": "2026-03-19T02:12:08.866Z",
+          "fundingError": "HTTP 404 for https://cryptorank.io/ico/atleta-network"
+        },
+        "website": null,
+        "rootdata": {
+          "fetchedAt": "2026-03-18T06:07:05.766Z",
+          "projectName": "",
+          "projectType": "",
+          "description": "",
+          "website": "",
+          "error": ""
+        },
+        "opennews": null,
+        "opentwitter": null
+      },
+      "fundraising": null,
+      "hongKongFit": false
+    },
+    {
+      "name": "Menese Protocol",
+      "score": 7,
+      "signals": [
+        "infra",
+        "github"
+      ],
+      "sector": "Infra",
+      "reasons": [
+        "出现早期项目催化信号"
+      ],
+      "mentions": [
+        {
+          "title": "Menese Protocol Goes Live: Fully On-Chain Multichain Execution Infrastructure Launches Public Beta with Cross-Chain Liquidity and Developer SDK - Times Tabloid",
+          "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPT0J6VVZVV0FnZDExbWtqM2JQVF9MQ3NBTVh0MmtJMTNaSVNYajVLVlJGeUJrd1pUeWQ5Z29jT0JEZ0M1N2FWZTlvVEI2b2p4SF83enVnWVV6eFNfTTVhZnNGdWExczY2OWNVU2t0V1RiY2t1a1phUGJxUzdta3RCZlRhNlR5VTU0Z0t5aFE0TmM?oc=5",
+          "source": "Times Tabloid",
+          "publishedAt": "Tue, 17 Feb 2026 08:00:00 GMT",
+          "sourceTier": "general_media",
+          "sourceWeight": 1,
+          "sourceLabel": "General Media"
+        }
+      ],
+      "priorityBand": "Watch",
+      "internalFit": "early-radar",
+      "firstSeenAt": "Tue, 17 Feb 2026 08:00:00 GMT",
+      "latestSeenAt": "Tue, 17 Feb 2026 08:00:00 GMT",
+      "discoveryPath": "ecosystem",
+      "maturityPath": "early",
+      "hongKongTier": "none",
+      "priorityMeta": {
+        "sourceStrength": 1,
+        "externalBoost": 0
+      },
+      "reasonSummary": "[Ecosystem Watch] 出现早期项目催化信号",
+      "radarBucket": "ecosystem",
+      "slug": "menese-protocol",
+      "website": "",
+      "twitter": "",
+      "contact": {
+        "label": "Primary path",
+        "value": "Use official website or X for first contact"
+      },
+      "secondaryContact": null,
+      "region": "",
+      "stage": "",
+      "fitSummary": "[Ecosystem Watch] 出现早期项目催化信号",
+      "interpretation": [
+        "当前公开信号还偏早期，建议先做项目画像和组织结构判断，再决定是否触达。"
+      ],
+      "nextStep": "优先找 warm intro 再发首封触达。",
+      "sourceNotes": [],
+      "screening": {},
+      "liveSignals": {
+        "coingecko": null,
+        "defillama": null,
+        "cryptorank": null,
+        "website": null,
+        "rootdata": {
+          "fetchedAt": "2026-03-18T15:19:35.957Z",
+          "projectName": "",
+          "projectType": "",
+          "description": "",
+          "website": "",
+          "error": ""
+        },
+        "opennews": null,
+        "opentwitter": null
+      },
+      "fundraising": null,
+      "hongKongFit": false
+    }
+  ],
+  "fundraisingProjects": [
+    {
+      "name": "Quai Network",
+      "score": 24,
+      "signals": [
+        "funding"
+      ],
+      "sector": "Infra",
+      "reasons": [
+        "出现早期项目催化信号",
+        "CryptoRank 已收录（rank 742）",
+        "CryptoRank 融资轮次已确认：STRATEGIC"
+      ],
+      "mentions": [
+        {
+          "title": "Layer 1 Quai Network closes $5 million strategic round - The Block",
+          "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBmc2VqczRnRWRRZWRLd2dwcHFaN3czSS1CZnBkYXh4eXUtemVRZlJWYkJodVhZY0h4TG1PWHlPU0xOb2I3TGFNS1VmNktEUmFQZUFUcXVDQWtLYjZ3eGhpc1JwSWN0X2c?oc=5",
+          "source": "The Block",
+          "publishedAt": "Thu, 29 Aug 2024 07:00:00 GMT",
+          "sourceTier": "crypto_media",
+          "sourceWeight": 3,
+          "sourceLabel": "Crypto Media"
+        }
+      ],
+      "priorityBand": "Medium",
+      "internalFit": "early-radar",
+      "firstSeenAt": "Thu, 29 Aug 2024 07:00:00 GMT",
+      "latestSeenAt": "Thu, 29 Aug 2024 07:00:00 GMT",
+      "discoveryPath": "fundraising",
+      "maturityPath": "early",
+      "hongKongTier": "none",
+      "priorityMeta": {
+        "sourceStrength": 3,
+        "externalBoost": 7
+      },
+      "reasonSummary": "[Fundraising Radar] 出现早期项目催化信号；CryptoRank 已收录（rank 742）；CryptoRank 融资轮次已确认：STRATEGIC",
+      "radarBucket": "fundraising",
+      "slug": "quai-network",
+      "website": "",
+      "twitter": "",
+      "contact": {
+        "label": "Primary path",
+        "value": "Use official website or X for first contact"
+      },
+      "secondaryContact": null,
+      "region": "",
+      "stage": "",
+      "fitSummary": "[Fundraising Radar] 出现早期项目催化信号",
+      "interpretation": [
+        "近期融资或资本市场信号通常意味着团队有预算、节奏和更强的渠道扩张意愿。"
+      ],
+      "nextStep": "优先找 warm intro 再发首封触达。",
+      "sourceNotes": [
+        "CryptoRank cache: rank 742, Chain / $19.18M",
+        "CryptoRank funding: STRATEGIC on 2024-08-29 with 9 investors"
+      ],
+      "screening": {
+        "marketCapUsd": 19180893.85282288,
+        "dailyVolumeUsd": 532977
+      },
+      "liveSignals": {
+        "coingecko": null,
+        "defillama": null,
+        "cryptorank": {
+          "fetchedAt": "2026-03-18T15:18:37.541Z",
+          "id": 177810,
+          "name": "Quai Network",
+          "slug": "quai-network",
+          "symbol": "QUAI",
+          "rank": 742,
+          "category": "Chain",
+          "type": "token",
+          "marketCapUsd": 19180893.85282288,
+          "volume24hUsd": 532977,
+          "rounds": [
+            {
+              "announcedAt": "2024-08-29T00:00:00.000Z",
+              "roundStage": "STRATEGIC",
+              "raiseUsd": 5000000,
+              "valuationUsd": 0,
+              "investors": [
+                {
+                  "name": "MH Ventures",
+                  "slug": "mh-ventures",
+                  "category": "Venture",
+                  "tier": 2
+                },
+                {
+                  "name": "Marshland Capital",
+                  "slug": "marshland-capital",
+                  "category": "Venture",
+                  "tier": 3
+                },
+                {
+                  "name": "Ceras Ventures",
+                  "slug": "ceras-ventures",
+                  "category": "Venture",
+                  "tier": 3
+                },
+                {
+                  "name": "Cogitent Ventures",
+                  "slug": "cogitent-venture",
+                  "category": "Venture",
+                  "tier": 4
+                },
+                {
+                  "name": "TPC",
+                  "slug": "tpc-ventures",
+                  "category": "Venture",
+                  "tier": 4
+                },
+                {
+                  "name": "Black Edge Capital",
+                  "slug": "blackedge-capital",
+                  "category": "Venture",
+                  "tier": 4
+                },
+                {
+                  "name": "Giga Chad Ventures",
+                  "slug": "giga-chad-ventures",
+                  "category": "Venture",
+                  "tier": 4
+                },
+                {
+                  "name": "GTS Ventures",
+                  "slug": "gst-ventures",
+                  "category": "Venture",
+                  "tier": 5
+                },
+                {
+                  "name": "DexCheck AI",
+                  "slug": "dexcheck-ai",
+                  "category": "Corporation",
+                  "tier": 0
+                }
+              ],
+              "investorsCount": 9,
+              "linkToAnnouncement": "https://www.theblock.co/post/313387/quai-strategic-round",
+              "isHidden": false,
+              "isAuthProtected": false
+            },
+            {
+              "announcedAt": "2022-05-05T00:00:00.000Z",
+              "roundStage": "Undisclosed",
+              "raiseUsd": 2000000,
+              "valuationUsd": 0,
+              "investors": [
+                {
+                  "name": "Alumni Ventures",
+                  "slug": "alumni-ventures-group",
+                  "category": "Venture",
+                  "tier": 3
+                }
+              ],
+              "investorsCount": 1,
+              "linkToAnnouncement": "https://blog.qu.ai/quai-network-receives-2m-from-alumni-ventures-f64a21f711ac",
+              "isHidden": false,
+              "isAuthProtected": false
+            },
+            {
+              "announcedAt": "2022-03-24T00:00:00.000Z",
+              "roundStage": "Undisclosed",
+              "raiseUsd": 8000000,
+              "valuationUsd": 0,
+              "investors": [],
+              "investorsCount": 0,
+              "linkToAnnouncement": "",
+              "isHidden": true,
+              "isAuthProtected": true
+            }
+          ],
+          "latestRound": {
+            "announcedAt": "2024-08-29T00:00:00.000Z",
+            "roundStage": "STRATEGIC",
+            "raiseUsd": 5000000,
+            "valuationUsd": 0,
+            "investors": [
+              {
+                "name": "MH Ventures",
+                "slug": "mh-ventures",
+                "category": "Venture",
+                "tier": 2
+              },
+              {
+                "name": "Marshland Capital",
+                "slug": "marshland-capital",
+                "category": "Venture",
+                "tier": 3
+              },
+              {
+                "name": "Ceras Ventures",
+                "slug": "ceras-ventures",
+                "category": "Venture",
+                "tier": 3
+              },
+              {
+                "name": "Cogitent Ventures",
+                "slug": "cogitent-venture",
+                "category": "Venture",
+                "tier": 4
+              },
+              {
+                "name": "TPC",
+                "slug": "tpc-ventures",
+                "category": "Venture",
+                "tier": 4
+              },
+              {
+                "name": "Black Edge Capital",
+                "slug": "blackedge-capital",
+                "category": "Venture",
+                "tier": 4
+              },
+              {
+                "name": "Giga Chad Ventures",
+                "slug": "giga-chad-ventures",
+                "category": "Venture",
+                "tier": 4
+              },
+              {
+                "name": "GTS Ventures",
+                "slug": "gst-ventures",
+                "category": "Venture",
+                "tier": 5
+              },
+              {
+                "name": "DexCheck AI",
+                "slug": "dexcheck-ai",
+                "category": "Corporation",
+                "tier": 0
+              }
+            ],
+            "investorsCount": 9,
+            "linkToAnnouncement": "https://www.theblock.co/post/313387/quai-strategic-round",
+            "isHidden": false,
+            "isAuthProtected": false
+          },
+          "fundingFetchedAt": "2026-03-18T15:19:05.624Z",
+          "fundingError": ""
+        },
+        "website": null,
+        "rootdata": {
+          "fetchedAt": "2026-03-18T15:19:34.261Z",
+          "projectName": "",
+          "projectType": "",
+          "description": "",
+          "website": "",
+          "error": ""
+        },
+        "opennews": null,
+        "opentwitter": null
+      },
+      "fundraising": {
+        "source": "CryptoRank",
+        "latestRound": {
+          "announcedAt": "2024-08-29T00:00:00.000Z",
+          "roundStage": "STRATEGIC",
+          "raiseUsd": 5000000,
+          "valuationUsd": 0,
+          "investors": [
+            {
+              "name": "MH Ventures",
+              "slug": "mh-ventures",
+              "category": "Venture",
+              "tier": 2
+            },
+            {
+              "name": "Marshland Capital",
+              "slug": "marshland-capital",
+              "category": "Venture",
+              "tier": 3
+            },
+            {
+              "name": "Ceras Ventures",
+              "slug": "ceras-ventures",
+              "category": "Venture",
+              "tier": 3
+            },
+            {
+              "name": "Cogitent Ventures",
+              "slug": "cogitent-venture",
+              "category": "Venture",
+              "tier": 4
+            },
+            {
+              "name": "TPC",
+              "slug": "tpc-ventures",
+              "category": "Venture",
+              "tier": 4
+            },
+            {
+              "name": "Black Edge Capital",
+              "slug": "blackedge-capital",
+              "category": "Venture",
+              "tier": 4
+            },
+            {
+              "name": "Giga Chad Ventures",
+              "slug": "giga-chad-ventures",
+              "category": "Venture",
+              "tier": 4
+            },
+            {
+              "name": "GTS Ventures",
+              "slug": "gst-ventures",
+              "category": "Venture",
+              "tier": 5
+            },
+            {
+              "name": "DexCheck AI",
+              "slug": "dexcheck-ai",
+              "category": "Corporation",
+              "tier": 0
+            }
+          ],
+          "investorsCount": 9,
+          "linkToAnnouncement": "https://www.theblock.co/post/313387/quai-strategic-round",
+          "isHidden": false,
+          "isAuthProtected": false
+        },
+        "rounds": [
+          {
+            "announcedAt": "2024-08-29T00:00:00.000Z",
+            "roundStage": "STRATEGIC",
+            "raiseUsd": 5000000,
+            "valuationUsd": 0,
+            "investors": [
+              {
+                "name": "MH Ventures",
+                "slug": "mh-ventures",
+                "category": "Venture",
+                "tier": 2
+              },
+              {
+                "name": "Marshland Capital",
+                "slug": "marshland-capital",
+                "category": "Venture",
+                "tier": 3
+              },
+              {
+                "name": "Ceras Ventures",
+                "slug": "ceras-ventures",
+                "category": "Venture",
+                "tier": 3
+              },
+              {
+                "name": "Cogitent Ventures",
+                "slug": "cogitent-venture",
+                "category": "Venture",
+                "tier": 4
+              },
+              {
+                "name": "TPC",
+                "slug": "tpc-ventures",
+                "category": "Venture",
+                "tier": 4
+              },
+              {
+                "name": "Black Edge Capital",
+                "slug": "blackedge-capital",
+                "category": "Venture",
+                "tier": 4
+              },
+              {
+                "name": "Giga Chad Ventures",
+                "slug": "giga-chad-ventures",
+                "category": "Venture",
+                "tier": 4
+              },
+              {
+                "name": "GTS Ventures",
+                "slug": "gst-ventures",
+                "category": "Venture",
+                "tier": 5
+              },
+              {
+                "name": "DexCheck AI",
+                "slug": "dexcheck-ai",
+                "category": "Corporation",
+                "tier": 0
+              }
+            ],
+            "investorsCount": 9,
+            "linkToAnnouncement": "https://www.theblock.co/post/313387/quai-strategic-round",
+            "isHidden": false,
+            "isAuthProtected": false
+          },
+          {
+            "announcedAt": "2022-05-05T00:00:00.000Z",
+            "roundStage": "Undisclosed",
+            "raiseUsd": 2000000,
+            "valuationUsd": 0,
+            "investors": [
+              {
+                "name": "Alumni Ventures",
+                "slug": "alumni-ventures-group",
+                "category": "Venture",
+                "tier": 3
+              }
+            ],
+            "investorsCount": 1,
+            "linkToAnnouncement": "https://blog.qu.ai/quai-network-receives-2m-from-alumni-ventures-f64a21f711ac",
+            "isHidden": false,
+            "isAuthProtected": false
+          },
+          {
+            "announcedAt": "2022-03-24T00:00:00.000Z",
+            "roundStage": "Undisclosed",
+            "raiseUsd": 8000000,
+            "valuationUsd": 0,
+            "investors": [],
+            "investorsCount": 0,
+            "linkToAnnouncement": "",
+            "isHidden": true,
+            "isAuthProtected": true
+          }
+        ]
+      },
+      "hongKongFit": false
+    },
+    {
+      "name": "Humanity Protocol",
+      "score": 20,
+      "signals": [
+        "funding"
+      ],
+      "sector": "General",
+      "reasons": [
+        "出现早期项目催化信号",
+        "CryptoRank 已收录（rank 200）",
+        "CryptoRank 融资轮次已确认：STRATEGIC"
+      ],
+      "mentions": [
+        {
+          "title": "Humanity Protocol (H) Funding Rounds, Token Sale Review & Tokenomics Analysis - CryptoRank",
+          "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBmNGZTcGwzeWZmVHQ2OFNNeE1OblQ5NG52WHBJcjlBZlNjaVdPd25fMjJLRjlYbE9nQWt4VVJnQzRQQ0tzRllNY3pVMk03Sy1qUmIwaGp3?oc=5",
+          "source": "CryptoRank",
+          "publishedAt": "Wed, 28 Feb 2024 10:03:49 GMT",
+          "sourceTier": "general_media",
+          "sourceWeight": 1,
+          "sourceLabel": "General Media"
+        }
+      ],
+      "priorityBand": "Medium",
+      "internalFit": "early-radar",
+      "firstSeenAt": "Wed, 28 Feb 2024 10:03:49 GMT",
+      "latestSeenAt": "Wed, 28 Feb 2024 10:03:49 GMT",
+      "discoveryPath": "fundraising",
+      "maturityPath": "early",
+      "hongKongTier": "none",
+      "priorityMeta": {
+        "sourceStrength": 1,
+        "externalBoost": 7
+      },
+      "reasonSummary": "[Fundraising Radar] 出现早期项目催化信号；CryptoRank 已收录（rank 200）；CryptoRank 融资轮次已确认：STRATEGIC",
+      "radarBucket": "fundraising",
+      "slug": "humanity-protocol",
+      "website": "",
+      "twitter": "",
+      "contact": {
+        "label": "Primary path",
+        "value": "Use official website or X for first contact"
+      },
+      "secondaryContact": null,
+      "region": "",
+      "stage": "",
+      "fitSummary": "[Fundraising Radar] 出现早期项目催化信号",
+      "interpretation": [
+        "近期融资或资本市场信号通常意味着团队有预算、节奏和更强的渠道扩张意愿。"
+      ],
+      "nextStep": "优先找 warm intro 再发首封触达。",
+      "sourceNotes": [
+        "CryptoRank cache: rank 200, Blockchain Infrastructure / $190.40M",
+        "CryptoRank funding: STRATEGIC on 2026-01-27 with 1 investors"
+      ],
+      "screening": {
+        "marketCapUsd": 190401083.56402498,
+        "dailyVolumeUsd": 16157790
+      },
+      "liveSignals": {
+        "coingecko": null,
+        "defillama": null,
+        "cryptorank": {
+          "fetchedAt": "2026-03-18T15:18:37.541Z",
+          "id": 188301,
+          "name": "Humanity Protocol",
+          "slug": "humanity-protocol",
+          "symbol": "H",
+          "rank": 200,
+          "category": "Blockchain Infrastructure",
+          "type": "token",
+          "marketCapUsd": 190401083.56402498,
+          "volume24hUsd": 16157790,
+          "rounds": [
+            {
+              "announcedAt": "2026-01-27T00:00:00.000Z",
+              "roundStage": "STRATEGIC",
+              "raiseUsd": 0,
+              "valuationUsd": 0,
+              "investors": [
+                {
+                  "name": "Hex Trust",
+                  "slug": "hex-trust",
+                  "category": "Venture",
+                  "tier": 4
+                }
+              ],
+              "investorsCount": 1,
+              "linkToAnnouncement": "https://www.humanity.org/blog/hex-trust-secures-strategic-position-in-humanity-protocol",
+              "isHidden": false,
+              "isAuthProtected": false
+            },
+            {
+              "announcedAt": "2025-01-27T00:00:00.000Z",
+              "roundStage": "STRATEGIC",
+              "raiseUsd": 20000000,
+              "valuationUsd": 1100000000,
+              "investors": [
+                {
+                  "name": "Pantera Capital",
+                  "slug": "pantera-capital",
+                  "category": "Venture",
+                  "tier": 1
+                },
+                {
+                  "name": "Jump Crypto",
+                  "slug": "jump-crypto",
+                  "category": "Venture",
+                  "tier": 2
+                }
+              ],
+              "investorsCount": 2,
+              "linkToAnnouncement": "https://www.humanity.org/blog/humanity-protocol-secures-strategic-funding-from-jump-crypto-and-pantera-capital-at-1-1b-fully-diluted-valuation",
+              "isHidden": false,
+              "isAuthProtected": false
+            },
+            {
+              "announcedAt": "2024-05-15T00:00:00.000Z",
+              "roundStage": "SEED",
+              "raiseUsd": 30000000,
+              "valuationUsd": 0,
+              "investors": [],
+              "investorsCount": 0,
+              "linkToAnnouncement": "",
+              "isHidden": true,
+              "isAuthProtected": true
+            },
+            {
+              "announcedAt": "2024-02-28T00:00:00.000Z",
+              "roundStage": "STRATEGIC",
+              "raiseUsd": 0,
+              "valuationUsd": 0,
+              "investors": [],
+              "investorsCount": 0,
+              "linkToAnnouncement": "",
+              "isHidden": true,
+              "isAuthProtected": true
+            }
+          ],
+          "latestRound": {
+            "announcedAt": "2026-01-27T00:00:00.000Z",
+            "roundStage": "STRATEGIC",
+            "raiseUsd": 0,
+            "valuationUsd": 0,
+            "investors": [
+              {
+                "name": "Hex Trust",
+                "slug": "hex-trust",
+                "category": "Venture",
+                "tier": 4
+              }
+            ],
+            "investorsCount": 1,
+            "linkToAnnouncement": "https://www.humanity.org/blog/hex-trust-secures-strategic-position-in-humanity-protocol",
+            "isHidden": false,
+            "isAuthProtected": false
+          },
+          "fundingFetchedAt": "2026-03-18T15:19:14.166Z",
+          "fundingError": ""
+        },
+        "website": null,
+        "rootdata": {
+          "fetchedAt": "2026-03-18T15:19:34.805Z",
+          "projectName": "",
+          "projectType": "",
+          "description": "",
+          "website": "",
+          "error": ""
+        },
+        "opennews": null,
+        "opentwitter": null
+      },
+      "fundraising": {
+        "source": "CryptoRank",
+        "latestRound": {
+          "announcedAt": "2026-01-27T00:00:00.000Z",
+          "roundStage": "STRATEGIC",
+          "raiseUsd": 0,
+          "valuationUsd": 0,
+          "investors": [
+            {
+              "name": "Hex Trust",
+              "slug": "hex-trust",
+              "category": "Venture",
+              "tier": 4
+            }
+          ],
+          "investorsCount": 1,
+          "linkToAnnouncement": "https://www.humanity.org/blog/hex-trust-secures-strategic-position-in-humanity-protocol",
+          "isHidden": false,
+          "isAuthProtected": false
+        },
+        "rounds": [
+          {
+            "announcedAt": "2026-01-27T00:00:00.000Z",
+            "roundStage": "STRATEGIC",
+            "raiseUsd": 0,
+            "valuationUsd": 0,
+            "investors": [
+              {
+                "name": "Hex Trust",
+                "slug": "hex-trust",
+                "category": "Venture",
+                "tier": 4
+              }
+            ],
+            "investorsCount": 1,
+            "linkToAnnouncement": "https://www.humanity.org/blog/hex-trust-secures-strategic-position-in-humanity-protocol",
+            "isHidden": false,
+            "isAuthProtected": false
+          },
+          {
+            "announcedAt": "2025-01-27T00:00:00.000Z",
+            "roundStage": "STRATEGIC",
+            "raiseUsd": 20000000,
+            "valuationUsd": 1100000000,
+            "investors": [
+              {
+                "name": "Pantera Capital",
+                "slug": "pantera-capital",
+                "category": "Venture",
+                "tier": 1
+              },
+              {
+                "name": "Jump Crypto",
+                "slug": "jump-crypto",
+                "category": "Venture",
+                "tier": 2
+              }
+            ],
+            "investorsCount": 2,
+            "linkToAnnouncement": "https://www.humanity.org/blog/humanity-protocol-secures-strategic-funding-from-jump-crypto-and-pantera-capital-at-1-1b-fully-diluted-valuation",
+            "isHidden": false,
+            "isAuthProtected": false
+          },
+          {
+            "announcedAt": "2024-05-15T00:00:00.000Z",
+            "roundStage": "SEED",
+            "raiseUsd": 30000000,
+            "valuationUsd": 0,
+            "investors": [],
+            "investorsCount": 0,
+            "linkToAnnouncement": "",
+            "isHidden": true,
+            "isAuthProtected": true
+          },
+          {
+            "announcedAt": "2024-02-28T00:00:00.000Z",
+            "roundStage": "STRATEGIC",
+            "raiseUsd": 0,
+            "valuationUsd": 0,
+            "investors": [],
+            "investorsCount": 0,
+            "linkToAnnouncement": "",
+            "isHidden": true,
+            "isAuthProtected": true
+          }
+        ]
+      },
+      "hongKongFit": false
+    },
+    {
+      "name": "Cambria",
+      "score": 16,
+      "signals": [
+        "funding"
+      ],
+      "sector": "General",
+      "reasons": [
+        "出现早期项目催化信号"
+      ],
+      "mentions": [
+        {
+          "title": "Blockchain Game Investment List - Cambria's token pre-sale raises $1 million - BlockchainGamerBiz",
+          "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPRFpmZWFSTHRQVVdqdXA2aHdBbUw4RDhLdjA5MmVmZi0wNWE5ZzI1QVkzTjhXMjA2aDQycmZObmN6QXo3QXVZR1VXVnFWdmd2NzJhSGlfU2ptSHVSN1dET1hEbnF2TVEtcU81MkxGWnFaX0hqSl9WR2dLQmVYRWhzRXkySjhsLW5SaXlGOVI0RkRYT0s4aTRzckdFMNIBoAFBVV95cUxPdFVpemtQSlo5YUJod1JTY3czYjVKbHRzazJjdjlmbUdFSmN2Yi0xMzBGY1V1LVRSQmJlTzZjRy01SlNIQ3Jfem5EOGU3WEFSVTQyZjR0N3JLMWNhMWlWdkRpcEk1Sm41RUM1V3QtS2xFWko3LXloNDlLbVJrY0RDVmRvWDJEZHNQVFRicFhxZFJpUXNNQlZjLXJFbWhkdG5Z?oc=5",
+          "source": "BlockchainGamerBiz",
+          "publishedAt": "Thu, 05 Mar 2026 08:00:00 GMT",
+          "sourceTier": "general_media",
+          "sourceWeight": 1,
+          "sourceLabel": "General Media"
+        },
+        {
+          "title": "Blockchain Game Investment List - Cambria's token pre-sale raises $1 million - BlockchainGamerBiz",
+          "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPRFpmZWFSTHRQVVdqdXA2aHdBbUw4RDhLdjA5MmVmZi0wNWE5ZzI1QVkzTjhXMjA2aDQycmZObmN6QXo3QXVZR1VXVnFWdmd2NzJhSGlfU2ptSHVSN1dET1hEbnF2TVEtcU81MkxGWnFaX0hqSl9WR2dLQmVYRWhzRXkySjhsLW5SaXlGOVI0RkRYT0s4aTRzckdFMNIBoAFBVV95cUxPdFVpemtQSlo5YUJod1JTY3czYjVKbHRzazJjdjlmbUdFSmN2Yi0xMzBGY1V1LVRSQmJlTzZjRy01SlNIQ3Jfem5EOGU3WEFSVTQyZjR0N3JLMWNhMWlWdkRpcEk1Sm41RUM1V3QtS2xFWko3LXloNDlLbVJrY0RDVmRvWDJEZHNQVFRicFhxZFJpUXNNQlZjLXJFbWhkdG5Z?oc=5",
+          "source": "BlockchainGamerBiz",
+          "publishedAt": "Thu, 05 Mar 2026 08:00:00 GMT",
+          "sourceTier": "general_media",
+          "sourceWeight": 1,
+          "sourceLabel": "General Media"
+        }
+      ],
+      "priorityBand": "Medium",
+      "internalFit": "early-radar",
+      "firstSeenAt": "Thu, 05 Mar 2026 08:00:00 GMT",
+      "latestSeenAt": "Thu, 05 Mar 2026 08:00:00 GMT",
+      "discoveryPath": "fundraising",
+      "maturityPath": "early",
+      "hongKongTier": "none",
+      "priorityMeta": {
+        "sourceStrength": 2,
+        "externalBoost": 0
+      },
+      "reasonSummary": "[Fundraising Radar] 出现早期项目催化信号",
+      "radarBucket": "fundraising",
+      "slug": "cambria",
+      "website": "",
+      "twitter": "",
+      "contact": {
+        "label": "Primary path",
+        "value": "Use official website or X for first contact"
+      },
+      "secondaryContact": null,
+      "region": "",
+      "stage": "",
+      "fitSummary": "[Fundraising Radar] 出现早期项目催化信号",
+      "interpretation": [
+        "近期融资或资本市场信号通常意味着团队有预算、节奏和更强的渠道扩张意愿。"
+      ],
+      "nextStep": "优先找 warm intro 再发首封触达。",
+      "sourceNotes": [],
+      "screening": {},
+      "liveSignals": {
+        "coingecko": null,
+        "defillama": null,
+        "cryptorank": null,
+        "website": null,
+        "rootdata": {
+          "fetchedAt": "2026-03-19T01:54:50.179Z",
+          "projectName": "",
+          "projectType": "",
+          "description": "",
+          "website": "",
+          "error": ""
+        },
+        "opennews": null,
+        "opentwitter": null
+      },
+      "fundraising": null,
+      "hongKongFit": false
+    },
+    {
+      "name": "Alongside",
+      "score": 13,
+      "signals": [
+        "funding"
+      ],
+      "sector": "General",
+      "reasons": [
+        "出现早期项目催化信号"
+      ],
+      "mentions": [
+        {
+          "title": "Alongside team secures $9 million 'strategic investment' from a16z, others in Universal token project - The Block",
+          "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQbnlCMC1ZOEZtZUphQWxlQ0RtcVFsZE5sbnFJYXhQb3hfOENQaHpVRzdBSll2bGhET1BuTUJKOTdZcm5BZkdXamNFWFR5Y3A2cXJNOGJmMDUyUTV2SG11a3pFREc4R3NHREN1Q1BoTWc3YVpRaV9LSUladWZyRGF6WGE1S1dSTVJKRGNYTGxGVlhjZUNkWDZwSWRfc0prY05FSXNMbklXaEswODdLU0VIc0ROSl9TMlNsc1pMV2tFYnpJaXdp?oc=5",
+          "source": "The Block",
+          "publishedAt": "Wed, 19 Feb 2025 08:00:00 GMT",
+          "sourceTier": "crypto_media",
+          "sourceWeight": 3,
+          "sourceLabel": "Crypto Media"
+        }
+      ],
+      "priorityBand": "Watch",
+      "internalFit": "early-radar",
+      "firstSeenAt": "Wed, 19 Feb 2025 08:00:00 GMT",
+      "latestSeenAt": "Wed, 19 Feb 2025 08:00:00 GMT",
+      "discoveryPath": "fundraising",
+      "maturityPath": "early",
+      "hongKongTier": "none",
+      "priorityMeta": {
+        "sourceStrength": 3,
+        "externalBoost": 0
+      },
+      "reasonSummary": "[Fundraising Radar] 出现早期项目催化信号",
+      "radarBucket": "fundraising",
+      "slug": "alongside",
+      "website": "",
+      "twitter": "",
+      "contact": {
+        "label": "Primary path",
+        "value": "Use official website or X for first contact"
+      },
+      "secondaryContact": null,
+      "region": "",
+      "stage": "",
+      "fitSummary": "[Fundraising Radar] 出现早期项目催化信号",
+      "interpretation": [
+        "近期融资或资本市场信号通常意味着团队有预算、节奏和更强的渠道扩张意愿。"
+      ],
+      "nextStep": "优先找 warm intro 再发首封触达。",
+      "sourceNotes": [],
+      "screening": {},
+      "liveSignals": {
+        "coingecko": null,
+        "defillama": null,
+        "cryptorank": null,
+        "website": null,
+        "rootdata": {
+          "fetchedAt": "2026-03-18T15:19:34.516Z",
+          "projectName": "",
+          "projectType": "",
+          "description": "",
+          "website": "",
+          "error": ""
+        },
+        "opennews": null,
+        "opentwitter": null
+      },
+      "fundraising": null,
+      "hongKongFit": false
+    }
+  ],
+  "dexProjects": [
+    {
+      "name": "Vertex",
+      "score": 17,
+      "signals": [
+        "funding",
+        "infra"
+      ],
+      "sector": "DeFi",
+      "reasons": [
+        "出现早期项目催化信号"
+      ],
+      "mentions": [
+        {
+          "title": "Vertex to sunset VRTX token, migrate DEX to Kraken-backed Layer 2 Ink - The Block",
+          "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQaERVRXZDSkt2dkF3LXQyeVRPTi1uT1hZZ3Z3cGVkeF8wdndpcUdsM0oyX2F4QzZ2VkRpMk9YZ2xqd2ZWOGtwWWZ6Yk9CamhTbXB4V2UyRnF0Njh5U09DN1FHZ0ZDZ1pRR1h5ZXRickVJdmJYUG9aXzBuMFVIU3Z5U1IwdWtBM1l0NWI1XzNpcVQ2eUFRY3ljUDFQc3pvTkw1UlBlR19FeHV5UV9V?oc=5",
+          "source": "The Block",
+          "publishedAt": "Tue, 08 Jul 2025 07:00:00 GMT",
+          "sourceTier": "crypto_media",
+          "sourceWeight": 3,
+          "sourceLabel": "Crypto Media"
+        }
+      ],
+      "priorityBand": "Medium",
+      "internalFit": "early-radar",
+      "firstSeenAt": "Tue, 08 Jul 2025 07:00:00 GMT",
+      "latestSeenAt": "Tue, 08 Jul 2025 07:00:00 GMT",
+      "discoveryPath": "dex",
+      "maturityPath": "early",
+      "hongKongTier": "none",
+      "priorityMeta": {
+        "sourceStrength": 3,
+        "externalBoost": 0
+      },
+      "reasonSummary": "[DEX New Stars] 出现早期项目催化信号",
+      "radarBucket": "dex",
+      "slug": "vertex",
+      "website": "",
+      "twitter": "",
+      "contact": {
+        "label": "Primary path",
+        "value": "Use official website or X for first contact"
+      },
+      "secondaryContact": null,
+      "region": "",
+      "stage": "",
+      "fitSummary": "[DEX New Stars] 出现早期项目催化信号",
+      "interpretation": [
+        "近期融资或资本市场信号通常意味着团队有预算、节奏和更强的渠道扩张意愿。"
+      ],
+      "nextStep": "优先找 warm intro 再发首封触达。",
+      "sourceNotes": [],
+      "screening": {},
+      "liveSignals": {
+        "coingecko": null,
+        "defillama": null,
+        "cryptorank": null,
+        "website": null,
+        "rootdata": {
+          "fetchedAt": "2026-03-19T02:30:51.898Z",
+          "projectName": "",
+          "projectType": "",
+          "description": "",
+          "website": "",
+          "error": ""
+        },
+        "opennews": null,
+        "opentwitter": null
+      },
+      "fundraising": null,
+      "hongKongFit": false
+    }
+  ],
+  "ecosystemProjects": [
+    {
+      "name": "Zero Network",
+      "score": 16,
+      "signals": [
+        "ecosystem"
+      ],
+      "sector": "General",
+      "reasons": [
+        "出现早期项目催化信号"
+      ],
+      "mentions": [
+        {
+          "title": "Zero Network joins ZKsync ecosystem",
+          "link": "https://zero.network/",
+          "source": "ZKsync Ecosystem Directory",
+          "publishedAt": "2026-03-19T02:44:44.548Z",
+          "sourceTier": "official",
+          "sourceWeight": 4,
+          "sourceLabel": "Official Ecosystem"
+        }
+      ],
+      "priorityBand": "Medium",
+      "internalFit": "early-radar",
+      "firstSeenAt": "2026-03-19T02:44:44.548Z",
+      "latestSeenAt": "2026-03-19T02:44:44.548Z",
+      "discoveryPath": "ecosystem",
+      "maturityPath": "early",
+      "hongKongTier": "none",
+      "priorityMeta": {
+        "sourceStrength": 4,
+        "externalBoost": 0
+      },
+      "reasonSummary": "[Ecosystem Watch] 出现早期项目催化信号",
+      "radarBucket": "ecosystem",
+      "slug": "zero-network",
+      "website": "",
+      "twitter": "",
+      "contact": {
+        "label": "Primary path",
+        "value": "Use official website or X for first contact"
+      },
+      "secondaryContact": null,
+      "region": "",
+      "stage": "",
+      "fitSummary": "[Ecosystem Watch] 出现早期项目催化信号",
+      "interpretation": [
+        "当前公开信号还偏早期，建议先做项目画像和组织结构判断，再决定是否触达。"
+      ],
+      "nextStep": "优先找 warm intro 再发首封触达。",
+      "sourceNotes": [],
+      "screening": {},
+      "liveSignals": {
+        "coingecko": null,
+        "defillama": null,
+        "cryptorank": null,
+        "website": null,
+        "rootdata": {
+          "fetchedAt": "2026-03-19T02:44:55.383Z",
+          "projectName": "",
+          "projectType": "",
+          "description": "",
+          "website": "",
+          "error": ""
+        },
+        "opennews": null,
+        "opentwitter": null
+      },
+      "fundraising": null,
+      "hongKongFit": false
+    },
+    {
+      "name": "Atleta Network",
+      "score": 14,
+      "signals": [
+        "launch",
+        "github"
+      ],
+      "sector": "General",
+      "reasons": [
+        "出现早期项目催化信号",
+        "CryptoRank 已收录（rank 175）",
+        "官网/生态页出现生态集成或开发者信号"
+      ],
+      "mentions": [
+        {
+          "title": "Atleta Network Team Announces Testnet Launch - ForkLog",
+          "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBCakk4clNtdEJVZ0JVTktZSWhPSVM3Q3N1ajJPN2VXczI0NjN0a09kXzZudTM3RXVfM1VqcElOZm1iTVJkaEFnNURpSXdLdjhaZERyNmw3TzFraXR0NGYyWk83eHB3ZVh4Q3FCbVN1TnpSQXJ4ZE5v0gF8QVVfeXFMTXgzY1EyaVJBdEpFcC1CSFBjWlBKa05VeHFzVEhBczU3RFM3VTROSE84dWowa09jUzZEN0ZjVkw2ZG9UME10UHNJVlJEVi1fWXNlMlhNRzFHVW0tN09MXzlQX1VONXpoNDd6dThrNDQ3UXMzZlN4RFBIMVZ3Rg?oc=5",
+          "source": "ForkLog",
+          "publishedAt": "Tue, 14 May 2024 07:00:00 GMT",
+          "sourceTier": "general_media",
+          "sourceWeight": 1,
+          "sourceLabel": "General Media"
+        }
+      ],
+      "priorityBand": "Medium",
+      "internalFit": "early-radar",
+      "firstSeenAt": "Tue, 14 May 2024 07:00:00 GMT",
+      "latestSeenAt": "Tue, 14 May 2024 07:00:00 GMT",
+      "discoveryPath": "ecosystem",
+      "maturityPath": "early",
+      "hongKongTier": "none",
+      "priorityMeta": {
+        "sourceStrength": 1,
+        "externalBoost": 4
+      },
+      "reasonSummary": "[Ecosystem Watch] 出现早期项目催化信号；CryptoRank 已收录（rank 175）；官网/生态页出现生态集成或开发者信号",
+      "radarBucket": "ecosystem",
+      "slug": "atleta-network",
+      "website": "",
+      "twitter": "",
+      "contact": {
+        "label": "Primary path",
+        "value": "Use official website or X for first contact"
+      },
+      "secondaryContact": null,
+      "region": "",
+      "stage": "",
+      "fitSummary": "[Ecosystem Watch] 出现早期项目催化信号",
+      "interpretation": [
+        "当前公开信号还偏早期，建议先做项目画像和组织结构判断，再决定是否触达。"
+      ],
+      "nextStep": "优先找 warm intro 再发首封触达。",
+      "sourceNotes": [
+        "CryptoRank cache: rank 175, Chain / $235.10M"
+      ],
+      "screening": {
+        "marketCapUsd": 235101768.49434957,
+        "dailyVolumeUsd": 15482603
+      },
+      "liveSignals": {
+        "coingecko": null,
+        "defillama": null,
+        "cryptorank": {
+          "fetchedAt": "2026-03-18T15:18:37.541Z",
+          "id": 189498,
+          "name": "Atleta Network",
+          "slug": "atleta-network",
+          "symbol": "ATLA",
+          "rank": 175,
+          "category": "Chain",
+          "type": "coin",
+          "marketCapUsd": 235101768.49434957,
+          "volume24hUsd": 15482603,
+          "rounds": [],
+          "latestRound": null,
+          "fundingFetchedAt": "2026-03-19T02:12:08.866Z",
+          "fundingError": "HTTP 404 for https://cryptorank.io/ico/atleta-network"
+        },
+        "website": null,
+        "rootdata": {
+          "fetchedAt": "2026-03-18T06:07:05.766Z",
+          "projectName": "",
+          "projectType": "",
+          "description": "",
+          "website": "",
+          "error": ""
+        },
+        "opennews": null,
+        "opentwitter": null
+      },
+      "fundraising": null,
+      "hongKongFit": false
+    },
+    {
+      "name": "Menese Protocol",
+      "score": 7,
+      "signals": [
+        "infra",
+        "github"
+      ],
+      "sector": "Infra",
+      "reasons": [
+        "出现早期项目催化信号"
+      ],
+      "mentions": [
+        {
+          "title": "Menese Protocol Goes Live: Fully On-Chain Multichain Execution Infrastructure Launches Public Beta with Cross-Chain Liquidity and Developer SDK - Times Tabloid",
+          "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPT0J6VVZVV0FnZDExbWtqM2JQVF9MQ3NBTVh0MmtJMTNaSVNYajVLVlJGeUJrd1pUeWQ5Z29jT0JEZ0M1N2FWZTlvVEI2b2p4SF83enVnWVV6eFNfTTVhZnNGdWExczY2OWNVU2t0V1RiY2t1a1phUGJxUzdta3RCZlRhNlR5VTU0Z0t5aFE0TmM?oc=5",
+          "source": "Times Tabloid",
+          "publishedAt": "Tue, 17 Feb 2026 08:00:00 GMT",
+          "sourceTier": "general_media",
+          "sourceWeight": 1,
+          "sourceLabel": "General Media"
+        }
+      ],
+      "priorityBand": "Watch",
+      "internalFit": "early-radar",
+      "firstSeenAt": "Tue, 17 Feb 2026 08:00:00 GMT",
+      "latestSeenAt": "Tue, 17 Feb 2026 08:00:00 GMT",
+      "discoveryPath": "ecosystem",
+      "maturityPath": "early",
+      "hongKongTier": "none",
+      "priorityMeta": {
+        "sourceStrength": 1,
+        "externalBoost": 0
+      },
+      "reasonSummary": "[Ecosystem Watch] 出现早期项目催化信号",
+      "radarBucket": "ecosystem",
+      "slug": "menese-protocol",
+      "website": "",
+      "twitter": "",
+      "contact": {
+        "label": "Primary path",
+        "value": "Use official website or X for first contact"
+      },
+      "secondaryContact": null,
+      "region": "",
+      "stage": "",
+      "fitSummary": "[Ecosystem Watch] 出现早期项目催化信号",
+      "interpretation": [
+        "当前公开信号还偏早期，建议先做项目画像和组织结构判断，再决定是否触达。"
+      ],
+      "nextStep": "优先找 warm intro 再发首封触达。",
+      "sourceNotes": [],
+      "screening": {},
+      "liveSignals": {
+        "coingecko": null,
+        "defillama": null,
+        "cryptorank": null,
+        "website": null,
+        "rootdata": {
+          "fetchedAt": "2026-03-18T15:19:35.957Z",
+          "projectName": "",
+          "projectType": "",
+          "description": "",
+          "website": "",
+          "error": ""
+        },
+        "opennews": null,
+        "opentwitter": null
+      },
+      "fundraising": null,
+      "hongKongFit": false
+    }
+  ]
 }

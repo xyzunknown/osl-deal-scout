@@ -344,12 +344,7 @@ function renderPoolTabs() {
   root.querySelectorAll('.pool-tab').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.pool === activePool);
     const pool = btn.dataset.pool || 'bd';
-    let count = 0;
-    if (pool === 'watch') count = (state.looseProjects || []).length;
-    else if (pool === 'radar') count = (state.fundraisingProjects || []).length + (state.dexProjects || []).length + (state.ecosystemProjects || []).length;
-    else count = (state.strictProjects || state.projects || []).length;
-    const baseLabel = pool === 'watch' ? 'Watch Radar' : pool === 'radar' ? 'Radar Pools' : 'BD Pools';
-    btn.textContent = `${baseLabel} (${count})`;
+    btn.textContent = pool === 'watch' ? 'Watch Radar' : pool === 'radar' ? 'Radar Pools' : 'BD Pools';
   });
 }
 
@@ -850,24 +845,12 @@ function renderCrmTab(root, p) {
   const quickCard = el('div', 'info-card mt-16');
   quickCard.appendChild(el('div', 'info-card-title', 'BD 快速更新'));
 
-  const quickFields = ['project_name', 'status', 'owner', 'target_person', 'next_action', 'next_follow_up_at'];
+  const quickFields = ['project_name', 'status', 'target_person', 'next_action'];
   quickFields.forEach((key) => {
     const field = fieldMap.get(key) || { key, label: key, type: key === 'next_action' ? 'long_text' : (key === 'next_follow_up_at' ? 'date' : 'text'), description: '' };
     quickCard.appendChild(buildCrmField(field, p, record));
   });
   form.appendChild(quickCard);
-
-  const detailCard = el('details', 'mt-16');
-  detailCard.open = Boolean(record.warm_intro_path || record.notes || record.drop_reason);
-  const summary = el('summary', 'info-card-title', '补充信息');
-  detailCard.appendChild(summary);
-  const detailWrap = el('div', 'info-card');
-  ['warm_intro_path', 'notes', 'drop_reason'].forEach((key) => {
-    const field = fieldMap.get(key) || { key, label: key, type: 'long_text', description: '' };
-    detailWrap.appendChild(buildCrmField(field, p, record));
-  });
-  detailCard.appendChild(detailWrap);
-  form.appendChild(detailCard);
 
   const actions = el('div', 'crm-actions');
   const saveBtn = el('button', 'btn btn-primary', '保存');
