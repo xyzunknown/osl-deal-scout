@@ -1,20 +1,13 @@
 {
   "fields": [
     { "key": "project_name", "label": "项目名", "type": "text", "description": "统一项目名称，避免多种别名重复。" },
-    { "key": "sector", "label": "赛道", "type": "single_select", "description": "如 RWA、Stablecoin、DeFi、Infra、Wallet、Institutional。" },
-    { "key": "hq_region", "label": "团队地区", "type": "text", "description": "团队主要所在地或主要市场。" },
-    { "key": "website", "label": "官网", "type": "url", "description": "项目官网或 landing page。" },
-    { "key": "x_handle", "label": "X 账号", "type": "text", "description": "官方 X/Twitter 账号。" },
-    { "key": "stage", "label": "项目阶段", "type": "single_select", "description": "Pre-TGE、Post-TGE、Growth、Listed。" },
-    { "key": "funding_status", "label": "融资情况", "type": "text", "description": "最近融资轮次、金额、时间、投资方。" },
-    { "key": "listing_status", "label": "上所状态", "type": "text", "description": "已上哪些平台、是否有二级流动性诉求。" },
-    { "key": "compliance_signal", "label": "合规信号", "type": "long_text", "description": "牌照、法律意见、合规招聘、机构市场表述等。" },
-    { "key": "hk_fit_score", "label": "香港匹配分", "type": "number", "description": "内部评估的优先级分数。" },
+    { "key": "status", "label": "跟进状态", "type": "single_select", "description": "待研究、准备触达、已触达、已开会、持续跟进、暂缓、不跟。" },
+    { "key": "owner", "label": "负责人", "type": "text", "description": "内部跟进 owner。" },
+    { "key": "target_person", "label": "目标联系人", "type": "text", "description": "创始人、BD、法务或机构负责人。" },
     { "key": "warm_intro_path", "label": "转介绍路径", "type": "text", "description": "投资方、律师、做市商、托管、FA 等。" },
-    { "key": "decision_maker", "label": "关键联系人", "type": "text", "description": "创始人、BD、法务或机构负责人。" },
-    { "key": "contact_channel", "label": "联系渠道", "type": "text", "description": "Email、Telegram、LinkedIn、共同联系人。" },
-    { "key": "last_touch_at", "label": "上次跟进", "type": "date", "description": "最后一次接触时间。" },
+    { "key": "next_follow_up_at", "label": "下次跟进", "type": "date", "description": "下一次计划回看的时间。" },
     { "key": "next_action", "label": "下一步动作", "type": "long_text", "description": "例如发资料、约 call、补充法律结构判断。" },
-    { "key": "owner", "label": "负责人", "type": "text", "description": "内部跟进 owner。" }
+    { "key": "notes", "label": "BD 备注", "type": "long_text", "description": "记录为什么值得跟、为什么现在跟，或还缺什么信息。" },
+    { "key": "drop_reason", "label": "暂缓/不跟原因", "type": "long_text", "description": "仅在判断暂缓或不跟时填写，例如误报、业务不匹配、已无窗口。" }
   ]
 }

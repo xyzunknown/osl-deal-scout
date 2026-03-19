@@ -2,7 +2,8 @@
 
 const state = window.__BOOTSTRAP__ || {
   projects: [], history: [], emailTemplates: [],
-  strictProjects: [], looseProjects: [], crmRecords: [], crmFields: [], projectRules: {},
+  strictProjects: [], looseProjects: [], fundraisingProjects: [], dexProjects: [], ecosystemProjects: [],
+  crmRecords: [], crmFields: [], projectRules: {},
   internalRules: {}, oslListed: {}
 };
 const BASE_PATH = String(window.__BASE_PATH__ || '').replace(/\/+$/, '');
@@ -41,6 +42,28 @@ function fmtTime(value) {
     minute: '2-digit',
     hour12: false
   });
+}
+function fmtDateShort(value) {
+  if (!value) return '—';
+  const d = new Date(value);
+  if (Number.isNaN(d.getTime())) return value;
+  return d.toISOString().slice(0, 10);
+}
+function latestFundingRound(project) {
+  return project && project.fundraising && project.fundraising.latestRound ? project.fundraising.latestRound : null;
+}
+function investorNames(round) {
+  return ((round && round.investors) || []).map(item => item.name).filter(Boolean);
+}
+function fundingSummary(project) {
+  const round = latestFundingRound(project);
+  if (!round) return '';
+  const parts = [
+    round.roundStage || 'Funding Round',
+    fmtDateShort(round.announcedAt)
+  ];
+  if (round.raiseUsd) parts.push(fmtCompactUsd(round.raiseUsd));
+  return parts.filter(Boolean).join(' / ');
 }
 
 // ===== TOAST =====
@@ -131,11 +154,25 @@ let sortBy = 'score';
 
 function hasLiveSignals(project) {
   const live = project && project.liveSignals;
-  return Boolean(live && (live.coingecko || live.defillama || live.website || live.rootdata));
+  return Boolean(live && (live.coingecko || live.defillama || live.website || live.rootdata || live.cryptorank));
+}
+
+function allKnownProjects() {
+  const map = new Map();
+  [
+    ...(state.projects || []),
+    ...(state.looseProjects || []),
+    ...(state.fundraisingProjects || []),
+    ...(state.dexProjects || []),
+    ...(state.ecosystemProjects || [])
+  ].forEach(project => {
+    if (project && project.slug) map.set(project.slug, project);
+  });
+  return Array.from(map.values());
 }
 
 function currentProject() {
-  const allProjects = [...(state.projects || []), ...(state.looseProjects || [])];
+  const allProjects = allKnownProjects();
   if (!selectedSlug && allProjects.length) {
     const preferred = allProjects.find(hasLiveSignals) || allProjects[0];
     selectedSlug = preferred.slug;
@@ -145,6 +182,44 @@ function currentProject() {
 
 function crmForProject(name) {
   return (state.crmRecords || []).find(r => r.project_name === name) || null;
+}
+
+function projectPriorityForBoard(name) {
+  const proj = allKnownProjects().find(item => item.name === name);
+  return proj ? proj.priorityBand : 'Watch';
+}
+
+function todayDateString() {
+  return new Date().toISOString().slice(0, 10);
+}
+
+function crmBoardLane(record) {
+  const status = String(record && record.status || '');
+  const followUpAt = String(record && record.next_follow_up_at || '');
+  const today = todayDateString();
+
+  if (/暂缓|不跟/i.test(status)) return 'paused';
+  if (/已触达/i.test(status)) return 'waiting';
+  if (followUpAt && followUpAt <= today) return 'today';
+  if (/待研究|准备触达|已开会|持续跟进/i.test(status)) return 'today';
+  return 'today';
+}
+
+async function saveCrmRecord(project, updates) {
+  const existing = crmForProject(project.name) || {};
+  const data = {
+    ...existing,
+    ...updates,
+    project_name: project.name
+  };
+  const encodedName = encodeURIComponent(project.name);
+  await putJson('/api/crm-records/' + encodedName, data);
+  const idx = (state.crmRecords || []).findIndex(r => r.project_name === project.name);
+  if (idx >= 0) state.crmRecords[idx] = data;
+  else state.crmRecords.push(data);
+  renderSidebar();
+  renderDetail();
+  return data;
 }
 
 // ===== HASH ROUTING =====
@@ -254,9 +329,13 @@ function renderProjectList() {
     const meta = el('div', 'project-row-meta');
     meta.appendChild(el('span', 'chip chip-sector', p.sector));
     meta.appendChild(el('span', 'chip ' + priorityChipClass(p.priorityBand), p.priorityBand));
+    if (p.radarBucket) meta.appendChild(el('span', 'chip chip-watch', p.radarBucket));
+    if (p.promotedFromRadar) meta.appendChild(el('span', 'chip chip-source', '已转正'));
     if (p.freshness) meta.appendChild(el('span', 'chip ' + freshnessChipClass(p.freshness), freshnessLabel(p.freshness)));
     if (p.hongKongFit) meta.appendChild(el('span', 'chip chip-hongkong', '香港'));
     if (hasLiveSignals(p)) meta.appendChild(el('span', 'chip chip-source', '已补数'));
+    if (latestFundingRound(p)) meta.appendChild(el('span', 'chip chip-source', latestFundingRound(p).roundStage || 'Funding'));
+    if (p.workflow && p.workflow.status) meta.appendChild(el('span', 'chip chip-watch', p.workflow.status));
     info.appendChild(meta);
     row.appendChild(info);
 
@@ -425,6 +504,17 @@ function renderOverviewTab(root, p) {
       time: live.defillama.fetchedAt
     });
   }
+  if (live.cryptorank) {
+    const latestRound = live.cryptorank.latestRound;
+    liveRows.push({
+      label: 'CryptoRank',
+      primary: `Rank ${live.cryptorank.rank || '—'} / ${live.cryptorank.category || live.cryptorank.type || 'Unclassified'}`,
+      secondary: latestRound
+        ? `${latestRound.roundStage || 'Funding'} / ${fmtDateShort(latestRound.announcedAt)} / ${(investorNames(latestRound).slice(0, 2).join(', ') || '未披露投资方')}`
+        : `${fmtCompactUsd(live.cryptorank.marketCapUsd)} 市值 / ${fmtCompactUsd(live.cryptorank.volume24hUsd)} 成交`,
+      time: live.cryptorank.fetchedAt
+    });
+  }
   if (live.website) {
     liveRows.push({
       label: '官网 / Blog',
@@ -501,6 +591,143 @@ function renderOverviewTab(root, p) {
     root.appendChild(reasonCard);
   }
 
+  const quickActionsCard = el('div', 'info-card mt-16');
+  quickActionsCard.appendChild(el('div', 'info-card-title', 'BD 快捷动作'));
+  const quickActions = el('div', 'quick-actions');
+
+  const contactBtn = el('button', 'btn btn-sm', '标记已触达');
+  contactBtn.addEventListener('click', async () => {
+    setLoading(contactBtn, true);
+    try {
+      await saveCrmRecord(p, {
+        status: '已触达',
+        next_action: '等待对方回复，准备 follow-up。',
+        next_follow_up_at: new Date(Date.now() + 3 * 86400000).toISOString().slice(0, 10)
+      });
+      showToast('已更新为“已触达”', 'success');
+    } catch (e) {
+      showToast('更新失败: ' + e.message, 'error');
+    } finally {
+      setLoading(contactBtn, false);
+    }
+  });
+  quickActions.appendChild(contactBtn);
+
+  const followUpBtn = el('button', 'btn btn-sm', '设置下次跟进');
+  followUpBtn.addEventListener('click', async () => {
+    const suggested = new Date(Date.now() + 3 * 86400000).toISOString().slice(0, 10);
+    const value = window.prompt('输入下次跟进日期（YYYY-MM-DD）', (p.workflow && p.workflow.nextFollowUpAt) || suggested);
+    if (!value) return;
+    setLoading(followUpBtn, true);
+    try {
+      await saveCrmRecord(p, {
+        status: (p.workflow && p.workflow.status) || '持续跟进',
+        next_follow_up_at: value
+      });
+      showToast('下次跟进日期已保存', 'success');
+    } catch (e) {
+      showToast('更新失败: ' + e.message, 'error');
+    } finally {
+      setLoading(followUpBtn, false);
+    }
+  });
+  quickActions.appendChild(followUpBtn);
+
+  const pauseBtn = el('button', 'btn btn-sm', '标记暂缓');
+  pauseBtn.addEventListener('click', async () => {
+    const reason = window.prompt('暂缓原因（可选）', (p.workflow && p.workflow.notFitReason) || '');
+    setLoading(pauseBtn, true);
+    try {
+      await saveCrmRecord(p, {
+        status: '暂缓',
+        drop_reason: reason || ''
+      });
+      showToast('已标记为“暂缓”', 'success');
+    } catch (e) {
+      showToast('更新失败: ' + e.message, 'error');
+    } finally {
+      setLoading(pauseBtn, false);
+    }
+  });
+  quickActions.appendChild(pauseBtn);
+
+  quickActionsCard.appendChild(quickActions);
+  root.appendChild(quickActionsCard);
+
+  if ((p.workflow && (p.workflow.status || p.workflow.owner || p.workflow.nextAction || p.workflow.reviewOutcome)) || p.promotedFromRadar) {
+    const workflowCard = el('div', 'info-card mt-16');
+    workflowCard.appendChild(el('div', 'info-card-title', '跟进判断'));
+    const workflowRows = [
+      { label: '当前状态', value: p.workflow && p.workflow.status ? p.workflow.status : '待研判' },
+      { label: '负责人', value: p.workflow && p.workflow.owner ? p.workflow.owner : '待分配' },
+      { label: '目标联系人', value: p.workflow && p.workflow.targetPerson ? p.workflow.targetPerson : '—' },
+      { label: '评审结论', value: p.workflow && p.workflow.reviewOutcome ? p.workflow.reviewOutcome : (p.promotedFromRadar ? 'Promoted to Strict' : '未填写') },
+      { label: '下次跟进', value: p.workflow && p.workflow.nextFollowUpAt ? p.workflow.nextFollowUpAt : '—' }
+    ];
+    workflowRows.forEach(item => {
+      const row = el('div', 'info-row');
+      row.appendChild(el('span', 'info-row-label', item.label));
+      row.appendChild(el('span', 'info-row-value', item.value));
+      workflowCard.appendChild(row);
+    });
+    if (p.workflow && p.workflow.reviewNotes) {
+      workflowCard.appendChild(el('div', 'text-sm mt-8', p.workflow.reviewNotes));
+    }
+    if (p.workflow && p.workflow.notFitReason) {
+      workflowCard.appendChild(el('div', 'text-sm mt-8', '不适配原因: ' + p.workflow.notFitReason));
+    }
+    root.appendChild(workflowCard);
+  }
+
+  if (p.promotion && p.promotion.reasons && p.promotion.reasons.length) {
+    const promotionCard = el('div', 'info-card mt-16');
+    promotionCard.appendChild(el('div', 'info-card-title', 'Radar 转正'));
+    const modeLabel = p.promotion.mode === 'manual' ? '人工转正' : '自动转正';
+    promotionCard.appendChild(el('div', 'text-sm', `${modeLabel}${p.promotedFromRadar ? ` / 来源: ${p.promotedFromRadar}` : ''}`));
+    const ul = el('ul', 'info-list');
+    p.promotion.reasons.forEach(reason => ul.appendChild(el('li', '', reason)));
+    promotionCard.appendChild(ul);
+    root.appendChild(promotionCard);
+  }
+
+  if (p.fundraising && p.fundraising.latestRound) {
+    const fundingCard = el('div', 'info-card mt-16');
+    fundingCard.appendChild(el('div', 'info-card-title', '融资轮次'));
+    const latestRound = p.fundraising.latestRound;
+    const rows = [
+      { label: 'Round Stage', value: latestRound.roundStage || '—' },
+      { label: 'Announced', value: fmtDateShort(latestRound.announcedAt) },
+      { label: 'Raise', value: fmtUsd(latestRound.raiseUsd) }
+    ];
+    rows.forEach(item => {
+      const row = el('div', 'info-row');
+      row.appendChild(el('span', 'info-row-label', item.label));
+      row.appendChild(el('span', 'info-row-value', item.value));
+      fundingCard.appendChild(row);
+    });
+
+    const investors = investorNames(latestRound);
+    const investorRow = el('div', 'info-row');
+    investorRow.appendChild(el('span', 'info-row-label', 'Investors'));
+    investorRow.appendChild(el('span', 'info-row-value', investors.length ? investors.join(' / ') : '未披露'));
+    fundingCard.appendChild(investorRow);
+
+    if (latestRound.linkToAnnouncement) {
+      const announceRow = el('div', 'info-row');
+      announceRow.appendChild(el('span', 'info-row-label', 'Announcement'));
+      const linkWrap = el('span', 'info-row-value');
+      const a = el('a', '', latestRound.linkToAnnouncement.replace(/^https?:\/\//, ''));
+      a.href = latestRound.linkToAnnouncement;
+      a.target = '_blank';
+      a.rel = 'noreferrer';
+      linkWrap.appendChild(a);
+      announceRow.appendChild(linkWrap);
+      fundingCard.appendChild(announceRow);
+    }
+
+    root.appendChild(fundingCard);
+  }
+
   if (live.website && ((live.website.complianceHits && live.website.complianceHits.length) || live.website.description)) {
     const signalCard = el('div', 'info-card mt-16');
     signalCard.appendChild(el('div', 'info-card-title', '合规与机构信号'));
@@ -537,79 +764,47 @@ function renderOverviewTab(root, p) {
 function renderCrmTab(root, p) {
   const record = crmForProject(p.name) || {};
   const fields = state.crmFields || [];
+  const fieldMap = new Map(fields.map(field => [field.key, field]));
   const form = el('div', 'crm-form');
 
-  fields.forEach(field => {
-    const group = el('div', 'form-group');
-    group.appendChild(el('label', 'form-label', field.label));
-
-    let input;
-    const val = field.key === 'project_name' ? p.name : (record[field.key] || '');
-
-    if (field.type === 'long_text') {
-      input = el('textarea', 'form-input');
-      input.value = val;
-      input.rows = 3;
-    } else if (field.type === 'single_select') {
-      input = el('select', 'form-input');
-      const emptyOpt = el('option', '', '— 选择 —');
-      emptyOpt.value = '';
-      input.appendChild(emptyOpt);
-      // Extract options from description
-      const opts = (field.description || '').match(/[^，、,。.]+/g) || [];
-      const cleanOpts = opts.map(o => o.replace(/^如\s*/, '').trim()).filter(o => o.length > 0 && o.length < 30);
-      cleanOpts.forEach(o => {
-        const opt = el('option', '', o);
-        opt.value = o;
-        if (o === val) opt.selected = true;
-        input.appendChild(opt);
-      });
-      if (val && !cleanOpts.includes(val)) {
-        const opt = el('option', '', val);
-        opt.value = val; opt.selected = true;
-        input.appendChild(opt);
-      }
-    } else if (field.type === 'date') {
-      input = el('input', 'form-input');
-      input.type = 'date';
-      input.value = val;
-    } else if (field.type === 'number') {
-      input = el('input', 'form-input');
-      input.type = 'number';
-      input.value = val;
-    } else if (field.type === 'url') {
-      input = el('input', 'form-input');
-      input.type = 'url';
-      input.value = val;
-      input.placeholder = 'https://...';
-    } else {
-      input = el('input', 'form-input');
-      input.type = 'text';
-      input.value = val;
-    }
-
-    input.dataset.field = field.key;
-    if (field.key === 'project_name') input.readOnly = true;
-    if (field.description) group.appendChild(el('span', 'form-hint', field.description));
-    group.appendChild(input);
-    form.appendChild(group);
+  const infoCard = el('div', 'info-card');
+  infoCard.appendChild(el('div', 'info-card-title', '系统带出信息'));
+  [
+    { label: '项目', value: p.name },
+    { label: '赛道', value: p.sector || '—' },
+    { label: '优先级', value: p.priorityBand || '—' },
+    { label: '官网', value: p.website || '—' },
+    { label: 'X', value: p.twitter || '—' },
+    { label: '阶段', value: p.stage || '—' }
+  ].forEach(item => {
+    const row = el('div', 'info-row');
+    row.appendChild(el('span', 'info-row-label', item.label));
+    row.appendChild(el('span', 'info-row-value', item.value));
+    infoCard.appendChild(row);
   });
+  form.appendChild(infoCard);
 
-  // If no crm-fields.json, show basic fields
-  if (!fields.length) {
-    const basicFields = ['project_name', 'status', 'priority', 'owner', 'warm_intro_path', 'next_action', 'decision_maker'];
-    basicFields.forEach(key => {
-      const group = el('div', 'form-group');
-      group.appendChild(el('label', 'form-label', key.replace(/_/g, ' ')));
-      const input = el('input', 'form-input');
-      input.type = 'text';
-      input.value = key === 'project_name' ? p.name : (record[key] || '');
-      input.dataset.field = key;
-      if (key === 'project_name') input.readOnly = true;
-      group.appendChild(input);
-      form.appendChild(group);
-    });
-  }
+  const quickCard = el('div', 'info-card mt-16');
+  quickCard.appendChild(el('div', 'info-card-title', 'BD 快速更新'));
+
+  const quickFields = ['project_name', 'status', 'owner', 'target_person', 'next_action', 'next_follow_up_at'];
+  quickFields.forEach((key) => {
+    const field = fieldMap.get(key) || { key, label: key, type: key === 'next_action' ? 'long_text' : (key === 'next_follow_up_at' ? 'date' : 'text'), description: '' };
+    quickCard.appendChild(buildCrmField(field, p, record));
+  });
+  form.appendChild(quickCard);
+
+  const detailCard = el('details', 'mt-16');
+  detailCard.open = Boolean(record.warm_intro_path || record.notes || record.drop_reason);
+  const summary = el('summary', 'info-card-title', '补充信息');
+  detailCard.appendChild(summary);
+  const detailWrap = el('div', 'info-card');
+  ['warm_intro_path', 'notes', 'drop_reason'].forEach((key) => {
+    const field = fieldMap.get(key) || { key, label: key, type: 'long_text', description: '' };
+    detailWrap.appendChild(buildCrmField(field, p, record));
+  });
+  detailCard.appendChild(detailWrap);
+  form.appendChild(detailCard);
 
   const actions = el('div', 'crm-actions');
   const saveBtn = el('button', 'btn btn-primary', '保存');
@@ -620,14 +815,8 @@ function renderCrmTab(root, p) {
       form.querySelectorAll('[data-field]').forEach(inp => {
         data[inp.dataset.field] = inp.value;
       });
-      const encodedName = encodeURIComponent(p.name);
-      const result = await putJson('/api/crm-records/' + encodedName, data);
-      // Update local state
-      const idx = (state.crmRecords || []).findIndex(r => r.project_name === p.name);
-      if (idx >= 0) state.crmRecords[idx] = data;
-      else state.crmRecords.push(data);
+      await saveCrmRecord(p, data);
       showToast('CRM 记录已保存', 'success');
-      renderSidebar();
     } catch (e) {
       showToast('保存失败: ' + e.message, 'error');
     } finally {
@@ -658,6 +847,53 @@ function renderCrmTab(root, p) {
   if (record.project_name) actions.appendChild(deleteBtn);
   form.appendChild(actions);
   root.appendChild(form);
+}
+
+function buildCrmField(field, project, record) {
+  const group = el('div', 'form-group');
+  group.appendChild(el('label', 'form-label', field.label));
+
+  let input;
+  const val = field.key === 'project_name' ? project.name : (record[field.key] || '');
+
+  if (field.type === 'long_text') {
+    input = el('textarea', 'form-input');
+    input.value = val;
+    input.rows = field.key === 'next_action' ? 2 : 3;
+  } else if (field.type === 'single_select') {
+    input = el('select', 'form-input');
+    const emptyOpt = el('option', '', '— 选择 —');
+    emptyOpt.value = '';
+    input.appendChild(emptyOpt);
+    const opts = (field.description || '').match(/[^，、,。.]+/g) || [];
+    const cleanOpts = opts.map(o => o.replace(/^如\s*/, '').trim()).filter(o => o.length > 0 && o.length < 30);
+    cleanOpts.forEach(o => {
+      const opt = el('option', '', o);
+      opt.value = o;
+      if (o === val) opt.selected = true;
+      input.appendChild(opt);
+    });
+    if (val && !cleanOpts.includes(val)) {
+      const opt = el('option', '', val);
+      opt.value = val;
+      opt.selected = true;
+      input.appendChild(opt);
+    }
+  } else if (field.type === 'date') {
+    input = el('input', 'form-input');
+    input.type = 'date';
+    input.value = val;
+  } else {
+    input = el('input', 'form-input');
+    input.type = 'text';
+    input.value = val;
+  }
+
+  input.dataset.field = field.key;
+  if (field.key === 'project_name') input.readOnly = true;
+  if (field.description) group.appendChild(el('span', 'form-hint', field.description));
+  group.appendChild(input);
+  return group;
 }
 
 // ===== TAB 3: TEMPLATES =====
@@ -737,6 +973,7 @@ function renderSidebar() {
   renderStats();
   renderBoard();
   renderWatchRadar();
+  renderRadarPools();
   renderHistory();
   renderRules();
 }
@@ -771,6 +1008,9 @@ function renderWatchRadar() {
     head.appendChild(el('span', 'chip ' + priorityChipClass(project.priorityBand), project.priorityBand));
     item.appendChild(head);
     item.appendChild(el('div', 'board-item-detail', `${project.sector || 'General'} / ${project.maturityPath === 'early' ? 'Early' : 'Mature'} / ${project.discoveryPath || 'loose'}`));
+    if (latestFundingRound(project)) {
+      item.appendChild(el('div', 'board-item-detail', fundingSummary(project)));
+    }
     item.addEventListener('click', () => {
       selectedSlug = project.slug;
       activeTab = 'overview';
@@ -782,6 +1022,57 @@ function renderWatchRadar() {
   });
 }
 
+function renderRadarPoolGroup(root, title, projects) {
+  root.appendChild(el('div', 'board-group-title', `${title} (${projects.length})`));
+  if (!projects.length) {
+    root.appendChild(el('div', 'text-muted text-sm', '暂无项目'));
+    return;
+  }
+
+  projects.slice(0, 5).forEach(project => {
+    const item = el('div', 'board-item');
+    const head = el('div', 'board-item-head');
+    head.appendChild(el('span', 'board-item-name', project.name));
+    head.appendChild(el('span', 'chip ' + priorityChipClass(project.priorityBand), project.priorityBand));
+    item.appendChild(head);
+    item.appendChild(el('div', 'board-item-detail', `${project.sector || 'General'} / Score ${project.score}`));
+    if (latestFundingRound(project)) {
+      item.appendChild(el('div', 'board-item-detail', fundingSummary(project)));
+      const names = investorNames(latestFundingRound(project)).slice(0, 2);
+      if (names.length) item.appendChild(el('div', 'board-item-detail', names.join(' / ')));
+    } else if (project.reasonSummary) {
+      item.appendChild(el('div', 'board-item-detail', project.reasonSummary.slice(0, 72)));
+    }
+    item.addEventListener('click', () => {
+      selectedSlug = project.slug;
+      activeTab = 'overview';
+      setHash(project.slug, 'overview');
+      renderProjectList();
+      renderDetail();
+    });
+    root.appendChild(item);
+  });
+}
+
+function renderRadarPools() {
+  const root = byId('radarPools');
+  if (!root) return;
+  root.innerHTML = '';
+
+  const fundraising = state.fundraisingProjects || [];
+  const dex = state.dexProjects || [];
+  const ecosystem = state.ecosystemProjects || [];
+  const total = fundraising.length + dex.length + ecosystem.length;
+  if (!total) {
+    root.appendChild(el('div', 'text-muted text-sm', '暂无 Radar Pool 输出'));
+    return;
+  }
+
+  renderRadarPoolGroup(root, 'Fundraising', fundraising);
+  renderRadarPoolGroup(root, 'DEX', dex);
+  renderRadarPoolGroup(root, 'Ecosystem', ecosystem);
+}
+
 function renderBoard() {
   const root = byId('crmBoard');
   root.innerHTML = '';
@@ -791,25 +1082,37 @@ function renderBoard() {
     return;
   }
 
-  // Group by status
-  const groups = {};
-  records.forEach(r => {
-    const status = r.status || 'New Lead';
-    if (!groups[status]) groups[status] = [];
-    groups[status].push(r);
+  const board = el('div', 'crm-board-grid');
+  const lanes = [
+    { key: 'today', title: '今天要跟' },
+    { key: 'waiting', title: '等待回复' },
+    { key: 'paused', title: '暂缓' }
+  ];
+  const groups = { today: [], waiting: [], paused: [] };
+  records.forEach((record) => {
+    groups[crmBoardLane(record)].push(record);
   });
 
-  Object.keys(groups).forEach(status => {
-    root.appendChild(el('div', 'board-group-title', status + ' (' + groups[status].length + ')'));
-    groups[status].forEach(r => {
+  lanes.forEach((lane) => {
+    const laneEl = el('div', 'crm-board-lane');
+    laneEl.appendChild(el('div', 'board-group-title', `${lane.title} (${groups[lane.key].length})`));
+    if (!groups[lane.key].length) {
+      laneEl.appendChild(el('div', 'text-muted text-sm', '暂无项目'));
+      board.appendChild(laneEl);
+      return;
+    }
+
+    groups[lane.key].forEach(r => {
       const item = el('div', 'board-item');
       const head = el('div', 'board-item-head');
       head.appendChild(el('span', 'board-item-name', r.project_name));
-      head.appendChild(el('span', 'chip ' + priorityChipClass(r.priority), r.priority || 'Watch'));
+      const boardPriority = r.priority || projectPriorityForBoard(r.project_name);
+      head.appendChild(el('span', 'chip ' + priorityChipClass(boardPriority), boardPriority || 'Watch'));
       item.appendChild(head);
       if (r.next_action) item.appendChild(el('div', 'board-item-detail', r.next_action));
+      if (r.next_follow_up_at) item.appendChild(el('div', 'board-item-detail', '下次跟进: ' + r.next_follow_up_at));
       item.addEventListener('click', () => {
-        const proj = state.projects.find(p => p.name === r.project_name);
+        const proj = allKnownProjects().find(p => p.name === r.project_name);
         if (proj) {
           selectedSlug = proj.slug;
           activeTab = 'crm';
@@ -818,9 +1121,12 @@ function renderBoard() {
           renderDetail();
         }
       });
-      root.appendChild(item);
+      laneEl.appendChild(item);
     });
+    board.appendChild(laneEl);
   });
+
+  root.appendChild(board);
 }
 
 function renderHistory() {
@@ -921,6 +1227,9 @@ byId('refreshBtn').addEventListener('click', async () => {
     state.projects = data.strictProjects || data.projects || [];
     state.strictProjects = data.strictProjects || data.projects || [];
     state.looseProjects = data.looseProjects || [];
+    state.fundraisingProjects = data.fundraisingProjects || [];
+    state.dexProjects = data.dexProjects || [];
+    state.ecosystemProjects = data.ecosystemProjects || [];
     if (state.projects.length) {
       const preferred = state.projects.find(hasLiveSignals) || state.projects[0];
       selectedSlug = preferred.slug;

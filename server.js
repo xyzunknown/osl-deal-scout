@@ -158,13 +158,40 @@ function createHandler(rootDir, options = {}) {
       }
 
       if (pathname === '/api/export/csv' && req.method === 'GET') {
-        const projects = readJson(resolveDataPath(rootDir, 'projects.json'), { projects: [] }).projects || [];
+        const projectPayload = readJson(resolveDataPath(rootDir, 'projects.json'), {
+          projects: [],
+          strictProjects: [],
+          fundraisingProjects: [],
+          dexProjects: [],
+          ecosystemProjects: []
+        });
         const crmRecords = readJson(resolveDataPath(rootDir, 'crm-records.json'), { records: [] }).records || [];
         const crmFields = readJson(resolveDataPath(rootDir, 'crm-fields.json'), { fields: [] }).fields || [];
         const crmMap = new Map(crmRecords.map((r) => [r.project_name, r]));
+        const exportedProjects = new Map();
+
+        const collectProjects = (list, bucket) => {
+          (list || []).forEach((project) => {
+            if (!project || !project.name) return;
+            const existing = exportedProjects.get(project.name) || { ...project, exportBuckets: [] };
+            const nextBuckets = new Set([...(existing.exportBuckets || []), bucket]);
+            exportedProjects.set(project.name, {
+              ...existing,
+              ...project,
+              exportBuckets: Array.from(nextBuckets)
+            });
+          });
+        };
+
+        collectProjects(projectPayload.projects || [], 'strict');
+        collectProjects(projectPayload.fundraisingProjects || [], 'fundraising');
+        collectProjects(projectPayload.dexProjects || [], 'dex');
+        collectProjects(projectPayload.ecosystemProjects || [], 'ecosystem');
+        const projects = Array.from(exportedProjects.values());
 
         const headers = [
           'name', 'score', 'priorityBand', 'sector', 'freshness', 'region', 'stage',
+          'discoveryPath', 'radarBucket', 'exportBuckets',
           'reasonSummary', 'fitSummary', 'website', 'twitter', 'nextStep',
           ...crmFields.map((f) => 'crm_' + f.key)
         ];
@@ -182,6 +209,7 @@ function createHandler(rootDir, options = {}) {
           const crm = crmMap.get(p.name) || {};
           const row = [
             p.name, p.score, p.priorityBand, p.sector, p.freshness, p.region, p.stage,
+            p.discoveryPath, p.radarBucket, (p.exportBuckets || []).join('|'),
             p.reasonSummary, p.fitSummary, p.website, p.twitter, p.nextStep,
             ...crmFields.map((f) => crm[f.key] || '')
           ];

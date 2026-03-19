@@ -204,6 +204,26 @@ textarea {
   font-size: 12px;
 }
 
+.quick-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.crm-board-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.crm-board-lane {
+  min-width: 0;
+}
+
+.crm-board-lane .board-item + .board-item {
+  margin-top: 8px;
+}
+
 .btn-icon {
   padding: 7px;
   width: 32px;

@@ -2,27 +2,114 @@
   "rssQueries": [
     {
       "name": "Crypto funding",
+      "group": "fundraising",
       "url": "https://news.google.com/rss/search?q=(crypto%20OR%20web3%20OR%20blockchain)%20(project%20OR%20protocol%20OR%20startup)%20(funding%20OR%20raises%20OR%20raised%20OR%20backed)&hl=en-US&gl=US&ceid=US:en"
     },
     {
+      "name": "Seed and Series",
+      "group": "fundraising",
+      "url": "https://news.google.com/rss/search?q=(crypto%20OR%20web3%20OR%20blockchain)%20(seed%20OR%20series%20a%20OR%20series%20b%20OR%20strategic%20round)%20(protocol%20OR%20project%20OR%20startup)&hl=en-US&gl=US&ceid=US:en"
+    },
+    {
+      "name": "Strategic backing",
+      "group": "fundraising",
+      "url": "https://news.google.com/rss/search?q=(crypto%20OR%20web3)%20(backed%20by%20OR%20strategic%20investment%20OR%20closes%20funding)%20(protocol%20OR%20network%20OR%20startup)&hl=en-US&gl=US&ceid=US:en"
+    },
+    {
       "name": "Compliance and licensing",
+      "group": "strict",
       "url": "https://news.google.com/rss/search?q=(crypto%20OR%20web3)%20(compliance%20OR%20licensed%20OR%20regulated%20OR%20institutional)%20(project%20OR%20protocol%20OR%20startup)&hl=en-US&gl=US&ceid=US:en"
     },
     {
       "name": "Hong Kong and Asia",
+      "group": "strict",
       "url": "https://news.google.com/rss/search?q=(crypto%20OR%20web3)%20(Hong%20Kong%20OR%20Asia)%20(project%20OR%20exchange%20OR%20institutional)&hl=en-US&gl=US&ceid=US:en"
     },
     {
       "name": "Token listing",
+      "group": "strict",
       "url": "https://news.google.com/rss/search?q=(token%20OR%20protocol)%20(listing%20OR%20exchange%20listing%20OR%20liquidity)%20(crypto%20OR%20web3)&hl=en-US&gl=US&ceid=US:en"
     },
     {
       "name": "RWA and stablecoin",
+      "group": "strict",
       "url": "https://news.google.com/rss/search?q=(RWA%20OR%20stablecoin%20OR%20tokenized%20treasury)%20(crypto%20OR%20web3)%20(project%20OR%20protocol)&hl=en-US&gl=US&ceid=US:en"
     },
     {
       "name": "Hiring signals",
+      "group": "fundraising",
       "url": "https://news.google.com/rss/search?q=(crypto%20OR%20web3)%20(hiring%20OR%20hires%20OR%20recruiting)%20(compliance%20OR%20legal%20OR%20institutional)&hl=en-US&gl=US&ceid=US:en"
+    },
+    {
+      "name": "DEX new liquidity",
+      "group": "dex",
+      "url": "https://news.google.com/rss/search?q=(DexScreener%20OR%20DEXTools%20OR%20new%20liquidity%20pool)%20(token%20OR%20protocol%20OR%20project)%20(crypto%20OR%20web3)&hl=en-US&gl=US&ceid=US:en"
+    },
+    {
+      "name": "DEX breakout volume",
+      "group": "dex",
+      "url": "https://news.google.com/rss/search?q=(dex%20volume%20OR%20liquidity%20surges%20OR%20trending%20token)%20(protocol%20OR%20token)%20(crypto%20OR%20web3)&hl=en-US&gl=US&ceid=US:en"
+    },
+    {
+      "name": "AMM and perp launches",
+      "group": "dex",
+      "url": "https://news.google.com/rss/search?q=(amm%20OR%20perpetual%20dex%20OR%20new%20trading%20pair%20OR%20new%20liquidity%20pool)%20(protocol%20OR%20token%20OR%20network)%20(crypto%20OR%20web3)&hl=en-US&gl=US&ceid=US:en"
+    },
+    {
+      "name": "Dex aggregator and routing",
+      "group": "dex",
+      "url": "https://news.google.com/rss/search?q=(dex%20aggregator%20OR%20routing%20OR%20swap%20router%20OR%20orderbook)%20(protocol%20OR%20project%20OR%20network)%20(crypto%20OR%20web3)&hl=en-US&gl=US&ceid=US:en"
+    },
+    {
+      "name": "Perp and derivatives launch",
+      "group": "dex",
+      "url": "https://news.google.com/rss/search?q=(perp%20dex%20OR%20perpetuals%20OR%20derivatives%20dex)%20(protocol%20OR%20project%20OR%20network)%20(launch%20OR%20mainnet%20OR%20liquidity)&hl=en-US&gl=US&ceid=US:en"
+    },
+    {
+      "name": "Ecosystem additions",
+      "group": "ecosystem",
+      "url": "https://news.google.com/rss/search?q=(Solana%20OR%20Base%20OR%20Monad)%20ecosystem%20(project%20OR%20protocol%20OR%20startup)%20(launch%20OR%20joins%20OR%20integrates)&hl=en-US&gl=US&ceid=US:en"
+    },
+    {
+      "name": "Infra and AI crypto",
+      "group": "ecosystem",
+      "url": "https://news.google.com/rss/search?q=(AI%20crypto%20OR%20web3%20infra%20OR%20cross-chain)%20(project%20OR%20protocol%20OR%20network)%20(launch%20OR%20funding%20OR%20ecosystem)&hl=en-US&gl=US&ceid=US:en"
+    },
+    {
+      "name": "Foundation grants and builders",
+      "group": "ecosystem",
+      "url": "https://news.google.com/rss/search?q=(foundation%20OR%20grants%20OR%20builder%20program%20OR%20accelerator)%20(crypto%20OR%20web3)%20(project%20OR%20protocol%20OR%20network)&hl=en-US&gl=US&ceid=US:en"
+    },
+    {
+      "name": "Developer docs and mainnet",
+      "group": "ecosystem",
+      "url": "https://news.google.com/rss/search?q=(developer%20docs%20OR%20docs%20OR%20sdk%20OR%20api)%20(mainnet%20OR%20testnet%20OR%20launch)%20(crypto%20OR%20web3)%20(protocol%20OR%20network%20OR%20chain)&hl=en-US&gl=US&ceid=US:en"
+    },
+    {
+      "name": "Official ecosystem directory",
+      "group": "ecosystem",
+      "url": "https://news.google.com/rss/search?q=(ecosystem%20page%20OR%20ecosystem%20directory%20OR%20builder%20hub%20OR%20developer%20portal)%20(protocol%20OR%20network%20OR%20chain)%20(crypto%20OR%20web3)&hl=en-US&gl=US&ceid=US:en"
+    },
+    {
+      "name": "Infrastructure integrations",
+      "group": "ecosystem",
+      "url": "https://news.google.com/rss/search?q=(oracle%20integration%20OR%20wallet%20integration%20OR%20cross-chain%20integration%20OR%20infrastructure%20partnership)%20(protocol%20OR%20network%20OR%20project)%20(crypto%20OR%20web3)&hl=en-US&gl=US&ceid=US:en"
+    }
+  ],
+  "ecosystemDirectories": [
+    {
+      "name": "ZKsync Ecosystem Directory",
+      "group": "ecosystem",
+      "network": "ZKsync",
+      "url": "https://www.zksync.io/ecosystem",
+      "maxItems": 12
+    },
+    {
+      "name": "Aptos Ecosystem Directory",
+      "group": "ecosystem",
+      "network": "Aptos",
+      "url": "https://www.aptosfoundation.org/ecosystem/directory",
+      "maxItems": 8
     }
   ]
 }

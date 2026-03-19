@@ -1,5 +1,19 @@
 const assert = require('assert');
-const { classifyLeadEntity, classifyMentionSource, extractLooseCandidateName, isRelevantMentionForProject } = require('../lib/engine');
+const {
+  analyzeWebsiteDiscoverySignals,
+  buildRadarPromotionDecision,
+  classifyLeadEntity,
+  classifyMentionSource,
+  extractOfficialEcosystemDirectoryItems,
+  isDexBucketCandidate,
+  isEcosystemBucketCandidate,
+  extractLooseCandidateName,
+  extractWebsiteScanLinks,
+  isFundraisingBucketCandidate,
+  isRelevantMentionForProject,
+  parseCryptoRankFundingPage,
+  sortProjectsForAction
+} = require('../lib/engine');
 
 const config = {
   weights: {
@@ -55,6 +69,9 @@ const rejectCases = [
   ['Consensus Hong Kong', 'Hong Kong crypto conference week agenda'],
   ['BTC', 'bitcoin market update'],
   ['XRP', 'xrp listing outlook'],
+  ['The Open Network', 'strategic investment in TON ecosystem'],
+  ['Bitcoin Network', 'USDT payments expand on Bitcoin network'],
+  ['Chainlink Oracle Network', 'oracle network expands ecosystem integrations'],
   ['0x1234abcd', 'wallet received funds'],
   ['Interactive Brokers', 'brokers launch crypto trading access'],
   ['StanChart', 'bank joins Hong Kong stablecoin license batch']
@@ -145,5 +162,205 @@ assert.strictEqual(
   'crypto_media',
   'crypto native media should rank above general media'
 );
+
+const websiteDiscovery = analyzeWebsiteDiscoverySignals(
+  'Developer docs are live. Explore the ecosystem grants portal and builder program before mainnet launch.'
+);
+assert.deepStrictEqual(
+  websiteDiscovery.hits,
+  ['docs', 'developer', 'ecosystem', 'grants', 'mainnet'],
+  'website signal analyzer should capture docs, ecosystem, grants and launch hints'
+);
+
+assert.deepStrictEqual(
+  extractWebsiteScanLinks(
+    `
+      <a href="/blog">Blog</a>
+      <a href="https://example.com/docs">Docs</a>
+      <a href="https://example.com/ecosystem">Ecosystem</a>
+      <a href="https://othersite.com/grants">External</a>
+      <a href="/assets/logo.svg">Logo</a>
+    `,
+    'https://example.com'
+  ),
+  [
+    'https://example.com/blog',
+    'https://example.com/docs',
+    'https://example.com/ecosystem'
+  ],
+  'website scan link extractor should keep only same-host discovery pages'
+);
+
+const officialDirectoryItems = extractOfficialEcosystemDirectoryItems(
+  `
+    <a href="/ecosystem">Ecosystem</a>
+    <a href="https://x.com/aptos">X/Twitter Latest news, launches, and ecosystem updates</a>
+    <a href="https://aptos.dev/">Dev Docs Technical documentation for building on Aptos</a>
+    <a href="https://geomi.dev/">Geomi Create APIs, onboard users, and design NFT flows</a>
+    <a href="https://unionchain.io">Union Chain unionchain.io Powering the Future of Onchain Finance</a>
+  `,
+  {
+    name: 'Aptos Ecosystem Directory',
+    network: 'Aptos',
+    url: 'https://www.aptosfoundation.org/ecosystem/directory',
+    group: 'ecosystem',
+    maxItems: 5
+  }
+);
+
+assert.deepStrictEqual(
+  officialDirectoryItems.map((item) => item.title),
+  [
+    'Geomi joins Aptos ecosystem',
+    'Union Chain joins Aptos ecosystem'
+  ],
+  'official ecosystem directory extractor should keep external project entries and drop social/docs links'
+);
+
+const parsedFundingRounds = parseCryptoRankFundingPage(`
+  <script id="__NEXT_DATA__" type="application/json">
+    ${JSON.stringify({
+      props: {
+        pageProps: {
+          coinTokenSales: {
+            rounds: [
+              {
+                kind: 'FundingRound',
+                date: '2025-10-01T00:00:00.000Z',
+                raise: 30000000,
+                valuation: null,
+                type: 'STRATEGIC',
+                linkToAnnouncement: 'https://x.com/example/status/1',
+                investors: {
+                  tier1: [],
+                  tier2: [{ name: 'MEXC Ventures', slug: 'mexc-ventures', category: 'Venture', tier: 2 }]
+                },
+                isHidden: false,
+                isAuthProtected: false
+              },
+              {
+                kind: 'Launchpool',
+                startTime: '2024-07-01T00:00:00.000Z'
+              }
+            ]
+          }
+        }
+      }
+    })}
+  </script>
+`);
+
+assert.strictEqual(parsedFundingRounds.length, 1, 'funding page parser should keep only funding rounds');
+assert.strictEqual(parsedFundingRounds[0].roundStage, 'STRATEGIC', 'funding page parser should preserve round stage');
+assert.strictEqual(parsedFundingRounds[0].announcedAt, '2025-10-01T00:00:00.000Z', 'funding page parser should preserve announcedAt');
+assert.deepStrictEqual(
+  parsedFundingRounds[0].investors.map((item) => item.name),
+  ['MEXC Ventures'],
+  'funding page parser should flatten investors across tiers'
+);
+
+assert.strictEqual(
+  isFundraisingBucketCandidate(
+    { name: 'Binance Labs' },
+    'Binance Labs joined the round as lead investor in a crypto startup funding event'
+  ),
+  false,
+  'fundraising bucket should reject investor entities'
+);
+
+assert.strictEqual(
+  isFundraisingBucketCandidate(
+    { name: 'Stripe' },
+    'Stripe expands global payments business with no clear crypto protocol identity'
+  ),
+  false,
+  'fundraising bucket should reject generic payment companies'
+);
+
+assert.strictEqual(
+  isFundraisingBucketCandidate(
+    { name: 'Quai Network' },
+    'Quai Network raises funding for its blockchain mainnet ecosystem and developer rollout'
+  ),
+  true,
+  'fundraising bucket should keep actual crypto projects'
+);
+
+assert.strictEqual(
+  isDexBucketCandidate(
+    { name: 'Base DeFi' },
+    'Base DeFi ecosystem has new liquidity and trading activity'
+  ),
+  false,
+  'dex bucket should reject generic ecosystem labels'
+);
+
+assert.strictEqual(
+  isDexBucketCandidate(
+    { name: 'Vertex Protocol' },
+    'Vertex Protocol launches perp dex liquidity and orderbook trading onchain'
+  ),
+  true,
+  'dex bucket should keep actual dex protocols'
+);
+
+assert.strictEqual(
+  isEcosystemBucketCandidate(
+    { name: 'BNB Chain' },
+    'BNB Chain ecosystem builder grants expand across the network'
+  ),
+  false,
+  'ecosystem bucket should reject major chain aliases'
+);
+
+assert.strictEqual(
+  isEcosystemBucketCandidate(
+    { name: 'Pocket Network' },
+    'Pocket Network expands developer docs, builder grants and ecosystem integrations'
+  ),
+  true,
+  'ecosystem bucket should keep actual ecosystem projects'
+);
+
+const manualPromotion = buildRadarPromotionDecision({
+  radarBucket: 'ecosystem',
+  score: 12,
+  workflow: { manualPromote: true, shouldSuppress: false, keepInRadar: false, owner: 'BD' },
+  liveSignals: {}
+});
+assert.strictEqual(manualPromotion.promote, true, 'manual review outcome should promote radar project');
+assert.strictEqual(manualPromotion.mode, 'manual', 'manual review outcome should mark manual promotion mode');
+
+const fundraisingPromotion = buildRadarPromotionDecision({
+  radarBucket: 'fundraising',
+  score: 15,
+  workflow: { shouldSuppress: false, keepInRadar: false },
+  fundraising: {
+    latestRound: { roundStage: 'SEED' }
+  },
+  liveSignals: {}
+});
+assert.strictEqual(fundraisingPromotion.promote, true, 'confirmed funding round should promote fundraising radar project');
+
+const sortedProjects = sortProjectsForAction([
+  {
+    name: 'Project B',
+    score: 15,
+    priorityBand: 'Medium',
+    freshness: 'repeat',
+    latestSeenAt: '2026-03-01T00:00:00.000Z',
+    workflow: { owner: '', nextFollowUpAt: '', shouldSuppress: false }
+  },
+  {
+    name: 'Project A',
+    score: 14,
+    priorityBand: 'Medium',
+    freshness: 'new',
+    promotedFromRadar: 'fundraising',
+    latestSeenAt: '2026-03-02T00:00:00.000Z',
+    workflow: { owner: 'Alice', nextFollowUpAt: '2026-03-20', shouldSuppress: false }
+  }
+]);
+assert.strictEqual(sortedProjects[0].name, 'Project A', 'action sorting should prioritize promoted and assigned fresh projects');
 
 process.stdout.write('entity-classifier tests passed\n');
