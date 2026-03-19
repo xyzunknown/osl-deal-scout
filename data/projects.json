@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-19T14:30:25.211Z",
+  "generatedAt": "2026-03-19T15:00:47.528Z",
   "sourceMode": "fallback",
   "projects": [
     {
@@ -286,12 +286,12 @@
           "error": ""
         },
         "opennews": {
-          "fetchedAt": "2026-03-19T14:30:24.739Z",
+          "fetchedAt": "2026-03-19T15:00:47.112Z",
           "articles": [],
           "error": "fetch failed"
         },
         "opentwitter": {
-          "fetchedAt": "2026-03-19T14:30:24.746Z",
+          "fetchedAt": "2026-03-19T15:00:47.117Z",
           "username": "OndoFinance",
           "tweets": [],
           "error": "fetch failed"
@@ -730,12 +730,12 @@
           "error": ""
         },
         "opennews": {
-          "fetchedAt": "2026-03-19T14:30:24.736Z",
+          "fetchedAt": "2026-03-19T15:00:47.110Z",
           "articles": [],
           "error": "fetch failed"
         },
         "opentwitter": {
-          "fetchedAt": "2026-03-19T14:30:24.745Z",
+          "fetchedAt": "2026-03-19T15:00:47.116Z",
           "username": "ethena_labs",
           "tweets": [],
           "error": "fetch failed"
@@ -1060,12 +1060,12 @@
           "error": ""
         },
         "opennews": {
-          "fetchedAt": "2026-03-19T14:30:24.741Z",
+          "fetchedAt": "2026-03-19T15:00:47.113Z",
           "articles": [],
           "error": "fetch failed"
         },
         "opentwitter": {
-          "fetchedAt": "2026-03-19T14:30:24.746Z",
+          "fetchedAt": "2026-03-19T15:00:47.117Z",
           "username": "plumenetwork",
           "tweets": [],
           "error": "fetch failed"
@@ -1376,12 +1376,12 @@
           "error": ""
         },
         "opennews": {
-          "fetchedAt": "2026-03-19T14:30:24.737Z",
+          "fetchedAt": "2026-03-19T15:00:47.111Z",
           "articles": [],
           "error": "fetch failed"
         },
         "opentwitter": {
-          "fetchedAt": "2026-03-19T14:30:24.745Z",
+          "fetchedAt": "2026-03-19T15:00:47.116Z",
           "username": "maplefinance",
           "tweets": [],
           "error": "fetch failed"
@@ -1834,12 +1834,12 @@
           "error": ""
         },
         "opennews": {
-          "fetchedAt": "2026-03-19T14:30:24.739Z",
+          "fetchedAt": "2026-03-19T15:00:47.112Z",
           "articles": [],
           "error": "fetch failed"
         },
         "opentwitter": {
-          "fetchedAt": "2026-03-19T14:30:24.746Z",
+          "fetchedAt": "2026-03-19T15:00:47.117Z",
           "username": "OndoFinance",
           "tweets": [],
           "error": "fetch failed"
@@ -2278,12 +2278,12 @@
           "error": ""
         },
         "opennews": {
-          "fetchedAt": "2026-03-19T14:30:24.736Z",
+          "fetchedAt": "2026-03-19T15:00:47.110Z",
           "articles": [],
           "error": "fetch failed"
         },
         "opentwitter": {
-          "fetchedAt": "2026-03-19T14:30:24.745Z",
+          "fetchedAt": "2026-03-19T15:00:47.116Z",
           "username": "ethena_labs",
           "tweets": [],
           "error": "fetch failed"
@@ -2608,12 +2608,12 @@
           "error": ""
         },
         "opennews": {
-          "fetchedAt": "2026-03-19T14:30:24.741Z",
+          "fetchedAt": "2026-03-19T15:00:47.113Z",
           "articles": [],
           "error": "fetch failed"
         },
         "opentwitter": {
-          "fetchedAt": "2026-03-19T14:30:24.746Z",
+          "fetchedAt": "2026-03-19T15:00:47.117Z",
           "username": "plumenetwork",
           "tweets": [],
           "error": "fetch failed"
@@ -2924,12 +2924,12 @@
           "error": ""
         },
         "opennews": {
-          "fetchedAt": "2026-03-19T14:30:24.737Z",
+          "fetchedAt": "2026-03-19T15:00:47.111Z",
           "articles": [],
           "error": "fetch failed"
         },
         "opentwitter": {
-          "fetchedAt": "2026-03-19T14:30:24.745Z",
+          "fetchedAt": "2026-03-19T15:00:47.116Z",
           "username": "maplefinance",
           "tweets": [],
           "error": "fetch failed"
@@ -3097,7 +3097,242 @@
       "freshness": "repeat"
     }
   ],
-  "looseProjects": [],
+  "looseProjects": [
+    {
+      "name": "Atleta Network",
+      "score": 14,
+      "signals": [
+        "launch",
+        "github"
+      ],
+      "sector": "General",
+      "reasons": [
+        "出现早期项目催化信号",
+        "CryptoRank 已收录（rank 175）",
+        "官网/生态页出现生态集成或开发者信号"
+      ],
+      "mentions": [
+        {
+          "title": "Atleta Network Team Announces Testnet Launch - ForkLog",
+          "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBCakk4clNtdEJVZ0JVTktZSWhPSVM3Q3N1ajJPN2VXczI0NjN0a09kXzZudTM3RXVfM1VqcElOZm1iTVJkaEFnNURpSXdLdjhaZERyNmw3TzFraXR0NGYyWk83eHB3ZVh4Q3FCbVN1TnpSQXJ4ZE5v0gF8QVVfeXFMTXgzY1EyaVJBdEpFcC1CSFBjWlBKa05VeHFzVEhBczU3RFM3VTROSE84dWowa09jUzZEN0ZjVkw2ZG9UME10UHNJVlJEVi1fWXNlMlhNRzFHVW0tN09MXzlQX1VONXpoNDd6dThrNDQ3UXMzZlN4RFBIMVZ3Rg?oc=5",
+          "source": "ForkLog",
+          "publishedAt": "Tue, 14 May 2024 07:00:00 GMT",
+          "sourceTier": "general_media",
+          "sourceWeight": 1,
+          "sourceLabel": "General Media"
+        }
+      ],
+      "priorityBand": "Medium",
+      "internalFit": "early-radar",
+      "firstSeenAt": "Tue, 14 May 2024 07:00:00 GMT",
+      "latestSeenAt": "Tue, 14 May 2024 07:00:00 GMT",
+      "discoveryPath": "loose",
+      "maturityPath": "early",
+      "hongKongTier": "none",
+      "priorityMeta": {
+        "sourceStrength": 1,
+        "externalBoost": 4
+      },
+      "reasonSummary": "[Ecosystem Watch] 出现早期项目催化信号；CryptoRank 已收录（rank 175）；官网/生态页出现生态集成或开发者信号",
+      "radarBucket": "ecosystem",
+      "slug": "atleta-network",
+      "website": "",
+      "twitter": "",
+      "contact": null,
+      "secondaryContact": null,
+      "region": "",
+      "stage": "",
+      "fitSummary": "[Ecosystem Watch] 出现早期项目催化信号；CryptoRank 已收录（rank 175）；官网/生态页出现生态集成或开发者信号",
+      "interpretation": [
+        "当前公开信号还偏早期，建议先做项目画像和组织结构判断，再决定是否触达。"
+      ],
+      "nextStep": "优先找 warm intro 再发首封触达。",
+      "sourceNotes": [
+        "CryptoRank cache: rank 175, Chain / $235.10M"
+      ],
+      "screening": {
+        "marketCapUsd": 235101768.49434957,
+        "dailyVolumeUsd": 15482603
+      },
+      "liveSignals": {
+        "coingecko": null,
+        "defillama": null,
+        "cryptorank": {
+          "fetchedAt": "2026-03-18T15:18:37.541Z",
+          "id": 189498,
+          "name": "Atleta Network",
+          "slug": "atleta-network",
+          "symbol": "ATLA",
+          "rank": 175,
+          "category": "Chain",
+          "type": "coin",
+          "marketCapUsd": 235101768.49434957,
+          "volume24hUsd": 15482603,
+          "rounds": [],
+          "latestRound": null,
+          "fundingFetchedAt": "2026-03-19T02:12:08.866Z",
+          "fundingError": "HTTP 404 for https://cryptorank.io/ico/atleta-network"
+        },
+        "website": null,
+        "rootdata": {
+          "fetchedAt": "2026-03-19T08:47:12.847Z",
+          "projectName": "",
+          "projectType": "",
+          "description": "",
+          "website": "",
+          "error": ""
+        },
+        "opennews": null,
+        "opentwitter": null
+      },
+      "fundraising": null,
+      "hongKongFit": false,
+      "freshness": "repeat",
+      "radarRetainedAt": "2026-03-19T13:48:15.851Z",
+      "watchSource": "ecosystem"
+    },
+    {
+      "name": "Alongside",
+      "score": 13,
+      "signals": [
+        "funding"
+      ],
+      "sector": "General",
+      "reasons": [
+        "出现早期项目催化信号"
+      ],
+      "mentions": [
+        {
+          "title": "Alongside team secures $9 million 'strategic investment' from a16z, others in Universal token project - The Block",
+          "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQbnlCMC1ZOEZtZUphQWxlQ0RtcVFsZE5sbnFJYXhQb3hfOENQaHpVRzdBSll2bGhET1BuTUJKOTdZcm5BZkdXamNFWFR5Y3A2cXJNOGJmMDUyUTV2SG11a3pFREc4R3NHREN1Q1BoTWc3YVpRaV9LSUladWZyRGF6WGE1S1dSTVJKRGNYTGxGVlhjZUNkWDZwSWRfc0prY05FSXNMbklXaEswODdLU0VIc0ROSl9TMlNsc1pMV2tFYnpJaXdp?oc=5",
+          "source": "The Block",
+          "publishedAt": "Wed, 19 Feb 2025 08:00:00 GMT",
+          "sourceTier": "crypto_media",
+          "sourceWeight": 3,
+          "sourceLabel": "Crypto Media"
+        }
+      ],
+      "priorityBand": "Watch",
+      "internalFit": "early-radar",
+      "firstSeenAt": "Wed, 19 Feb 2025 08:00:00 GMT",
+      "latestSeenAt": "Wed, 19 Feb 2025 08:00:00 GMT",
+      "discoveryPath": "loose",
+      "maturityPath": "early",
+      "hongKongTier": "none",
+      "priorityMeta": {
+        "sourceStrength": 3,
+        "externalBoost": 0
+      },
+      "reasonSummary": "[Fundraising Radar] 出现早期项目催化信号",
+      "radarBucket": "fundraising",
+      "slug": "alongside",
+      "website": "",
+      "twitter": "",
+      "contact": null,
+      "secondaryContact": null,
+      "region": "",
+      "stage": "",
+      "fitSummary": "[Fundraising Radar] 出现早期项目催化信号",
+      "interpretation": [
+        "近期融资或资本市场信号通常意味着团队有预算、节奏和更强的渠道扩张意愿。"
+      ],
+      "nextStep": "优先找 warm intro 再发首封触达。",
+      "sourceNotes": [],
+      "screening": {},
+      "liveSignals": {
+        "coingecko": null,
+        "defillama": null,
+        "cryptorank": null,
+        "website": null,
+        "rootdata": {
+          "fetchedAt": "2026-03-18T15:19:34.516Z",
+          "projectName": "",
+          "projectType": "",
+          "description": "",
+          "website": "",
+          "error": ""
+        },
+        "opennews": null,
+        "opentwitter": null
+      },
+      "fundraising": null,
+      "hongKongFit": false,
+      "freshness": "repeat",
+      "radarRetainedAt": "2026-03-19T13:48:15.851Z",
+      "watchSource": "fundraising"
+    },
+    {
+      "name": "Menese Protocol",
+      "score": 7,
+      "signals": [
+        "infra",
+        "github"
+      ],
+      "sector": "Infra",
+      "reasons": [
+        "出现早期项目催化信号"
+      ],
+      "mentions": [
+        {
+          "title": "Menese Protocol Goes Live: Fully On-Chain Multichain Execution Infrastructure Launches Public Beta with Cross-Chain Liquidity and Developer SDK - Times Tabloid",
+          "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPT0J6VVZVV0FnZDExbWtqM2JQVF9MQ3NBTVh0MmtJMTNaSVNYajVLVlJGeUJrd1pUeWQ5Z29jT0JEZ0M1N2FWZTlvVEI2b2p4SF83enVnWVV6eFNfTTVhZnNGdWExczY2OWNVU2t0V1RiY2t1a1phUGJxUzdta3RCZlRhNlR5VTU0Z0t5aFE0TmM?oc=5",
+          "source": "Times Tabloid",
+          "publishedAt": "Tue, 17 Feb 2026 08:00:00 GMT",
+          "sourceTier": "general_media",
+          "sourceWeight": 1,
+          "sourceLabel": "General Media"
+        }
+      ],
+      "priorityBand": "Watch",
+      "internalFit": "early-radar",
+      "firstSeenAt": "Tue, 17 Feb 2026 08:00:00 GMT",
+      "latestSeenAt": "Tue, 17 Feb 2026 08:00:00 GMT",
+      "discoveryPath": "loose",
+      "maturityPath": "early",
+      "hongKongTier": "none",
+      "priorityMeta": {
+        "sourceStrength": 1,
+        "externalBoost": 0
+      },
+      "reasonSummary": "[Ecosystem Watch] 出现早期项目催化信号",
+      "radarBucket": "ecosystem",
+      "slug": "menese-protocol",
+      "website": "",
+      "twitter": "",
+      "contact": null,
+      "secondaryContact": null,
+      "region": "",
+      "stage": "",
+      "fitSummary": "[Ecosystem Watch] 出现早期项目催化信号",
+      "interpretation": [
+        "当前公开信号还偏早期，建议先做项目画像和组织结构判断，再决定是否触达。"
+      ],
+      "nextStep": "优先找 warm intro 再发首封触达。",
+      "sourceNotes": [],
+      "screening": {},
+      "liveSignals": {
+        "coingecko": null,
+        "defillama": null,
+        "cryptorank": null,
+        "website": null,
+        "rootdata": {
+          "fetchedAt": "2026-03-18T15:19:35.957Z",
+          "projectName": "",
+          "projectType": "",
+          "description": "",
+          "website": "",
+          "error": ""
+        },
+        "opennews": null,
+        "opentwitter": null
+      },
+      "fundraising": null,
+      "hongKongFit": false,
+      "freshness": "repeat",
+      "radarRetainedAt": "2026-03-19T13:48:15.851Z",
+      "watchSource": "ecosystem"
+    }
+  ],
   "fundraisingProjects": [
     {
       "name": "Quai Network",
@@ -3383,12 +3618,12 @@
           "error": ""
         },
         "opennews": {
-          "fetchedAt": "2026-03-19T14:30:24.742Z",
+          "fetchedAt": "2026-03-19T15:00:47.113Z",
           "articles": [],
           "error": "fetch failed"
         },
         "opentwitter": {
-          "fetchedAt": "2026-03-19T14:30:24.747Z",
+          "fetchedAt": "2026-03-19T15:00:47.118Z",
           "username": "QuaiNetwork",
           "tweets": [],
           "error": "fetch failed"
@@ -3770,12 +4005,12 @@
           "error": ""
         },
         "opennews": {
-          "fetchedAt": "2026-03-19T14:30:24.744Z",
+          "fetchedAt": "2026-03-19T15:00:47.115Z",
           "articles": [],
           "error": "fetch failed"
         },
         "opentwitter": {
-          "fetchedAt": "2026-03-19T14:30:24.748Z",
+          "fetchedAt": "2026-03-19T15:00:47.119Z",
           "username": "Humanityprot",
           "tweets": [],
           "error": "fetch failed"
@@ -3940,7 +4175,7 @@
         "defillama": null,
         "cryptorank": null,
         "website": {
-          "fetchedAt": "2026-03-19T14:30:25.036Z",
+          "fetchedAt": "2026-03-19T15:00:47.412Z",
           "title": "",
           "description": "",
           "complianceHits": [],
@@ -3961,85 +4196,16 @@
           "error": ""
         },
         "opennews": {
-          "fetchedAt": "2026-03-19T14:30:24.743Z",
+          "fetchedAt": "2026-03-19T15:00:47.114Z",
           "articles": [],
           "error": "fetch failed"
         },
         "opentwitter": {
-          "fetchedAt": "2026-03-19T14:30:24.747Z",
+          "fetchedAt": "2026-03-19T15:00:47.118Z",
           "username": "playcambria",
           "tweets": [],
           "error": "fetch failed"
         }
-      },
-      "fundraising": null,
-      "hongKongFit": false,
-      "freshness": "repeat",
-      "radarRetainedAt": "2026-03-19T13:48:15.851Z"
-    },
-    {
-      "name": "Alongside",
-      "score": 13,
-      "signals": [
-        "funding"
-      ],
-      "sector": "General",
-      "reasons": [
-        "出现早期项目催化信号"
-      ],
-      "mentions": [
-        {
-          "title": "Alongside team secures $9 million 'strategic investment' from a16z, others in Universal token project - The Block",
-          "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQbnlCMC1ZOEZtZUphQWxlQ0RtcVFsZE5sbnFJYXhQb3hfOENQaHpVRzdBSll2bGhET1BuTUJKOTdZcm5BZkdXamNFWFR5Y3A2cXJNOGJmMDUyUTV2SG11a3pFREc4R3NHREN1Q1BoTWc3YVpRaV9LSUladWZyRGF6WGE1S1dSTVJKRGNYTGxGVlhjZUNkWDZwSWRfc0prY05FSXNMbklXaEswODdLU0VIc0ROSl9TMlNsc1pMV2tFYnpJaXdp?oc=5",
-          "source": "The Block",
-          "publishedAt": "Wed, 19 Feb 2025 08:00:00 GMT",
-          "sourceTier": "crypto_media",
-          "sourceWeight": 3,
-          "sourceLabel": "Crypto Media"
-        }
-      ],
-      "priorityBand": "Watch",
-      "internalFit": "early-radar",
-      "firstSeenAt": "Wed, 19 Feb 2025 08:00:00 GMT",
-      "latestSeenAt": "Wed, 19 Feb 2025 08:00:00 GMT",
-      "discoveryPath": "fundraising",
-      "maturityPath": "early",
-      "hongKongTier": "none",
-      "priorityMeta": {
-        "sourceStrength": 3,
-        "externalBoost": 0
-      },
-      "reasonSummary": "[Fundraising Radar] 出现早期项目催化信号",
-      "radarBucket": "fundraising",
-      "slug": "alongside",
-      "website": "",
-      "twitter": "",
-      "contact": null,
-      "secondaryContact": null,
-      "region": "",
-      "stage": "",
-      "fitSummary": "[Fundraising Radar] 出现早期项目催化信号",
-      "interpretation": [
-        "近期融资或资本市场信号通常意味着团队有预算、节奏和更强的渠道扩张意愿。"
-      ],
-      "nextStep": "优先找 warm intro 再发首封触达。",
-      "sourceNotes": [],
-      "screening": {},
-      "liveSignals": {
-        "coingecko": null,
-        "defillama": null,
-        "cryptorank": null,
-        "website": null,
-        "rootdata": {
-          "fetchedAt": "2026-03-18T15:19:34.516Z",
-          "projectName": "",
-          "projectType": "",
-          "description": "",
-          "website": "",
-          "error": ""
-        },
-        "opennews": null,
-        "opentwitter": null
       },
       "fundraising": null,
       "hongKongFit": false,
@@ -4218,178 +4384,16 @@
           "error": ""
         },
         "opennews": {
-          "fetchedAt": "2026-03-19T14:30:24.743Z",
+          "fetchedAt": "2026-03-19T15:00:47.114Z",
           "articles": [],
           "error": "fetch failed"
         },
         "opentwitter": {
-          "fetchedAt": "2026-03-19T14:30:24.747Z",
+          "fetchedAt": "2026-03-19T15:00:47.118Z",
           "username": "ZEROdotnetwork",
           "tweets": [],
           "error": "fetch failed"
         }
-      },
-      "fundraising": null,
-      "hongKongFit": false,
-      "freshness": "repeat",
-      "radarRetainedAt": "2026-03-19T13:48:15.851Z"
-    },
-    {
-      "name": "Atleta Network",
-      "score": 14,
-      "signals": [
-        "launch",
-        "github"
-      ],
-      "sector": "General",
-      "reasons": [
-        "出现早期项目催化信号",
-        "CryptoRank 已收录（rank 175）",
-        "官网/生态页出现生态集成或开发者信号"
-      ],
-      "mentions": [
-        {
-          "title": "Atleta Network Team Announces Testnet Launch - ForkLog",
-          "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBCakk4clNtdEJVZ0JVTktZSWhPSVM3Q3N1ajJPN2VXczI0NjN0a09kXzZudTM3RXVfM1VqcElOZm1iTVJkaEFnNURpSXdLdjhaZERyNmw3TzFraXR0NGYyWk83eHB3ZVh4Q3FCbVN1TnpSQXJ4ZE5v0gF8QVVfeXFMTXgzY1EyaVJBdEpFcC1CSFBjWlBKa05VeHFzVEhBczU3RFM3VTROSE84dWowa09jUzZEN0ZjVkw2ZG9UME10UHNJVlJEVi1fWXNlMlhNRzFHVW0tN09MXzlQX1VONXpoNDd6dThrNDQ3UXMzZlN4RFBIMVZ3Rg?oc=5",
-          "source": "ForkLog",
-          "publishedAt": "Tue, 14 May 2024 07:00:00 GMT",
-          "sourceTier": "general_media",
-          "sourceWeight": 1,
-          "sourceLabel": "General Media"
-        }
-      ],
-      "priorityBand": "Medium",
-      "internalFit": "early-radar",
-      "firstSeenAt": "Tue, 14 May 2024 07:00:00 GMT",
-      "latestSeenAt": "Tue, 14 May 2024 07:00:00 GMT",
-      "discoveryPath": "ecosystem",
-      "maturityPath": "early",
-      "hongKongTier": "none",
-      "priorityMeta": {
-        "sourceStrength": 1,
-        "externalBoost": 4
-      },
-      "reasonSummary": "[Ecosystem Watch] 出现早期项目催化信号；CryptoRank 已收录（rank 175）；官网/生态页出现生态集成或开发者信号",
-      "radarBucket": "ecosystem",
-      "slug": "atleta-network",
-      "website": "",
-      "twitter": "",
-      "contact": null,
-      "secondaryContact": null,
-      "region": "",
-      "stage": "",
-      "fitSummary": "[Ecosystem Watch] 出现早期项目催化信号；CryptoRank 已收录（rank 175）；官网/生态页出现生态集成或开发者信号",
-      "interpretation": [
-        "当前公开信号还偏早期，建议先做项目画像和组织结构判断，再决定是否触达。"
-      ],
-      "nextStep": "优先找 warm intro 再发首封触达。",
-      "sourceNotes": [
-        "CryptoRank cache: rank 175, Chain / $235.10M"
-      ],
-      "screening": {
-        "marketCapUsd": 235101768.49434957,
-        "dailyVolumeUsd": 15482603
-      },
-      "liveSignals": {
-        "coingecko": null,
-        "defillama": null,
-        "cryptorank": {
-          "fetchedAt": "2026-03-18T15:18:37.541Z",
-          "id": 189498,
-          "name": "Atleta Network",
-          "slug": "atleta-network",
-          "symbol": "ATLA",
-          "rank": 175,
-          "category": "Chain",
-          "type": "coin",
-          "marketCapUsd": 235101768.49434957,
-          "volume24hUsd": 15482603,
-          "rounds": [],
-          "latestRound": null,
-          "fundingFetchedAt": "2026-03-19T02:12:08.866Z",
-          "fundingError": "HTTP 404 for https://cryptorank.io/ico/atleta-network"
-        },
-        "website": null,
-        "rootdata": {
-          "fetchedAt": "2026-03-19T08:47:12.847Z",
-          "projectName": "",
-          "projectType": "",
-          "description": "",
-          "website": "",
-          "error": ""
-        },
-        "opennews": null,
-        "opentwitter": null
-      },
-      "fundraising": null,
-      "hongKongFit": false,
-      "freshness": "repeat",
-      "radarRetainedAt": "2026-03-19T13:48:15.851Z"
-    },
-    {
-      "name": "Menese Protocol",
-      "score": 7,
-      "signals": [
-        "infra",
-        "github"
-      ],
-      "sector": "Infra",
-      "reasons": [
-        "出现早期项目催化信号"
-      ],
-      "mentions": [
-        {
-          "title": "Menese Protocol Goes Live: Fully On-Chain Multichain Execution Infrastructure Launches Public Beta with Cross-Chain Liquidity and Developer SDK - Times Tabloid",
-          "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPT0J6VVZVV0FnZDExbWtqM2JQVF9MQ3NBTVh0MmtJMTNaSVNYajVLVlJGeUJrd1pUeWQ5Z29jT0JEZ0M1N2FWZTlvVEI2b2p4SF83enVnWVV6eFNfTTVhZnNGdWExczY2OWNVU2t0V1RiY2t1a1phUGJxUzdta3RCZlRhNlR5VTU0Z0t5aFE0TmM?oc=5",
-          "source": "Times Tabloid",
-          "publishedAt": "Tue, 17 Feb 2026 08:00:00 GMT",
-          "sourceTier": "general_media",
-          "sourceWeight": 1,
-          "sourceLabel": "General Media"
-        }
-      ],
-      "priorityBand": "Watch",
-      "internalFit": "early-radar",
-      "firstSeenAt": "Tue, 17 Feb 2026 08:00:00 GMT",
-      "latestSeenAt": "Tue, 17 Feb 2026 08:00:00 GMT",
-      "discoveryPath": "ecosystem",
-      "maturityPath": "early",
-      "hongKongTier": "none",
-      "priorityMeta": {
-        "sourceStrength": 1,
-        "externalBoost": 0
-      },
-      "reasonSummary": "[Ecosystem Watch] 出现早期项目催化信号",
-      "radarBucket": "ecosystem",
-      "slug": "menese-protocol",
-      "website": "",
-      "twitter": "",
-      "contact": null,
-      "secondaryContact": null,
-      "region": "",
-      "stage": "",
-      "fitSummary": "[Ecosystem Watch] 出现早期项目催化信号",
-      "interpretation": [
-        "当前公开信号还偏早期，建议先做项目画像和组织结构判断，再决定是否触达。"
-      ],
-      "nextStep": "优先找 warm intro 再发首封触达。",
-      "sourceNotes": [],
-      "screening": {},
-      "liveSignals": {
-        "coingecko": null,
-        "defillama": null,
-        "cryptorank": null,
-        "website": null,
-        "rootdata": {
-          "fetchedAt": "2026-03-18T15:19:35.957Z",
-          "projectName": "",
-          "projectType": "",
-          "description": "",
-          "website": "",
-          "error": ""
-        },
-        "opennews": null,
-        "opentwitter": null
       },
       "fundraising": null,
       "hongKongFit": false,

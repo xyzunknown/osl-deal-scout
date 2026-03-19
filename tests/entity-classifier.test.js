@@ -16,6 +16,7 @@ const {
   isRelevantMentionForProject,
   parseCryptoRankFundingPage,
   retainRadarProjects,
+  shouldDisplayInRadarPool,
   sortProjectsForAction
 } = require('../lib/engine');
 
@@ -189,6 +190,18 @@ assert.strictEqual(
   retainedRadar[0].radarRetainedAt,
   '2026-03-18T09:00:00.000Z',
   'retained radar projects should carry forward a retention timestamp'
+);
+
+assert.strictEqual(
+  shouldDisplayInRadarPool({ score: 15 }),
+  true,
+  'radar pool should keep stronger categorized projects'
+);
+
+assert.strictEqual(
+  shouldDisplayInRadarPool({ score: 14 }),
+  false,
+  'weaker categorized projects should fall back into Watch Radar instead of duplicating pools'
 );
 
 assert.strictEqual(
