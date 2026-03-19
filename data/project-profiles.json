@@ -207,6 +207,71 @@
         "更适合从 ecosystem partnership 或 Asia expansion 角度切入，而不是直接问要不要上所。"
       ],
       "nextStep": "先看是否有香港活动、合作方或法律结构更新，再发带洞察的短邮件。"
+    },
+    {
+      "name": "Quai Network",
+      "symbol": "QUAI",
+      "slug": "quai-network",
+      "website": "https://qu.ai/",
+      "blogUrl": "https://qu.ai/blog/",
+      "twitter": "https://x.com/QuaiNetwork",
+      "contact": {
+        "label": "Telegram",
+        "value": "https://t.me/QuaiNetwork"
+      },
+      "secondaryContact": {
+        "label": "Community chat",
+        "value": "https://t.me/+8g_NAoblo643ODhh"
+      },
+      "region": "Global",
+      "stage": "Early",
+      "fitSummary": "PoW 公链和支付叙事偏早期，适合保持融资与生态进度观察。"
+    },
+    {
+      "name": "Zero Network",
+      "symbol": "ZERO",
+      "slug": "zero-network",
+      "website": "https://zero.network/",
+      "twitter": "https://x.com/ZEROdotnetwork",
+      "contact": {
+        "label": "Email",
+        "value": "info@zero.network"
+      },
+      "region": "Global",
+      "stage": "Early",
+      "fitSummary": "偏生态与网络扩张型早期项目，更适合放在 radar 持续观察。"
+    },
+    {
+      "name": "Cambria",
+      "slug": "cambria",
+      "website": "https://www.cambria.gg/",
+      "blogUrl": "https://blog.cambria.gg/",
+      "twitter": "https://x.com/playcambria",
+      "contact": {
+        "label": "Email",
+        "value": "ben@cambria.gg"
+      },
+      "secondaryContact": {
+        "label": "Brand kit",
+        "value": "1ogic@cambria.gg"
+      },
+      "region": "Global",
+      "stage": "Early",
+      "fitSummary": "链游方向偏早期，用于观察生态热度与融资进展更合适。"
+    },
+    {
+      "name": "Humanity Protocol",
+      "symbol": "H",
+      "slug": "humanity-protocol",
+      "website": "https://www.humanity.org/",
+      "twitter": "https://x.com/Humanityprot",
+      "contact": {
+        "label": "Telegram",
+        "value": "https://t.me/HumanityProt"
+      },
+      "region": "Global",
+      "stage": "Early",
+      "fitSummary": "身份验证与 proof-of-humanity 叙事明确，适合作为早期观察池项目持续跟踪。"
     }
   ]
 }

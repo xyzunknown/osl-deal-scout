@@ -15,6 +15,7 @@ const {
   isUsefulXListItem,
   isRelevantMentionForProject,
   parseCryptoRankFundingPage,
+  retainRadarProjects,
   sortProjectsForAction
 } = require('../lib/engine');
 
@@ -160,6 +161,34 @@ assert.strictEqual(
   }),
   true,
   'telegram link should count as an identity anchor'
+);
+
+const retainedRadar = retainRadarProjects(
+  [],
+  [
+    {
+      name: 'Quai Network',
+      score: 18,
+      latestSeenAt: '2024-08-29T00:00:00.000Z'
+    }
+  ],
+  {
+    previousGeneratedAt: '2026-03-18T09:00:00.000Z',
+    currentGeneratedAt: '2026-03-19T09:00:00.000Z',
+    retentionDays: 10
+  }
+);
+
+assert.strictEqual(
+  retainedRadar.length,
+  1,
+  'radar retention should use the previous payload timestamp, not only stale mention dates'
+);
+
+assert.strictEqual(
+  retainedRadar[0].radarRetainedAt,
+  '2026-03-18T09:00:00.000Z',
+  'retained radar projects should carry forward a retention timestamp'
 );
 
 assert.strictEqual(

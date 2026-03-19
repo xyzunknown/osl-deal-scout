@@ -502,6 +502,11 @@ function renderOverviewTab(root, p) {
     ...(live.website && Array.isArray(live.website.telegramLinks) ? live.website.telegramLinks : []),
     p.contact && /(?:t\.me|telegram\.me|telegram\.dog)\//i.test(p.contact.value || '') ? p.contact.value : '',
     p.secondaryContact && /(?:t\.me|telegram\.me|telegram\.dog)\//i.test(p.secondaryContact.value || '') ? p.secondaryContact.value : ''
+  ].filter(Boolean))).slice(0, 1);
+  const emailCandidates = Array.from(new Set([
+    ...(live.website && Array.isArray(live.website.emailAddresses) ? live.website.emailAddresses : []),
+    p.contact && /@/.test(p.contact.value || '') && !/^https?:/i.test(p.contact.value || '') ? p.contact.value : '',
+    p.secondaryContact && /@/.test(p.secondaryContact.value || '') && !/^https?:/i.test(p.secondaryContact.value || '') ? p.secondaryContact.value : ''
   ].filter(Boolean)));
 
   // Contact card
@@ -510,16 +515,19 @@ function renderOverviewTab(root, p) {
   const contactItems = [
     fallbackWebsite ? { label: '官网', value: fallbackWebsite, href: fallbackWebsite } : null,
     p.twitter ? { label: '官推', value: p.twitter.replace(/^https?:\/\//, ''), href: p.twitter } : null,
-    p.contact ? { label: p.contact.label || '联系方式', value: p.contact.value, href: p.contact.value.startsWith('http') ? p.contact.value : null } : null,
-    p.secondaryContact ? { label: p.secondaryContact.label || '备用联系', value: p.secondaryContact.value, href: p.secondaryContact.value.startsWith('http') ? p.secondaryContact.value : null } : null,
-    ...telegramLinks.map((href, index) => ({ label: index === 0 ? 'Telegram' : `Telegram ${index + 1}`, value: href, href }))
+    ...emailCandidates.slice(0, 1).map((email) => ({ label: '官方邮箱', value: email, href: `mailto:${email}` })),
+    ...telegramLinks.map((href) => ({ label: 'Telegram', value: href, href }))
   ].filter(Boolean);
   contactItems.forEach(item => {
     const row = el('div', 'info-row');
     row.appendChild(el('span', 'info-row-label', item.label));
     if (item.href) {
       const a = el('a', '', item.value);
-      a.href = item.href; a.target = '_blank'; a.rel = 'noreferrer';
+      a.href = item.href;
+      if (!/^mailto:/i.test(item.href)) {
+        a.target = '_blank';
+        a.rel = 'noreferrer';
+      }
       const val = el('span', 'info-row-value');
       val.appendChild(a);
       row.appendChild(val);
@@ -625,8 +633,12 @@ function renderOverviewTab(root, p) {
     });
   }
 
-  if (liveRows.length) {
-    liveRows.forEach(item => {
+  const latestLiveRows = [...liveRows]
+    .sort((a, b) => Date.parse(b.time || 0) - Date.parse(a.time || 0))
+    .slice(0, 2);
+
+  if (latestLiveRows.length) {
+    latestLiveRows.forEach(item => {
       const row = el('div', 'source-row');
       const meta = el('div', 'source-row-meta');
       meta.appendChild(el('div', 'source-row-label', item.label));
