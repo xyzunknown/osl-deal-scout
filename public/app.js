@@ -1030,7 +1030,6 @@ function renderMentionsTab(root, p) {
 function renderSidebar() {
   renderStats();
   renderBoard();
-  renderHistory();
   renderRules();
 }
 
@@ -1103,89 +1102,24 @@ function renderBoard() {
   root.appendChild(board);
 }
 
-function renderHistory() {
-  const root = byId('historyList');
-  root.innerHTML = '';
-  const runs = state.history || [];
-
-  if (!runs.length) {
-    root.appendChild(el('div', 'text-muted text-sm', '还没有运行记录'));
-    return;
-  }
-
-  runs.slice(0, 8).forEach(run => {
-    const item = el('div', 'history-item');
-    const head = el('div', 'history-head');
-    const statusEl = el('span', 'history-status', run.pushed ? '已推送' : '仅生成');
-    statusEl.style.color = run.pushed ? 'var(--accent)' : 'var(--muted)';
-    head.appendChild(statusEl);
-    head.appendChild(el('span', 'history-time', run.ranAt.replace('T', ' ').slice(0, 16)));
-    item.appendChild(head);
-    const projNames = (run.projects || []).slice(0, 3).map(p => p.name).join(' / ') || '无项目';
-    item.appendChild(el('div', 'history-projects', projNames));
-    root.appendChild(item);
-  });
-}
-
 function renderRules() {
   const root = byId('rulesPanel');
   root.innerHTML = '';
-  const rules = state.projectRules || {};
-
-  // Whitelist
-  if (rules.whitelist && rules.whitelist.length) {
-    const group = el('div', 'rule-group');
-    group.appendChild(el('div', 'rule-group-label', '白名单'));
-    const tags = el('div', 'rule-tags');
-    rules.whitelist.forEach(name => tags.appendChild(el('span', 'chip chip-whitelist', name)));
-    group.appendChild(tags);
-    root.appendChild(group);
-  }
-
-  // Blacklist
-  if (rules.blacklist && rules.blacklist.length) {
-    const group = el('div', 'rule-group');
-    group.appendChild(el('div', 'rule-group-label', '黑名单'));
-    const tags = el('div', 'rule-tags');
-    rules.blacklist.forEach(name => tags.appendChild(el('span', 'chip chip-blacklist', name)));
-    group.appendChild(tags);
-    root.appendChild(group);
-  }
-
-  // Competitors
-  if (rules.competitors && rules.competitors.length) {
-    const group = el('div', 'rule-group');
-    group.appendChild(el('div', 'rule-group-label', '竞争对手'));
-    const tags = el('div', 'rule-tags');
-    rules.competitors.forEach(name => tags.appendChild(el('span', 'chip chip-competitor', name)));
-    group.appendChild(tags);
-    root.appendChild(group);
-  }
-
-  // Internal thresholds
   const ir = state.internalRules || {};
   if (ir.thresholds) {
-    const group = el('div', 'rule-group');
-    group.appendChild(el('div', 'rule-group-label', '内部门槛'));
+    const group = el('details', 'rule-group rule-disclosure');
+    const summary = el('summary', 'rule-group-label', '内部门槛');
+    group.appendChild(summary);
     const t = ir.thresholds;
+    const body = el('div', 'rule-disclosure-body');
     const lines = [
       'TVL ≥ $' + Number(t.minTvlUsd || 0).toLocaleString(),
       '市值 ≥ $' + Number(t.minMarketCapUsd || 0).toLocaleString(),
       '24h 成交 ≥ $' + Number(t.minDailyVolumeUsd || 0).toLocaleString(),
       'DEX 流动性 ≥ $' + Number(t.minDexLiquidityUsd || 0).toLocaleString()
     ];
-    lines.forEach(line => group.appendChild(el('div', 'text-sm text-muted', line)));
-    root.appendChild(group);
-  }
-
-  // OSL listed
-  const listed = state.oslListed || {};
-  if (listed.assets && listed.assets.length) {
-    const group = el('div', 'rule-group');
-    group.appendChild(el('div', 'rule-group-label', 'OSL 已上架 (自动排除)'));
-    const tags = el('div', 'rule-tags');
-    listed.assets.forEach(a => tags.appendChild(el('span', 'chip chip-watch', a.symbol)));
-    group.appendChild(tags);
+    lines.forEach(line => body.appendChild(el('div', 'text-sm text-muted', line)));
+    group.appendChild(body);
     root.appendChild(group);
   }
 }

@@ -1069,6 +1069,44 @@ select.form-input {
   gap: 4px;
 }
 
+.rule-disclosure {
+  margin-bottom: 0;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(18, 27, 49, 0.55);
+  overflow: hidden;
+}
+
+.rule-disclosure .rule-group-label {
+  margin: 0;
+  padding: 16px 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rule-disclosure .rule-group-label::-webkit-details-marker {
+  display: none;
+}
+
+.rule-disclosure .rule-group-label::after {
+  content: '+';
+  font-size: 18px;
+  line-height: 1;
+  color: var(--muted);
+}
+
+.rule-disclosure[open] .rule-group-label::after {
+  content: '−';
+}
+
+.rule-disclosure-body {
+  padding: 0 18px 16px;
+  display: grid;
+  gap: 8px;
+}
+
 /* ===== TOAST ===== */
 .toast-container {
   position: fixed;
