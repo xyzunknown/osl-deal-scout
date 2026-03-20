@@ -1,27 +1,53 @@
 OSL 项目情报日报
-时间: 18/3/2026 23:19:46
+时间: 19/3/2026 22:29:44
 目标接收: @yysatoshi
 
-1. Ethena | Stablecoin | Score 29 | Priority High | TRACKING
-理由: 公开信息里出现合规或牌照相关表述；偏机构客户或托管/清算场景
+1. Ethena | Stablecoin | Score 30 | Priority High | TRACKING
+为什么现在: 公开信息里出现合规或牌照相关表述；偏机构客户或托管/清算场景；状态: Watchlist；负责人: You
+建议负责人: You | 当前状态: Watchlist
+建议动作: 判断是否有合规流动性扩展窗口。
 线索:
 - Polygon, Ethena, and Nethermind Join the Enterprise Ethereum Alliance as Institutional Ethereum Takes Shape - Morningstar (Morningstar) https://news.google.com/rss/articles/CBMi-gFBVV95cUxNZXVqWFZhcTJWcG9RSW9fWDhFNlo4Rlo3WmF3aHNWMTNFV0FoZ21CLXRTTzRuTXF2c01vYVYwYkNoNVBGWGhDb0RLTUFwdnRyQTRoN0JWcUl3UC1BVlkxQzZOeUJBUDhaWjBXcjd6aHRmZUNYVFZNV05hcFV1eG5kTHNrT2F4YlBrS0dsUmFWaTlMVUhxRFd4Q2dfOEx4dUd1RUdWZWpxRWFnS25kT3d1NGhJVENlSGJ4S1ZvVS14ZXNNeDFRbVNMR0E5eF9DRm0yTzUwWi1ycHRVcGluZk42SWM4OEhqc3FyYy1IWnlsa1ZfeHU3Y0NGcjFn?oc=5
-- StablecoinX Secures $530M Investment to Back Ethena-Linked Treasury - CoinDesk (CoinDesk) https://news.google.com/rss/articles/CBMitAFBVV95cUxNMTFLV0x1YkZXSkR5Y1BXNjM2cllFNmVBYWR1TWVhZHVPY1hXLXJTSXZkbzh1WVN2RVd0aEt5LV9MTW02ejdRSmpWblh5LUNjYXhwY1RZLWJmaXZsOTVwTTV3NU1UUVZTc1A5UVFJcEQwazFueWZyTTVMelpvcUJPLUg4NklPX0lqMlNsNUZaRlRtVk9oV0o3THQxaHJCTFpHWTViQjUySjlVTVJMMFdCU202cHY?oc=5
+- Ethena Protocol Nears $15B TVL After Major Investment Round - CoinMarketCap (CoinMarketCap) https://news.google.com/rss/articles/CBMimgFBVV95cUxNWUpoYWhqTjN5X3pRVk1XODJoTXg5SWRVU2VGeXBoZnJYTS1ZdURaX1YzZVJ0SVlFV3hmQ3NVMVJQY3dpM0ZVT2xSV0Vsekx4TzRMUnU5SVZBX0pqeU1rd2pNLVBmTElndzRPejdXTFFPc19rdDFPSGtYSkdtZVNvLWM2M0tXVXZNb1QwcXBnajYyRmk3UlpjMGNB?oc=5
 
-2. Ondo Finance | RWA | Score 27 | Priority High | TRACKING
-理由: 近期有融资/资本市场信号；公开信息里出现合规或牌照相关表述；有亚洲扩张信号
+2. Quai Network | Infra | Score 28 | Priority Watch | Radar 转正 (fundraising)
+为什么现在: [Fundraising Radar] 出现早期项目催化信号；官网/Docs/生态页出现 blog, ecosystem 信号；CryptoRank 已收录（rank 742）；融资轮次已确认：STRATEGIC；已从 Radar Pool 转正进入主跟进列表
+建议负责人: 待分配 | 当前状态: 待研判
+建议动作: 优先找 warm intro 再发首封触达。
+转正原因: 融资轮次已确认：STRATEGIC
+线索:
+- Layer 1 Quai Network closes $5 million strategic round - The Block (The Block) https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBmc2VqczRnRWRRZWRLd2dwcHFaN3czSS1CZnBkYXh4eXUtemVRZlJWYkJodVhZY0h4TG1PWHlPU0xOb2I3TGFNS1VmNktEUmFQZUFUcXVDQWtLYjZ3eGhpc1JwSWN0X2c?oc=5
+
+3. Ondo Finance | RWA | Score 27 | Priority High | TRACKING
+为什么现在: 近期有融资/资本市场信号；公开信息里出现合规或牌照相关表述；有亚洲扩张信号；状态: Researching；负责人: You
+建议负责人: You | 当前状态: Researching
+建议动作: 核验香港和机构渠道诉求，找潜在 warm intro。
 线索:
 - World Liberty-backed Ondo Finance launches first tokenized Treasury fund on Sei - The Block (The Block) https://news.google.com/rss/articles/CBMitgFBVV95cUxPQTJWTUduSENnUFIyaEJxcFV0NEd2ZGVIQjlIMUUwTmp3TmZUS045enNsTWk4ZmdNWGZIVUE4WFd3MGl5V2RTTkNMTFIyR0s3eVBvVXBXRER2TXE4a3BOTkdfLVlwR1NpcVZzSG1wdFVzNnZmQXNVdjZqbGVoeTJXZTR2Vko4Z3NoUEZzT0xRdHh4QkZPWjg3REhxeXJXWnM4WW9FVEc4cHQydllDQ0htelV0NnJIZw?oc=5
 - JPMorgan Settles First Tokenized Treasury Trade on Public Blockchain with Chainlink and Ondo - Finance Magnates (Finance Magnates) https://news.google.com/rss/articles/CBMizwFBVV95cUxNNlJPQko1aDdOMXc5TXpuVGhudkxFeDcya2tLRGxtV3JVU09DWl9IV2J4MVJBMXctbUV6NUpPVWhkekhURUxselVvc2hZREpQTURBY1ppYWZFV19lRzh2dTRWMTdmMVg4ZWRKS2h2MkFtazRMOFJQblFUUU1US0prMlEteUp3cmNCcndPX24zclFiN09RYlhySDVBcVlBM3lPZFBLV2JrbmNlNnphRzE5dHdSdlJGTUdkbWRHaU9oc0RUWnJlY19DUmFuY0dRemPSAdQBQVVfeXFMT2ZHUTZQNVRMOHBpUnFabVBGSFZnenJwQ1dONDFHY2tkRjhLUFljQlBrU2laN0MyVm1VTWVidk5YaXZ6d0pjUjN1T05aOFJpMkRhckZteldyRVNrTXg1Z0U0dTRKQW5TXzNxcHlHdlpscTJULTlQT21YN0RzaV9XUFlEMWdYZlVwN19NT0dOVGdpeGVrNmdDVGJuSjR4dVY4LUtHdVd0MGI4UkVTbjNBMk9xU3JDckhxVGJ5YzNSeDZKREJpRmFheTF4QW1fR1pJMkNYV3Y?oc=5
 
-3. Plume | RWA | Score 21 | Priority Medium | TRACKING
-理由: 公开信息里出现合规或牌照相关表述；有亚洲扩张信号；偏机构客户或托管/清算场景
+4. Humanity Protocol | General | Score 24 | Priority Watch | Radar 转正 (fundraising)
+为什么现在: [Fundraising Radar] 出现早期项目催化信号；官网/Docs/生态页出现 blog, docs, developer 信号；CryptoRank 已收录（rank 200）；融资轮次已确认：STRATEGIC；已从 Radar Pool 转正进入主跟进列表
+建议负责人: 待分配 | 当前状态: 待研判
+建议动作: 优先找 warm intro 再发首封触达。
+转正原因: 融资轮次已确认：STRATEGIC
 线索:
+- Humanity Protocol (H) Funding Rounds, Token Sale Review & Tokenomics Analysis - CryptoRank (CryptoRank) https://news.google.com/rss/articles/CBMiVkFVX3lxTFBmNGZTcGwzeWZmVHQ2OFNNeE1OblQ5NG52WHBJcjlBZlNjaVdPd25fMjJLRjlYbE9nQWt4VVJnQzRQQ0tzRllNY3pVMk03Sy1qUmIwaGp3?oc=5
+
+5. Plume | RWA | Score 25 | Priority Medium | TRACKING
+为什么现在: 公开信息里出现合规或牌照相关表述；有亚洲扩张信号；偏机构客户或托管/清算场景
+建议负责人: 待分配 | 当前状态: 待研判
+建议动作: 先看是否有香港活动、合作方或法律结构更新，再发带洞察的短邮件。
+线索:
+- The impact of Plume on the blockchain ecosystem in Vietnam - Binance (Binance) https://news.google.com/rss/articles/CBMiY0FVX3lxTE5VVHA3WU5FaVRaWkw1NkYycjl4NkJaMHEwdFNMQnptUXY2QlBhYlg2QUN6MGM1UUVTZC1uNE9vYUFVbGlWVGZ4ZWZJR1N3T25PNG5OQ3RydFFPNGtMYnQyeU1hYw?oc=5
 - RWA News: Plume Acquiring Dinero to Expand Institutional Ethereum, Solana, Bitcoin Yield - CoinDesk (CoinDesk) https://news.google.com/rss/articles/CBMivgFBVV95cUxNWVpXZTlldnNwSWkxX1g5VXprMFZoUFRKXzFPVWRxd2xRN1kySmNQWHh5clAyWnY3Z1BNdXBCaWw3UmpCMWtlVTJHeFBoRWpLMHZFSnA1MFBMZkU2SGdMN1VTdzljcGY0YkZoSzJGdW5ScGJVMlQwNHpEUEFKTURGQ2FCMU5nR25GQmxZalVhY0xPaEtaUFpZdzZndTNDM3dsczdocXJJblVPQWR3VFg2OVRISURKMHRqVGJmaG53?oc=5
 
-4. Maple | Institutional | Score 21 | Priority Watch | TRACKING
-理由: 公开信息里出现合规或牌照相关表述；偏机构客户或托管/清算场景；存在二级流动性或上所相关语义
+6. Maple | Institutional | Score 25 | Priority Watch | TRACKING
+为什么现在: 公开信息里出现合规或牌照相关表述；偏机构客户或托管/清算场景；存在二级流动性或上所相关语义
+建议负责人: 待分配 | 当前状态: 待研判
+建议动作: 先判断它在亚洲是否已有合作伙伴，再决定走品牌合作还是上币讨论。
 线索:
+- Maple Launches Yield-Bearing Stablecoin Collateral on Perps DEX Drift - thedefiant.io (thedefiant.io) https://news.google.com/rss/articles/CBMirAFBVV95cUxQLUJSMXdzLXJrWjVDRHd5M3VjT2VsZVdmUDBaZXlUclB5SDBaeVVnS1M4ckVKUHVSa2xBeHE4Tk9sc1ZVRjhvUTk1UFBjRWdFX04zWldBR3VaMTlkMHloOTFteEp2X1R2QWU5akVRVEdrVGdkSE5sbGZhSU1QUXZ6UUJnM2hLcmxra2dIcExTSGRTdkotQ3lGTTdTeUJNVDJ3WGZBLVZKZVFySWRl?oc=5
 - Crypto Lender Maple Finance Opens U.S. Treasury Bill Pool for Cash Management - CoinDesk (CoinDesk) https://news.google.com/rss/articles/CBMivAFBVV95cUxPRFhoWDAwWmphYmdvOElmSEJUTFFGc3J0ZXdxMkZva1JwZnF2OTlmTlE1M2JuMlM0cW85amVBZ2VqV1hNeUJValJ0X2FIcEk0dXI2ZU9QRUNQWE1ZNm9pMk5rOG1pUk92b1NWcG1UTFFwejJfTUMzQ19tdDVLei1kQzVIbW4tTHZCMVJ1TmdwcDN2VnBmTkZ2eThrbEY0cXQzQmJ0Yk5XQWNHMURPaDRKbVBaMkx6Y2c3ak9naQ?oc=5
 
 建议动作:

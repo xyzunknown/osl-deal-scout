@@ -1,6 +1,38 @@
 {
   "runs": [
     {
+      "ranAt": "2026-03-19T14:29:44.299Z",
+      "projects": [
+        {
+          "name": "Ethena",
+          "score": 30
+        },
+        {
+          "name": "Quai Network",
+          "score": 28
+        },
+        {
+          "name": "Ondo Finance",
+          "score": 27
+        },
+        {
+          "name": "Humanity Protocol",
+          "score": 24
+        },
+        {
+          "name": "Plume",
+          "score": 25
+        },
+        {
+          "name": "Maple",
+          "score": 25
+        }
+      ],
+      "pushed": false,
+      "target": "@yysatoshi",
+      "skippedReason": ""
+    },
+    {
       "ranAt": "2026-03-18T15:19:46.372Z",
       "projects": [
         {
@@ -693,45 +725,6 @@
         },
         {
           "name": "Equity",
-          "score": 4
-        }
-      ],
-      "pushed": false,
-      "target": "@yysatoshi"
-    },
-    {
-      "ranAt": "2026-03-16T07:25:51.030Z",
-      "projects": [
-        {
-          "name": "When Will Coins",
-          "score": 2
-        },
-        {
-          "name": "StanChart",
-          "score": 10
-        },
-        {
-          "name": "Next Crypto",
-          "score": 9
-        },
-        {
-          "name": "Consensus Hong Kong",
-          "score": 7
-        },
-        {
-          "name": "Interactive Brokers Launches",
-          "score": 6
-        },
-        {
-          "name": "CBMi3AJBVV95cUxNX0hQSEx6azRJU3RlLXd0QmlHbEE4cDBUVTJ4YVZxOTdaclg2TDV0LTRMQ09RYThlYTVYaURpM0dyclFiYlhYTDhkcVhxajdZN0NnTElySmx2NUlSaWNXRVhEUnp3X055TzhGTVpUVmRYU1F5SkR0Q2l3aE01dWJRNS11SHZZQ1JpS0hRSXlGOUE2R21uTzlBZndnYWlEb0I1V1BkNEhwMkxwRVltdXR4eXlvNEFxTzljX25rMkdCcUpKbUF4NE1yNHNlNEhaNGV0ZE9BaWlodlRKT0tUNU91OW9fb0s1VTVXQVZOOW01Wi1vSzE4cGVfODU2VnJsNktBNzdmQ09UbHQ3ZFpZSWRtUmlwdDF6czhRZDlJRUVnczJtQ0xLejhmQjVvclBtTEZQX1k0bWsyQ3JRT2NRN3FFVlBSSnhXbHY2SzhaM1Z2b29MUzR0Z2gzcUN0ckU",
-          "score": 6
-        },
-        {
-          "name": "155K",
-          "score": 4
-        },
-        {
-          "name": "Utexo",
           "score": 4
         }
       ],
