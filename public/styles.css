@@ -1575,7 +1575,7 @@ select.form-input {
   font-weight: 700;
 }
 
-.token-config-table th:first-child {
+.token-config-table-token th:first-child {
   text-align: left;
   padding-left: 56px;
 }

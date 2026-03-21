@@ -8,6 +8,7 @@ const state = {
   searchResults: [],
   selectedCoin: null,
   tokenConfig: null,
+  pairConfig: null,
   chainNames: [],
   loading: false,
   error: ''
@@ -100,6 +101,21 @@ function rowCopyText() {
   ].join('\t');
 }
 
+function pairCopyText() {
+  if (!state.pairConfig) return '';
+  const row = state.pairConfig;
+  return [
+    row.pair,
+    row.minTradeQuantity,
+    row.maxTradeQuantity,
+    row.minOrderAmount,
+    row.maxOrderAmount,
+    row.pricePrecision,
+    row.quantityPrecision,
+    row.currentPrice
+  ].join('\t');
+}
+
 function renderRemarkHtml(row) {
   const chains = Array.isArray(row.remarkChains) ? row.remarkChains.filter((item) => item && item.name) : [];
   const sourceChain = row.precisionSourceChain || '';
@@ -114,6 +130,18 @@ function renderRemarkHtml(row) {
     ? `<a href="${escHtml(sourceUrl)}" target="_blank" rel="noreferrer">${escHtml(sourceChain)}</a>`
     : escHtml(sourceChain);
   return `该币种分别有${chainText}几条链，使用精度取自${sourceLabel}链。`;
+}
+
+function renderPairRemarkHtml(row) {
+  if (!row || !row.precisionSourceExchange) return '';
+  const label = escHtml(row.precisionSourceExchange);
+  const source = row.precisionSourceUrl
+    ? `<a href="${escHtml(row.precisionSourceUrl)}" target="_blank" rel="noreferrer">${label}</a>`
+    : label;
+  if (row.precisionSourceResolved === false) {
+    return `暂未从${source}交易所接口拿到价格精度和数量精度。`;
+  }
+  return `该币种价格精度和数量精度取自${source}交易所。`;
 }
 
 function renderPanels() {
@@ -137,7 +165,7 @@ function renderPanels() {
           <button id="copyVisibleTabBtn" class="btn btn-sm" type="button">复制当前表</button>
         </div>
         <div class="token-config-table-wrap">
-          <table class="token-config-table">
+          <table class="token-config-table token-config-table-token">
             <thead>
               <tr>
                 <th>币种名称</th>
@@ -182,13 +210,49 @@ function renderPanels() {
       <div class="token-config-panel-note">这张表会和币种配置表分开维护，适合放更长的链路参数。你把字段定义给我后，我按独立布局接进去。</div>
     `;
   } else if (state.activeTab === 'pair') {
-    panel.innerHTML = `
-      <div class="token-config-panel-head">
-        <div class="token-config-panel-title">币对配置表</div>
-        <button id="copyVisibleTabBtn" class="btn btn-sm" type="button" disabled>复制当前表</button>
-      </div>
-      <div class="token-config-panel-note">这张表会预留更密集的交易对字段，不和币种基础信息混排。</div>
-    `;
+    if (!state.pairConfig) {
+      panel.innerHTML = '<div class="token-config-panel-empty">搜索并选择币种后，这里会生成币对配置表。</div>';
+    } else {
+      const row = state.pairConfig;
+      panel.innerHTML = `
+        <div class="token-config-panel-head">
+          <div>
+            <div class="token-config-panel-title">币对配置表</div>
+            <div class="token-config-panel-subtitle">默认展示所选币种的 USDT 现货交易对。</div>
+          </div>
+          <button id="copyVisibleTabBtn" class="btn btn-sm" type="button">复制当前表</button>
+        </div>
+        <div class="token-config-table-wrap">
+          <table class="token-config-table token-config-table-pair">
+            <thead>
+              <tr>
+                <th>币对</th>
+                <th>最小交易数量</th>
+                <th>最大交易数量</th>
+                <th>最小下单金额</th>
+                <th>最大下单金额</th>
+                <th>价格精度</th>
+                <th>数量精度</th>
+                <th>当前价</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="token-cell-center">${escHtml(row.pair)}</td>
+                <td class="token-cell-center">${escHtml(row.minTradeQuantity)}</td>
+                <td class="token-cell-center">${escHtml(row.maxTradeQuantity)}</td>
+                <td class="token-cell-center">${escHtml(row.minOrderAmount)}</td>
+                <td class="token-cell-center">${escHtml(row.maxOrderAmount)}</td>
+                <td class="token-cell-center">${escHtml(row.pricePrecision)}</td>
+                <td class="token-cell-center">${escHtml(row.quantityPrecision)}</td>
+                <td class="token-cell-center">${escHtml(row.currentPrice)}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="token-config-remark">${renderPairRemarkHtml(row)}</div>
+      `;
+    }
   } else {
     panel.innerHTML = `
       <div class="token-config-panel-head">
@@ -233,8 +297,11 @@ function buildCopyText() {
     const values = [row.tokenName, row.tokenFullName, row.tokenAttribute, row.displayPrecision, row.usagePrecision, row.tokenSymbol, row.tokenPrice];
     return `${headers.join('\t')}\n${values.join('\t')}`;
   }
+  if (state.activeTab === 'pair' && state.pairConfig) {
+    const headers = ['币对', '最小交易数量', '最大交易数量', '最小下单金额', '最大下单金额', '价格精度', '数量精度', '当前价'];
+    return `${headers.join('\t')}\n${pairCopyText()}`;
+  }
   if (state.activeTab === 'chain') return '币链配置表字段待补充';
-  if (state.activeTab === 'pair') return '币对配置表字段待补充';
   if (state.activeTab === 'contract') return '合约配置表字段待补充';
   return '';
 }
@@ -307,11 +374,13 @@ async function selectCoin(item) {
   try {
     const data = await fetchJson(`/api/token-config/coin/${encodeURIComponent(item.slug)}`);
     state.tokenConfig = data.tokenConfig || null;
+    state.pairConfig = data.pairConfig || null;
     state.chainNames = data.chainNames || [];
     state.activeTab = 'token';
   } catch (error) {
     state.error = '抓取失败：' + error.message;
     state.tokenConfig = null;
+    state.pairConfig = null;
     state.chainNames = [];
   } finally {
     state.loading = false;

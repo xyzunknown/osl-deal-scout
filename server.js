@@ -1,7 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
-const { buildDashboardHtml, buildTokenConfigHtml, buildTokenConfigRow, collectLeads, fetchCmcCoinDetail, formatDigest, runDigest, searchCmcCatalog } = require('./lib/engine');
+const { buildDashboardHtml, buildPairConfigRow, buildTokenConfigHtml, buildTokenConfigRow, collectLeads, fetchCmcCoinDetail, formatDigest, runDigest, searchCmcCatalog } = require('./lib/engine');
 const { readJson, resolveDataPath, writeJson } = require('./lib/store');
 
 const ROOT_DIR = __dirname;
@@ -242,6 +242,7 @@ function createHandler(rootDir, options = {}) {
       if (tokenConfigSlug && req.method === 'GET') {
         const detail = await fetchCmcCoinDetail(tokenConfigSlug);
         const tokenRow = buildTokenConfigRow(detail);
+        const pairRow = await buildPairConfigRow(detail);
         return send(res, 200, 'application/json; charset=utf-8', JSON.stringify({
           slug: detail.slug,
           name: detail.name,
@@ -249,7 +250,8 @@ function createHandler(rootDir, options = {}) {
           rank: detail.rank,
           platforms: detail.platforms,
           chainNames: Array.from(new Set((detail.platforms || []).map((platform) => platform.contractPlatform).filter(Boolean))),
-          tokenConfig: tokenRow
+          tokenConfig: tokenRow,
+          pairConfig: pairRow
         }, null, 2));
       }
 
