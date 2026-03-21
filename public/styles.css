@@ -1296,6 +1296,7 @@ select.form-input {
 }
 
 .tool-layout {
+  position: relative;
   min-height: 100vh;
   padding: calc(var(--topbar-h) + 36px) 24px 32px;
 }
@@ -1305,8 +1306,15 @@ select.form-input {
   margin: 0 auto 24px;
 }
 
+.tool-hero-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
 .tool-back-wrap {
-  margin-bottom: 12px;
+  margin-bottom: 0;
+  flex: 0 0 auto;
 }
 
 .tool-back-btn {
@@ -1355,6 +1363,7 @@ select.form-input {
 .tool-hero p {
   max-width: 760px;
   margin-top: 12px;
+  margin-left: 70px;
   color: var(--text-secondary);
   font-size: 15px;
 }
@@ -1549,13 +1558,14 @@ select.form-input {
   width: 100%;
   border-collapse: collapse;
   min-width: 760px;
+  table-layout: fixed;
 }
 
 .token-config-table th,
 .token-config-table td {
   padding: 12px 14px;
   border-bottom: 1px solid var(--line);
-  text-align: left;
+  text-align: center;
   vertical-align: middle;
 }
 
@@ -1563,6 +1573,11 @@ select.form-input {
   color: var(--text-secondary);
   font-size: 12px;
   font-weight: 700;
+}
+
+.token-config-table th:first-child {
+  text-align: left;
+  padding-left: 56px;
 }
 
 .token-config-table td {
@@ -1581,6 +1596,8 @@ select.form-input {
   border: 1px solid var(--line);
   background: rgba(12, 24, 43, 0.72);
   color: var(--text-secondary);
+  margin-right: 10px;
+  vertical-align: middle;
 }
 
 .copy-row-btn:hover {
@@ -1597,21 +1614,17 @@ select.form-input {
 .token-name-text {
   display: inline-block;
   line-height: 28px;
+  vertical-align: middle;
 }
 
-.token-copy-head,
-.token-copy-cell,
-.token-symbol-cell,
+.token-symbol-cell {
+  white-space: nowrap;
+  text-align: left !important;
+  padding-left: 18px !important;
+}
+
 .token-cell-center {
   text-align: center !important;
-}
-
-.token-copy-head {
-  width: 72px;
-}
-
-.token-copy-cell {
-  width: 72px;
 }
 
 .token-config-status,
@@ -1747,8 +1760,24 @@ select.form-input {
     padding: calc(var(--topbar-h) + 24px) 16px 24px;
   }
 
+  .tool-back-wrap {
+    flex: 0 0 auto;
+  }
+
+  .tool-hero {
+    padding-left: 0;
+  }
+
+  .tool-hero-head {
+    gap: 12px;
+  }
+
   .tool-hero h1 {
     font-size: 28px;
+  }
+
+  .tool-hero p {
+    margin-left: 60px;
   }
 
   .token-config-card {

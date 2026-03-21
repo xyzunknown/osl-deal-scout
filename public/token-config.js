@@ -140,7 +140,6 @@ function renderPanels() {
           <table class="token-config-table">
             <thead>
               <tr>
-                <th class="token-copy-head">复制</th>
                 <th>币种名称</th>
                 <th>币种全称</th>
                 <th>币种属性</th>
@@ -152,12 +151,10 @@ function renderPanels() {
             </thead>
             <tbody>
               <tr>
-                <td class="token-copy-cell">
+                <td class="token-symbol-cell">
                   <button class="copy-row-btn" type="button" title="复制这一行" aria-label="复制这一行">
                     <span class="copy-row-btn-icon">⧉</span>
                   </button>
-                </td>
-                <td class="token-symbol-cell">
                   <span class="token-name-text">${escHtml(row.tokenName)}</span>
                 </td>
                 <td>
