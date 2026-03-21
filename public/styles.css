@@ -101,6 +101,14 @@ textarea {
   color: var(--text);
 }
 
+.topbar-brand-static {
+  cursor: default;
+}
+
+.topbar-brand-static:hover .brand-name {
+  color: var(--text-secondary);
+}
+
 .topbar-brand:focus-visible {
   outline: 2px solid var(--accent-2);
   outline-offset: 4px;
@@ -1297,6 +1305,34 @@ select.form-input {
   margin: 0 auto 24px;
 }
 
+.tool-hero-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tool-back-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background: rgba(12, 24, 43, 0.78);
+  color: var(--text);
+}
+
+.tool-back-btn:hover {
+  background: rgba(87, 164, 255, 0.12);
+  border-color: rgba(87, 164, 255, 0.3);
+}
+
+.tool-back-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
 .tool-eyebrow {
   display: inline-flex;
   align-items: center;
@@ -1532,11 +1568,61 @@ select.form-input {
   font-size: 13px;
 }
 
+.token-name-cell {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.copy-row-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: rgba(12, 24, 43, 0.72);
+  color: var(--text-secondary);
+}
+
+.copy-row-btn:hover {
+  color: var(--text);
+  border-color: rgba(87, 164, 255, 0.32);
+  background: rgba(87, 164, 255, 0.12);
+}
+
+.copy-row-btn-icon {
+  font-size: 14px;
+  line-height: 1;
+}
+
 .token-config-status,
 .token-config-error,
 .token-config-loading {
   margin-top: 14px;
   font-size: 13px;
+}
+
+.token-config-remark {
+  margin-top: 14px;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.token-config-remark a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.token-config-remark a:hover {
+  text-decoration: underline;
+}
+
+.token-config-verify-note {
+  margin-top: 8px;
+  color: #ffb27a;
+  font-size: 12px;
 }
 
 .token-config-error {
@@ -1651,6 +1737,11 @@ select.form-input {
   .token-config-card {
     padding: 18px;
     border-radius: 18px;
+  }
+
+  .tool-back-btn {
+    width: 38px;
+    height: 38px;
   }
 
   .token-config-result-head {

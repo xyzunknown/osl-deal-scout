@@ -8,6 +8,7 @@ const state = {
   searchResults: [],
   selectedCoin: null,
   tokenConfig: null,
+  chainNames: [],
   loading: false,
   error: ''
 };
@@ -85,6 +86,34 @@ function renderStatus() {
   meta.textContent = `${state.selectedCoin.fullName || state.selectedCoin.name} / ${state.selectedCoin.symbol || ''} / ${rank}${addr ? ` / ${shortenAddress(addr)}` : ''}`;
 }
 
+function rowCopyText() {
+  if (!state.tokenConfig) return '';
+  const row = state.tokenConfig;
+  const lines = [
+    row.tokenName,
+    row.tokenFullName,
+    row.tokenAttribute,
+    row.displayPrecision,
+    row.usagePrecision,
+    row.tokenSymbol,
+    row.tokenPrice
+  ];
+  const remark = [row.remark, row.verificationNote].filter(Boolean).join(' ');
+  return remark ? `${lines.join('\t')}\n${remark}` : lines.join('\t');
+}
+
+function renderRemarkHtml(row) {
+  const chains = Array.isArray(row.chainNames) ? row.chainNames.filter(Boolean) : [];
+  const chainText = chains.join('/');
+  const sourceChain = row.precisionSourceChain || '';
+  const sourceUrl = row.precisionSourceUrl || '';
+  if (!chainText || !sourceChain) return '';
+  const sourceLabel = sourceUrl
+    ? `<a href="${escHtml(sourceUrl)}" target="_blank" rel="noreferrer">${escHtml(sourceChain)}</a>`
+    : escHtml(sourceChain);
+  return `该币种分别有${escHtml(chainText)}几条链，使用精度取自${sourceLabel}链。`;
+}
+
 function renderPanels() {
   const root = byId('tokenConfigPanels');
   root.innerHTML = '';
@@ -103,6 +132,7 @@ function renderPanels() {
             <div class="token-config-panel-title">币种配置表</div>
             <div class="token-config-panel-subtitle">数据源：CoinMarketCap；使用精度取多链合约中的最小 decimals。</div>
           </div>
+          <button id="copyVisibleTabBtn" class="btn btn-sm" type="button">复制当前表</button>
         </div>
         <div class="token-config-table-wrap">
           <table class="token-config-table">
@@ -119,7 +149,14 @@ function renderPanels() {
             </thead>
             <tbody>
               <tr>
-                <td>${escHtml(row.tokenName)}</td>
+                <td>
+                  <div class="token-name-cell">
+                    <button class="copy-row-btn" type="button" title="复制这一行" aria-label="复制这一行">
+                      <span class="copy-row-btn-icon">⧉</span>
+                    </button>
+                    <span>${escHtml(row.tokenName)}</span>
+                  </div>
+                </td>
                 <td>${escHtml(row.tokenFullName)}</td>
                 <td>${escHtml(row.tokenAttribute)}</td>
                 <td>${escHtml(row.displayPrecision)}</td>
@@ -130,26 +167,61 @@ function renderPanels() {
             </tbody>
           </table>
         </div>
+        <div class="token-config-remark">${renderRemarkHtml(row)}</div>
+        ${row.verificationNote ? `<div class="token-config-verify-note">${escHtml(row.verificationNote)}</div>` : ''}
       `;
     }
   } else if (state.activeTab === 'chain') {
     panel.innerHTML = `
-      <div class="token-config-panel-title">币链配置表</div>
+      <div class="token-config-panel-head">
+        <div class="token-config-panel-title">币链配置表</div>
+        <button id="copyVisibleTabBtn" class="btn btn-sm" type="button" disabled>复制当前表</button>
+      </div>
       <div class="token-config-panel-note">这张表会和币种配置表分开维护，适合放更长的链路参数。你把字段定义给我后，我按独立布局接进去。</div>
     `;
   } else if (state.activeTab === 'pair') {
     panel.innerHTML = `
-      <div class="token-config-panel-title">币对配置表</div>
+      <div class="token-config-panel-head">
+        <div class="token-config-panel-title">币对配置表</div>
+        <button id="copyVisibleTabBtn" class="btn btn-sm" type="button" disabled>复制当前表</button>
+      </div>
       <div class="token-config-panel-note">这张表会预留更密集的交易对字段，不和币种基础信息混排。</div>
     `;
   } else {
     panel.innerHTML = `
-      <div class="token-config-panel-title">合约配置表</div>
+      <div class="token-config-panel-head">
+        <div class="token-config-panel-title">合约配置表</div>
+        <button id="copyVisibleTabBtn" class="btn btn-sm" type="button" disabled>复制当前表</button>
+      </div>
       <div class="token-config-panel-note">这张表会按合约维度展示，支持更长地址、链名和补充说明。</div>
     `;
   }
 
   root.appendChild(panel);
+  const copyBtn = byId('copyVisibleTabBtn');
+  if (copyBtn) {
+    copyBtn.disabled = !buildCopyText();
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await copyCurrentTab();
+      } catch (error) {
+        state.error = '复制失败：' + error.message;
+        renderStatus();
+      }
+    });
+  }
+  const rowCopyBtn = root.querySelector('.copy-row-btn');
+  if (rowCopyBtn) {
+    rowCopyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(rowCopyText());
+        byId('tokenConfigStatus').textContent = '该行信息已复制';
+      } catch (error) {
+        state.error = '复制失败：' + error.message;
+        renderStatus();
+      }
+    });
+  }
 }
 
 function buildCopyText() {
@@ -167,7 +239,7 @@ function buildCopyText() {
 
 function renderCopyButton() {
   const btn = byId('copyVisibleTabBtn');
-  btn.disabled = !buildCopyText();
+  if (btn) btn.disabled = !buildCopyText();
 }
 
 async function copyCurrentTab() {
@@ -233,10 +305,12 @@ async function selectCoin(item) {
   try {
     const data = await fetchJson(`/api/token-config/coin/${encodeURIComponent(item.slug)}`);
     state.tokenConfig = data.tokenConfig || null;
+    state.chainNames = data.chainNames || [];
     state.activeTab = 'token';
   } catch (error) {
     state.error = '抓取失败：' + error.message;
     state.tokenConfig = null;
+    state.chainNames = [];
   } finally {
     state.loading = false;
     renderTabs();
@@ -265,14 +339,16 @@ function bindEvents() {
     }
   });
 
-  byId('copyVisibleTabBtn').addEventListener('click', async () => {
-    try {
-      await copyCurrentTab();
-    } catch (error) {
-      state.error = '复制失败：' + error.message;
-      renderStatus();
-    }
-  });
+  const backBtn = byId('backToDashboardBtn');
+  if (backBtn) {
+    backBtn.addEventListener('click', () => {
+      if (window.history.length > 1) {
+        window.history.back();
+        return;
+      }
+      window.location.href = backBtn.dataset.fallbackHref || withBasePath('/');
+    });
+  }
 }
 
 (function init() {

@@ -248,6 +248,7 @@ function createHandler(rootDir, options = {}) {
           symbol: detail.symbol,
           rank: detail.rank,
           platforms: detail.platforms,
+          chainNames: Array.from(new Set((detail.platforms || []).map((platform) => platform.contractPlatform).filter(Boolean))),
           tokenConfig: tokenRow
         }, null, 2));
       }
