@@ -83,7 +83,7 @@ function renderStatus() {
   }
   const rank = state.selectedCoin.rank ? `#${state.selectedCoin.rank}` : '未排名';
   const addr = state.selectedCoin.contractAddress || '';
-  meta.textContent = `${state.selectedCoin.fullName || state.selectedCoin.name} / ${state.selectedCoin.symbol || ''} / ${rank}${addr ? ` / ${shortenAddress(addr)}` : ''}`;
+  meta.textContent = `${state.selectedCoin.fullName || state.selectedCoin.name} / ${state.selectedCoin.symbol || ''} / ${rank}${addr ? ` / ${addr}` : ''}`;
 }
 
 function rowCopyText() {
@@ -140,6 +140,7 @@ function renderPanels() {
           <table class="token-config-table">
             <thead>
               <tr>
+                <th class="token-copy-head">复制</th>
                 <th>币种名称</th>
                 <th>币种全称</th>
                 <th>币种属性</th>
@@ -151,20 +152,22 @@ function renderPanels() {
             </thead>
             <tbody>
               <tr>
-                <td>
-                  <div class="token-name-cell">
-                    <button class="copy-row-btn" type="button" title="复制这一行" aria-label="复制这一行">
-                      <span class="copy-row-btn-icon">⧉</span>
-                    </button>
-                    <span class="token-name-text">${escHtml(row.tokenName)}</span>
-                  </div>
+                <td class="token-copy-cell">
+                  <button class="copy-row-btn" type="button" title="复制这一行" aria-label="复制这一行">
+                    <span class="copy-row-btn-icon">⧉</span>
+                  </button>
                 </td>
-                <td>${escHtml(row.tokenFullName)}</td>
-                <td>${escHtml(row.tokenAttribute)}</td>
-                <td>${escHtml(row.displayPrecision)}</td>
-                <td>${escHtml(row.usagePrecision)}</td>
-                <td>${escHtml(row.tokenSymbol)}</td>
-                <td>${escHtml(row.tokenPrice)}</td>
+                <td class="token-symbol-cell">
+                  <span class="token-name-text">${escHtml(row.tokenName)}</span>
+                </td>
+                <td>
+                  ${escHtml(row.tokenFullName)}
+                </td>
+                <td class="token-cell-center">${escHtml(row.tokenAttribute)}</td>
+                <td class="token-cell-center">${escHtml(row.displayPrecision)}</td>
+                <td class="token-cell-center">${escHtml(row.usagePrecision)}</td>
+                <td class="token-cell-center">${escHtml(row.tokenSymbol)}</td>
+                <td class="token-cell-center">${escHtml(row.tokenPrice)}</td>
               </tr>
             </tbody>
           </table>
