@@ -89,7 +89,7 @@ function renderStatus() {
 function rowCopyText() {
   if (!state.tokenConfig) return '';
   const row = state.tokenConfig;
-  const lines = [
+  return [
     row.tokenName,
     row.tokenFullName,
     row.tokenAttribute,
@@ -97,21 +97,23 @@ function rowCopyText() {
     row.usagePrecision,
     row.tokenSymbol,
     row.tokenPrice
-  ];
-  const remark = [row.remark, row.verificationNote].filter(Boolean).join(' ');
-  return remark ? `${lines.join('\t')}\n${remark}` : lines.join('\t');
+  ].join('\t');
 }
 
 function renderRemarkHtml(row) {
-  const chains = Array.isArray(row.chainNames) ? row.chainNames.filter(Boolean) : [];
-  const chainText = chains.join('/');
+  const chains = Array.isArray(row.remarkChains) ? row.remarkChains.filter((item) => item && item.name) : [];
   const sourceChain = row.precisionSourceChain || '';
   const sourceUrl = row.precisionSourceUrl || '';
-  if (!chainText || !sourceChain) return '';
+  if (!chains.length || !sourceChain) return '';
+  const chainText = chains.map((item) => {
+    const label = escHtml(item.name);
+    if (!item.url) return label;
+    return `<a href="${escHtml(item.url)}" target="_blank" rel="noreferrer">${label}</a>`;
+  }).join('/');
   const sourceLabel = sourceUrl
     ? `<a href="${escHtml(sourceUrl)}" target="_blank" rel="noreferrer">${escHtml(sourceChain)}</a>`
     : escHtml(sourceChain);
-  return `该币种分别有${escHtml(chainText)}几条链，使用精度取自${sourceLabel}链。`;
+  return `该币种分别有${chainText}几条链，使用精度取自${sourceLabel}链。`;
 }
 
 function renderPanels() {
@@ -154,7 +156,7 @@ function renderPanels() {
                     <button class="copy-row-btn" type="button" title="复制这一行" aria-label="复制这一行">
                       <span class="copy-row-btn-icon">⧉</span>
                     </button>
-                    <span>${escHtml(row.tokenName)}</span>
+                    <span class="token-name-text">${escHtml(row.tokenName)}</span>
                   </div>
                 </td>
                 <td>${escHtml(row.tokenFullName)}</td>

@@ -1569,13 +1569,15 @@ select.form-input {
 }
 
 .token-name-cell {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+  min-height: 28px;
 }
 
 .copy-row-btn {
   display: inline-flex;
+  flex: 0 0 28px;
   align-items: center;
   justify-content: center;
   width: 28px;
@@ -1595,6 +1597,11 @@ select.form-input {
 .copy-row-btn-icon {
   font-size: 14px;
   line-height: 1;
+}
+
+.token-name-text {
+  display: inline-block;
+  line-height: 28px;
 }
 
 .token-config-status,
