@@ -90,6 +90,21 @@ textarea {
   align-items: center;
   gap: 8px;
   flex-shrink: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.topbar-brand:hover .brand-name {
+  color: var(--text);
+}
+
+.topbar-brand:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 4px;
+  border-radius: 12px;
 }
 
 .brand-logo {
@@ -1263,6 +1278,293 @@ select.form-input {
   }
 }
 
+/* ===== TOKEN CONFIG PAGE ===== */
+.tool-page {
+  overflow: auto;
+  background:
+    radial-gradient(circle at top left, rgba(87, 164, 255, 0.12), transparent 28%),
+    radial-gradient(circle at top right, rgba(124, 255, 213, 0.08), transparent 24%),
+    var(--bg);
+}
+
+.tool-layout {
+  min-height: 100vh;
+  padding: calc(var(--topbar-h) + 36px) 24px 32px;
+}
+
+.tool-hero {
+  max-width: 980px;
+  margin: 0 auto 24px;
+}
+
+.tool-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(87, 164, 255, 0.14);
+  color: var(--accent-2);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.tool-hero h1 {
+  margin-top: 14px;
+  font-size: 34px;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.tool-hero p {
+  max-width: 760px;
+  margin-top: 12px;
+  color: var(--text-secondary);
+  font-size: 15px;
+}
+
+.token-config-card {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(13, 24, 43, 0.94), rgba(8, 15, 28, 0.96));
+  box-shadow: 0 22px 80px rgba(0, 0, 0, 0.28);
+}
+
+.token-config-search input {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid var(--line-strong);
+  background: rgba(15, 28, 49, 0.9);
+  color: var(--text);
+  font-size: 15px;
+  outline: none;
+}
+
+.token-config-search input:focus {
+  border-color: var(--accent-2);
+  box-shadow: 0 0 0 3px rgba(87, 164, 255, 0.14);
+}
+
+.token-config-searchbox {
+  position: relative;
+}
+
+.token-config-label {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.token-config-hint {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.token-config-tabs {
+  display: flex;
+  gap: 8px;
+  margin-top: 22px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+  overflow-x: auto;
+}
+
+.token-config-tabs .tab-btn[disabled] {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.token-config-result-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.token-selection-meta {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.token-search-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  z-index: 40;
+  max-height: 380px;
+  overflow-y: auto;
+  border: 1px solid var(--line-strong);
+  border-radius: 16px;
+  background: rgba(6, 12, 22, 0.98);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.38);
+}
+
+.token-search-item {
+  display: block;
+  width: 100%;
+  padding: 14px 16px;
+  border: none;
+  background: none;
+  color: var(--text);
+  text-align: left;
+}
+
+.token-search-item + .token-search-item {
+  border-top: 1px solid var(--line);
+}
+
+.token-search-item:hover {
+  background: rgba(87, 164, 255, 0.08);
+}
+
+.token-search-item-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.token-search-item-symbol {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.token-search-item-rank {
+  color: var(--accent);
+  font-size: 12px;
+}
+
+.token-search-item-name {
+  margin-top: 4px;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.token-search-item-meta {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 12px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.token-config-panels {
+  margin-top: 20px;
+}
+
+.token-config-panel {
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(8, 16, 28, 0.9);
+}
+
+.token-config-panel-token {
+  min-height: 260px;
+}
+
+.token-config-panel-chain {
+  min-height: 180px;
+}
+
+.token-config-panel-pair {
+  min-height: 220px;
+}
+
+.token-config-panel-contract {
+  min-height: 200px;
+}
+
+.token-config-panel-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.token-config-panel-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.token-config-panel-subtitle,
+.token-config-panel-note,
+.token-config-panel-empty,
+.token-config-status {
+  color: var(--text-secondary);
+}
+
+.token-config-table-wrap {
+  overflow-x: auto;
+}
+
+.token-config-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 760px;
+}
+
+.token-config-table th,
+.token-config-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.token-config-table th {
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.token-config-table td {
+  color: var(--text);
+  font-size: 13px;
+}
+
+.token-config-status,
+.token-config-error,
+.token-config-loading {
+  margin-top: 14px;
+  font-size: 13px;
+}
+
+.token-config-error {
+  color: #ff9b8a;
+}
+
+.token-config-loading {
+  color: var(--accent);
+}
+
+.token-config-placeholder {
+  margin-top: 22px;
+  padding: 22px;
+  border: 1px dashed rgba(146, 187, 255, 0.24);
+  border-radius: 18px;
+  background: rgba(9, 18, 31, 0.66);
+}
+
+.token-config-placeholder-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.token-config-placeholder p {
+  margin-top: 10px;
+  color: var(--text-secondary);
+}
+
 /* Mobile: tabs at bottom */
 @media (max-width: 768px) {
   .topbar-search {
@@ -1336,6 +1638,28 @@ select.form-input {
   .mobile-nav-btn svg {
     width: 20px;
     height: 20px;
+  }
+
+  .tool-layout {
+    padding: calc(var(--topbar-h) + 24px) 16px 24px;
+  }
+
+  .tool-hero h1 {
+    font-size: 28px;
+  }
+
+  .token-config-card {
+    padding: 18px;
+    border-radius: 18px;
+  }
+
+  .token-config-result-head {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .token-config-tabs {
+    padding-bottom: 10px;
   }
 
   .source-row {

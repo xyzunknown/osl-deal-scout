@@ -1,7 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
-const { buildDashboardHtml, collectLeads, formatDigest, runDigest } = require('./lib/engine');
+const { buildDashboardHtml, buildTokenConfigHtml, buildTokenConfigRow, collectLeads, fetchCmcCoinDetail, formatDigest, runDigest, searchCmcCatalog } = require('./lib/engine');
 const { readJson, resolveDataPath, writeJson } = require('./lib/store');
 
 const ROOT_DIR = __dirname;
@@ -59,12 +59,20 @@ function createHandler(rootDir, options = {}) {
         return send(res, 200, 'text/html; charset=utf-8', buildDashboardHtml(rootDir, { basePath }));
       }
 
+      if (pathname === '/token-config') {
+        return send(res, 200, 'text/html; charset=utf-8', buildTokenConfigHtml(rootDir, { basePath }));
+      }
+
       if (pathname === '/styles.css') {
         return send(res, 200, 'text/css; charset=utf-8', fs.readFileSync(path.join(publicDir, 'styles.css')));
       }
 
       if (pathname === '/app.js') {
         return send(res, 200, 'application/javascript; charset=utf-8', fs.readFileSync(path.join(publicDir, 'app.js')));
+      }
+
+      if (pathname === '/token-config.js') {
+        return send(res, 200, 'application/javascript; charset=utf-8', fs.readFileSync(path.join(publicDir, 'token-config.js')));
       }
 
       if (pathname === '/favicon.svg') {
@@ -222,6 +230,26 @@ function createHandler(rootDir, options = {}) {
           'Content-Disposition': 'attachment; filename="osl-deal-scout-export.csv"'
         });
         return res.end(csvContent);
+      }
+
+      if (pathname === '/api/token-config/search' && req.method === 'GET') {
+        const keyword = String(originalUrl.searchParams.get('q') || '').trim();
+        const results = keyword ? await searchCmcCatalog(keyword, { limit: 8, catalogLimit: 2000 }) : [];
+        return send(res, 200, 'application/json; charset=utf-8', JSON.stringify({ query: keyword, results }, null, 2));
+      }
+
+      const tokenConfigSlug = extractPathParam(pathname, '/api/token-config/coin/');
+      if (tokenConfigSlug && req.method === 'GET') {
+        const detail = await fetchCmcCoinDetail(tokenConfigSlug);
+        const tokenRow = buildTokenConfigRow(detail);
+        return send(res, 200, 'application/json; charset=utf-8', JSON.stringify({
+          slug: detail.slug,
+          name: detail.name,
+          symbol: detail.symbol,
+          rank: detail.rank,
+          platforms: detail.platforms,
+          tokenConfig: tokenRow
+        }, null, 2));
       }
 
       return send(res, 404, 'text/plain; charset=utf-8', 'Not found');

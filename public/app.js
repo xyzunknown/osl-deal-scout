@@ -153,6 +153,46 @@ let filterHongKong = '';
 let sortBy = 'score';
 let activePool = 'bd';
 
+function defaultHomeSlug() {
+  const allProjects = allKnownProjects();
+  if (!allProjects.length) return '';
+  const preferred = allProjects.find(hasLiveSignals) || allProjects[0];
+  return preferred ? preferred.slug : '';
+}
+
+function resetWorkbenchHome() {
+  searchQuery = '';
+  filterSector = '';
+  filterPriority = '';
+  filterFreshness = '';
+  filterHongKong = '';
+  sortBy = 'score';
+  activePool = 'bd';
+  activeTab = 'overview';
+  selectedSlug = defaultHomeSlug();
+
+  const searchInput = byId('searchInput');
+  const filterSectorInput = byId('filterSector');
+  const filterPriorityInput = byId('filterPriority');
+  const filterFreshnessInput = byId('filterFreshness');
+  const filterHongKongInput = byId('filterHongKong');
+  const sortByInput = byId('sortBy');
+  if (searchInput) searchInput.value = '';
+  if (filterSectorInput) filterSectorInput.value = '';
+  if (filterPriorityInput) filterPriorityInput.value = '';
+  if (filterFreshnessInput) filterFreshnessInput.value = '';
+  if (filterHongKongInput) filterHongKongInput.value = '';
+  if (sortByInput) sortByInput.value = 'score';
+
+  renderPoolTabs();
+  renderProjectList();
+  renderDetail();
+  renderSidebar();
+
+  if (selectedSlug) setHash(selectedSlug, 'overview');
+  else if (window.location.hash) window.history.replaceState(null, '', window.location.pathname + window.location.search);
+}
+
 function hasLiveSignals(project) {
   const live = project && project.liveSignals;
   return Boolean(live && (live.coingecko || live.defillama || live.website || live.rootdata || live.cryptorank));
@@ -1180,6 +1220,14 @@ byId('digestOnly').addEventListener('click', async () => {
   }
 });
 
+const digestViewTextBtn = byId('digestViewText');
+if (digestViewTextBtn) {
+  digestViewTextBtn.addEventListener('click', () => {
+    digestMenu.classList.remove('open');
+    window.open(withBasePath('/api/digest'), '_blank');
+  });
+}
+
 byId('digestPush').addEventListener('click', async () => {
   digestMenu.classList.remove('open');
   const confirmed = await showConfirm('推送确认', '确定要生成日报并推送到 Telegram 吗？');
@@ -1214,6 +1262,13 @@ byId('searchInput').addEventListener('input', (e) => {
     renderProjectList();
   }, 200);
 });
+
+const homeBtn = byId('homeBtn');
+if (homeBtn) {
+  homeBtn.addEventListener('click', () => {
+    resetWorkbenchHome();
+  });
+}
 
 // Filters
 byId('filterSector').addEventListener('change', (e) => { filterSector = e.target.value; renderProjectList(); });
