@@ -217,6 +217,13 @@ function renderTruncatedLink(url, mode) {
   return `<a class="token-link token-ellipsis" href="${escHtml(full)}" target="_blank" rel="noreferrer" title="${escHtml(full)}">${escHtml(display)}</a>`;
 }
 
+function renderCopyableAddress(address) {
+  const full = String(address || '').trim();
+  if (!full) return '<span class="token-empty">—</span>';
+  const display = middleEllipsis(full, { head: 8, tail: 6 });
+  return `<button class="token-copy-surface token-ellipsis token-code-text" type="button" data-copy-value="${escHtml(full)}" title="点击复制">${escHtml(display)}</button>`;
+}
+
 function renderPanels() {
   const root = byId('tokenConfigPanels');
   root.innerHTML = '';
@@ -317,7 +324,7 @@ function renderPanels() {
                   <td>${renderEllipsisSpan(row.networkFullName || '—', row.networkFullName || '')}</td>
                   <td class="token-cell-center">${renderEllipsisSpan(row.networkShortName || '—', row.networkShortName || '')}</td>
                   <td class="token-cell-left">${renderTruncatedLink(row.browserUrl, 'url')}</td>
-                  <td class="token-cell-left">${renderEllipsisSpan(middleEllipsis(row.contractAddress || '', { head: 8, tail: 6 }), row.contractAddress || '', ' token-code-text')}</td>
+                  <td class="token-cell-left">${renderCopyableAddress(row.contractAddress)}</td>
                   <td class="token-cell-left">${renderTruncatedLink(row.cmcUrl, 'url')}</td>
                 </tr>
               `).join('')}
@@ -419,6 +426,22 @@ function renderPanels() {
         }
         byId('tokenConfigStatus').textContent = '该行信息已复制';
         showToast('该行信息已复制', 'success');
+      } catch (error) {
+        state.error = '复制失败：' + error.message;
+        showToast('复制失败：' + error.message, 'error');
+        renderStatus();
+      }
+    });
+  });
+
+  root.querySelectorAll('.token-copy-surface').forEach((button) => {
+    button.addEventListener('click', async () => {
+      try {
+        const text = String(button.dataset.copyValue || '').trim();
+        if (!text) return;
+        await navigator.clipboard.writeText(text);
+        byId('tokenConfigStatus').textContent = '已复制完整地址';
+        showToast('已复制完整地址', 'success');
       } catch (error) {
         state.error = '复制失败：' + error.message;
         showToast('复制失败：' + error.message, 'error');

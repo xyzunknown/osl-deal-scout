@@ -1728,6 +1728,31 @@ select.form-input {
   text-decoration: underline;
 }
 
+.token-copy-surface {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition), color var(--transition);
+}
+
+.token-copy-surface:hover,
+.token-copy-surface:focus-visible {
+  background: rgba(87, 164, 255, 0.08);
+  border-color: rgba(87, 164, 255, 0.18);
+  color: #f4f8ff;
+  outline: none;
+}
+
+.token-copy-surface:active {
+  background: rgba(87, 164, 255, 0.12);
+}
+
 .token-empty {
   color: var(--muted);
 }
