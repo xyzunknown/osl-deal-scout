@@ -1,6 +1,7 @@
 const assert = require('assert');
 const {
   analyzeWebsiteDiscoverySignals,
+  buildChainConfig,
   buildRadarPromotionDecision,
   classifyLeadEntity,
   classifyMentionSource,
@@ -216,6 +217,40 @@ assert.strictEqual(
   '2026-03-18T09:00:00.000Z',
   'retained radar projects should carry forward a retention timestamp'
 );
+
+const nativeBitcoinChain = buildChainConfig({
+  slug: 'bitcoin',
+  symbol: 'BTC',
+  platforms: []
+});
+
+assert.strictEqual(nativeBitcoinChain.rows.length, 1, 'bitcoin should show one native chain row');
+assert.strictEqual(nativeBitcoinChain.rows[0].networkFullName, 'Bitcoin', 'bitcoin should map to Bitcoin mainnet');
+assert.strictEqual(nativeBitcoinChain.rows[0].contractAddress, '', 'bitcoin native row should not invent a contract address');
+
+const nativeSolanaChain = buildChainConfig({
+  slug: 'solana',
+  symbol: 'SOL',
+  platforms: []
+});
+
+assert.strictEqual(nativeSolanaChain.rows.length, 1, 'solana should show one native chain row');
+assert.strictEqual(nativeSolanaChain.rows[0].browserUrl, 'https://explorer.solana.com', 'solana should map to the Solana explorer');
+
+const erc20Chain = buildChainConfig({
+  slug: 'tether',
+  symbol: 'USDT',
+  platforms: [
+    {
+      contractPlatform: 'Ethereum',
+      contractExplorerUrl: 'https://etherscan.io/token/0xdac17f958d2ee523a2206206994597c13d831ec7',
+      contractAddress: '0xdAC17F958D2ee523a2206206994597C13D831ec7'
+    }
+  ]
+});
+
+assert.strictEqual(erc20Chain.rows.length, 1, 'erc20 tokens should keep their existing chain rows');
+assert.strictEqual(erc20Chain.rows[0].networkFullName, 'Ethereum(ERC20)', 'erc20 rows should still use the existing chain preset');
 
 assert.strictEqual(
   shouldDisplayInRadarPool({ score: 15 }),
