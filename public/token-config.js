@@ -103,8 +103,7 @@ function rowCopyText() {
 
 function pairCopyText() {
   if (!state.pairConfig) return '';
-  const row = state.pairConfig;
-  return [
+  return (state.pairConfig.rows || []).map((row) => [
     row.pair,
     row.minTradeQuantity,
     row.maxTradeQuantity,
@@ -113,7 +112,7 @@ function pairCopyText() {
     row.pricePrecision,
     row.quantityPrecision,
     row.currentPrice
-  ].join('\t');
+  ].join('\t')).join('\n');
 }
 
 function renderRemarkHtml(row) {
@@ -133,15 +132,7 @@ function renderRemarkHtml(row) {
 }
 
 function renderPairRemarkHtml(row) {
-  if (!row || !row.precisionSourceExchange) return '';
-  const label = escHtml(row.precisionSourceExchange);
-  const source = row.precisionSourceUrl
-    ? `<a href="${escHtml(row.precisionSourceUrl)}" target="_blank" rel="noreferrer">${label}</a>`
-    : label;
-  if (row.precisionSourceResolved === false) {
-    return `暂未从${source}交易所接口拿到价格精度和数量精度。`;
-  }
-  return `该币种价格精度和数量精度取自${source}交易所。`;
+  return row && row.remarkHtml ? row.remarkHtml : '';
 }
 
 function renderPanels() {
@@ -213,12 +204,12 @@ function renderPanels() {
     if (!state.pairConfig) {
       panel.innerHTML = '<div class="token-config-panel-empty">搜索并选择币种后，这里会生成币对配置表。</div>';
     } else {
-      const row = state.pairConfig;
+      const rows = Array.isArray(state.pairConfig.rows) ? state.pairConfig.rows : [];
       panel.innerHTML = `
         <div class="token-config-panel-head">
           <div>
             <div class="token-config-panel-title">币对配置表</div>
-            <div class="token-config-panel-subtitle">默认展示所选币种的 USDT 现货交易对。</div>
+            <div class="token-config-panel-subtitle">默认展示所选币种的 USDT 现货交易对；若 Indodax 存在 IDR 交易对，则追加显示。</div>
           </div>
           <button id="copyVisibleTabBtn" class="btn btn-sm" type="button">复制当前表</button>
         </div>
@@ -237,20 +228,27 @@ function renderPanels() {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td class="token-cell-center">${escHtml(row.pair)}</td>
-                <td class="token-cell-center">${escHtml(row.minTradeQuantity)}</td>
-                <td class="token-cell-center">${escHtml(row.maxTradeQuantity)}</td>
-                <td class="token-cell-center">${escHtml(row.minOrderAmount)}</td>
-                <td class="token-cell-center">${escHtml(row.maxOrderAmount)}</td>
-                <td class="token-cell-center">${escHtml(row.pricePrecision)}</td>
-                <td class="token-cell-center">${escHtml(row.quantityPrecision)}</td>
-                <td class="token-cell-center">${escHtml(row.currentPrice)}</td>
-              </tr>
+              ${rows.map((row, index) => `
+                <tr>
+                  <td class="token-symbol-cell">
+                    <button class="copy-row-btn pair-copy-btn" type="button" data-row-index="${index}" title="复制这一行" aria-label="复制这一行">
+                      <span class="copy-row-btn-icon">⧉</span>
+                    </button>
+                    <span class="token-name-text">${escHtml(row.pair)}</span>
+                  </td>
+                  <td class="token-cell-center">${escHtml(row.minTradeQuantity)}</td>
+                  <td class="token-cell-center">${escHtml(row.maxTradeQuantity)}</td>
+                  <td class="token-cell-center">${escHtml(row.minOrderAmount)}</td>
+                  <td class="token-cell-center">${escHtml(row.maxOrderAmount)}</td>
+                  <td class="token-cell-center">${escHtml(row.pricePrecision)}</td>
+                  <td class="token-cell-center">${escHtml(row.quantityPrecision)}</td>
+                  <td class="token-cell-center">${escHtml(row.currentPrice)}</td>
+                </tr>
+              `).join('')}
             </tbody>
           </table>
         </div>
-        <div class="token-config-remark">${renderPairRemarkHtml(row)}</div>
+        <div class="token-config-remark">${renderPairRemarkHtml(state.pairConfig)}</div>
       `;
     }
   } else {
@@ -276,18 +274,24 @@ function renderPanels() {
       }
     });
   }
-  const rowCopyBtn = root.querySelector('.copy-row-btn');
-  if (rowCopyBtn) {
-    rowCopyBtn.addEventListener('click', async () => {
+  root.querySelectorAll('.copy-row-btn').forEach((button) => {
+    button.addEventListener('click', async () => {
       try {
-        await navigator.clipboard.writeText(rowCopyText());
+        if (state.activeTab === 'pair') {
+          const index = Number(button.dataset.rowIndex || -1);
+          const row = state.pairConfig && Array.isArray(state.pairConfig.rows) ? state.pairConfig.rows[index] : null;
+          if (!row) return;
+          await navigator.clipboard.writeText(row.rowCopyText || '');
+        } else {
+          await navigator.clipboard.writeText(rowCopyText());
+        }
         byId('tokenConfigStatus').textContent = '该行信息已复制';
       } catch (error) {
         state.error = '复制失败：' + error.message;
         renderStatus();
       }
     });
-  }
+  });
 }
 
 function buildCopyText() {
