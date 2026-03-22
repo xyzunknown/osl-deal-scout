@@ -1360,18 +1360,10 @@ select.form-input {
   letter-spacing: -0.03em;
 }
 
-.tool-hero p {
-  max-width: 760px;
-  margin-top: 12px;
-  margin-left: 70px;
-  color: var(--text-secondary);
-  font-size: 15px;
-}
-
 .token-config-card {
   max-width: 980px;
   margin: 0 auto;
-  padding: 24px;
+  padding: 20px 24px 24px;
   border: 1px solid var(--line);
   border-radius: 24px;
   background: linear-gradient(180deg, rgba(13, 24, 43, 0.94), rgba(8, 15, 28, 0.96));
@@ -1406,16 +1398,10 @@ select.form-input {
   font-weight: 700;
 }
 
-.token-config-hint {
-  margin-top: 10px;
-  color: var(--muted);
-  font-size: 13px;
-}
-
 .token-config-tabs {
   display: flex;
   gap: 8px;
-  margin-top: 22px;
+  margin-top: 18px;
   padding-bottom: 14px;
   border-bottom: 1px solid var(--line);
   overflow-x: auto;
@@ -1431,7 +1417,7 @@ select.form-input {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-top: 18px;
+  margin-top: 14px;
 }
 
 .token-selection-meta {
@@ -1774,10 +1760,6 @@ select.form-input {
 
   .tool-hero h1 {
     font-size: 28px;
-  }
-
-  .tool-hero p {
-    margin-left: 60px;
   }
 
   .token-config-card {
