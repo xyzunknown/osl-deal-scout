@@ -25,8 +25,11 @@ function stripBasePath(pathname, basePath) {
   return null;
 }
 
-function send(res, status, contentType, body) {
-  res.writeHead(status, { 'Content-Type': contentType });
+function send(res, status, contentType, body, extraHeaders = {}) {
+  res.writeHead(status, {
+    'Content-Type': contentType,
+    ...extraHeaders
+  });
   res.end(body);
 }
 
@@ -60,11 +63,15 @@ function createHandler(rootDir, options = {}) {
       }
 
       if (pathname === '/token-config') {
-        return send(res, 200, 'text/html; charset=utf-8', buildTokenConfigHtml(rootDir, { basePath }));
+        return send(res, 200, 'text/html; charset=utf-8', buildTokenConfigHtml(rootDir, { basePath }), {
+          'Cache-Control': 'no-store'
+        });
       }
 
       if (pathname === '/styles.css') {
-        return send(res, 200, 'text/css; charset=utf-8', fs.readFileSync(path.join(publicDir, 'styles.css')));
+        return send(res, 200, 'text/css; charset=utf-8', fs.readFileSync(path.join(publicDir, 'styles.css')), {
+          'Cache-Control': 'no-store'
+        });
       }
 
       if (pathname === '/app.js') {
@@ -72,7 +79,9 @@ function createHandler(rootDir, options = {}) {
       }
 
       if (pathname === '/token-config.js') {
-        return send(res, 200, 'application/javascript; charset=utf-8', fs.readFileSync(path.join(publicDir, 'token-config.js')));
+        return send(res, 200, 'application/javascript; charset=utf-8', fs.readFileSync(path.join(publicDir, 'token-config.js')), {
+          'Cache-Control': 'no-store'
+        });
       }
 
       if (pathname === '/favicon.svg') {
@@ -235,7 +244,9 @@ function createHandler(rootDir, options = {}) {
       if (pathname === '/api/token-config/search' && req.method === 'GET') {
         const keyword = String(originalUrl.searchParams.get('q') || '').trim();
         const results = keyword ? await searchCmcCatalog(keyword, { limit: 8, catalogLimit: 2000 }) : [];
-        return send(res, 200, 'application/json; charset=utf-8', JSON.stringify({ query: keyword, results }, null, 2));
+        return send(res, 200, 'application/json; charset=utf-8', JSON.stringify({ query: keyword, results }, null, 2), {
+          'Cache-Control': 'no-store'
+        });
       }
 
       const tokenConfigSlug = extractPathParam(pathname, '/api/token-config/coin/');
@@ -252,7 +263,9 @@ function createHandler(rootDir, options = {}) {
           chainNames: Array.from(new Set((detail.platforms || []).map((platform) => platform.contractPlatform).filter(Boolean))),
           tokenConfig: tokenRow,
           pairConfig: pairRow
-        }, null, 2));
+        }, null, 2), {
+          'Cache-Control': 'no-store'
+        });
       }
 
       return send(res, 404, 'text/plain; charset=utf-8', 'Not found');
