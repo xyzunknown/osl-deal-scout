@@ -34,11 +34,61 @@ function escHtml(value) {
   return div.innerHTML;
 }
 
+function el(tag, cls, text) {
+  const node = document.createElement(tag);
+  if (cls) node.className = cls;
+  if (text !== undefined) node.textContent = text;
+  return node;
+}
+
 function shortenAddress(address) {
   const value = String(address || '').trim();
   if (!value) return '—';
   if (value.length <= 16) return value;
   return `${value.slice(0, 8)}...${value.slice(-6)}`;
+}
+
+function middleEllipsis(value, options = {}) {
+  const text = String(value || '').trim();
+  if (!text) return '—';
+  const head = Math.max(2, Number(options.head || 8));
+  const tail = Math.max(2, Number(options.tail || 6));
+  if (text.length <= head + tail + 3) return text;
+  return `${text.slice(0, head)}...${text.slice(-tail)}`;
+}
+
+function smartUrlDisplay(url) {
+  const text = String(url || '').trim();
+  if (!text) return '—';
+  try {
+    const parsed = new URL(text);
+    const host = parsed.host || parsed.hostname || '';
+    const path = (parsed.pathname || '/') + (parsed.search || '') + (parsed.hash || '');
+    if ((host + path).length <= 44) return `${host}${path}`;
+    return `${host}${middleEllipsis(path || '/', { head: 10, tail: 10 })}`;
+  } catch {
+    return middleEllipsis(text, { head: 18, tail: 10 });
+  }
+}
+
+function ensureToastContainer() {
+  let container = byId('toastContainer');
+  if (container) return container;
+  container = el('div');
+  container.id = 'toastContainer';
+  container.className = 'toast-container';
+  document.body.appendChild(container);
+  return container;
+}
+
+function showToast(msg, type = 'info') {
+  const container = ensureToastContainer();
+  const toast = el('div', `toast toast-${type}`, msg);
+  container.appendChild(toast);
+  setTimeout(() => {
+    toast.classList.add('fade-out');
+    setTimeout(() => toast.remove(), 300);
+  }, 2200);
 }
 
 function tabDefinitions() {
@@ -152,6 +202,21 @@ function renderChainRemarkHtml(config) {
   return config && config.remark ? escHtml(config.remark) : '';
 }
 
+function renderEllipsisSpan(displayText, fullText, extraClass = '') {
+  const safeDisplay = escHtml(displayText || '—');
+  const safeFull = escHtml(fullText || '');
+  const titleAttr = safeFull ? ` title="${safeFull}"` : '';
+  const cls = `token-ellipsis${extraClass ? ` ${extraClass}` : ''}`;
+  return `<span class="${cls}"${titleAttr}>${safeDisplay}</span>`;
+}
+
+function renderTruncatedLink(url, mode) {
+  const full = String(url || '').trim();
+  if (!full) return '<span class="token-empty">—</span>';
+  const display = mode === 'address' ? middleEllipsis(full, { head: 8, tail: 6 }) : smartUrlDisplay(full);
+  return `<a class="token-link token-ellipsis" href="${escHtml(full)}" target="_blank" rel="noreferrer" title="${escHtml(full)}">${escHtml(display)}</a>`;
+}
+
 function renderPanels() {
   const root = byId('tokenConfigPanels');
   root.innerHTML = '';
@@ -224,6 +289,14 @@ function renderPanels() {
         </div>
         <div class="token-config-table-wrap">
           <table class="token-config-table token-config-table-chain">
+            <colgroup>
+              <col class="token-col-symbol" />
+              <col class="token-col-network-full" />
+              <col class="token-col-network-short" />
+              <col class="token-col-browser-url" />
+              <col class="token-col-contract-address" />
+              <col class="token-col-cmc-url" />
+            </colgroup>
             <thead>
               <tr>
                 <th>币种名称</th>
@@ -239,13 +312,13 @@ function renderPanels() {
                 <tr>
                   <td class="token-symbol-cell">
                     <button class="copy-row-btn copy-row-btn-text chain-copy-btn" type="button" data-row-index="${index}" title="复制这一行" aria-label="复制这一行">复制</button>
-                    <span class="token-name-text">${escHtml(row.tokenName)}</span>
+                    <span class="token-name-text" title="${escHtml(row.tokenName || '')}">${escHtml(row.tokenName || '—')}</span>
                   </td>
-                  <td>${escHtml(row.networkFullName || '—')}</td>
-                  <td class="token-cell-center">${escHtml(row.networkShortName || '—')}</td>
-                  <td class="token-cell-left">${row.browserUrl ? `<a href="${escHtml(row.browserUrl)}" target="_blank" rel="noreferrer">${escHtml(row.browserUrl)}</a>` : '—'}</td>
-                  <td class="token-cell-left token-cell-break">${escHtml(row.contractAddress || '—')}</td>
-                  <td class="token-cell-left">${row.cmcUrl ? `<a href="${escHtml(row.cmcUrl)}" target="_blank" rel="noreferrer">${escHtml(row.cmcUrl)}</a>` : '—'}</td>
+                  <td>${renderEllipsisSpan(row.networkFullName || '—', row.networkFullName || '')}</td>
+                  <td class="token-cell-center">${renderEllipsisSpan(row.networkShortName || '—', row.networkShortName || '')}</td>
+                  <td class="token-cell-left">${renderTruncatedLink(row.browserUrl, 'url')}</td>
+                  <td class="token-cell-left">${renderEllipsisSpan(middleEllipsis(row.contractAddress || '', { head: 8, tail: 6 }), row.contractAddress || '', ' token-code-text')}</td>
+                  <td class="token-cell-left">${renderTruncatedLink(row.cmcUrl, 'url')}</td>
                 </tr>
               `).join('')}
             </tbody>
@@ -345,8 +418,10 @@ function renderPanels() {
           await navigator.clipboard.writeText(rowCopyText());
         }
         byId('tokenConfigStatus').textContent = '该行信息已复制';
+        showToast('该行信息已复制', 'success');
       } catch (error) {
         state.error = '复制失败：' + error.message;
+        showToast('复制失败：' + error.message, 'error');
         renderStatus();
       }
     });
@@ -382,6 +457,7 @@ async function copyCurrentTab() {
   if (!text) return;
   await navigator.clipboard.writeText(text);
   byId('tokenConfigStatus').textContent = '当前表格内容已复制';
+  showToast('当前表格内容已复制', 'success');
 }
 
 function renderDropdown() {
