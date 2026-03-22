@@ -42,6 +42,14 @@ function extractPathParam(pathname, prefix) {
   return decodeURIComponent(pathname.slice(prefix.length));
 }
 
+function buildAnnouncementHtml(rootDir, options = {}) {
+  const publicDir = path.join(rootDir, 'public');
+  const basePath = normalizeBasePath(options.basePath || '');
+  const html = fs.readFileSync(path.join(publicDir, 'announcement-generator.html'), 'utf8');
+  const bootstrap = `<script>window.__BASE_PATH__ = ${JSON.stringify(basePath)};</script>`;
+  return html.replace('</head>', `${bootstrap}\n</head>`);
+}
+
 function createHandler(rootDir, options = {}) {
   const publicDir = path.join(rootDir, 'public');
   const basePath = normalizeBasePath(options.basePath || '');
@@ -61,6 +69,15 @@ function createHandler(rootDir, options = {}) {
 
       if (pathname === '/token-config') {
         return send(res, 200, 'text/html; charset=utf-8', buildTokenConfigHtml(rootDir, { basePath }));
+      }
+
+      if (pathname === '/announcement-generator') {
+        return send(
+          res,
+          200,
+          'text/html; charset=utf-8',
+          buildAnnouncementHtml(rootDir, { basePath })
+        );
       }
 
       if (pathname === '/styles.css') {

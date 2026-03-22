@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>多语言公告生成器</title>
+  <style>
+    :root {
+      --bg: #f6f7fb;
+      --app-bg: #07101d;
+      --app-surface: rgba(8, 14, 26, 0.95);
+      --app-surface-2: rgba(12, 22, 40, 0.88);
+      --app-line: rgba(146, 187, 255, 0.12);
+      --app-line-strong: rgba(146, 187, 255, 0.22);
+      --app-text: #ecf4ff;
+      --app-text-secondary: #b0c4de;
+      --app-accent: #57a4ff;
+      --sidebar-width: 290px;
+      --card: #ffffff;
+      --line: #dcdfea;
+      --text: #1f2430;
+      --sub: #5d6472;
+      --blue: #3563e9;
+      --blue2: #edf3ff;
+      --danger: #c92a2a;
+      --ok: #2b8a3e;
+      --shadow: 0 8px 24px rgba(0,0,0,0.06);
+      --radius: 14px;
+      --soft: #fafbff;
+      --topbar-h: 56px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top, rgba(87,164,255,0.14), transparent 28%),
+        linear-gradient(180deg, #07101d 0, #0d1727 220px, var(--bg) 220px, var(--bg) 100%);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--topbar-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 0 20px;
+      background: var(--app-surface);
+      border-bottom: 1px solid var(--app-line);
+      backdrop-filter: blur(16px);
+    }
+    .topbar-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--app-text-secondary);
+      text-decoration: none;
+      min-width: 0;
+    }
+    .topbar-brand:hover { text-decoration: none; color: var(--app-text); }
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+      display: block;
+      border-radius: 10px;
+      box-shadow: 0 10px 28px rgba(76, 134, 255, 0.22);
+      flex: 0 0 auto;
+    }
+    .brand-name {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .app-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--app-line);
+      background: var(--app-surface-2);
+      color: var(--app-text);
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: 180ms ease;
+    }
+    .app-btn:hover {
+      border-color: var(--app-line-strong);
+      text-decoration: none;
+    }
+    .app-btn.active {
+      border-color: rgba(124, 255, 213, 0.28);
+      background: rgba(124, 255, 213, 0.14);
+    }
+    .page-shell {
+      padding: 24px;
+    }
+    .page-hero {
+      max-width: 1480px;
+      margin: 0 auto 18px;
+      color: var(--app-text);
+    }
+    .page-hero-card {
+      border: 1px solid var(--app-line);
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(12, 22, 40, 0.9), rgba(18, 30, 52, 0.82));
+      box-shadow: 0 20px 50px rgba(0,0,0,0.18);
+      padding: 18px 20px;
+    }
+    .hero-kicker {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: #7cffd5;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .hero-title {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1.2;
+    }
+    .hero-sub {
+      margin-top: 8px;
+      color: var(--app-text-secondary);
+      line-height: 1.6;
+      max-width: 820px;
+    }
+    .wrap { max-width: 1480px; margin: 0 auto; padding: 0; }
+    h1 { margin: 0 0 8px; font-size: 28px; }
+    .sub { color: var(--sub); margin-bottom: 20px; line-height: 1.6; }
+    .grid { display: grid; grid-template-columns: var(--sidebar-width) minmax(0, 1fr); gap: 20px; align-items: start; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 16px;
+    }
+    .card h2 { margin: 0 0 12px; font-size: 18px; }
+    .muted { color: var(--sub); font-size: 13px; line-height: 1.6; }
+    .template-list {
+      display: flex; flex-direction: column; gap: 10px; margin-top: 12px;
+      max-height: 360px; overflow: auto; padding-right: 4px;
+    }
+    .template-item {
+      border: 1px solid var(--line); border-radius: 12px; padding: 12px;
+      cursor: pointer; transition: 0.2s ease; background: #fff;
+    }
+    .template-item-head { display:flex; justify-content:space-between; gap:8px; align-items:flex-start; }
+    .template-item-meta { min-width:0; flex:1; }
+    .template-actions { display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-end; }
+    .template-actions .mini-btn { padding: 5px 8px; }
+    .sidebar-width-row { display:flex; gap:10px; align-items:center; margin-top:10px; }
+    .sidebar-width-row input[type="range"] { flex:1; }
+    .sidebar-width-value { min-width:48px; text-align:right; color: var(--sub); font-size: 12px; }
+    .template-item:hover { border-color: var(--blue); background: #fafcff; }
+    .template-item.active { border-color: var(--blue); background: var(--blue2); }
+    .template-name { font-weight: 700; margin-bottom: 4px; }
+    .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    .row + .row { margin-top: 10px; }
+    button {
+      border: 1px solid var(--line); background: #fff; color: var(--text);
+      padding: 10px 14px; border-radius: 10px; cursor: pointer; font-size: 14px;
+    }
+    button:hover { border-color: var(--blue); }
+    .mini-btn { padding: 7px 10px; font-size: 12px; }
+    .primary { background: var(--blue); color: #fff; border-color: var(--blue); }
+    .danger { color: var(--danger); border-color: #f3c5c5; background: #fff7f7; }
+    .success { color: var(--ok); border-color: #cde8d2; background: #f4fbf5; }
+    input[type="text"], input[type="number"], textarea, select {
+      width: 100%; border: 1px solid var(--line); border-radius: 10px;
+      padding: 10px 12px; font: inherit; color: var(--text); background: #fff;
+    }
+    input[type="text"]:focus, input[type="number"]:focus, textarea:focus, select:focus {
+      outline: 2px solid rgba(53,99,233,.16); border-color: var(--blue);
+    }
+    textarea { min-height: 200px; resize: vertical; line-height: 1.55; }
+    .top-actions, .format-toolbar, .helper-toolbar {
+      display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 14px;
+    }
+    .editor-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    .template-edit-layout { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr); gap: 16px; align-items: start; }
+    .template-edit-left { min-width: 0; }
+    .template-edit-right { min-width: 0; }
+    .lang-tabs { display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+    .lang-tab.active {
+      background: var(--blue2); border-color: var(--blue); color: var(--blue); font-weight: 700;
+    }
+    .section-title { font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+    .placeholder-box, .help-box {
+      background: #fafbff; border: 1px dashed var(--line); border-radius: 12px;
+      padding: 12px; font-size: 13px; line-height: 1.7;
+    }
+    .vars-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; }
+    .field {
+      border: 1px solid var(--line); border-radius: 12px; padding: 12px; background: #fff;
+    }
+    .field label { display: block; font-weight: 700; margin-bottom: 6px; font-size: 14px; }
+    .field .var-key { color: var(--sub); font-size: 12px; margin-bottom: 8px; word-break: break-all; }
+    .field small { display: block; color: var(--sub); margin-top: 6px; line-height: 1.5; }
+    .preview-box {
+      margin-top: 12px; border: 1px solid var(--line); border-radius: 12px;
+      background: #fff; overflow: hidden;
+    }
+    .preview-head {
+      padding: 10px 12px; border-bottom: 1px solid var(--line); background: var(--soft);
+      font-size: 13px; font-weight: 700;
+    }
+    .preview-body { padding: 14px; line-height: 1.7; }
+    .preview-body h1, .preview-body h2, .preview-body h3, .preview-body h4 { margin-top: 0; }
+    .preview-body table { border-collapse: collapse; width: 100%; margin: 8px 0; }
+    .preview-body th, .preview-body td { border: 1px solid var(--line); padding: 8px; text-align: left; }
+    .preview-body ul, .preview-body ol { padding-left: 22px; }
+    .output-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; }
+    .output-card { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: #fff; }
+    .output-head {
+      display: flex; justify-content: space-between; gap: 10px; align-items: center;
+      padding: 12px; border-bottom: 1px solid var(--line); background: #fafbff;
+    }
+    .output-head strong { font-size: 14px; }
+    .output-body { padding: 12px; }
+    .output-body textarea {
+      min-height: 220px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px;
+    }
+    .hint {
+      background: #fffdf0; border: 1px solid #f1e4a7; padding: 12px; border-radius: 12px;
+      line-height: 1.7; font-size: 13px; color: #5c4b00; margin-top: 14px;
+    }
+    .footer-note { margin-top: 16px; color: var(--sub); font-size: 12px; line-height: 1.6; }
+    .consistency-box {
+      margin-bottom: 14px; border: 1px solid var(--line); border-radius: 12px; background: #fff;
+      overflow: hidden;
+    }
+    .consistency-head {
+      padding: 10px 12px; border-bottom: 1px solid var(--line); background: #fafbff;
+      font-size: 13px; font-weight: 700;
+    }
+    .consistency-body { padding: 12px 14px; line-height: 1.7; font-size: 13px; }
+    .consistency-body ul { margin: 8px 0 0; padding-left: 20px; }
+    .consistency-ok { color: var(--ok); }
+    .consistency-warn { color: #8a5a00; }
+    .status { font-size: 13px; min-height: 20px; color: var(--ok); margin-top: 8px; }
+    .pill {
+      display: inline-block; margin: 2px 6px 2px 0; padding: 3px 8px; border-radius: 999px;
+      background: var(--blue2); color: var(--blue); font-size: 12px;
+    }
+    code.inline { background: #f2f4fa; padding: 2px 6px; border-radius: 6px; }
+    @media (max-width: 1100px) {
+      .grid { grid-template-columns: 1fr; }
+      .vars-grid, .output-grid, .template-edit-layout { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 780px) {
+      .topbar {
+        height: auto;
+        padding: 12px 16px;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+      .topbar-actions { width: 100%; justify-content: flex-start; }
+      .page-shell { padding: 16px; }
+      .page-hero-card { padding: 16px; }
+      .hero-title { font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="topbar-brand" href="/" data-app-href="/">
+      <img src="/logo-mark.svg" data-app-src="/logo-mark.svg" alt="OSL Deal Scout" class="brand-logo" />
+      <span class="brand-name">OSL Deal Scout</span>
+    </a>
+    <div class="topbar-actions">
+      <a class="app-btn" href="/" data-app-href="/">首页</a>
+      <a class="app-btn" href="/token-config" data-app-href="/token-config">币种配置</a>
+      <a class="app-btn active" href="/announcement-generator" data-app-href="/announcement-generator">公告生成</a>
+    </div>
+  </header>
+
+  <div class="page-shell">
+    <section class="page-hero">
+      <div class="page-hero-card">
+        <div class="hero-kicker">Tooling</div>
+        <h1 class="hero-title">公告生成</h1>
+        <div class="hero-sub">这里接入的是你现有的公告生成页面，正文内容保持不变，补上了站内导航和移动端展示适配。</div>
+      </div>
+    </section>
+
+    <div class="wrap">
+    <h1>多语言公告生成器</h1>
+    <div class="sub">
+      先录入模板，以后每次只改变量。支持中文 / 英文 / 日文 / 韩文模板，支持 HTML、加粗、标题、bullet points、表格和可复制成稿。所有内容保存在你当前浏览器本地，不上传。
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>1. 模板库</h2>
+        <div class="row">
+          <input id="newTemplateName" type="text" placeholder="输入新模板名称，例如：Launchpool 公告" />
+          <button id="createTemplateBtn" class="primary">新建模板</button>
+        </div>
+        <div class="row">
+          <button id="loadDemoBtn">载入示例模板</button>
+          <button id="exportBtn">导出模板库</button>
+          <button id="importBtn">导入模板库</button>
+          <input id="importFile" type="file" accept="application/json" style="display:none" />
+        </div>
+        <div class="sidebar-width-row">
+          <span class="muted">左栏宽度</span>
+          <input id="sidebarWidthRange" type="range" min="240" max="360" step="10" value="290" />
+          <span class="sidebar-width-value" id="sidebarWidthValue">290px</span>
+        </div>
+        <div class="template-list" id="templateList"></div>
+        <div class="status" id="leftStatus"></div>
+        <div class="hint">
+          占位符统一写成：<strong>{{project_name}}</strong>、<strong>{{lock_assets1}}</strong> 这种格式。<br/>
+          <strong>序号类变量</strong>如 <code class="inline">{{launchpool_index}}</code>，只填数字 <strong>1 / 2 / 3</strong>，生成时会自动变成：<br/>
+          英文 <strong>1st / 2nd / 3rd</strong>，中文 <strong>第一期 / 第二期 / 第三期</strong>，日文 <strong>第1期</strong>，韩文 <strong>제1기</strong>。
+        </div>
+      </div>
+
+      <div class="editor-grid">
+        <div class="card">
+          <div class="top-actions">
+            <button id="saveTemplateBtn" class="primary">保存当前模板</button>
+            <button id="duplicateTemplateBtn">复制模板</button>
+            <button id="deleteTemplateBtn" class="danger">删除模板</button>
+            <button id="extractVarsBtn">重新识别变量</button>
+            <button id="generateBtn" class="success">生成多语言公告</button>
+          </div>
+          <div class="status" id="mainStatus"></div>
+
+          <div class="section-title">2. 录入模板内容</div>
+          <div class="lang-tabs" id="langTabs"></div>
+          <div class="format-toolbar">
+            <button class="mini-btn" data-insert="h2">插入标题</button>
+            <button class="mini-btn" data-insert="strong">插入粗体</button>
+            <button class="mini-btn" data-insert="p">插入段落</button>
+            <button class="mini-btn" data-insert="ul">插入 bullet points</button>
+            <button class="mini-btn" data-insert="ol">插入编号列表</button>
+            <button class="mini-btn" data-insert="table">插入表格骨架</button>
+            <button class="mini-btn" data-insert="link">插入链接</button>
+            <button class="mini-btn" data-insert="br">插入换行</button>
+          </div>
+          <div class="template-edit-layout">
+            <div class="template-edit-left">
+              <textarea id="templateEditor" placeholder="在这里输入当前语言模板。支持 HTML。"></textarea>
+              <div class="placeholder-box" id="placeholderPreview">当前模板里的变量会显示在这里。</div>
+            </div>
+            <div class="template-edit-right">
+              <div class="preview-box" style="margin-top:0;">
+                <div class="preview-head">当前语言预览（会带入你已填写的变量）</div>
+                <div class="preview-body" id="editorPreview">还没有内容。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="section-title">3. 填写本次变量</div>
+          <div class="muted" style="margin-bottom:12px;">
+            下面字段会根据模板里的占位符自动生成。普通内容填文本，表格整块 HTML 也可以直接粘进来。变量会尽量显示中文提示，例如 <strong>lock_assets1 → 锁仓币种1</strong>。
+          </div>
+          <div class="help-box" id="variableLegend">
+            还没有识别到变量。先在模板里写入 <code class="inline">{{title}}</code> 或 <code class="inline">{{launchpool_index}}</code> 这类占位符。
+          </div>
+          <div class="vars-grid" id="variablesForm"></div>
+        </div>
+
+        <div class="card">
+          <div class="section-title">4. 生成结果</div>
+          <div id="consistencyReport"></div>
+          <div class="output-grid" id="outputs"></div>
+          <div class="footer-note">
+            每个语言结果都会同时显示 <strong>原始 HTML</strong> 和 <strong>渲染预览</strong>。复制按钮复制的是原始 HTML，方便你直接粘贴到支持富文本的地方。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <script>
+    const STORAGE_KEY = 'announcement-generator-templates-v2';
+    const VAR_STORAGE_KEY = 'announcement-generator-last-values-v2';
+    const SIDEBAR_WIDTH_KEY = 'announcement-generator-sidebar-width-v1';
+    const LANGS = [
+      { key: 'zh', label: '中文' },
+      { key: 'en', label: '英文' },
+      { key: 'ja', label: '日文' },
+      { key: 'ko', label: '韩文' },
+    ];
+
+    const DIRECT_LABELS = {
+      title: '标题',
+      subtitle: '副标题',
+      project_name: '项目名称',
+      token_name: '代币名称',
+      token_symbol: '代币代码',
+      asset_name: '资产名称',
+      asset_ticker: '资产代码',
+      summary: '简介',
+      intro: '简介',
+      project_intro: '项目简介',
+      start_date: '开始日期',
+      end_date: '结束日期',
+      start_time: '开始时间',
+      end_time: '结束时间',
+      listing_time: '上线时间',
+      launchpool_index: 'Launchpool 期数',
+      launchpool_total_rewards: 'Launchpool 总奖励',
+      headline_prize_pool: '标题奖池总额',
+      lock_assets: '锁仓币种',
+      trading_pairs: '交易对',
+      network: '网络',
+      token_supply: '代币供应量',
+      smart_contract_detail: '智能合约信息',
+      participation_terms: '参与条件',
+      website_url: '官网链接',
+      whitepaper_url: '白皮书链接',
+      twitter_url: 'Twitter 链接',
+      discord_url: 'Discord 链接',
+      reward_rows: '奖励表格行',
+      pool_rows: '矿池表格行',
+      reward_distribution_rule: '奖励发放说明',
+      reward_snapshot_rule: '快照规则',
+      yield_formula: '收益公式',
+      learn_more_project_name: '“了解更多”里的项目名',
+      legal_jurisdiction: '适用法域',
+      entity_name: '主体名称',
+      liability_entity_name: '免责声明主体',
+      availability_region: '适用地区',
+      deposit_withdraw_status: '充值提币状态',
+      deposit_withdrawal_status: '充值提币状态'
+    };
+
+    const TOKEN_LABELS = {
+      launchpool: 'Launchpool',
+      project: '项目',
+      token: '代币',
+      asset: '资产',
+      assets: '币种',
+      lock: '锁仓',
+      listing: '上线',
+      start: '开始',
+      end: '结束',
+      date: '日期',
+      time: '时间',
+      total: '总',
+      reward: '奖励',
+      rewards: '奖励',
+      prize: '奖池',
+      pool: '池',
+      supply: '供应量',
+      min: '最低',
+      max: '最高',
+      amount: '数量',
+      intro: '简介',
+      summary: '简介',
+      formula: '公式',
+      website: '官网',
+      whitepaper: '白皮书',
+      twitter: 'Twitter',
+      discord: 'Discord',
+      network: '网络',
+      pairs: '交易对',
+      pair: '交易对',
+      legal: '法务',
+      jurisdiction: '法域',
+      entity: '主体',
+      liability: '免责声明',
+      learn: '了解',
+      more: '更多',
+      headline: '标题',
+      index: '期数',
+      round: '轮次',
+      batch: '批次',
+      issue: '期数',
+      period: '期数',
+      status: '状态',
+      withdraw: '提币',
+      withdrawal: '提币',
+      deposit: '充值',
+      participation: '参与',
+      terms: '条款',
+      contract: '合约',
+      detail: '详情',
+      distribution: '发放',
+      snapshot: '快照',
+      yield: '收益',
+      name: '名称',
+      symbol: '代码',
+      ticker: '代码',
+      rows: '表格行'
+    };
+
+    const ORDINAL_KEY_HINTS = new Set(['launchpool_index', 'round_index', 'batch_index', 'issue_index', 'phase_index', 'period_index']);
+
+    const demoTemplates = {
+      name: 'Launchpool 公告示例',
+      templates: {
+        zh: `<h2><strong>{{entity_name}} 上线 {{launchpool_index}} Launchpool：{{project_name}}（{{token_symbol}}）</strong></h2>\n<p><strong>活动时间：</strong>{{start_date}} - {{end_date}}</p>\n<p>{{summary}}</p>\n<ul>\n  <li>锁仓币种：{{lock_assets1}}</li>\n  <li>交易对：{{trading_pairs}}</li>\n</ul>\n<table>\n  <tr><th>奖励</th><th>数量</th></tr>\n  {{reward_rows}}\n</table>\n<p>请以游戏内实际内容为准。</p>`,
+        en: `<h2><strong>{{entity_name}} Launches {{launchpool_index}} Launchpool: {{project_name}} ({{token_symbol}})</strong></h2>\n<p><strong>Event Period:</strong> {{start_date}} - {{end_date}}</p>\n<p>{{summary}}</p>\n<ul>\n  <li>Lock Asset: {{lock_assets1}}</li>\n  <li>Trading Pairs: {{trading_pairs}}</li>\n</ul>\n<table>\n  <tr><th>Reward</th><th>Amount</th></tr>\n  {{reward_rows}}\n</table>\n<p>Please refer to the in-game content for the final details.</p>`,
+        ja: `<h2><strong>{{entity_name}} が {{launchpool_index}} Launchpool を開始：{{project_name}}（{{token_symbol}}）</strong></h2>\n<p><strong>開催期間：</strong>{{start_date}} - {{end_date}}</p>\n<p>{{summary}}</p>\n<ul>\n  <li>ロック対象：{{lock_assets1}}</li>\n  <li>取引ペア：{{trading_pairs}}</li>\n</ul>\n<table>\n  <tr><th>報酬</th><th>数量</th></tr>\n  {{reward_rows}}\n</table>\n<p>詳細はゲーム内の表示をご確認ください。</p>`,
+        ko: `<h2><strong>{{entity_name}} {{launchpool_index}} Launchpool 오픈: {{project_name}} ({{token_symbol}})</strong></h2>\n<p><strong>이벤트 기간:</strong> {{start_date}} - {{end_date}}</p>\n<p>{{summary}}</p>\n<ul>\n  <li>락업 자산: {{lock_assets1}}</li>\n  <li>거래 페어: {{trading_pairs}}</li>\n</ul>\n<table>\n  <tr><th>보상</th><th>수량</th></tr>\n  {{reward_rows}}\n</table>\n<p>정확한 내용은 게임 내 표시를 기준으로 확인해 주세요.</p>`
+      },
+      values: {
+        entity_name: 'OSL',
+        launchpool_index: '1',
+        project_name: 'ForU AI',
+        token_symbol: 'FORU',
+        start_date: '2026.03.25',
+        end_date: '2026.04.02',
+        summary: '活动期间完成锁仓即可领取奖励。',
+        lock_assets1: 'FORU / USDT',
+        trading_pairs: 'FORU/USD、FORU/USDC、FORU/USDT',
+        reward_rows: '<tr><td>FORU</td><td>300</td></tr>\n<tr><td>USDT</td><td>5000</td></tr>'
+      }
+    };
+
+    const state = {
+      templates: [],
+      currentTemplateId: null,
+      currentLang: 'zh',
+      values: loadValues(),
+      generated: {}
+    };
+
+    const el = {
+      templateList: document.getElementById('templateList'),
+      newTemplateName: document.getElementById('newTemplateName'),
+      createTemplateBtn: document.getElementById('createTemplateBtn'),
+      loadDemoBtn: document.getElementById('loadDemoBtn'),
+      saveTemplateBtn: document.getElementById('saveTemplateBtn'),
+      duplicateTemplateBtn: document.getElementById('duplicateTemplateBtn'),
+      deleteTemplateBtn: document.getElementById('deleteTemplateBtn'),
+      exportBtn: document.getElementById('exportBtn'),
+      importBtn: document.getElementById('importBtn'),
+      importFile: document.getElementById('importFile'),
+      sidebarWidthRange: document.getElementById('sidebarWidthRange'),
+      sidebarWidthValue: document.getElementById('sidebarWidthValue'),
+      extractVarsBtn: document.getElementById('extractVarsBtn'),
+      generateBtn: document.getElementById('generateBtn'),
+      langTabs: document.getElementById('langTabs'),
+      templateEditor: document.getElementById('templateEditor'),
+      placeholderPreview: document.getElementById('placeholderPreview'),
+      variablesForm: document.getElementById('variablesForm'),
+      variableLegend: document.getElementById('variableLegend'),
+      consistencyReport: document.getElementById('consistencyReport'),
+      outputs: document.getElementById('outputs'),
+      leftStatus: document.getElementById('leftStatus'),
+      mainStatus: document.getElementById('mainStatus'),
+      editorPreview: document.getElementById('editorPreview')
+    };
+
+    function uid() {
+      return 't_' + Date.now() + '_' + Math.random().toString(36).slice(2, 8);
+    }
+
+    function loadTemplates() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return [];
+        const parsed = JSON.parse(raw);
+        return Array.isArray(parsed) ? parsed : [];
+      } catch {
+        return [];
+      }
+    }
+
+    function saveTemplates() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state.templates));
+    }
+
+    function loadValues() {
+      try {
+        const raw = localStorage.getItem(VAR_STORAGE_KEY);
+        return raw ? JSON.parse(raw) : {};
+      } catch {
+        return {};
+      }
+    }
+
+    function saveValues() {
+      localStorage.setItem(VAR_STORAGE_KEY, JSON.stringify(state.values));
+    }
+
+    function loadSidebarWidth() {
+      try {
+        const raw = localStorage.getItem(SIDEBAR_WIDTH_KEY);
+        const n = parseInt(raw, 10);
+        if (!Number.isFinite(n)) return 290;
+        return Math.min(360, Math.max(240, n));
+      } catch {
+        return 290;
+      }
+    }
+
+    function saveSidebarWidth(value) {
+      localStorage.setItem(SIDEBAR_WIDTH_KEY, String(value));
+    }
+
+    function applySidebarWidth(value) {
+      const width = Math.min(360, Math.max(240, parseInt(value, 10) || 290));
+      document.documentElement.style.setProperty('--sidebar-width', width + 'px');
+      if (el.sidebarWidthRange) el.sidebarWidthRange.value = String(width);
+      if (el.sidebarWidthValue) el.sidebarWidthValue.textContent = width + 'px';
+      saveSidebarWidth(width);
+    }
+
+    function createEmptyTemplate(name = '新模板') {
+      return {
+        id: uid(),
+        name,
+        templates: { zh: '', en: '', ja: '', ko: '' }
+      };
+    }
+
+    function getCurrentTemplate() {
+      return state.templates.find(t => t.id === state.currentTemplateId) || null;
+    }
+
+    function extractPlaceholders(text) {
+      const regex = /{{\s*([a-zA-Z0-9_\-]+)\s*}}/g;
+      const results = [];
+      const seen = new Set();
+      let match;
+      while ((match = regex.exec(text)) !== null) {
+        const key = match[1];
+        if (!seen.has(key)) {
+          seen.add(key);
+          results.push(key);
+        }
+      }
+      return results;
+    }
+
+    function extractAllVars(template) {
+      const set = new Set();
+      if (!template) return [];
+      Object.values(template.templates).forEach(txt => {
+        extractPlaceholders(txt || '').forEach(k => set.add(k));
+      });
+      return Array.from(set);
+    }
+
+    function splitKeyAndNumber(key) {
+      const match = String(key).match(/^(.*?)(\d+)$/);
+      return match ? { base: match[1], suffix: match[2] } : { base: key, suffix: '' };
+    }
+
+    function isOrdinalKey(key) {
+      const { base } = splitKeyAndNumber(key);
+      return ORDINAL_KEY_HINTS.has(base) || /(?:^|_)(index|round|batch|phase|issue|period|order|sequence|seq)$/.test(base);
+    }
+
+    function resolveChineseLabel(key) {
+      const { base, suffix } = splitKeyAndNumber(key);
+      let label = DIRECT_LABELS[base];
+      if (!label) {
+        const parts = base.split('_').filter(Boolean);
+        const translated = parts.map(part => TOKEN_LABELS[part] || part);
+        label = translated.join('');
+      }
+      return label + suffix;
+    }
+
+    function getVariableHint(key) {
+      if (isOrdinalKey(key)) {
+        return '只填数字。例：填 1，英文自动变成 1st，中文自动变成 第一期。';
+      }
+      if (/(rows|table|html|list|content|body|items)/i.test(key)) {
+        return '这个变量适合放整块 HTML，例如表格行、列表或大段正文。';
+      }
+      return '普通文字变量。';
+    }
+
+    function toChineseNumber(num) {
+      const n = Number(num);
+      if (!Number.isFinite(n) || n <= 0) return String(num);
+      const digits = ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九'];
+      const units = ['', '十', '百', '千'];
+      if (n < 10) return digits[n];
+      if (n < 10000) {
+        const chars = String(n).split('').map(Number);
+        let result = '';
+        const len = chars.length;
+        chars.forEach((digit, idx) => {
+          const pos = len - idx - 1;
+          if (digit === 0) {
+            if (!result.endsWith('零') && idx !== len - 1) result += '零';
+          } else {
+            if (!(digit === 1 && pos === 1 && result === '')) result += digits[digit];
+            result += units[pos];
+          }
+        });
+        result = result.replace(/零+/g, '零').replace(/零$/g, '');
+        return result;
+      }
+      return String(n);
+    }
+
+    function toEnglishOrdinal(num) {
+      const n = parseInt(num, 10);
+      if (!Number.isFinite(n)) return String(num);
+      const mod100 = n % 100;
+      if (mod100 >= 11 && mod100 <= 13) return `${n}th`;
+      switch (n % 10) {
+        case 1: return `${n}st`;
+        case 2: return `${n}nd`;
+        case 3: return `${n}rd`;
+        default: return `${n}th`;
+      }
+    }
+
+    function formatOrdinal(num, langKey) {
+      const n = parseInt(num, 10);
+      if (!Number.isFinite(n)) return String(num ?? '');
+      if (langKey === 'en') return toEnglishOrdinal(n);
+      if (langKey === 'zh') return `第${toChineseNumber(n)}期`;
+      if (langKey === 'ja') return `第${n}期`;
+      if (langKey === 'ko') return `제${n}기`;
+      return String(n);
+    }
+
+    function buildComputedValues(values, langKey) {
+      const result = { ...values };
+      Object.entries(values).forEach(([key, value]) => {
+        if (!isOrdinalKey(key)) return;
+        result[key + '_number'] = String(value ?? '');
+        result[key + '_zh'] = formatOrdinal(value, 'zh');
+        result[key + '_en'] = formatOrdinal(value, 'en');
+        result[key + '_ja'] = formatOrdinal(value, 'ja');
+        result[key + '_ko'] = formatOrdinal(value, 'ko');
+        result[key] = formatOrdinal(value, langKey);
+      });
+      return result;
+    }
+
+    function sanitizeHtml(html) {
+      const temp = document.createElement('div');
+      temp.innerHTML = html || '';
+      temp.querySelectorAll('script, style, iframe, object, embed').forEach(node => node.remove());
+      temp.querySelectorAll('*').forEach(node => {
+        [...node.attributes].forEach(attr => {
+          const name = attr.name.toLowerCase();
+          const value = attr.value || '';
+          if (name.startsWith('on')) node.removeAttribute(attr.name);
+          if ((name === 'href' || name === 'src') && /^javascript:/i.test(value)) node.removeAttribute(attr.name);
+        });
+      });
+      return temp.innerHTML;
+    }
+
+    function renderTemplateList() {
+      el.templateList.innerHTML = '';
+      if (!state.templates.length) {
+        el.templateList.innerHTML = '<div class="muted">还没有模板。你可以先点“载入示例模板”，或者自己新建一个。</div>';
+        return;
+      }
+      state.templates.forEach((item, index) => {
+        const div = document.createElement('div');
+        div.className = 'template-item' + (item.id === state.currentTemplateId ? ' active' : '');
+        div.innerHTML = `
+          <div class="template-item-head">
+            <div class="template-item-meta">
+              <div class="template-name">${escapeHtml(item.name)}</div>
+              <div class="muted">第 ${index + 1} 个模板 · 点击切换</div>
+            </div>
+            <div class="template-actions">
+              <button class="mini-btn" data-action="rename" data-id="${escapeAttr(item.id)}">改名</button>
+              <button class="mini-btn" data-action="up" data-id="${escapeAttr(item.id)}" ${index === 0 ? 'disabled' : ''}>上移</button>
+              <button class="mini-btn" data-action="down" data-id="${escapeAttr(item.id)}" ${index === state.templates.length - 1 ? 'disabled' : ''}>下移</button>
+              <button class="mini-btn danger" data-action="delete" data-id="${escapeAttr(item.id)}">删除</button>
+            </div>
+          </div>`;
+        div.onclick = (e) => {
+          if (e.target.closest('[data-action]')) return;
+          persistCurrentEditor();
+          state.currentTemplateId = item.id;
+          renderAll();
+        };
+        div.querySelectorAll('[data-action]').forEach(btn => {
+          btn.onclick = (e) => {
+            e.stopPropagation();
+            const action = btn.getAttribute('data-action');
+            const id = btn.getAttribute('data-id');
+            if (action === 'rename') renameTemplate(id);
+            if (action === 'delete') deleteTemplateById(id);
+            if (action === 'up') moveTemplate(id, -1);
+            if (action === 'down') moveTemplate(id, 1);
+          };
+        });
+        el.templateList.appendChild(div);
+      });
+    }
+
+    function renderLangTabs() {
+      el.langTabs.innerHTML = '';
+      LANGS.forEach(lang => {
+        const btn = document.createElement('button');
+        btn.className = 'lang-tab' + (state.currentLang === lang.key ? ' active' : '');
+        btn.textContent = lang.label;
+        btn.onclick = () => {
+          persistCurrentEditor();
+          state.currentLang = lang.key;
+          renderEditor();
+          renderLangTabs();
+        };
+        el.langTabs.appendChild(btn);
+      });
+    }
+
+    function renderEditor() {
+      const tpl = getCurrentTemplate();
+      el.templateEditor.value = tpl ? (tpl.templates[state.currentLang] || '') : '';
+      const vars = tpl ? extractPlaceholders(tpl.templates[state.currentLang] || '') : [];
+      el.placeholderPreview.innerHTML = vars.length
+        ? `当前语言模板识别到的变量：<strong>${vars.map(escapeHtml).join('</strong>、<strong>')}</strong>`
+        : '当前语言模板还没有识别到变量。请用 {{title}} 这种写法。';
+      renderEditorPreview();
+    }
+
+    function renderVariableLegend(vars) {
+      if (!vars.length) {
+        el.variableLegend.innerHTML = '还没有识别到变量。先在模板里写入 <code class="inline">{{title}}</code> 或 <code class="inline">{{launchpool_index}}</code> 这类占位符。';
+        return;
+      }
+      el.variableLegend.innerHTML = vars.map(key => {
+        const label = resolveChineseLabel(key);
+        const extra = isOrdinalKey(key) ? ` <span class="pill">自动序号</span>` : '';
+        return `<span class="pill">${escapeHtml(label)} = ${escapeHtml(key)}</span>${extra}`;
+      }).join('');
+    }
+
+    function renderVariablesForm() {
+      const tpl = getCurrentTemplate();
+      const vars = extractAllVars(tpl);
+      el.variablesForm.innerHTML = '';
+      renderVariableLegend(vars);
+      if (!tpl) {
+        el.variablesForm.innerHTML = '<div class="muted">请先创建或选择一个模板。</div>';
+        return;
+      }
+      if (!vars.length) {
+        el.variablesForm.innerHTML = '<div class="muted">模板里还没有占位符变量。请先在模板中写入 {{title}}、{{summary}} 这类变量。</div>';
+        return;
+      }
+      vars.forEach(key => {
+        const field = document.createElement('div');
+        field.className = 'field';
+        const isLarge = /(rows|table|html|list|content|body|items)/i.test(key);
+        const isOrdinal = isOrdinalKey(key);
+        const value = state.values[key] || '';
+        const labelZh = resolveChineseLabel(key);
+        field.innerHTML = `
+          <label>${escapeHtml(labelZh)}</label>
+          <div class="var-key">变量名：${escapeHtml(key)}</div>
+          ${isLarge
+            ? `<textarea data-var-key="${escapeAttr(key)}" placeholder="填写 ${escapeAttr(labelZh)} 的内容">${escapeHtml(value)}</textarea>`
+            : `<input data-var-key="${escapeAttr(key)}" ${isOrdinal ? 'type="number" step="1"' : 'type="text"'} value="${escapeAttr(value)}" placeholder="填写 ${escapeAttr(labelZh)} 的内容" />`
+          }
+          <small>${escapeHtml(getVariableHint(key))}</small>
+        `;
+        el.variablesForm.appendChild(field);
+      });
+
+      el.variablesForm.querySelectorAll('[data-var-key]').forEach(input => {
+        input.addEventListener('input', e => {
+          const key = e.target.getAttribute('data-var-key');
+          state.values[key] = e.target.value;
+          saveValues();
+          renderEditorPreview();
+        });
+      });
+    }
+
+    function renderEditorPreview() {
+      const tpl = getCurrentTemplate();
+      const source = tpl ? (tpl.templates[state.currentLang] || '') : '';
+      if (!source) {
+        el.editorPreview.innerHTML = '<span class="muted">还没有内容。</span>';
+        return;
+      }
+      const html = replaceVars(source, state.values, state.currentLang);
+      el.editorPreview.innerHTML = sanitizeHtml(html);
+    }
+
+    function htmlToPlainText(html = '') {
+      const temp = document.createElement('div');
+      temp.innerHTML = sanitizeHtml(html);
+      return (temp.textContent || temp.innerText || '').replace(/ /g, ' ').trim();
+    }
+
+    function collectTagCounts(html = '') {
+      const temp = document.createElement('div');
+      temp.innerHTML = sanitizeHtml(html);
+      const tags = ['h1', 'h2', 'h3', 'h4', 'p', 'ul', 'ol', 'li', 'table', 'tr', 'th', 'td', 'a', 'strong', 'br'];
+      const counts = {};
+      tags.forEach(tag => {
+        counts[tag] = temp.querySelectorAll(tag).length;
+      });
+      return counts;
+    }
+
+    function extractUrlsFromHtml(html = '') {
+      const temp = document.createElement('div');
+      temp.innerHTML = sanitizeHtml(html);
+      const hrefs = Array.from(temp.querySelectorAll('a[href]')).map(a => (a.getAttribute('href') || '').trim()).filter(Boolean);
+      const textUrls = Array.from(String(html).matchAll(/https?:\/\/[^\s"'<>]+/g)).map(match => match[0]);
+      return Array.from(new Set([...hrefs, ...textUrls])).sort();
+    }
+
+    function extractNumericTokens(text = '') {
+      const matches = Array.from(String(text).matchAll(/\b\d[\d,.:/\-]*\b/g)).map(match => match[0]);
+      return matches.sort();
+    }
+
+    function compareValueMaps(baseMap, otherMap) {
+      const diffs = [];
+      const keys = new Set([...Object.keys(baseMap), ...Object.keys(otherMap)]);
+      Array.from(keys).sort().forEach(key => {
+        if ((baseMap[key] || 0) !== (otherMap[key] || 0)) {
+          diffs.push(`${key}: ${baseMap[key] || 0} vs ${otherMap[key] || 0}`);
+        }
+      });
+      return diffs;
+    }
+
+    function renderConsistencyReport() {
+      el.consistencyReport.innerHTML = '';
+      const availableLangs = LANGS.filter(lang => state.generated[lang.key]);
+      if (!availableLangs.length) return;
+
+      const issues = [];
+      const langMeta = {};
+      availableLangs.forEach(lang => {
+        const html = state.generated[lang.key] || '';
+        langMeta[lang.key] = {
+          html,
+          unreplaced: extractPlaceholders(html),
+          tags: collectTagCounts(html),
+          urls: extractUrlsFromHtml(html),
+          nums: extractNumericTokens(htmlToPlainText(html))
+        };
+      });
+
+      availableLangs.forEach(lang => {
+        if (langMeta[lang.key].unreplaced.length) {
+          issues.push(`${lang.label} 还有未替换变量：${langMeta[lang.key].unreplaced.join('、')}`);
+        }
+      });
+
+      const baseLang = availableLangs[0];
+      const base = langMeta[baseLang.key];
+      availableLangs.slice(1).forEach(lang => {
+        const meta = langMeta[lang.key];
+        const tagDiffs = compareValueMaps(base.tags, meta.tags);
+        if (tagDiffs.length) {
+          issues.push(`${lang.label} 与 ${baseLang.label} 的结构数量不一致：${tagDiffs.slice(0, 6).join('；')}${tagDiffs.length > 6 ? '……' : ''}`);
+        }
+        const baseUrls = JSON.stringify(base.urls);
+        const curUrls = JSON.stringify(meta.urls);
+        if (baseUrls !== curUrls) {
+          issues.push(`${lang.label} 与 ${baseLang.label} 的链接列表不一致。`);
+        }
+        const baseNums = JSON.stringify(base.nums);
+        const curNums = JSON.stringify(meta.nums);
+        if (baseNums !== curNums) {
+          issues.push(`${lang.label} 与 ${baseLang.label} 的数字/日期序列不一致。`);
+        }
+      });
+
+      const box = document.createElement('div');
+      box.className = 'consistency-box';
+      if (!issues.length) {
+        box.innerHTML = `
+          <div class="consistency-head">跨语言差异检查</div>
+          <div class="consistency-body consistency-ok">已检查 ${availableLangs.map(l => l.label).join(' / ')}。没有发现明显的未替换变量、结构差异、数字日期差异或链接差异。</div>
+        `;
+      } else {
+        box.innerHTML = `
+          <div class="consistency-head">跨语言差异检查</div>
+          <div class="consistency-body consistency-warn">
+            检查到可能需要你确认的差异：
+            <ul>${issues.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
+          </div>
+        `;
+      }
+      el.consistencyReport.appendChild(box);
+    }
+
+    async function copyRenderedContent(langKey) {
+      const raw = state.generated[langKey] || '';
+      const html = sanitizeHtml(raw);
+      if (!html) return;
+      const plain = htmlToPlainText(html);
+      try {
+        if (navigator.clipboard && window.ClipboardItem && navigator.clipboard.write) {
+          const item = new ClipboardItem({
+            'text/html': new Blob([html], { type: 'text/html' }),
+            'text/plain': new Blob([plain], { type: 'text/plain' })
+          });
+          await navigator.clipboard.write([item]);
+        } else {
+          await navigator.clipboard.writeText(plain || html);
+        }
+        setMainStatus('已复制 ' + getLangLabel(langKey) + ' 渲染内容');
+      } catch {
+        try {
+          await navigator.clipboard.writeText(plain || html);
+          setMainStatus('已复制 ' + getLangLabel(langKey) + ' 渲染内容');
+        } catch {
+          setMainStatus('复制失败，请手动复制', true);
+        }
+      }
+    }
+
+    function renderOutputs() {
+      el.outputs.innerHTML = '';
+      el.consistencyReport.innerHTML = '';
+      if (!Object.keys(state.generated).length) {
+        el.outputs.innerHTML = '<div class="muted">还没有生成结果。填好变量后点“生成多语言公告”。</div>';
+        return;
+      }
+      renderConsistencyReport();
+      LANGS.forEach(lang => {
+        const content = state.generated[lang.key] || '';
+        const card = document.createElement('div');
+        card.className = 'output-card';
+        card.innerHTML = `
+          <div class="output-head">
+            <strong>${lang.label}</strong>
+            <div class="row">
+              <button data-copy="${lang.key}">复制 HTML</button>
+              <button data-copy-rendered="${lang.key}">复制渲染内容</button>
+            </div>
+          </div>
+          <div class="output-body">
+            <textarea readonly>${escapeHtml(content)}</textarea>
+            <div class="preview-box" style="margin-top:12px;">
+              <div class="preview-head">渲染预览</div>
+              <div class="preview-body" data-preview="${lang.key}"></div>
+            </div>
+          </div>
+        `;
+        el.outputs.appendChild(card);
+        card.querySelector(`[data-preview="${lang.key}"]`).innerHTML = sanitizeHtml(content);
+      });
+      el.outputs.querySelectorAll('[data-copy]').forEach(btn => {
+        btn.onclick = async () => {
+          const lang = btn.getAttribute('data-copy');
+          const text = state.generated[lang] || '';
+          if (!text) return;
+          try {
+            await navigator.clipboard.writeText(text);
+            setMainStatus('已复制 ' + getLangLabel(lang) + ' HTML 结果');
+          } catch {
+            setMainStatus('复制失败，请手动选中文本复制', true);
+          }
+        };
+      });
+      el.outputs.querySelectorAll('[data-copy-rendered]').forEach(btn => {
+        btn.onclick = () => copyRenderedContent(btn.getAttribute('data-copy-rendered'));
+      });
+    }
+
+    function persistCurrentEditor() {
+      const tpl = getCurrentTemplate();
+      if (!tpl) return;
+      tpl.templates[state.currentLang] = el.templateEditor.value;
+      saveTemplates();
+    }
+
+    function generateOutputs() {
+      persistCurrentEditor();
+      const tpl = getCurrentTemplate();
+      if (!tpl) {
+        setMainStatus('请先创建或选择一个模板', true);
+        return;
+      }
+      const result = {};
+      LANGS.forEach(lang => {
+        const source = tpl.templates[lang.key] || '';
+        result[lang.key] = replaceVars(source, state.values, lang.key);
+      });
+      state.generated = result;
+      renderOutputs();
+      setMainStatus('已生成多语言公告');
+    }
+
+    function replaceVars(text, values, langKey) {
+      const computedValues = buildComputedValues(values, langKey);
+      return (text || '').replace(/{{\s*([a-zA-Z0-9_\-]+)\s*}}/g, (_, key) => {
+        return computedValues[key] ?? '';
+      });
+    }
+
+    function setLeftStatus(msg, isError = false) {
+      el.leftStatus.textContent = msg;
+      el.leftStatus.style.color = isError ? 'var(--danger)' : 'var(--ok)';
+      clearTimeout(setLeftStatus.timer);
+      setLeftStatus.timer = setTimeout(() => { el.leftStatus.textContent = ''; }, 3000);
+    }
+
+    function setMainStatus(msg, isError = false) {
+      el.mainStatus.textContent = msg;
+      el.mainStatus.style.color = isError ? 'var(--danger)' : 'var(--ok)';
+      clearTimeout(setMainStatus.timer);
+      setMainStatus.timer = setTimeout(() => { el.mainStatus.textContent = ''; }, 3000);
+    }
+
+    function getLangLabel(key) {
+      return LANGS.find(l => l.key === key)?.label || key;
+    }
+
+    function escapeHtml(str = '') {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function escapeAttr(str = '') {
+      return String(str).replace(/"/g, '&quot;');
+    }
+
+    function exportTemplates() {
+      const data = {
+        exportedAt: new Date().toISOString(),
+        templates: state.templates
+      };
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'announcement_templates.json';
+      a.click();
+      URL.revokeObjectURL(url);
+      setLeftStatus('模板库已导出');
+    }
+
+    function importTemplatesFromFile(file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const parsed = JSON.parse(reader.result);
+          const imported = Array.isArray(parsed) ? parsed : parsed.templates;
+          if (!Array.isArray(imported)) throw new Error('格式不对');
+          state.templates = imported.map(item => ({
+            id: item.id || uid(),
+            name: item.name || '未命名模板',
+            templates: {
+              zh: item.templates?.zh || '',
+              en: item.templates?.en || '',
+              ja: item.templates?.ja || '',
+              ko: item.templates?.ko || ''
+            }
+          }));
+          state.currentTemplateId = state.templates[0]?.id || null;
+          saveTemplates();
+          renderAll();
+          setLeftStatus('模板库已导入');
+        } catch {
+          setLeftStatus('导入失败：文件格式不正确', true);
+        }
+      };
+      reader.readAsText(file, 'utf-8');
+    }
+
+    function loadDemo() {
+      const item = {
+        id: uid(),
+        name: demoTemplates.name,
+        templates: demoTemplates.templates
+      };
+      state.templates.push(item);
+      state.currentTemplateId = item.id;
+      Object.assign(state.values, demoTemplates.values);
+      saveTemplates();
+      saveValues();
+      renderAll();
+      setLeftStatus('已载入示例模板');
+    }
+
+    function createTemplate() {
+      const name = el.newTemplateName.value.trim() || '新模板';
+      const item = createEmptyTemplate(name);
+      state.templates.push(item);
+      state.currentTemplateId = item.id;
+      el.newTemplateName.value = '';
+      saveTemplates();
+      renderAll();
+      setLeftStatus('已创建模板');
+    }
+
+    function duplicateTemplate() {
+      const tpl = getCurrentTemplate();
+      if (!tpl) {
+        setMainStatus('请先选择模板', true);
+        return;
+      }
+      persistCurrentEditor();
+      const copy = JSON.parse(JSON.stringify(tpl));
+      copy.id = uid();
+      copy.name = tpl.name + ' - 副本';
+      state.templates.push(copy);
+      state.currentTemplateId = copy.id;
+      saveTemplates();
+      renderAll();
+      setMainStatus('已复制模板');
+    }
+
+    function renameTemplate(id = state.currentTemplateId) {
+      const tpl = state.templates.find(t => t.id === id);
+      if (!tpl) {
+        setMainStatus('没有可改名的模板', true);
+        return;
+      }
+      const nextName = prompt('请输入新的模板名称', tpl.name);
+      if (nextName === null) return;
+      const clean = nextName.trim();
+      if (!clean) {
+        setMainStatus('模板名称不能为空', true);
+        return;
+      }
+      tpl.name = clean;
+      saveTemplates();
+      renderTemplateList();
+      setMainStatus('模板名称已更新');
+    }
+
+    function deleteTemplateById(id = state.currentTemplateId) {
+      const tpl = state.templates.find(t => t.id === id);
+      if (!tpl) {
+        setMainStatus('没有可删除的模板', true);
+        return;
+      }
+      const ok = confirm(`确定删除模板「${tpl.name}」吗？`);
+      if (!ok) return;
+      state.templates = state.templates.filter(t => t.id !== tpl.id);
+      if (state.currentTemplateId === id) {
+        state.currentTemplateId = state.templates[0]?.id || null;
+      }
+      saveTemplates();
+      renderAll();
+      setMainStatus('已删除模板');
+    }
+
+    function deleteTemplate() {
+      deleteTemplateById(state.currentTemplateId);
+    }
+
+    function moveTemplate(id, direction) {
+      const index = state.templates.findIndex(t => t.id === id);
+      if (index < 0) return;
+      const target = index + direction;
+      if (target < 0 || target >= state.templates.length) return;
+      persistCurrentEditor();
+      const [item] = state.templates.splice(index, 1);
+      state.templates.splice(target, 0, item);
+      state.currentTemplateId = item.id;
+      saveTemplates();
+      renderTemplateList();
+      setMainStatus(direction < 0 ? '模板已上移' : '模板已下移');
+    }
+
+    function saveCurrentTemplate() {
+      persistCurrentEditor();
+      saveTemplates();
+      renderEditor();
+      renderVariablesForm();
+      setMainStatus('模板已保存');
+    }
+
+    function insertSnippet(type) {
+      const ta = el.templateEditor;
+      const start = ta.selectionStart;
+      const end = ta.selectionEnd;
+      const selected = ta.value.slice(start, end) || '内容';
+      let snippet = '';
+      switch (type) {
+        case 'h2': snippet = `<h2>${selected === '内容' ? '{{title}}' : selected}</h2>`; break;
+        case 'strong': snippet = `<strong>${selected}</strong>`; break;
+        case 'p': snippet = `<p>${selected}</p>`; break;
+        case 'ul': snippet = `<ul>\n  <li>${selected === '内容' ? '项目1' : selected}</li>\n  <li>项目2</li>\n</ul>`; break;
+        case 'ol': snippet = `<ol>\n  <li>${selected === '内容' ? '步骤1' : selected}</li>\n  <li>步骤2</li>\n</ol>`; break;
+        case 'table': snippet = `<table>\n  <tr><th>列1</th><th>列2</th></tr>\n  <tr><td>{{value1}}</td><td>{{value2}}</td></tr>\n</table>`; break;
+        case 'link': snippet = `<a href="{{website_url}}">${selected === '内容' ? '点这里' : selected}</a>`; break;
+        case 'br': snippet = `<br/>`; break;
+        default: return;
+      }
+      ta.setRangeText(snippet, start, end, 'end');
+      ta.focus();
+      persistCurrentEditor();
+      renderEditor();
+      renderVariablesForm();
+      setMainStatus('已插入格式片段');
+    }
+
+    function renderAll() {
+      renderTemplateList();
+      renderLangTabs();
+      renderEditor();
+      renderVariablesForm();
+      renderOutputs();
+    }
+
+    function init() {
+      applyBasePath();
+      state.templates = loadTemplates();
+      state.currentTemplateId = state.templates[0]?.id || null;
+
+      el.createTemplateBtn.onclick = createTemplate;
+      el.loadDemoBtn.onclick = loadDemo;
+      el.saveTemplateBtn.onclick = saveCurrentTemplate;
+      el.duplicateTemplateBtn.onclick = duplicateTemplate;
+      el.deleteTemplateBtn.onclick = deleteTemplate;
+      el.sidebarWidthRange.addEventListener('input', e => applySidebarWidth(e.target.value));
+      el.extractVarsBtn.onclick = () => {
+        persistCurrentEditor();
+        renderEditor();
+        renderVariablesForm();
+        setMainStatus('已重新识别变量');
+      };
+      el.generateBtn.onclick = generateOutputs;
+      el.exportBtn.onclick = exportTemplates;
+      el.importBtn.onclick = () => el.importFile.click();
+      el.importFile.onchange = e => {
+        const file = e.target.files?.[0];
+        if (file) importTemplatesFromFile(file);
+        e.target.value = '';
+      };
+      document.querySelectorAll('[data-insert]').forEach(btn => {
+        btn.addEventListener('click', () => insertSnippet(btn.getAttribute('data-insert')));
+      });
+      el.templateEditor.addEventListener('input', () => {
+        const previewVars = extractPlaceholders(el.templateEditor.value);
+        el.placeholderPreview.innerHTML = previewVars.length
+          ? `当前语言模板识别到的变量：<strong>${previewVars.map(escapeHtml).join('</strong>、<strong>')}</strong>`
+          : '当前语言模板还没有识别到变量。请用 {{title}} 这种写法。';
+        persistCurrentEditor();
+        renderVariablesForm();
+        renderEditorPreview();
+      });
+
+      if (!state.templates.length) {
+        state.templates = [createEmptyTemplate('默认模板')];
+        state.currentTemplateId = state.templates[0].id;
+        saveTemplates();
+      }
+      applySidebarWidth(loadSidebarWidth());
+      renderAll();
+    }
+
+    function applyBasePath() {
+      const basePath = String(window.__BASE_PATH__ || '').replace(/\/+$/, '');
+      const asset = (pathname) => `${basePath}${pathname}`;
+      document.querySelectorAll('[data-app-href]').forEach(node => {
+        node.setAttribute('href', asset(node.getAttribute('data-app-href') || '/'));
+      });
+      document.querySelectorAll('[data-app-src]').forEach(node => {
+        node.setAttribute('src', asset(node.getAttribute('data-app-src') || ''));
+      });
+    }
+
+    init();
+  </script>
+</body>
+</html>
