@@ -246,6 +246,15 @@ function renderPanels() {
         </div>
         <div class="token-config-table-wrap">
           <table class="token-config-table token-config-table-token">
+            <colgroup>
+              <col class="token-col-token-name" />
+              <col />
+              <col />
+              <col />
+              <col />
+              <col />
+              <col />
+            </colgroup>
             <thead>
               <tr>
                 <th>币种名称</th>
@@ -318,7 +327,9 @@ function renderPanels() {
               ${rows.map((row, index) => `
                 <tr>
                   <td class="token-symbol-cell">
-                    <button class="copy-row-btn copy-row-btn-text chain-copy-btn" type="button" data-row-index="${index}" title="复制这一行" aria-label="复制这一行">复制</button>
+                    <button class="copy-row-btn chain-copy-btn" type="button" data-row-index="${index}" title="复制这一行" aria-label="复制这一行">
+                      <span class="copy-row-btn-icon">⧉</span>
+                    </button>
                     <span class="token-name-text" title="${escHtml(row.tokenName || '')}">${escHtml(row.tokenName || '—')}</span>
                   </td>
                   <td>${renderEllipsisSpan(row.networkFullName || '—', row.networkFullName || '')}</td>
@@ -349,6 +360,16 @@ function renderPanels() {
         </div>
         <div class="token-config-table-wrap">
           <table class="token-config-table token-config-table-pair">
+            <colgroup>
+              <col class="token-col-pair-name" />
+              <col />
+              <col />
+              <col />
+              <col />
+              <col />
+              <col />
+              <col />
+            </colgroup>
             <thead>
               <tr>
                 <th>币对</th>

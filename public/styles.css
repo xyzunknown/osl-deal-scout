@@ -1580,6 +1580,7 @@ select.form-input {
   color: var(--text-secondary);
   font-size: 12px;
   font-weight: 700;
+  white-space: nowrap;
   position: sticky;
   top: 0;
   z-index: 1;
@@ -1595,7 +1596,7 @@ select.form-input {
 .token-config-table-chain th:first-child,
 .token-config-table-pair th:first-child {
   text-align: left;
-  padding-left: 72px;
+  padding-left: 56px;
 }
 
 .token-config-table td {
@@ -1607,32 +1608,40 @@ select.form-input {
   background: rgba(87, 164, 255, 0.06);
 }
 
+.token-config-table-token .token-col-token-name {
+  width: 160px;
+}
+
+.token-config-table-pair .token-col-pair-name {
+  width: 170px;
+}
+
 .token-config-table-chain {
   min-width: 980px;
 }
 
 .token-config-table-chain .token-col-symbol {
-  width: 12%;
+  width: 16%;
 }
 
 .token-config-table-chain .token-col-network-full {
-  width: 16%;
+  width: 18%;
 }
 
 .token-config-table-chain .token-col-network-short {
-  width: 10%;
+  width: 11%;
 }
 
 .token-config-table-chain .token-col-browser-url {
-  width: 24%;
-}
-
-.token-config-table-chain .token-col-contract-address {
   width: 22%;
 }
 
+.token-config-table-chain .token-col-contract-address {
+  width: 18%;
+}
+
 .token-config-table-chain .token-col-cmc-url {
-  width: 16%;
+  width: 15%;
 }
 
 .copy-row-btn {
@@ -1656,16 +1665,6 @@ select.form-input {
   background: rgba(87, 164, 255, 0.12);
 }
 
-.copy-row-btn-text {
-  width: auto;
-  min-width: 38px;
-  padding: 0 9px;
-  font-size: 11px;
-  font-weight: 700;
-  height: 24px;
-  border-radius: 999px;
-}
-
 .copy-row-btn-icon {
   font-size: 14px;
   line-height: 1;
@@ -1675,7 +1674,9 @@ select.form-input {
   display: inline-block;
   line-height: 28px;
   vertical-align: middle;
-  max-width: calc(100% - 54px);
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: none;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -1964,13 +1965,6 @@ select.form-input {
 
   .copy-row-btn {
     margin-right: 0;
-  }
-
-  .copy-row-btn-text {
-    min-width: 34px;
-    padding: 0 8px;
-    height: 22px;
-    font-size: 10px;
   }
 
   .source-row {
