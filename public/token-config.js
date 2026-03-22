@@ -8,6 +8,7 @@ const state = {
   searchResults: [],
   selectedCoin: null,
   tokenConfig: null,
+  chainConfig: null,
   pairConfig: null,
   chainNames: [],
   loading: false,
@@ -115,6 +116,18 @@ function pairCopyText() {
   ].join('\t')).join('\n');
 }
 
+function chainCopyText() {
+  if (!state.chainConfig) return '';
+  return (state.chainConfig.rows || []).map((row) => [
+    row.tokenName,
+    row.networkFullName,
+    row.networkShortName,
+    row.browserUrl,
+    row.contractAddress,
+    row.cmcUrl
+  ].join('\t')).join('\n');
+}
+
 function renderRemarkHtml(row) {
   const chains = Array.isArray(row.remarkChains) ? row.remarkChains.filter((item) => item && item.name) : [];
   const sourceChain = row.precisionSourceChain || '';
@@ -133,6 +146,10 @@ function renderRemarkHtml(row) {
 
 function renderPairRemarkHtml(row) {
   return row && row.remarkHtml ? row.remarkHtml : '';
+}
+
+function renderChainRemarkHtml(config) {
+  return config && config.remark ? escHtml(config.remark) : '';
 }
 
 function renderPanels() {
@@ -193,13 +210,50 @@ function renderPanels() {
       `;
     }
   } else if (state.activeTab === 'chain') {
-    panel.innerHTML = `
-      <div class="token-config-panel-head">
-        <div class="token-config-panel-title">币链配置表</div>
-        <button id="copyVisibleTabBtn" class="btn btn-sm" type="button" disabled>复制当前表</button>
-      </div>
-      <div class="token-config-panel-note">这张表会和币种配置表分开维护，适合放更长的链路参数。你把字段定义给我后，我按独立布局接进去。</div>
-    `;
+    if (!state.chainConfig) {
+      panel.innerHTML = '<div class="token-config-panel-empty">搜索并选择币种后，这里会生成币链配置表。</div>';
+    } else {
+      const rows = Array.isArray(state.chainConfig.rows) ? state.chainConfig.rows : [];
+      panel.innerHTML = `
+        <div class="token-config-panel-head">
+          <div>
+            <div class="token-config-panel-title">币链配置表</div>
+            <div class="token-config-panel-subtitle">按币种逐链展示网络名称、浏览器、合约地址和对应 CMC 地址。</div>
+          </div>
+          <button id="copyVisibleTabBtn" class="btn btn-sm" type="button">复制当前表</button>
+        </div>
+        <div class="token-config-table-wrap">
+          <table class="token-config-table token-config-table-chain">
+            <thead>
+              <tr>
+                <th>币种名称</th>
+                <th>网络全称</th>
+                <th>网络简称</th>
+                <th>币浏览器URL</th>
+                <th>合约地址</th>
+                <th>CMC地址</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${rows.map((row, index) => `
+                <tr>
+                  <td class="token-symbol-cell">
+                    <button class="copy-row-btn copy-row-btn-text chain-copy-btn" type="button" data-row-index="${index}" title="复制这一行" aria-label="复制这一行">复制</button>
+                    <span class="token-name-text">${escHtml(row.tokenName)}</span>
+                  </td>
+                  <td>${escHtml(row.networkFullName || '—')}</td>
+                  <td class="token-cell-center">${escHtml(row.networkShortName || '—')}</td>
+                  <td class="token-cell-left">${row.browserUrl ? `<a href="${escHtml(row.browserUrl)}" target="_blank" rel="noreferrer">${escHtml(row.browserUrl)}</a>` : '—'}</td>
+                  <td class="token-cell-left token-cell-break">${escHtml(row.contractAddress || '—')}</td>
+                  <td class="token-cell-left">${row.cmcUrl ? `<a href="${escHtml(row.cmcUrl)}" target="_blank" rel="noreferrer">${escHtml(row.cmcUrl)}</a>` : '—'}</td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+        <div class="token-config-remark">${renderChainRemarkHtml(state.chainConfig)}</div>
+      `;
+    }
   } else if (state.activeTab === 'pair') {
     if (!state.pairConfig) {
       panel.innerHTML = '<div class="token-config-panel-empty">搜索并选择币种后，这里会生成币对配置表。</div>';
@@ -282,6 +336,11 @@ function renderPanels() {
           const row = state.pairConfig && Array.isArray(state.pairConfig.rows) ? state.pairConfig.rows[index] : null;
           if (!row) return;
           await navigator.clipboard.writeText(row.rowCopyText || '');
+        } else if (state.activeTab === 'chain') {
+          const index = Number(button.dataset.rowIndex || -1);
+          const row = state.chainConfig && Array.isArray(state.chainConfig.rows) ? state.chainConfig.rows[index] : null;
+          if (!row) return;
+          await navigator.clipboard.writeText(row.rowCopyText || '');
         } else {
           await navigator.clipboard.writeText(rowCopyText());
         }
@@ -301,11 +360,14 @@ function buildCopyText() {
     const values = [row.tokenName, row.tokenFullName, row.tokenAttribute, row.displayPrecision, row.usagePrecision, row.tokenSymbol, row.tokenPrice];
     return `${headers.join('\t')}\n${values.join('\t')}`;
   }
+  if (state.activeTab === 'chain' && state.chainConfig) {
+    const headers = ['币种名称', '网络全称', '网络简称', '币浏览器URL', '合约地址', 'CMC地址'];
+    return `${headers.join('\t')}\n${chainCopyText()}`;
+  }
   if (state.activeTab === 'pair' && state.pairConfig) {
     const headers = ['币对', '最小交易数量', '最大交易数量', '最小下单金额', '最大下单金额', '价格精度', '数量精度', '当前价'];
     return `${headers.join('\t')}\n${pairCopyText()}`;
   }
-  if (state.activeTab === 'chain') return '币链配置表字段待补充';
   if (state.activeTab === 'contract') return '合约配置表字段待补充';
   return '';
 }
@@ -378,12 +440,14 @@ async function selectCoin(item) {
   try {
     const data = await fetchJson(`/api/token-config/coin/${encodeURIComponent(item.slug)}`);
     state.tokenConfig = data.tokenConfig || null;
+    state.chainConfig = data.chainConfig || null;
     state.pairConfig = data.pairConfig || null;
     state.chainNames = data.chainNames || [];
     state.activeTab = 'token';
   } catch (error) {
     state.error = '抓取失败：' + error.message;
     state.tokenConfig = null;
+    state.chainConfig = null;
     state.pairConfig = null;
     state.chainNames = [];
   } finally {

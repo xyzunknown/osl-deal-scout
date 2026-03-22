@@ -1566,6 +1566,12 @@ select.form-input {
   padding-left: 56px;
 }
 
+.token-config-table-chain th:first-child,
+.token-config-table-pair th:first-child {
+  text-align: left;
+  padding-left: 72px;
+}
+
 .token-config-table td {
   color: var(--text);
   font-size: 13px;
@@ -1592,6 +1598,14 @@ select.form-input {
   background: rgba(87, 164, 255, 0.12);
 }
 
+.copy-row-btn-text {
+  width: auto;
+  min-width: 40px;
+  padding: 0 10px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
 .copy-row-btn-icon {
   font-size: 14px;
   line-height: 1;
@@ -1611,6 +1625,14 @@ select.form-input {
 
 .token-cell-center {
   text-align: center !important;
+}
+
+.token-cell-left {
+  text-align: left !important;
+}
+
+.token-cell-break {
+  word-break: break-all;
 }
 
 .token-config-status,
