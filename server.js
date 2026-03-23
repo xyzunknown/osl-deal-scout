@@ -9,6 +9,7 @@ const PUBLIC_DIR = path.join(ROOT_DIR, 'public');
 const PORT = process.env.PORT || 3000;
 const HOST = '127.0.0.1';
 const APP_BASE_PATH = normalizeBasePath(process.env.APP_BASE_PATH || (process.env.VERCEL ? '/osl' : ''));
+const AUTO_PUSH_POLL_MS = 30 * 1000;
 
 function normalizeBasePath(value) {
   const raw = String(value || '').trim();
@@ -40,6 +41,84 @@ async function readJsonBody(req) {
 function extractPathParam(pathname, prefix) {
   if (!pathname.startsWith(prefix)) return null;
   return decodeURIComponent(pathname.slice(prefix.length));
+}
+
+function getAutoPushConfig(rootDir) {
+  const config = readJson(resolveDataPath(rootDir, 'config.json'), {});
+  return {
+    hour: Number.isFinite(Number(config.digestHour)) ? Number(config.digestHour) : 10,
+    minute: Number.isFinite(Number(config.digestMinute)) ? Number(config.digestMinute) : 0,
+    timezone: config.timezone || 'Asia/Shanghai'
+  };
+}
+
+function getLocalDateParts(date, timeZone) {
+  const formatter = new Intl.DateTimeFormat('en-CA', {
+    timeZone,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false
+  });
+  const parts = {};
+  for (const part of formatter.formatToParts(date)) {
+    if (part.type !== 'literal') parts[part.type] = part.value;
+  }
+  return {
+    dateKey: `${parts.year}-${parts.month}-${parts.day}`,
+    hour: Number(parts.hour),
+    minute: Number(parts.minute),
+    second: Number(parts.second)
+  };
+}
+
+function hasAutoPushAttemptedToday(rootDir, dateKey, timeZone) {
+  const history = readJson(resolveDataPath(rootDir, 'run-history.json'), { runs: [] });
+  return (history.runs || []).some((run) => {
+    if (run.trigger !== 'auto' || run.mode !== 'push') return false;
+    const ranAt = new Date(run.ranAt);
+    if (Number.isNaN(ranAt.getTime())) return false;
+    return getLocalDateParts(ranAt, timeZone).dateKey === dateKey;
+  });
+}
+
+function startAutoPushScheduler(rootDir) {
+  let inFlight = false;
+  let lastAttemptMinuteKey = '';
+
+  async function checkAndRunAutoPush() {
+    if (inFlight) return;
+
+    const schedule = getAutoPushConfig(rootDir);
+    const localNow = getLocalDateParts(new Date(), schedule.timezone);
+    const minuteKey = `${localNow.dateKey} ${String(localNow.hour).padStart(2, '0')}:${String(localNow.minute).padStart(2, '0')}`;
+    if (localNow.hour !== schedule.hour || localNow.minute !== schedule.minute) return;
+    if (lastAttemptMinuteKey === minuteKey) return;
+    if (hasAutoPushAttemptedToday(rootDir, localNow.dateKey, schedule.timezone)) return;
+
+    lastAttemptMinuteKey = minuteKey;
+    inFlight = true;
+    try {
+      const result = await runDigest(rootDir, { push: true, trigger: 'auto' });
+      if (result.pushed) {
+        process.stdout.write(`[auto-push] ${localNow.dateKey} ${String(schedule.hour).padStart(2, '0')}:${String(schedule.minute).padStart(2, '0')} sent to Telegram\n`);
+      } else {
+        process.stdout.write(`[auto-push] ${localNow.dateKey} ${String(schedule.hour).padStart(2, '0')}:${String(schedule.minute).padStart(2, '0')} skipped\n`);
+      }
+    } catch (error) {
+      process.stderr.write(`[auto-push] failed: ${error.message}\n`);
+    } finally {
+      inFlight = false;
+    }
+  }
+
+  const schedule = getAutoPushConfig(rootDir);
+  process.stdout.write(`[auto-push] enabled at ${String(schedule.hour).padStart(2, '0')}:${String(schedule.minute).padStart(2, '0')} ${schedule.timezone}\n`);
+  checkAndRunAutoPush();
+  return setInterval(checkAndRunAutoPush, AUTO_PUSH_POLL_MS);
 }
 
 function buildAnnouncementHtml(rootDir, options = {}) {
@@ -182,7 +261,7 @@ function createHandler(rootDir, options = {}) {
 
       if (pathname === '/api/digest/run' && req.method === 'POST') {
         const body = await readJsonBody(req);
-        const result = await runDigest(rootDir, { push: Boolean(body.push) });
+        const result = await runDigest(rootDir, { push: Boolean(body.push), trigger: 'manual' });
         return send(res, 200, 'application/json; charset=utf-8', JSON.stringify(result, null, 2));
       }
 
@@ -290,6 +369,7 @@ const handler = createHandler(ROOT_DIR, { basePath: APP_BASE_PATH });
 if (require.main === module) {
   const server = http.createServer(handler);
   server.listen(PORT, HOST, () => {
+    startAutoPushScheduler(ROOT_DIR);
     const displayBase = APP_BASE_PATH || '';
     process.stdout.write(`OSL Deal Scout running at http://${HOST}:${PORT}${displayBase || ''}\n`);
   });

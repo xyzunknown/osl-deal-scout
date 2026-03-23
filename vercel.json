@@ -2,8 +2,17 @@
   "functions": {
     "api/index.js": {
       "includeFiles": "{data,public}/**"
+    },
+    "api/cron-digest.js": {
+      "includeFiles": "data/**"
     }
   },
+  "crons": [
+    {
+      "path": "/api/cron-digest",
+      "schedule": "0 2 * * *"
+    }
+  ],
   "rewrites": [
     {
       "source": "/osl",
