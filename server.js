@@ -47,8 +47,6 @@ function buildAnnouncementHtml(rootDir, options = {}) {
   const basePath = normalizeBasePath(options.basePath || '');
   const asset = (pathname) => `${basePath}${pathname}`;
   const html = fs.readFileSync(path.join(publicDir, 'announcement-generator.html'), 'utf8')
-    .replace('<a class="topbar-brand" href="/" data-app-href="/">', `<a class="topbar-brand" href="${asset('/')}" data-app-href="/">`)
-    .replace('<a class="app-btn" href="/" data-app-href="/">首页</a>', `<a class="app-btn" href="${asset('/')}" data-app-href="/">首页</a>`)
     .replace('src="/logo-mark.svg" data-app-src="/logo-mark.svg"', `src="${asset('/logo-mark.svg')}" data-app-src="/logo-mark.svg"`)
     .replace('href="/token-config" data-app-href="/token-config"', `href="${asset('/token-config')}" data-app-href="/token-config"`)
     .replace('href="/announcement-generator" data-app-href="/announcement-generator"', `href="${asset('/announcement-generator')}" data-app-href="/announcement-generator"`);
