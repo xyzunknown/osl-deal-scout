@@ -392,8 +392,16 @@ function createProjectRow(p) {
   const row = el('div', 'project-row' + (p.slug === selectedSlug ? ' active' : ''));
   row.dataset.slug = p.slug;
 
+  const marker = el('div', 'project-row-marker');
+  marker.appendChild(el('span', 'project-row-marker-dot'));
+  row.appendChild(marker);
+
   const info = el('div', 'project-row-info');
   info.appendChild(el('div', 'project-row-name', p.name));
+  const summaryText = (p.fitSummary || p.reasonSummary || fundingSummary(p) || '').trim();
+  if (summaryText) {
+    info.appendChild(el('div', 'project-row-summary', summaryText));
+  }
   const meta = el('div', 'project-row-meta');
   meta.appendChild(el('span', 'chip chip-sector', p.sector));
   meta.appendChild(el('span', 'chip ' + priorityChipClass(p.priorityBand), p.priorityBand));
@@ -446,8 +454,20 @@ function renderProjectList() {
   const root = byId('projectList');
   root.innerHTML = '';
   const list = filteredProjects();
+  const total = currentPoolProjects().length;
+  const focusCount = list.filter((item) => item.priorityBand === 'High').length;
+  const liveCount = list.filter((item) => hasLiveSignals(item)).length;
 
-  byId('listCount').textContent = `${currentPoolLabel()} · ${list.length} 个项目`;
+  byId('listCount').innerHTML = `
+    <span class="list-count-label">${currentPoolLabel()}</span>
+    <strong>${list.length}</strong>
+    <span>个项目</span>
+    <span class="list-count-sep">/</span>
+    <span>高优 ${focusCount}</span>
+    <span class="list-count-sep">/</span>
+    <span>已补数 ${liveCount}</span>
+    ${list.length !== total ? `<span class="list-count-sep">/</span><span>总数 ${total}</span>` : ''}
+  `;
 
   if (!list.length) {
     root.appendChild(el('div', 'empty-state', searchQuery || filterSector || filterPriority || filterFreshness || filterHongKong ? '没有匹配的项目' : currentPoolEmptyText()));
@@ -478,6 +498,8 @@ function renderDetail() {
 
   // Header
   header.innerHTML = '';
+  const hero = el('section', 'detail-hero');
+  const heroMain = el('div', 'detail-hero-main');
   const titleRow = el('div', 'detail-title-row');
   titleRow.appendChild(el('span', 'detail-name', p.name));
   const tags = el('div', 'detail-tags');
@@ -489,8 +511,56 @@ function renderDetail() {
   if (p.region) tags.appendChild(el('span', 'chip chip-watch', p.region));
   if (p.stage) tags.appendChild(el('span', 'chip chip-watch', p.stage));
   titleRow.appendChild(tags);
-  header.appendChild(titleRow);
-  if (p.fitSummary) header.appendChild(el('div', 'detail-summary', p.fitSummary));
+  heroMain.appendChild(titleRow);
+  if (p.fitSummary) heroMain.appendChild(el('div', 'detail-summary', p.fitSummary));
+
+  const heroMeta = el('div', 'detail-hero-meta');
+  const heroMetrics = [
+    { label: '优先级', value: p.priorityBand || 'Watch' },
+    { label: '最近轮次', value: fundingSummary(p) || '暂无公开融资' },
+    { label: '线索数量', value: `${(p.mentions || []).length} 条` },
+    { label: '联系入口', value: p.contact && p.contact.value ? p.contact.value : (p.twitter || p.website || '待补充') }
+  ];
+  heroMetrics.forEach((item) => {
+    const metric = el('div', 'hero-metric');
+    metric.appendChild(el('div', 'hero-metric-label', item.label));
+    metric.appendChild(el('div', 'hero-metric-value', item.value));
+    heroMeta.appendChild(metric);
+  });
+
+  const heroActions = el('div', 'detail-hero-actions');
+  const fallbackWebsite = p.website || (p.liveSignals && p.liveSignals.website && p.liveSignals.website.siteUrl) || (p.liveSignals && p.liveSignals.rootdata && p.liveSignals.rootdata.website) || '';
+  if (fallbackWebsite) {
+    const siteLink = el('a', 'btn btn-primary');
+    siteLink.href = fallbackWebsite;
+    siteLink.target = '_blank';
+    siteLink.rel = 'noreferrer';
+    siteLink.textContent = '查看官网';
+    heroActions.appendChild(siteLink);
+  }
+  if (p.twitter) {
+    const twitterLink = el('a', 'btn');
+    twitterLink.href = p.twitter;
+    twitterLink.target = '_blank';
+    twitterLink.rel = 'noreferrer';
+    twitterLink.textContent = '打开官推';
+    heroActions.appendChild(twitterLink);
+  }
+  const jumpCrm = el('button', 'btn');
+  jumpCrm.type = 'button';
+  jumpCrm.textContent = '去 CRM';
+  jumpCrm.addEventListener('click', () => {
+    activeTab = 'crm';
+    setHash(selectedSlug, 'crm');
+    activateTab('crm');
+    renderTabContent('crm');
+  });
+  heroActions.appendChild(jumpCrm);
+
+  hero.appendChild(heroMain);
+  hero.appendChild(heroMeta);
+  hero.appendChild(heroActions);
+  header.appendChild(hero);
 
   // Tabs
   tabsBar.innerHTML = '';
@@ -1079,11 +1149,20 @@ function renderStats() {
   const crmCount = (state.crmRecords || []).length;
   const lastRun = (state.history || [])[0];
   const lastTime = lastRun ? lastRun.ranAt.replace('T', ' ').slice(0, 16) : '—';
+  const liveCount = projects.filter((project) => hasLiveSignals(project)).length;
 
   byId('statTotal').textContent = projects.length;
   byId('statHigh').textContent = highCount;
   byId('statCrm').textContent = crmCount;
   byId('statLastRun').textContent = lastTime;
+  const statLive = byId('statLive');
+  if (statLive) statLive.textContent = liveCount;
+  const statusText = byId('topbarStatusText');
+  if (statusText) {
+    statusText.textContent = lastRun
+      ? `高优 ${highCount} / 已补数 ${liveCount} / CRM ${crmCount} / ${lastTime}`
+      : `高优 ${highCount} / 已补数 ${liveCount} / CRM ${crmCount}`;
+  }
 }
 
 function renderBoard() {
@@ -1305,8 +1384,25 @@ document.querySelectorAll('.mobile-nav-btn').forEach(btn => {
   });
 });
 
+function syncMobileWorkbench() {
+  const isMobile = window.innerWidth <= 768;
+  if (!isMobile) {
+    ['colLeft', 'colCenter', 'colRight'].forEach((id) => {
+      byId(id).classList.remove('mobile-active');
+    });
+    return;
+  }
+
+  const activeBtn = document.querySelector('.mobile-nav-btn.active');
+  const target = activeBtn ? activeBtn.dataset.target : 'colLeft';
+  ['colLeft', 'colCenter', 'colRight'].forEach((id) => {
+    byId(id).classList.toggle('mobile-active', id === target);
+  });
+}
+
 // Hash change
 window.addEventListener('hashchange', onHashChange);
+window.addEventListener('resize', syncMobileWorkbench);
 
 // ===== INITIALIZE =====
 (function init() {
@@ -1319,6 +1415,7 @@ window.addEventListener('hashchange', onHashChange);
   renderDetail();
   renderSidebar();
   renderPoolTabs();
+  syncMobileWorkbench();
 
   if (selectedSlug) setHash(selectedSlug, activeTab);
 })();
